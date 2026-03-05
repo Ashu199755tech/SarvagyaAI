@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+
+# Environment
+.env
+
+# ChromaDB data
+data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
