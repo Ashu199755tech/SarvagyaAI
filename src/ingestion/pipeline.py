@@ -17,20 +17,20 @@ from src.keka.client import KekaClient
 logger = logging.getLogger(__name__)
 
 
-def _get_embeddings() -> OllamaEmbeddings:
+def _get_embeddings(num_thread: int | None = None) -> OllamaEmbeddings:
     """Create the Ollama embedding model instance."""
     return OllamaEmbeddings(
         model=settings.ollama_embedding_model,
         base_url=settings.ollama_base_url,
-        num_thread=settings.ollama_num_threads,
+        num_thread=num_thread or settings.ollama_num_threads,
     )
 
 
-def get_vector_store() -> Chroma:
+def get_vector_store(num_thread: int | None = None) -> Chroma:
     """Return a Chroma vector store instance with persistent storage."""
     return Chroma(
         collection_name=settings.chroma_collection_name,
-        embedding_function=_get_embeddings(),
+        embedding_function=_get_embeddings(num_thread=num_thread),
         persist_directory=settings.chroma_persist_dir,
     )
 
@@ -68,10 +68,19 @@ class IngestionPipeline:
     # ── Chunk ────────────────────────────────────────────
 
     def _chunk_documents(self, docs: list[Document]) -> list[Document]:
-        """Split documents into smaller chunks for embedding."""
-        chunks = self.splitter.split_documents(docs)
-        logger.info("Split %d documents into %d chunks", len(docs), len(chunks))
-        return chunks
+        """Split documents into smaller chunks for embedding and add unique IDs."""
+        all_chunks = []
+        for doc in docs:
+            doc_chunks = self.splitter.split_documents([doc])
+            base_id = doc.metadata.get("record_id", "doc")
+            for i, chunk in enumerate(doc_chunks):
+                chunk.metadata["chunk_index"] = i
+                # Make record_id unique per chunk for deduplication in RAG chain
+                chunk.metadata["record_id"] = f"{base_id}_c{i}"
+                all_chunks.append(chunk)
+        
+        logger.info("Split %d documents into %d chunks", len(docs), len(all_chunks))
+        return all_chunks
 
     # ── Upsert ───────────────────────────────────────────
 
@@ -138,7 +147,7 @@ class IngestionPipeline:
             "total_chunks": len(chunks),
         }
         logger.info("PDF ingestion complete: %s", summary)
-        return summary
+        return summary 
 
     async def close(self) -> None:
         """Clean up resources."""

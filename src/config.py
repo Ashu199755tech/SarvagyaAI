@@ -16,7 +16,8 @@ class Settings(BaseSettings):
     ollama_base_url: str = "http://localhost:11434"
     ollama_llm_model: str = "llama3.2"
     ollama_embedding_model: str = "nomic-embed-text"
-    ollama_num_threads: int = 6  # CPU threads per model (2 models × 6 = 12 of 14 cores)
+    ollama_max_threads: int = 12  # Maximum CPU threads to allocate across all active requests
+    ollama_num_threads: int = 6   # Default/fallback threads for background tasks
 
     # ── ChromaDB ─────────────────────────────────────────
     chroma_persist_dir: str = "./data/chromadb"

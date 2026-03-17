@@ -8,10 +8,11 @@ from contextlib import asynccontextmanager
 from botbuilder.core import TurnContext
 from botbuilder.integration.aiohttp import CloudAdapter  # noqa: F401
 from botbuilder.schema import Activity
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, File, Request, Response, UploadFile
 
 from src.bot.adapter import create_adapter
 from src.bot.teams_bot import ResoAIBot
+from src.config import settings
 from src.ingestion.pipeline import IngestionPipeline
 from src.ingestion.scheduler import start_scheduler
 from src.rag.chain import ask as rag_ask
@@ -92,10 +93,26 @@ async def trigger_ingestion():
 
 
 @app.post("/api/ingest-pdfs")
-async def trigger_pdf_ingestion():
-    """Trigger PDF-only ingestion (no employee API call)."""
+async def trigger_pdf_ingestion(file: UploadFile = File(None)):
+    """Trigger PDF-only ingestion.
+
+    - With a file: saves the uploaded PDF to the configured PDF folder, then ingests it.
+    - Without a file: re-scans the entire PDF folder and re-ingests all PDFs.
+    """
+    import shutil
+    from pathlib import Path
+
     pipeline = IngestionPipeline()
     try:
+        if file is not None:
+            # Save uploaded file to the PDF folder
+            pdf_folder = Path(pipeline.store._collection.metadata.get("pdf_folder", "")) or Path("data/pdfs")
+            save_path = Path(settings.pdf_folder) / file.filename
+            save_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(save_path, "wb") as f:
+                shutil.copyfileobj(file.file, f)
+            logger.info("Saved uploaded PDF to %s", save_path)
+
         result = pipeline.ingest_pdfs()
         return {"status": "success", **result}
     except Exception as exc:
@@ -105,18 +122,25 @@ async def trigger_pdf_ingestion():
 
 # ── Ask Endpoint ─────────────────────────────────────────
 
+from pydantic import BaseModel
+
+class AskRequest(BaseModel):
+    question: str
 
 @app.post("/api/ask")
-async def ask_question(request: Request):
+async def ask_question(request_data: AskRequest):
     """Ask a question to the RAG chatbot."""
-    body = await request.json()
-    question = body.get("question", "")
+    question = request_data.question
     if not question:
         return {"status": "error", "detail": "No question provided"}
 
     try:
         result = await rag_ask(question)
-        return {"status": "success", **result}
+        return {
+            "status": "success", 
+            "answer": result["answer"],
+            "time_elapsed_seconds": result.get("time_elapsed_seconds")
+        }
     except Exception as exc:
         logger.exception("Ask failed")
         return {"status": "error", "detail": str(exc)}

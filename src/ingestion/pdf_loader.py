@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from pathlib import Path
 
 from langchain_community.document_loaders import PyPDFLoader
@@ -34,18 +35,36 @@ def load_pdfs(folder_path: str) -> list[Document]:
             loader = PyPDFLoader(str(pdf_path))
             pages = loader.load()
 
-            # Enrich metadata for each page
+            # Merge all pages into a single document so chunks can span boundaries
+            full_text = []
             for doc in pages:
-                doc.metadata.update({
+                text = doc.page_content
+                # Strip standard boilerplate header if present
+                # "Document Release Notice This FiftyFive Technologies Policy on ..."
+                boilerplate_pattern = r"(Document Release Notice.*?effect from \d{2} \w+ \d{4}\.)"
+                text = re.sub(boilerplate_pattern, "", text, flags=re.IGNORECASE | re.DOTALL)
+
+                # The PDF is heavily fragmented with absolute positioned words causing
+                # newlines between almost every word. Flatten ALL whitespace to a single space.
+                text = re.sub(r'\s+', ' ', text)
+                full_text.append(text.strip())
+            
+            # Since everything is flattened, join pages with a space
+            merged_content = " ".join(full_text)
+            
+            merged_doc = Document(
+                page_content=merged_content,
+                metadata={
                     "record_type": "pdf",
-                    "record_id": f"{pdf_path.stem}_p{doc.metadata.get('page', 0)}",
+                    "record_id": pdf_path.stem,
                     "filename": pdf_path.name,
                     "category": pdf_path.parent.name,
                     "source": str(pdf_path),
-                })
+                }
+            )
 
-            all_docs.extend(pages)
-            logger.info("Loaded %d pages from %s", len(pages), pdf_path.name)
+            all_docs.append(merged_doc)
+            logger.info("Loaded %d pages and merged into 1 doc for %s", len(pages), pdf_path.name)
 
         except Exception:
             logger.exception("Failed to load PDF: %s", pdf_path)
