@@ -5,7 +5,11 @@ from __future__ import annotations
 import asyncio
 import logging
 import re
+import time
+from typing import Any
 
+from flashrank import Ranker, RerankRequest
+from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -19,6 +23,14 @@ logger = logging.getLogger(__name__)
 
 _active_ask_requests = 0
 _ask_lock = asyncio.Lock()
+
+
+# Initialize a global ranker for re-ranking (FlashRank is fast and lightweight)
+try:
+    _ranker = Ranker()
+except Exception as e:
+    logger.warning("Failed to initialize FlashRanker: %s. Re-ranking will be skipped.", e)
+    _ranker = None
 
 
 def _get_llm(num_thread: int | None = None) -> ChatOllama:
@@ -345,14 +357,42 @@ def _retrieve_mixed(store, question: str, k: int = 20) -> list[Document]:
             seen_ids.add(doc_id)
             combined.append(doc)
 
-    # Truncate to the requested top_k to avoid massive context windows.
-    # Since keyword matches are pushed first, they will survive truncation.
-    combined = combined[:k]
+    # Step 6: Post-Retrieval Re-ranking
+    # If we have a ranker and enough docs, re-score them to pick the best 'k'
+    if _ranker and len(combined) > 2:
+        try:
+            # Prepare passages for FlashRank
+            # FlashRank expects a list of dicts with 'id' and 'text'
+            passages = []
+            for i, doc in enumerate(combined):
+                passages.append({
+                    "id": i,
+                    "text": doc.page_content,
+                    "meta": doc.metadata
+                })
+            
+            rerank_request = RerankRequest(query=question, passages=passages)
+            results = _ranker.rerank(rerank_request)
+            
+            # Reconstruction: pick the top 'k' from re-ranked results
+            reranked_docs = []
+            for res in results[:k]:
+                idx = res["id"]
+                reranked_docs.append(combined[idx])
+            
+            combined = reranked_docs
+            logger.info("Re-ranked %d documents; keeping top %d", len(passages), len(combined))
+        except Exception as e:
+            logger.error("Error during re-ranking: %s", e)
+            combined = combined[:k]
+    else:
+        # Truncate to the requested top_k to avoid massive context windows.
+        # Since keyword matches are pushed first, they will survive truncation.
+        combined = combined[:k]
 
     logger.info(
-        "[%s] Retrieved %d keyword + %d name + %d emp + %d pdf = %d total (capped to %d)",
-        intent, len(keyword_docs), len(name_docs),
-        len(employee_docs), len(pdf_docs), len(combined), k
+        "[%s] Final context: %d docs (capped to %d)",
+        intent, len(combined), k
     )
     return combined
 

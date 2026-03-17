@@ -19,6 +19,9 @@ dependencies = [
     "python-dotenv>=1.0.0",
     "pydantic>=2.10.0",
     "pydantic-settings>=2.7.0",
+    "flashrank>=0.2.0",
+    "langchain-experimental>=0.3.0",
+    "sentence-transformers>=3.0.0",
 ]
 
 [project.optional-dependencies]

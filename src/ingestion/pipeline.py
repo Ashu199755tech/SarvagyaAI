@@ -8,6 +8,7 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_ollama import OllamaEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_experimental.text_splitter import SemanticChunker
 
 from src.config import settings
 from src.ingestion.document_builder import build_employee_document
@@ -45,9 +46,17 @@ class IngestionPipeline:
     ) -> None:
         self.keka = keka_client or KekaClient()
         self.store = vector_store or get_vector_store()
-        self.splitter = RecursiveCharacterTextSplitter(
-            chunk_size=settings.chunk_size,
-            chunk_overlap=settings.chunk_overlap,
+        
+        # Semantic Chunker ensures that chunks are split by meaning, not character count.
+        # This keeps policy rules and technical descriptions intact.
+        self.splitter = SemanticChunker(
+            _get_embeddings(),
+            breakpoint_threshold_type="standard_deviation"
+        )
+        # Fallback splitter for chunks that are too large (exceeding context window)
+        self.fallback_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=2000,
+            chunk_overlap=200,
             separators=["\n\n", "\n", ". ", " ", ""],
         )
 
@@ -71,9 +80,20 @@ class IngestionPipeline:
         """Split documents into smaller chunks for embedding and add unique IDs."""
         all_chunks = []
         for doc in docs:
-            doc_chunks = self.splitter.split_documents([doc])
+            # 1. Semantic Split
+            semantic_chunks = self.splitter.split_documents([doc])
+            
+            # 2. Character-based fallback for oversized chunks
+            final_doc_chunks = []
+            for s_chunk in semantic_chunks:
+                if len(s_chunk.page_content) > 3000:
+                    # If semantic chunk is too large, split it further
+                    final_doc_chunks.extend(self.fallback_splitter.split_documents([s_chunk]))
+                else:
+                    final_doc_chunks.append(s_chunk)
+
             base_id = doc.metadata.get("record_id", "doc")
-            for i, chunk in enumerate(doc_chunks):
+            for i, chunk in enumerate(final_doc_chunks):
                 chunk.metadata["chunk_index"] = i
                 # Make record_id unique per chunk for deduplication in RAG chain
                 chunk.metadata["record_id"] = f"{base_id}_c{i}"
