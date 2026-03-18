@@ -8,6 +8,7 @@ import re
 import time
 from typing import Any
 
+from rank_bm25 import BM25Okapi
 from flashrank import Ranker, RerankRequest
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
@@ -31,6 +32,55 @@ try:
 except Exception as e:
     logger.warning("Failed to initialize FlashRanker: %s. Re-ranking will be skipped.", e)
     _ranker = None
+
+
+# Global state for BM25 (initialized lazily)
+_bm25_index: BM25Okapi | None = None
+_bm25_documents: list[Document] = []
+_bm25_lock = asyncio.Lock()
+
+
+async def _init_bm25(store: Chroma):
+    """Initialize the BM25 index by fetching all documents from ChromaDB."""
+    global _bm25_index, _bm25_documents
+    async with _bm25_lock:
+        if _bm25_index is not None:
+            return
+            
+        logger.info("Initializing BM25 index from all documents in ChromaDB...")
+        try:
+            # ChromaDB get() returns IDs, documents, and metadatas
+            data = store.get()
+            docs = []
+            for i in range(len(data.get("ids", []))):
+                docs.append(Document(
+                    page_content=data["documents"][i],
+                    metadata=data["metadatas"][i]
+                ))
+            
+            if not docs:
+                logger.warning("No documents found in ChromaDB for BM25 initialization.")
+                return
+
+            _bm25_documents = docs
+            # Simple whitespace tokenization for BM25
+            tokenized_corpus = [doc.page_content.lower().split() for doc in docs]
+            _bm25_index = BM25Okapi(tokenized_corpus)
+            logger.info("BM25 index initialized with %d documents.", len(docs))
+        except Exception as e:
+            logger.error("Failed to initialize BM25 index: %s", e)
+
+
+def _bm25_search(query: str, k: int = 10) -> list[Document]:
+    """Perform keyword search using BM25 index."""
+    if _bm25_index is None or not _bm25_documents:
+        return []
+        
+    tokenized_query = query.lower().split()
+    scores = _bm25_index.get_scores(tokenized_query)
+    # Get top k results where score > 0
+    top_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:k]
+    return [_bm25_documents[i] for i in top_indices if scores[i] > 0]
 
 
 def _get_llm(num_thread: int | None = None) -> ChatOllama:
@@ -299,44 +349,52 @@ def _classify_query_intent(question: str, names: list[str]) -> str:
         return "document"
 
 
-def _retrieve_mixed(store, question: str, k: int = 20) -> list[Document]:
+async def _retrieve_mixed(store, question: str, k: int = 20) -> list[Document]:
     """Dynamic retrieval: classifies query intent, then retrieves accordingly.
 
-    1. Extract names → text-match employees
-    2. Extract keywords → text-match ALL docs
-    3. Classify intent → adjust employee vs PDF retrieval weights
-    4. Vector search employees + PDFs
-    5. Merge and deduplicate
+    1. Initialize BM25 index (lazy)
+    2. Extract names → text-match employees
+    3. BM25 search → keyword matching
+    4. Extract keywords → regex text-match ALL docs
+    5. Classify intent → adjust employee vs PDF weights
+    6. Vector search employees + PDFs
+    7. Merge and deduplicate
     """
+    # Step 0: Ensure BM25 is initialized
+    await _init_bm25(store)
     # Step 1: Try to find specific employees by name
     names = _extract_names(question)
     name_docs = _text_search_employees(store, names, k=5) if names else []
 
-    # Step 2: Extract keywords and text-search across ALL docs
+    # Step 2: BM25 Keyword Search
+    bm25_docs = _bm25_search(question, k=15)
+    logger.info("BM25: Found %d keyword matches", len(bm25_docs))
+
+    # Step 3: Extract keywords and regex text-search
     keywords = _extract_keywords(question)
     keyword_docs = _text_search_keywords(store, keywords, k=10) if keywords else []
-    logger.info("Keywords: %s → %d keyword-match docs", keywords, len(keyword_docs))
+    logger.info("Regex Keywords: %s → %d matches", keywords, len(keyword_docs))
 
-    # Step 3: Classify intent to decide retrieval balance
+    # Step 4: Classify intent to decide retrieval balance
     intent = _classify_query_intent(question, names)
     logger.info("Query intent: '%s'", intent)
 
     if intent == "employee":
-        emp_k = max(k * 2 // 3, 5)   # 67% employee, 33% PDF
+        emp_k = max(k * 1 // 2, 5)   # Lowered vector budget since keyword is stronger
         pdf_k = max(k // 3, 5)
     elif intent == "document":
-        emp_k = max(k // 4, 3)        # 25% employee, 75% PDF
-        pdf_k = max(k * 3 // 4, 5)
+        emp_k = max(k // 4, 3)
+        pdf_k = max(k * 2 // 3, 10)
     else:  # mixed
-        emp_k = max(k // 2, 5)        # 50/50
-        pdf_k = max(k // 2, 5)
+        emp_k = max(k // 2, 5)
+        pdf_k = max(k // 2, 10)
 
     # NOISE REDUCTION: If we have technical keyword matches, cut vector search 
     # budgets to prevent drowning out the precise technical info with generic docs.
     if any(k.isupper() and len(k) >= 2 for k in keywords):
         emp_k = 2 if intent != "employee" else emp_k // 2
         pdf_k = 5 if intent == "employee" else pdf_k // 2
-        logger.info("Technical keyword detected. Reducing filler budget to emp_k=%d, pdf_k=%d", emp_k, pdf_k)
+        logger.info("Technical keyword detected. Reducing filler budget.")
 
     # Step 4: Vector search
     employee_docs = store.similarity_search(
@@ -346,12 +404,14 @@ def _retrieve_mixed(store, question: str, k: int = 20) -> list[Document]:
         question, k=pdf_k, filter={"record_type": "pdf"},
     )
 
-    # Step 5: Merge — keyword text-matches first (most precise), then name
-    # matches, then PDF vectors, then employee vectors
+    # Step 7: Merge — BM25 first, then regex keywords, then name matches, then vectors
     seen_ids = set()
     combined = []
 
-    for doc in keyword_docs + name_docs + pdf_docs + employee_docs:
+    # Prioritize: BM25 > Regex Keywords > Name Matches > PDF Vectors > Emp Vectors
+    all_candidates = bm25_docs + keyword_docs + name_docs + pdf_docs + employee_docs
+
+    for doc in all_candidates:
         doc_id = doc.metadata.get("record_id", id(doc))
         if doc_id not in seen_ids:
             seen_ids.add(doc_id)
@@ -390,6 +450,13 @@ def _retrieve_mixed(store, question: str, k: int = 20) -> list[Document]:
         # Since keyword matches are pushed first, they will survive truncation.
         combined = combined[:k]
 
+    # Log the successfully selected chunks for user visibility
+    for i, doc in enumerate(combined):
+        source = doc.metadata.get("filename") or doc.metadata.get("employee_name") or "Unknown"
+        # Print a clean snippet for the logs
+        content_snippet = doc.page_content.replace("\n", " ")[:150]
+        logger.info("  [Chunk %d] Source: %s | Content: %s...", i + 1, source, content_snippet)
+
     logger.info(
         "[%s] Final context: %d docs (capped to %d)",
         intent, len(combined), k
@@ -421,7 +488,7 @@ async def ask(question: str) -> dict:
         llm = _get_llm(num_thread=allocated_threads)
 
         # Retrieve from both employees AND PDFs (with name matching)
-        docs = _retrieve_mixed(store, question, k=settings.retriever_top_k)
+        docs = await _retrieve_mixed(store, question, k=settings.retriever_top_k)
         retrieval_time = asyncio.get_event_loop().time() - start_time
         logger.info("Docs retrieved in %.2fs", retrieval_time)
         context = _format_docs(docs)
