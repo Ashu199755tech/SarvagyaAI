@@ -47,6 +47,22 @@ def load_pdfs(folder_path: str) -> list[Document]:
                 # The PDF is heavily fragmented with absolute positioned words causing
                 # newlines between almost every word. Flatten ALL whitespace to a single space.
                 text = re.sub(r'\s+', ' ', text)
+
+                # FIX: After flattening, "Industry - FinTech Services - Custom Software..."
+                # becomes one continuous string. The LLM can't tell where Industry ends
+                # and Services begins, so it returns "FinTech Services - Custom Software"
+                # as the industry value.
+                # Insert a clear "|" separator so the two fields are visually distinct
+                # in the chunk text that gets stored and later fed to the LLM.
+                # e.g. "Industry: FinTech | Services: Custom Software Development"
+                text = re.sub(
+                    r'Industry\s*[-:]\s*(.+?)\s*(?=Services\s*[-:])',
+                    r'Industry: \1 | ',
+                    text,
+                    flags=re.IGNORECASE,
+                )
+                text = re.sub(r'Services\s*[-:]\s*', 'Services: ', text, flags=re.IGNORECASE)
+
                 full_text.append(text.strip())
             
             # Since everything is flattened, join pages with a space
