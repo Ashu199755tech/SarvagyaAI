@@ -1407,10 +1407,35 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
             rerank_request = RerankRequest(query=question, passages=passages)
             results = _ranker.rerank(rerank_request)
 
+            # ── Step 7b: Keyword Boosting (Post-Rerank) ──────────────────────
+            # Even with cross-encoders, occasionally a semantically matched 
+            # but keyword-empty chunk (e.g. Bereavement for a Marriage query)
+            # can outrank a keyword-rich chunk. We apply a manual boost here.
+            boosted_results = []
+            # Use keywords extracted in Step 3 for boosting
+            boost_kws = [kw.lower() for kw in keywords]
+            
+            for res in results:
+                score = res["score"]
+                text_lower = res["text"].lower()
+                
+                # Count how many unique query keywords are present in this chunk
+                matches = sum(1 for kw in boost_kws if kw in text_lower)
+                if matches > 0:
+                    # Apply a conservative boost (e.g. +0.05 per keyword)
+                    # capped at a reasonable limit so we don't break the model's logic entirely.
+                    score += min(matches * 0.05, 0.2)
+                
+                res["boosted_score"] = score
+                boosted_results.append(res)
+
+            # Re-sort based on boosted score
+            boosted_results.sort(key=lambda x: x["boosted_score"], reverse=True)
+
             # Reconstruct documents in re-ranked order, taking only top k
-            combined = [combined[res["id"]] for res in results[:k]]
+            combined = [combined[res["id"]] for res in boosted_results[:k]]
             logger.info(
-                ">> Step 7 | Re-ranked %d candidates → kept top %d",
+                ">> Step 7 | Re-ranked %d candidates → applied keyword boost → kept top %d",
                 len(passages), len(combined),
             )
         except Exception as e:

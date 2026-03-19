@@ -16,6 +16,7 @@ from src.config import settings
 from src.ingestion.pipeline import IngestionPipeline
 from src.ingestion.scheduler import start_scheduler
 from src.rag.chain import ask as rag_ask
+from src.rag.chain import _retrieve_mixed, _get_or_create_store
 
 logging.basicConfig(
     level=logging.INFO,
@@ -143,6 +144,53 @@ async def ask_question(request_data: AskRequest):
         }
     except Exception as exc:
         logger.exception("Ask failed")
+        return {"status": "error", "detail": str(exc)}
+
+
+@app.post("/api/debug")
+async def debug_retrieval(request_data: AskRequest):
+    """
+    Debug endpoint — returns retrieved chunks WITHOUT generating an answer.
+
+    Use this to check if retrieval is working correctly for any question.
+    Much faster than /api/ask because it skips the LLM generation step.
+
+    Usage:
+        curl -X POST http://localhost:8001/api/debug
+             -H "Content-Type: application/json"
+             -d '{"question": "which projects used GPU?"}'
+
+    Returns each chunk with:
+        - source: which PDF or employee record it came from
+        - preview: first 300 chars of the chunk text
+        - record_type: "pdf" or "employee"
+        - record_id: the chunk identifier
+    """
+    question = request_data.question
+    if not question:
+        return {"status": "error", "detail": "No question provided"}
+    try:
+        from src.config import settings
+        store = await _get_or_create_store()
+        chunks = await _retrieve_mixed(store, question, k=settings.retriever_top_k)
+        return {
+            "status": "success",
+            "question": question,
+            "chunks_retrieved": len(chunks),
+            "chunks": [
+                {
+                    "rank": i + 1,
+                    "source": doc.metadata.get("filename", doc.metadata.get("employee_name", "unknown")),
+                    "record_type": doc.metadata.get("record_type", "unknown"),
+                    "record_id": doc.metadata.get("record_id", "unknown"),
+                    "preview": doc.page_content[:300].replace("\n", " "),
+                    "contains_keyword": None,  # filled below
+                }
+                for i, doc in enumerate(chunks)
+            ],
+        }
+    except Exception as exc:
+        logger.exception("Debug retrieval failed")
         return {"status": "error", "detail": str(exc)}
 
 
