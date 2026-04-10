@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     # -------------------------------------------------------------------------
     # Base URL for the local Keka HR API that provides employee records.
     # The ingestion pipeline calls GET /employees on this URL.
-    employee_api_base_url: str = "http://localhost:8000"
+    employee_api_base_url: str = "http://localhost:8005"
 
     # -------------------------------------------------------------------------
     # PDF Ingestion
@@ -325,7 +325,7 @@ class Settings(BaseSettings):
     port: int = 8001
 
     # Pydantic configuration — tells it to read from a .env file.
-    model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
+    model_config = {"env_file": ".env", "env_file_encoding": "utf-8", "extra": "ignore"}
 
 
 # ---------------------------------------------------------------------------

@@ -90,31 +90,39 @@ async def trigger_ingestion():
         await pipeline.close()
 
 
-# ── PDF-Only Ingestion ───────────────────────────────────
+@app.post("/api/consolidate-and-ingest")
+async def trigger_full_refresh():
+    """Consolidate raw data into JSONs, then ingest JSONs into ChromaDB."""
+    from src.consolidator.run import run_consolidation
+    
+    try:
+        # Step 1: Consolidate
+        logger.info("Starting consolidation...")
+        c_result = await run_consolidation()
+        
+        # Step 2: Ingest
+        logger.info("Starting JSON-first ingestion...")
+        pipeline = IngestionPipeline()
+        i_result = await pipeline.run(perform_truncate=True)
+        
+        return {
+            "status": "success",
+            "consolidation": c_result,
+            "ingestion": i_result
+        }
+    except Exception as exc:
+        logger.exception("Full refresh failed")
+        return {"status": "error", "detail": str(exc)}
 
 
 @app.post("/api/ingest-pdfs")
-async def trigger_pdf_ingestion(file: UploadFile = File(None)):
-    """Trigger PDF-only ingestion.
-
-    - With a file: saves the uploaded PDF to the configured PDF folder, then ingests it.
-    - Without a file: re-scans the entire PDF folder and re-ingests all PDFs.
-    """
-    import shutil
-    from pathlib import Path
-
+async def trigger_pdf_ingestion():
+    """Re-load JSON files into vector store (no truncate)."""
     pipeline = IngestionPipeline()
     try:
-        if file is not None:
-            # Save uploaded file to the PDF folder
-            pdf_folder = Path(pipeline.store._collection.metadata.get("pdf_folder", "")) or Path("data/pdfs")
-            save_path = Path(settings.pdf_folder) / file.filename
-            save_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(save_path, "wb") as f:
-                shutil.copyfileobj(file.file, f)
-            logger.info("Saved uploaded PDF to %s", save_path)
-
-        result = pipeline.ingest_pdfs()
+        # In the new JSON-first world, we just run the pipeline
+        # without truncating to refresh from existing JSONs.
+        result = await pipeline.run(perform_truncate=False)
         return {"status": "success", **result}
     except Exception as exc:
         logger.exception("PDF ingestion failed")

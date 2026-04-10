@@ -52,6 +52,7 @@ from langchain_ollama import ChatOllama
 from src.config import settings
 from src.ingestion.pipeline import get_vector_store
 from src.rag.prompts import RAG_PROMPT
+from src.rag.cache import get_cached_answer, save_to_cache
 
 logger = logging.getLogger(__name__)
 
@@ -1524,6 +1525,13 @@ async def ask(question: str) -> dict:
     try:
         start_time = time.monotonic()  # monotonic clock — immune to system clock changes
 
+        # --- CACHE CHECK ---
+        cached_res = get_cached_answer(question)
+        if cached_res:
+            cached_res["time_elapsed_seconds"] = 0.05 # Indicate it was nearly instant
+            return cached_res
+        # ------------------
+
         # Get the cached global vector store (no-op after first request)
         store = await _get_or_create_store(num_thread=allocated_threads)
 
@@ -1582,6 +1590,10 @@ async def ask(question: str) -> dict:
             }
             for doc in docs
         ]
+
+        # --- SAVE TO CACHE ---
+        save_to_cache(question, answer, sources)
+        # --------------------
 
         return {
             "answer":               answer or "Sorry, I couldn't find an answer.",

@@ -21,10 +21,10 @@ class Employee(BaseModel):
     designation: str = ""
     joining_date: date | None = None
     salary: float = 0
-    project_name: str = ""
+    project_name: str | None = None
     project_start_date: date | None = None
     project_end_date: date | None = None
-    client_name: str = ""
+    client_name: str | None = None
 
 
 # ── API Pagination Wrapper ───────────────────────────────────
