@@ -198,18 +198,19 @@ def _parse_case_study_pdf(pdf_path: Path) -> list[dict]:
     """Parse the case studies PDF into structured project dicts. No LLM."""
     raw = _pdftotext(pdf_path).replace('\x0c', '\n')
     
-    # Split into per-case-study blocks by the leading project number
-    blocks = re.split(r'\n(?=\d{2,3}\s+[A-Z])', raw)
+    # Split into per-case-study blocks by the leading project number (supports space or dash, 1-3 digits)
+    blocks = re.split(r'\n(?=\d{1,3}[-– ]\s*[A-Z])', raw)
     projects = []
 
     for block in blocks:
         block = block.strip()
-        if not block or not re.match(r'^\d{2,3}\s+', block):
+        if not block or not re.match(r'^\d{1,3}[-– ]\s*', block):
             continue
 
         lines = block.splitlines()
         first_line = lines[0].strip()
-        m = re.match(r'^(\d+)\s+(.*)', first_line)
+        # Match ID followed by space, dash, or en-dash (1-3 digits)
+        m = re.match(r'^(\d+)[-– ]\s*(.*)', first_line)
         if not m:
             continue
 

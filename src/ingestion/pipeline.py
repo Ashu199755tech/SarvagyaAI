@@ -119,3 +119,14 @@ class IngestionPipeline:
 
     async def close(self) -> None:
         pass
+
+
+if __name__ == "__main__":
+    import asyncio
+    logging.basicConfig(level=logging.INFO)
+    pipeline = IngestionPipeline()
+    try:
+        results = asyncio.run(pipeline.run())
+        print(f"Ingestion complete: {results}")
+    except Exception as e:
+        logger.exception("Ingestion failed")

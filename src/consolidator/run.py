@@ -89,3 +89,7 @@ async def run_consolidation() -> dict:
         "json_path":        json_path,
         "elapsed_seconds":  round(elapsed, 2),
     }
+
+
+if __name__ == "__main__":
+    asyncio.run(run_consolidation())
