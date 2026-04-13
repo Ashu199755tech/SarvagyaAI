@@ -401,30 +401,34 @@ def _format_docs(docs: list[Document]) -> str:
     came from and can apply the correct source priority rules from the system prompt.
 
     Label format examples:
-        [Source: Employee Record]          — for employee data chunks
-        [Source: PDF -- Leave Policy.pdf]  — for PDF policy chunks
-        [Source: Document]                 — fallback for unknown types
+        [Source: Employee Record — Anthony Young]
+        [Source: Project — Dubai Technologies]
+        [Source: Policy — Leave Policy]
+        [Source: PDF — filename.pdf] (fallback)
 
     Chunks are separated by "---" dividers to visually isolate them for the LLM.
-
-    Args:
-        docs: Retrieved and re-ranked Document chunks to format.
-
-    Returns:
-        A single formatted string containing all chunks with source labels,
-        ready to be injected into the RAG_PROMPT template as {context}.
     """
     parts = []
     for doc in docs:
         record_type = doc.metadata.get("record_type", "unknown")
+        
         if record_type == "employee":
-            label = "[Source: Employee Record]"
+            name = doc.metadata.get("employee_name", "Unknown Employee")
+            label = f"[Source: Employee Record — {name}]"
+        elif record_type == "project":
+            name = doc.metadata.get("project_name", "Unknown Project")
+            label = f"[Source: Project — {name}]"
+        elif record_type == "policy":
+            name = doc.metadata.get("policy_name", "Unknown Policy")
+            label = f"[Source: Policy — {name}]"
         elif record_type == "pdf":
             filename = doc.metadata.get("filename", "document")
-            label = f"[Source: PDF -- {filename}]"
+            label = f"[Source: PDF — {filename}]"
         else:
             label = "[Source: Document]"
+            
         parts.append(f"{label}\n{doc.page_content}")
+        
     return "\n\n---\n\n".join(parts)
 
 
