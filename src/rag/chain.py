@@ -50,7 +50,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_ollama import ChatOllama
 
 from src.config import settings
-from src.ingestion.pipeline import get_vector_store
+from src.rag.store import get_vector_store
 from src.rag.prompts import RAG_PROMPT
 from src.rag.cache import get_cached_answer, save_to_cache
 
@@ -191,6 +191,16 @@ async def _get_or_create_store(num_thread: int | None = None) -> Chroma:
             logger.info("Initializing vector store (first request — will be cached)...")
             _vector_store = get_vector_store(num_thread=num_thread)
     return _vector_store
+
+
+def clear_vector_store_cache() -> None:
+    """
+    Clear the cached vector store instance.
+    MUST be called when the underlying ChromaDB collection is truncated.
+    """
+    global _vector_store
+    _vector_store = None
+    logger.info("Vector store cache cleared.")
 
 
 # ---------------------------------------------------------------------------
@@ -417,19 +427,34 @@ def _format_docs(docs: list[Document]) -> str:
             label = f"[Source: Employee Record — {name}]"
         elif record_type == "project":
             name = doc.metadata.get("project_name", "Unknown Project")
-            label = f"[Source: Project — {name}]"
+            label = f"[Source: Project Case Study PDF — {name}]"
         elif record_type == "policy":
             name = doc.metadata.get("policy_name", "Unknown Policy")
-            label = f"[Source: Policy — {name}]"
-        elif record_type == "pdf":
-            filename = doc.metadata.get("filename", "document")
-            label = f"[Source: PDF — {filename}]"
+            label = f"[Source: Company Policy PDF — {name}]"
+        elif record_type == "misc_table_row":
+            label = "[Source: OFFICIAL EMPLOYEE DIRECTORY]"
+        elif record_type == "holiday":
+            label = "[Source: Holiday Calendar PDF]"
         else:
-            label = "[Source: Document]"
+            # For dynamically ingested files
+            source_tag = doc.metadata.get("source_tag")
+            if source_tag:
+                label = f"[Source: {source_tag}]"
+            else:
+                filename = doc.metadata.get("source", doc.metadata.get("filename", "Document"))
+                label = f"[Source: {filename}]"
             
-        parts.append(f"{label}\n{doc.page_content}")
+        # Optimization: If the chunk already has a [Source: ...] tag (from build_generic_document),
+        # don't double-label it.
+        content = doc.page_content
+        if content.startswith("[Source:"):
+            parts.append(content)
+        else:
+            parts.append(f"{label}\n{content}")
         
-    return "\n\n---\n\n".join(parts)
+    # SMALLL MODEL STABILIZATION: Cap at 10 chunks.
+    # On CPU, 3B models struggle with >10 chunks (drowning in noise).
+    return "\n\n---\n\n".join(parts[:10])
 
 
 # ---------------------------------------------------------------------------
@@ -1150,6 +1175,8 @@ def _is_listing_query(question: str) -> bool:
         "projects where",     # "projects where X was used"
         "projects that",      # "projects that used X"
         "projects using",     # "projects using X"
+        "directory",          # "list of people in the directory"
+        "list some",          # "list some data scientists"
     ]
 
     if any(trigger in q for trigger in listing_triggers):
@@ -1318,27 +1345,58 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
     # ── Step 5: Vector (semantic) search ──────────────────────────────────
     # similarity_search converts the question to a vector, then finds the
     # k most similar chunks using cosine similarity in ChromaDB's index.
-    # The `filter` param restricts results to a specific record_type.
     employee_docs = store.similarity_search(
         question, k=emp_k, filter={"record_type": "employee"}
     )
     _log_selected_chunks(employee_docs, "Step 5 -- Vector (Employee)")
 
+    # Global search (projects, policies, etc.)
     pdf_docs = store.similarity_search(
-        question, k=pdf_k, filter={"record_type": "pdf"}
+        question, k=pdf_k
     )
-    _log_selected_chunks(pdf_docs, "Step 5 -- Vector (PDF)")
+    _log_selected_chunks(pdf_docs, "Step 5 -- Vector (Global)")
+
+    # ── Step 5b: Surgical Directory Sweep (Sledgehammer 2.0) ──────────────
+    # For directory listing queries, vector search often fails to rank
+    # minority roles (like Data Scientist) in the top slots.
+    # We manually sweep the directory records for the query keywords.
+    # ── Step 5b: Semantic Directory Sweep (Sledgehammer 3.0) ──────────────
+    # Transitioned from strict keyword match to SEMANTIC SEARCH restricted
+    # to the directory. This allows the system to recognize synonyms like
+    # 'Developer' vs 'Engineer'.
+    directory_sweep_docs = []
+    if is_listing_query or "directory" in question.lower():
+        try:
+            # We use a high k (30) to capture all matching people.
+            # Filtering by 'misc_table_row' ensures we only get directory records.
+            directory_sweep_docs = store.similarity_search(
+                question, 
+                k=30, 
+                filter={"record_type": "misc_table_row"}
+            )
+            logger.info(
+                ">> Step 5b | Semantic Directory Sweep: Found %d matches",
+                len(directory_sweep_docs)
+            )
+        except Exception as e:
+            logger.error("Semantic Directory Sweep failed: %s", e)
 
     # ── Step 6: Merge & deduplicate ────────────────────────────────────────
-    # Priority order: BM25 (most precise) → regex keywords → name matches →
-    # PDF vectors → employee vectors. First-seen record_id wins.
-    seen_ids: set = set()
-    combined: list[Document] = []
-    for doc in bm25_docs + keyword_docs + name_docs + pdf_docs + employee_docs:
-        doc_id = doc.metadata.get("record_id", id(doc))
-        if doc_id not in seen_ids:
-            seen_ids.add(doc_id)
-            combined.append(doc)
+    # For directory listing queries, if we found matches via the surgical sweep,
+    # we enter 'PURE DIRECTORY MODE'. We discard everything else to avoid noise
+    # from project case studies that might confuse the LLM.
+    if directory_sweep_docs and (is_listing_query or "directory" in question.lower()):
+        combined = directory_sweep_docs[:k]
+        logger.info(">> Step 6 | PURE DIRECTORY MODE: Using %d sweep matches, discarding %d other candidates", len(combined), len(bm25_docs + keyword_docs + pdf_docs))
+    else:
+        # Normal priority order: BM25 → regex keywords → name matches → Global vectors → employee vectors.
+        seen_ids: set = set()
+        combined = []
+        for doc in bm25_docs + keyword_docs + name_docs + pdf_docs + employee_docs:
+            doc_id = doc.metadata.get("record_id", id(doc))
+            if doc_id not in seen_ids:
+                seen_ids.add(doc_id)
+                combined.append(doc)
 
     # ── Step 6b: Acronym relevance filter ──────────────────────────────────
     # When the query contains a specific acronym (GPU, OCR, etc.), vector search

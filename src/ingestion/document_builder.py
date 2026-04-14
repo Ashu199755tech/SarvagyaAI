@@ -1,4 +1,11 @@
-"""Convert JSON source records into LangChain Documents for RAG ingestion."""
+"""Convert JSON source records into LangChain Documents for RAG ingestion.
+
+Architecture:
+  - BUILDER_REGISTRY: maps specific filenames to specialized builders that
+    handle custom field merging (e.g. first_name + last_name → Name).
+  - build_generic_document(): handles ANY JSON record from ANY file
+    by iterating all keys dynamically. Used for all files not in the registry.
+"""
 
 from __future__ import annotations
 
@@ -6,24 +13,19 @@ import json
 from langchain_core.documents import Document
 
 
+# ── Specialized builders (kept for backwards compatibility) ───────────────────
+
 def build_employee_document(emp: dict) -> Document:
-    """Turn an employee dict (from raw API) into a LangChain Document.
-    
-    Fields from Keka API: employee_id, first_name, last_name, email, 
-    department, designation, joining_date, salary, project_name, etc.
-    """
+    """Turn an employee dict into a High-Contrast LangChain Document."""
     name = f"{emp.get('first_name', '')} {emp.get('last_name', '')}".strip() or "Unknown"
     
     content = (
-        f"Employee: {name}\n"
-        f"Employee ID: {emp.get('employee_id', 'N/A')}\n"
+        f"Name: {name}\n"
+        f"Role: {emp.get('designation', 'N/A')}\n"
+        f"Dept: {emp.get('department', 'N/A')}\n"
         f"Email: {emp.get('email', 'N/A')}\n"
-        f"Department: {emp.get('department', 'N/A')}\n"
-        f"Designation: {emp.get('designation', 'N/A')}\n"
-        f"Date of Joining: {emp.get('joining_date', 'N/A')}\n"
-        f"Salary: {emp.get('salary', 'N/A')}\n"
         f"Project: {emp.get('project_name', 'N/A')}\n"
-        f"Client: {emp.get('client_name', 'N/A')}\n"
+        f"Source: Employee API\n"
     )
 
     metadata = {
@@ -31,8 +33,7 @@ def build_employee_document(emp: dict) -> Document:
         "record_type": "employee",
         "record_id": emp.get("employee_id"),
         "employee_name": name,
-        "department": emp.get("department"),
-        "project_name": emp.get("project_name"),
+        "designation": emp.get("designation"),
     }
 
     return Document(page_content=content, metadata=metadata)
@@ -40,8 +41,6 @@ def build_employee_document(emp: dict) -> Document:
 
 def build_project_document(prj: dict) -> Document:
     """Turn a project dict (from projects.json) into a LangChain Document."""
-    
-    # We combine key fields into a descriptive block
     content = (
         f"Project Name: {prj.get('Project name', 'N/A')}\n"
         f"Industry: {prj.get('Industry ', 'N/A')}\n"
@@ -68,7 +67,6 @@ def build_project_document(prj: dict) -> Document:
 
 def build_policy_document(pol: dict) -> Document:
     """Turn a policy dict (from policies.json) into a LangChain Document."""
-    
     content = (
         f"Policy: {pol.get('policy_name', 'N/A')}\n"
         f"Category: {pol.get('category', 'N/A')}\n"
@@ -89,9 +87,9 @@ def build_policy_document(pol: dict) -> Document:
 
 def build_holiday_document(hol: dict) -> Document:
     """Turn a holiday dict into a LangChain Document."""
-    
     content = (
         f"Holiday: {hol.get('name', 'N/A')}\n"
+        f"Month: {hol.get('month', 'N/A')}\n"
         f"Date: {hol.get('date', 'N/A')}\n"
         f"Day: {hol.get('day', 'N/A')}\n"
         f"Type: {hol.get('type', 'N/A')}\n"
@@ -103,6 +101,120 @@ def build_holiday_document(hol: dict) -> Document:
         "record_id": hol.get("id"),
         "holiday_name": hol.get("name"),
         "holiday_date": hol.get("date"),
+        "month": hol.get("month", ""),
     }
 
     return Document(page_content=content, metadata=metadata)
+
+
+def build_misc_document(doc: dict) -> Document | list[Document]:
+    """Turn a miscellaneous doc dict into one or more High-Contrast Documents."""
+    
+    # CASE 1: Structured Tabular Data (e.g. Employee Directory)
+    if doc.get("is_tabular") and doc.get("table_data"):
+        rows = doc.get("table_data", [])
+        documents = []
+        for i, row in enumerate(rows):
+            name = row.get("Name", row.get("Full Name", "Unknown"))
+            role = row.get("Role", row.get("Designation", "N/A"))
+            
+            content = (
+                f"Name: {name}\n"
+                f"Role: {role}\n"
+                f"Source: {doc.get('doc_name')}\n"
+            )
+            # Add remaining fields
+            for k, v in row.items():
+                if k not in ["Name", "Full Name", "Role", "Designation"]:
+                    content += f"{k}: {v}\n"
+            
+            metadata = {
+                "source": doc.get("filename", "misc.pdf"),
+                "record_type": "misc_table_row",
+                "record_id": f"{doc.get('doc_id')}_row{i}",
+                "doc_name": doc.get("doc_name"),
+                "is_tabular": True
+            }
+            documents.append(Document(page_content=content, metadata=metadata))
+        return documents
+
+    # CASE 2: Standard Text Document
+    content = (
+        f"[DOCUMENT_NAME]: {doc.get('doc_name', 'N/A')}\n\n"
+        f"{doc.get('full_text', 'No content available.')}\n"
+    )
+
+    metadata = {
+        "source": doc.get("filename", "misc.pdf"),
+        "record_type": "misc_text",
+        "record_id": doc.get("doc_id"),
+        "doc_name": doc.get("doc_name"),
+        "is_tabular": False
+    }
+
+    return Document(page_content=content, metadata=metadata)
+
+
+# ── Generic builder (NEW) ─────────────────────────────────────────────────────
+
+def _flatten_value(val: object) -> str:
+    """Convert any value type to a readable string."""
+    if val is None:
+        return ""
+    if isinstance(val, list):
+        return ", ".join(str(v) for v in val if v is not None)
+    if isinstance(val, dict):
+        return "; ".join(f"{k}: {v}" for k, v in val.items())
+    return str(val).strip()
+
+
+def build_generic_document(record: dict, source_filename: str, index: int) -> Document:
+    """
+    Dynamically build a LangChain Document from ANY JSON record.
+
+    - All keys in the record become searchable text in page_content.
+    - record_id = {filename_stem}_{index}  e.g. 'training_calendar_3'
+    - record_type = {filename_stem}        e.g. 'training_calendar'
+
+    This means NO code changes are needed when a new JSON file is added.
+    """
+    stem = Path(source_filename).stem  # e.g. "training_calendar"
+    
+    # Use a clean, prompt-friendly source tag
+    source_tag = stem.replace("_", " ").title()  # e.g. "Test Training"
+    
+    lines = []
+    for key, val in record.items():
+        if key.startswith("_"):          # skip internal metadata keys
+            continue
+        lines.append(f"{key}: {_flatten_value(val)}")
+    
+    content = f"[Source: {source_tag}]\n" + "\n".join(lines) + "\n"
+
+    metadata = {
+        "source": source_filename,
+        "record_type": stem,
+        "record_id": f"{stem}_{index}",
+        "source_tag": source_tag,
+    }
+    # Promote top-level string fields to metadata for filtering
+    for key, val in record.items():
+        if isinstance(val, str) and not key.startswith("_"):
+            metadata[key.lower().replace(" ", "_")] = val[:200]
+
+    return Document(page_content=content, metadata=metadata)
+
+
+# ── Builder Registry ──────────────────────────────────────────────────────────
+# Maps specific JSON filenames to their specialized builder functions.
+# Files NOT in this registry are handled by build_generic_document().
+
+from pathlib import Path  # noqa: E402 (imported here for registry clarity)
+
+BUILDER_REGISTRY: dict[str, object] = {
+    "employees.json":  build_employee_document,
+    "projects.json":   build_project_document,
+    "policies.json":   build_policy_document,
+    "holidays.json":   build_holiday_document,
+    "misc_docs.json":  build_misc_document,      # special: handles own tabular format
+}

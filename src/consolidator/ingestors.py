@@ -16,8 +16,14 @@ import logging
 import re
 import subprocess
 import shutil
+from datetime import datetime
 from pathlib import Path
 from dataclasses import asdict
+
+try:
+    import pdfplumber
+except ImportError:
+    pdfplumber = None
 
 from src.config import settings
 from src.consolidator.entities import (
@@ -87,6 +93,40 @@ def _save_json(data: list[dict], path: Path) -> None:
     logger.info("SOT written: %s (%d records)", path.name, len(data))
 
 
+def _extract_table_data(pdf_path: Path) -> list[dict]:
+    """Extract list of dicts from PDF tables using pdfplumber."""
+    if not pdfplumber:
+        logger.warning("pdfplumber not installed, skipping table extraction for %s", pdf_path.name)
+        return []
+
+    results = []
+    try:
+        with pdfplumber.open(pdf_path) as pdf:
+            for page in pdf.pages:
+                tables = page.extract_tables()
+                for table in tables:
+                    if not table or len(table) < 2:
+                        continue
+                    
+                    # First row is headers. Clean them.
+                    headers = [str(h or "").strip().replace("\n", " ") for h in table[0]]
+                    if not any(headers):
+                        headers = [f"col_{i}" for i in range(len(table[0]))]
+
+                    # Remaining rows
+                    for row in table[1:]:
+                        if not any(row): continue
+                        obj = {}
+                        for i, cell in enumerate(row):
+                            key = headers[i] if i < len(headers) else f"col_{i}"
+                            obj[key] = str(cell or "").strip().replace("\n", " ")
+                        results.append(obj)
+    except Exception as e:
+        logger.error("pdfplumber failed for %s: %s", pdf_path, e)
+    
+    return results
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. EMPLOYEES — Keka API → employees.json
 # ─────────────────────────────────────────────────────────────────────────────
@@ -130,8 +170,7 @@ async def ingest_employees_from_api() -> list[EmployeeEntity]:
 
 
 def ingest_holidays_from_pdf() -> list[HolidayEntity]:
-    """Extract holiday list from the Holiday Policy PDF using regex."""
-    from datetime import datetime
+    """Extract holiday list from the Holiday Policy PDF using pdfplumber."""
     
     # Locate the holiday policy PDF
     pdf_dir = Path(settings.pdf_folder)
@@ -145,36 +184,40 @@ def ingest_holidays_from_pdf() -> list[HolidayEntity]:
         logger.warning("No Holiday Policy PDF found in %s", pdf_dir)
         return []
 
-    logger.info("Extracting holidays from %s", holiday_pdf)
-    text = _pdftotext(holiday_pdf)
-    
-    # Pattern for the holiday table rows:
-    # Index (11) Name (Janmashtami) Month (September) Date (4-Sep-26) Day (Friday) Type (Floater Leave)
-    pattern = re.compile(
-        r"^\s*(\d+)\s+(.+?)\s+([A-Z][a-z]+)\s+(\d{1,2}-[A-Z][a-z]{2}-\d{2})\s+([A-Z][a-z]+)\s+(.+)$",
-        re.MULTILINE
-    )
+    logger.info("Extracting holidays from %s using pdfplumber", holiday_pdf)
+    rows = _extract_table_data(holiday_pdf)
     
     holidays = []
     records = []
     
-    for match in pattern.finditer(text):
-        idx, name, month, date_str, day, htype = match.groups()
+    for row in rows:
+        # Map dynamic headers to HolidayEntity fields
+        # Note: headers vary by page/table, so we check for common keys
+        idx  = row.get("Sr. No") or row.get("Index") or ""
+        name = row.get("Holiday") or row.get("Name") or ""
+        mon  = row.get("Month") or ""
+        dstr = row.get("Date") or ""
+        day  = row.get("Day") or ""
+        rem  = row.get("Remarks") or row.get("Type") or ""
         
+        if not name: continue  # Skip rows without names
+
         try:
-            # Parse date e.g. "4-Sep-26" -> 2026-09-04
-            dt = datetime.strptime(date_str, "%d-%b-%y")
-            clean_date = dt.date()
+            # Parse date e.g. "4-Sep-26" or "21-Mar-26" -> 2026-09-04
+            clean_date = None
+            if dstr:
+                dt = datetime.strptime(dstr, "%d-%b-%y")
+                clean_date = dt.date()
         except ValueError:
             clean_date = None
             
         entity = HolidayEntity(
-            id=f"HOL_2026_{idx}",
+            id=f"HOL_{idx}" if idx else f"HOL_{name[:3].upper()}",
             name=name.strip(),
             date=clean_date,
             day=day.strip(),
-            month=month.strip(),
-            type=htype.strip()
+            month=mon.strip(),
+            type=rem.strip()
         )
         holidays.append(entity)
         
@@ -377,14 +420,29 @@ def refresh_misc_docs(pdf_folder: str | None = None,
             continue
         if any(kw in name_lower for kw in policy_kws):
             continue
+            
         logger.info("Parsing misc PDF: %s", pdf_path.name)
-        text = _pdftotext(pdf_path).replace('\x0c', '\n')
+        
+        # Check if it's a directory - use structured table extract
+        if "directory" in name_lower:
+            logger.info("Structured table extraction for directory: %s", pdf_path.name)
+            table_data = _extract_table_data(pdf_path)
+            # Store as formatted text for now so RAG can still read it 
+            # OR store the list and let RAG deal with it.
+            # Best is to store the list in a specific 'table_data' field
+            full_text = json.dumps(table_data, indent=2)
+        else:
+            table_data = []
+            full_text = _pdftotext(pdf_path).replace('\x0c', '\n')
+
         misc.append({
-            "doc_id":    f"DOC:{pdf_path.stem}",
-            "doc_name":  pdf_path.stem.replace("_", " ").replace("-", " ").title(),
-            "filename":  pdf_path.name,
-            "category":  pdf_path.parent.name,
-            "full_text": text.strip(),
+            "doc_id":      f"DOC:{pdf_path.stem}",
+            "doc_name":    pdf_path.stem.replace("_", " ").replace("-", " ").title(),
+            "filename":    pdf_path.name,
+            "category":    pdf_path.parent.name,
+            "full_text":   full_text.strip(),
+            "table_data":  table_data,
+            "is_tabular":  len(table_data) > 0
         })
 
     _save_json(misc, SOT_MISC)

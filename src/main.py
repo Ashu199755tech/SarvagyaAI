@@ -129,6 +129,60 @@ async def trigger_pdf_ingestion():
         return {"status": "error", "detail": str(exc)}
 
 
+@app.post("/api/upload")
+async def upload_and_ingest(file: UploadFile = File(...)):
+    """
+    Upload any file (PDF, Excel, Word, CSV, TXT) and ingest it into the RAG pipeline.
+
+    The file is saved to data/inbox/, converted to JSON, then incrementally
+    ingested into ChromaDB — no full re-index needed.
+
+    Usage:
+        curl -X POST http://localhost:8000/api/upload -F 'file=@report.xlsx'
+    """
+    import shutil
+    from src.ingestion.universal_converter import convert_to_json, CONVERTERS
+    from pathlib import Path as _Path
+
+    INBOX_DIR     = _Path("./data/inbox")
+    CONVERTED_DIR = _Path("./data/converted")
+    INBOX_DIR.mkdir(parents=True, exist_ok=True)
+    CONVERTED_DIR.mkdir(parents=True, exist_ok=True)
+
+    suffix = _Path(file.filename).suffix.lower()
+    if suffix not in CONVERTERS:
+        return {
+            "status": "error",
+            "detail": f"Unsupported file type '{suffix}'. Supported: {', '.join(sorted(CONVERTERS))}",
+        }
+
+    inbox_path = INBOX_DIR / file.filename
+    with open(inbox_path, "wb") as f:
+        shutil.copyfileobj(file.file, f)
+    logger.info("Uploaded file saved: %s", inbox_path)
+
+    try:
+        if suffix == ".json":
+            import shutil as _sh
+            json_path = CONVERTED_DIR / file.filename
+            _sh.copy(inbox_path, json_path)
+        else:
+            json_path = convert_to_json(inbox_path, output_dir=CONVERTED_DIR)
+
+        pipeline = IngestionPipeline()
+        result = await pipeline.ingest_file(json_path)
+
+        return {
+            "status": "success",
+            "filename": file.filename,
+            "json_output": str(json_path),
+            **result,
+        }
+    except Exception as exc:
+        logger.exception("Upload ingestion failed for %s", file.filename)
+        return {"status": "error", "detail": str(exc)}
+
+
 # ── Ask Endpoint ─────────────────────────────────────────
 
 from pydantic import BaseModel

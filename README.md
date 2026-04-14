@@ -16,7 +16,8 @@
 8. [API Reference](#api-reference)
 9. [Configuration Reference](#configuration-reference)
 10. [MS Teams Integration](#ms-teams-integration)
-11. [Troubleshooting](#troubleshooting)
+11. [Utilities](#utilities)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -593,6 +594,56 @@ ngrok http 8000
 ```
 
 Users can now chat with the bot in MS Teams. The bot processes messages through `src/bot/teams_bot.py`, which calls the same `rag_ask()` function used by the HTTP API.
+
+---
+
+## Utilities
+
+### PDF Table to JSON Converter
+
+If you have a PDF containing tabular data (like an employee directory or a complex policy table), you can use the built-in utility to convert it into a structured JSON format.
+
+**Command:**
+```bash
+./.venv/bin/python src/ingestion/pdf_table_to_json.py <path_to_pdf> --output <output_json_path> --pretty
+```
+
+- **Input:** Any PDF with 1 or more tables.
+- **Output:** A JSON array where each object represents a row, and keys are automatically detected from the table headers.
+- **Features:**
+    - Automatically detects headers from the first row of each table.
+    - Handles multi-page tables.
+    - Cleans up whitespace and newlines within cells.
+
+**Example:**
+```bash
+./.venv/bin/python src/ingestion/pdf_table_to_json.py "/path/to/my_table.pdf" --pretty
+```
+
+---
+
+## Utilities
+
+### PDF Table to JSON Converter
+
+If you have a PDF containing tabular data (like an employee directory or a complex policy table), you can use the built-in utility to convert it into a structured JSON format.
+
+**Command:**
+```bash
+./.venv/bin/python src/ingestion/pdf_table_to_json.py <path_to_pdf> --output <output_json_path> --pretty
+```
+
+- **Input:** Any PDF with 1 or more tables.
+- **Output:** A JSON array where each object represents a row, and keys are automatically detected from the table headers.
+- **Features:**
+    - Automatically detects headers from the first row of each table.
+    - Handles multi-page tables.
+    - Cleans up whitespace and newlines within cells to ensure clean data for LLM consumption.
+
+**Example:**
+```bash
+./.venv/bin/python src/ingestion/pdf_table_to_json.py "/path/to/my_table.pdf" --pretty
+```
 
 ---
 

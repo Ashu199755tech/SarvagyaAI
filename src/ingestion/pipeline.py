@@ -1,6 +1,14 @@
 """
-pipeline.py — Optimized JSON-First Ingestion Pipeline
-======================================================
+pipeline.py — Dynamic Universal Ingestion Pipeline
+===================================================
+
+Flow:
+  1. Convert any files in data/inbox/ → data/converted/  (via UniversalConverter)
+  2. Scan data/converted/*.json + data/*.json for all JSON sources
+  3. For each JSON file:
+       - Check BUILDER_REGISTRY for a specialized builder
+       - Otherwise use build_generic_document() for zero-config ingestion
+  4. Chunk & upsert into ChromaDB
 """
 
 from __future__ import annotations
@@ -16,43 +24,72 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from src.config import settings
 from src.rag.cache import clear_cache
+from src.rag.store import get_vector_store
 from src.ingestion.document_builder import (
-    build_employee_document,
-    build_project_document,
-    build_policy_document,
-    build_holiday_document,
+    BUILDER_REGISTRY,
+    build_generic_document,
+    build_misc_document,
 )
+from src.ingestion.universal_converter import convert_inbox
 
 logger = logging.getLogger(__name__)
 
-DATA_DIR = Path("./data")
-SOT_PROJECTS  = DATA_DIR / "projects.json"
-SOT_EMPLOYEES = DATA_DIR / "employees.json"
-SOT_POLICIES  = DATA_DIR / "policies.json"
-SOT_HOLIDAYS  = DATA_DIR / "holidays.json"
+DATA_DIR      = Path("./data")
+INBOX_DIR     = DATA_DIR / "inbox"
+CONVERTED_DIR = DATA_DIR / "converted"
+
+# Legacy known JSON files (handled by specialized registry builders)
+LEGACY_JSON_FILES = [
+    DATA_DIR / "employees.json",
+    DATA_DIR / "projects.json",
+    DATA_DIR / "policies.json",
+    DATA_DIR / "holidays.json",
+    DATA_DIR / "misc_docs.json",
+]
 
 
-def _get_embeddings(num_thread: int | None = None) -> OllamaEmbeddings:
-    return OllamaEmbeddings(
-        model=settings.ollama_embedding_model,
-        base_url=settings.ollama_base_url,
-        num_thread=num_thread or settings.ollama_num_threads,
-    )
 
 
-def get_vector_store(num_thread: int | None = None) -> Chroma:
-    return Chroma(
-        collection_name=settings.chroma_collection_name,
-        embedding_function=_get_embeddings(num_thread=num_thread),
-        persist_directory=settings.chroma_persist_dir,
-    )
+
+def _build_docs_from_json(json_path: Path) -> list[Document]:
+    """Load a JSON file and build LangChain Documents using the registry or generic builder."""
+    filename = json_path.name
+    try:
+        records = json.loads(json_path.read_text(encoding="utf-8"))
+    except Exception:
+        logger.exception("Failed to read JSON: %s", json_path)
+        return []
+
+    if not isinstance(records, list):
+        records = [records]
+
+    # ── Specialized builder (registry) ───────────────────────────────────────
+    if filename in BUILDER_REGISTRY:
+        builder = BUILDER_REGISTRY[filename]
+        docs: list[Document] = []
+        for record in records:
+            result = builder(record)
+            if isinstance(result, list):
+                docs.extend(result)
+            else:
+                docs.append(result)
+        logger.info("Registry builder: %d docs from %s", len(docs), filename)
+        return docs
+
+    # ── Generic builder (auto-mode) ───────────────────────────────────────────
+    docs = [
+        build_generic_document(record, source_filename=filename, index=i)
+        for i, record in enumerate(records)
+    ]
+    logger.info("Generic builder: %d docs from %s", len(docs), filename)
+    return docs
 
 
 class IngestionPipeline:
     def __init__(self, vector_store: Chroma | None = None) -> None:
         self.store = vector_store or get_vector_store()
         self.splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000, # Faster ingestion
+            chunk_size=1000,
             chunk_overlap=100,
             separators=["\n\n", "\n", ". ", " ", ""],
         )
@@ -60,37 +97,82 @@ class IngestionPipeline:
     def truncate(self) -> None:
         logger.warning("Truncating ChromaDB collection: %s", settings.chroma_collection_name)
         try:
+            from src.rag.chain import clear_vector_store_cache
+            
+            clear_cache()
+            clear_vector_store_cache()
+            
             self.store.delete_collection()
             self.store = get_vector_store()
             logger.info("Collection truncated successfully.")
         except Exception as e:
             logger.error("Failed to truncate collection: %s", e)
 
-    def _load_json_docs(self) -> list[Document]:
-        all_docs = []
-        if SOT_EMPLOYEES.exists():
-            records = json.loads(SOT_EMPLOYEES.read_text(encoding="utf-8"))
-            all_docs.extend([build_employee_document(r) for r in records])
-        if SOT_PROJECTS.exists():
-            records = json.loads(SOT_PROJECTS.read_text(encoding="utf-8"))
-            all_docs.extend([build_project_document(r) for r in records])
-        if SOT_POLICIES.exists():
-            records = json.loads(SOT_POLICIES.read_text(encoding="utf-8"))
-            all_docs.extend([build_policy_document(r) for r in records])
-        if SOT_HOLIDAYS.exists():
-            records = json.loads(SOT_HOLIDAYS.read_text(encoding="utf-8"))
-            all_docs.extend([build_holiday_document(r) for r in records])
+    def _convert_inbox(self) -> None:
+        """Convert any non-JSON files in inbox/ → converted/ as JSON."""
+        INBOX_DIR.mkdir(parents=True, exist_ok=True)
+        CONVERTED_DIR.mkdir(parents=True, exist_ok=True)
+        new_files = convert_inbox(INBOX_DIR, CONVERTED_DIR)
+        if new_files:
+            logger.info("Converted %d new file(s) from inbox: %s", len(new_files), [f.name for f in new_files])
+
+    def _collect_json_files(self) -> list[Path]:
+        """Collect all JSON files to ingest: legacy + converted/."""
+        files: list[Path] = []
+
+        # 1. Legacy core JSON files
+        for p in LEGACY_JSON_FILES:
+            if p.exists():
+                files.append(p)
+
+        # 2. Auto-converted files from inbox
+        if CONVERTED_DIR.exists():
+            for p in sorted(CONVERTED_DIR.glob("*.json")):
+                files.append(p)
+
+        logger.info("Collected %d JSON files to ingest", len(files))
+        return files
+
+    def _load_all_docs(self) -> list[Document]:
+        """Convert inbox files then load all JSON files into Documents."""
+        self._convert_inbox()
+        json_files = self._collect_json_files()
+        all_docs: list[Document] = []
+        for jf in json_files:
+            all_docs.extend(_build_docs_from_json(jf))
+        logger.info("Total documents loaded: %d", len(all_docs))
         return all_docs
 
     def _chunk_documents(self, docs: list[Document]) -> list[Document]:
         all_chunks: list[Document] = []
+        ATOMIC_TYPES = {"project", "holiday", "employee", "misc_table_row"}
         for doc in docs:
+            record_type = doc.metadata.get("record_type", "")
+
+            # Atomic records: never split them
+            if record_type in ATOMIC_TYPES:
+                chunk = doc.copy()
+                chunk.metadata["chunk_index"] = 0
+                chunk.metadata.setdefault("record_id", "doc")
+                all_chunks.append(chunk)
+                continue
+
+            # Generic records from converted files: also keep atomic if small
+            if len(doc.page_content) <= 1200:
+                chunk = doc.copy()
+                chunk.metadata["chunk_index"] = 0
+                chunk.metadata.setdefault("record_id", "doc")
+                all_chunks.append(chunk)
+                continue
+
+            # Large text documents: split recursively
             doc_chunks = self.splitter.split_documents([doc])
             base_id = doc.metadata.get("record_id", "doc")
             for i, chunk in enumerate(doc_chunks):
                 chunk.metadata["chunk_index"] = i
                 chunk.metadata["record_id"] = f"{base_id}_c{i}"
-                all_chunks.append(chunk)
+            all_chunks.extend(doc_chunks)
+
         return all_chunks
 
     def _upsert_batches(self, chunks: list[Document], batch_size: int = 50) -> None:
@@ -99,22 +181,31 @@ class IngestionPipeline:
             batch = chunks[i : i + batch_size]
             ids = [f"json_{c.metadata['record_id']}_{j}" for j, c in enumerate(batch)]
             self.store.add_documents(documents=batch, ids=ids)
-            logger.info("Upserted batch %d/%d (%d chunks)", (i // batch_size) + 1, (len(chunks) // batch_size) + 1, len(batch))
+            logger.info(
+                "Upserted batch %d/%d (%d chunks)",
+                (i // batch_size) + 1,
+                -(-len(chunks) // batch_size),
+                len(batch),
+            )
 
     async def run(self, perform_truncate: bool = True) -> dict[str, int]:
-        logger.info("Starting Optimized JSON-First Ingestion...")
+        logger.info("Starting Dynamic Universal Ingestion...")
         if perform_truncate:
             self.truncate()
 
-        docs = self._load_json_docs()
+        docs = self._load_all_docs()
         chunks = self._chunk_documents(docs)
         self._upsert_batches(chunks)
-        
-        # --- CACHE CLEANUP ---
-        # Wipe the RAG cache after successful ingestion to prevent stale answers.
         clear_cache()
-        # ---------------------
 
+        return {"documents_loaded": len(docs), "total_chunks": len(chunks)}
+
+    async def ingest_file(self, json_path: Path) -> dict[str, int]:
+        """Incrementally ingest a single already-converted JSON file (no truncate)."""
+        docs = _build_docs_from_json(json_path)
+        chunks = self._chunk_documents(docs)
+        self._upsert_batches(chunks)
+        clear_cache()
         return {"documents_loaded": len(docs), "total_chunks": len(chunks)}
 
     async def close(self) -> None:
@@ -128,5 +219,5 @@ if __name__ == "__main__":
     try:
         results = asyncio.run(pipeline.run())
         print(f"Ingestion complete: {results}")
-    except Exception as e:
+    except Exception:
         logger.exception("Ingestion failed")

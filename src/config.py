@@ -128,12 +128,12 @@ class Settings(BaseSettings):
     # "which projects used GPU") retrieve enough chunks to cover all projects.
     # With 3 GPU projects × 2 chunks each = 6 GPU chunks needed minimum,
     # plus 2 slots for context — 12 gives safe headroom for FlashRank to work.
-    retriever_top_k: int = 12
+    retriever_top_k: int = 20
 
     # How many candidate documents BM25 search returns before re-ranking.
     # BM25 casts a wide net; FlashRank then picks the best `retriever_top_k`.
     # Higher values = more candidates for re-ranking but slightly slower retrieval.
-    bm25_top_k: int = 15
+    bm25_top_k: int = 30
 
     # -------------------------------------------------------------------------
     # Chunking Settings (used by ingestion/pipeline.py)
