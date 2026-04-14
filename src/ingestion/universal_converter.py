@@ -119,8 +119,19 @@ def _convert_docx(path: Path) -> list[dict]:
 
 def _convert_pdf(path: Path) -> list[dict]:
     import pdfplumber
-    rows: list[dict] = []
+    from src.ingestion.semantic_parser import SemanticPDFParser
+    
+    # 1. Try Semantic Parsing first (High precision for Projects/Policies)
+    with pdfplumber.open(str(path)) as pdf:
+        full_text = "\n".join(page.extract_text() or "" for page in pdf.pages)
+    
+    semantic_data = SemanticPDFParser.parse(full_text, path.name)
+    if semantic_data:
+        logger.info("PDF: SEMANTIC extraction successful for %s", path.name)
+        return semantic_data
 
+    # 2. Fallback to Table/Text extraction
+    rows: list[dict] = []
     with pdfplumber.open(str(path)) as pdf:
         for page_num, page in enumerate(pdf.pages, start=1):
             # Try structured tables first
@@ -143,7 +154,7 @@ def _convert_pdf(path: Path) -> list[dict]:
                 if text:
                     rows.append({"source_file": path.name, "page": page_num, "text": text})
 
-    logger.info("PDF: extracted %d records from %s", len(rows), path.name)
+    logger.info("PDF: extracted %d records from %s (generic)", len(rows), path.name)
     return rows
 
 
