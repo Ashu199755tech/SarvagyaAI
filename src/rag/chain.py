@@ -53,6 +53,7 @@ from src.config import settings
 from src.rag.store import get_vector_store
 from src.rag.prompts import RAG_PROMPT
 from src.rag.cache import get_cached_answer, save_to_cache
+from src.rag.data_interpreter import DataInterpreter
 
 logger = logging.getLogger(__name__)
 
@@ -1593,6 +1594,32 @@ async def ask(question: str) -> dict:
             cached_res["time_elapsed_seconds"] = 0.05 # Indicate it was nearly instant
             return cached_res
         # ------------------
+
+
+        # --- DYNAMIC DATA INTERPRETER (ADVANCED AGENTIC ROUTING) ---
+        # Detect if this is a 'How many' or 'List all' query that requires
+        # 100% precision from structured files.
+        interpreter = DataInterpreter()
+        entity_type, criteria = interpreter.detect_intent(question)
+        if entity_type and criteria:
+            logger.info("[Interpreter] Aggregation detected: Entity=%s | Criteria=%s", entity_type, criteria)
+            itp_result = interpreter.query(entity_type, criteria)
+            if itp_result:
+                count = itp_result["count"]
+                matches = itp_result["matches"]
+                match_listing = ", ".join([m["name"] for m in matches[:10]])
+                if len(matches) > 10:
+                    match_listing += f", and {len(matches)-10} others"
+                
+                answer = f"Based on the live data scan, there are **{count}** {entity_type}(s) matching '{criteria}'. The results include: {match_listing}."
+                
+                total_time = time.monotonic() - start_time
+                return {
+                    "answer": answer,
+                    "sources": [{"record_type": "data_interpreter", "count_found": count, "criteria": criteria, "filename": "universal_json_scan"}],
+                    "time_elapsed_seconds": total_time
+                }
+        # ------------------------------------------------------------
 
         # Get the cached global vector store (no-op after first request)
         store = await _get_or_create_store(num_thread=allocated_threads)
