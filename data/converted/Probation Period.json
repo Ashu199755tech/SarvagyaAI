@@ -1,41 +1,290 @@
 [
   {
-    "policy_id": "POL:Probation Period",
+    "header": "Probation Period Summary",
+    "text": "This FiftyFive Technologies Policy on probation period is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
     "policy_name": "Probation Period",
-    "filename": "Probation Period.pdf",
-    "category": "Probation Period",
-    "summary": "This FiftyFive Technologies Policy on probation period is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
-    "key_rules": [
-      "The Probation Period for all new joiners who are Experienced Professionals is three (3) months.",
-      "The key focus during the Probation Period is to induct the employee into the organization and to review their performance, behavior, and suitability for permanent employment.",
-      "During the Probation Period, the Company will closely monitor the employee’s performance, work attitude, and availability. Failure to meet the expected standards may result in the Company taking appropriate action regarding employment.",
-      "Policy violations, misconduct, or serious performance issues may result in immediate termination regardless of review timelines.",
-      "Employees on probation may not be eligible for certain benefits, such as privilege and additional leave entitlement, or long-term perks, until confirmation. Induction During Probation",
-      "An effective induction program is critical for recruitment, employee engagement, and retention.",
-      "For all new joiners, induction is conducted at the organization level. FiftyFive Technologies conducts a 4-day induction program for all employees immediately after joining to familiarize them with the Company’s vision, values, processes, policies, and culture. Performance Monitoring & Review",
-      "Employee performance, work quality, attendance, and behavior will be closely monitored during probation.",
-      "Periodic performance reviews will be conducted:",
-      "For Experienced Professionals: at the end of 3 months.",
-      "The Company may extend the probation period if performance is not fully satisfactory. Reviews will assess:",
-      "Task completion and quality of work",
-      "Teamwork, communication, and collaboration",
-      "Adherence to Company policies and culture Integration with Performance Management System (PMS) & PIP",
-      "Employees on probation are subject to the Performance Management System (PMS) of the Company.",
-      "Performance will be monitored continuously, and feedback will be provided periodically.",
-      "If performance gaps or areas of improvement are identified, the employee may be placed under a Performance Improvement Plan (PIP) even during the probation period.",
-      "PIP provisions, including review period, goals, and outcomes, will apply as per the Performance Management System policy. Leave and Benefits During Probation",
-      "Employees on probation are not eligible for certain benefits and long-term perks, including some privilege and some categories of additional leave entitlements mentioned in the leave policy of FiftyFive technologies.",
-      "Specifically, leave balances such as Casual Leave, Privilege Leave, or Additional Leaves will not accrue or be available until the employee is confirmed.",
-      "In case of emergency, employees may avail Loss of Pay (LOP) leave with prior approval from the Reporting Manager and HR.",
-      "Any LOP availed during probation cannot be adjusted or converted to other leave types after confirmation. Notice Period During Probation",
-      "Either the Company or the employee may terminate employment during probation with two months’ notice or payment in lieu, unless otherwise specified in the offer letter and notice period policy of FiftyFive Technologies,",
-      "The Company reserves the right to terminate employment immediately in cases of misconduct, serious policy violation, or gross negligence. Extension of Probation",
-      "The probation period may be extended if the employee’s performance, behaviour, or suitability for the role is not fully satisfactory.",
-      "Any extension will be communicated in writing with a clear duration and performance expectations.",
-      "Maximum probation extension shall not exceed 3 additional months, unless specifically approved by the HR Head and business leadership. Confidentiality and Conduct",
-      "All evaluations, feedback, and records related to the probation period are strictly confidential.",
-      "Employees must not disclose or discuss probation-related feedback, evaluations, or performance gaps with colleagues.",
-      "Breach of confidentiality may lead to disciplinary action, including but not limited to withholding confirmation, corrective measures, or termination. Reference to Other Policies All Company policies, including Code of Ethics and Business Conduct, Assets, Attendance, Leave, PMS and Separation Policy, POSH, Referral, Holiday, are applicable during the probation period unless explicitly stated otherwise. Termination During Probation"
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 1",
+    "text": "The Probation Period for all new joiners who are Experienced Professionals is three (3) months.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 2",
+    "text": "The key focus during the Probation Period is to induct the employee into the organization and to review their performance, behavior, and suitability for permanent employment.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 3",
+    "text": "During the Probation Period, the Company will closely monitor the employee’s performance, work attitude, and availability. Failure to meet the expected standards may result in the Company taking appropriate action regarding employment.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 4",
+    "text": "Policy violations, misconduct, or serious performance issues may result in immediate termination regardless of review timelines.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 5",
+    "text": "Employees on probation may not be eligible for certain benefits, such as privilege and additional leave entitlement, or long-term perks, until confirmation. Induction During Probation",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 6",
+    "text": "An effective induction program is critical for recruitment, employee engagement, and retention.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 7",
+    "text": "For all new joiners, induction is conducted at the organization level. FiftyFive Technologies conducts a 4-day induction program for all employees immediately after joining to familiarize them with the Company’s vision, values, processes, policies, and culture. Performance Monitoring & Review",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 8",
+    "text": "Employee performance, work quality, attendance, and behavior will be closely monitored during probation.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 9",
+    "text": "Periodic performance reviews will be conducted:",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 10",
+    "text": "For Experienced Professionals: at the end of 3 months.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 11",
+    "text": "The Company may extend the probation period if performance is not fully satisfactory. Reviews will assess:",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 12",
+    "text": "Task completion and quality of work",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 13",
+    "text": "Teamwork, communication, and collaboration",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 14",
+    "text": "Adherence to Company policies and culture Integration with Performance Management System (PMS) & PIP",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 15",
+    "text": "Employees on probation are subject to the Performance Management System (PMS) of the Company.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 16",
+    "text": "Performance will be monitored continuously, and feedback will be provided periodically.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 17",
+    "text": "If performance gaps or areas of improvement are identified, the employee may be placed under a Performance Improvement Plan (PIP) even during the probation period.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 18",
+    "text": "PIP provisions, including review period, goals, and outcomes, will apply as per the Performance Management System policy. Leave and Benefits During Probation",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 19",
+    "text": "Employees on probation are not eligible for certain benefits and long-term perks, including some privilege and some categories of additional leave entitlements mentioned in the leave policy of FiftyFive technologies.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 20",
+    "text": "Specifically, leave balances such as Casual Leave, Privilege Leave, or Additional Leaves will not accrue or be available until the employee is confirmed.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 21",
+    "text": "In case of emergency, employees may avail Loss of Pay (LOP) leave with prior approval from the Reporting Manager and HR.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 22",
+    "text": "Any LOP availed during probation cannot be adjusted or converted to other leave types after confirmation. Notice Period During Probation",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 23",
+    "text": "Either the Company or the employee may terminate employment during probation with two months’ notice or payment in lieu, unless otherwise specified in the offer letter and notice period policy of FiftyFive Technologies,",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 24",
+    "text": "The Company reserves the right to terminate employment immediately in cases of misconduct, serious policy violation, or gross negligence. Extension of Probation",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 25",
+    "text": "The probation period may be extended if the employee’s performance, behaviour, or suitability for the role is not fully satisfactory.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 26",
+    "text": "Any extension will be communicated in writing with a clear duration and performance expectations.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 27",
+    "text": "Maximum probation extension shall not exceed 3 additional months, unless specifically approved by the HR Head and business leadership. Confidentiality and Conduct",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 28",
+    "text": "All evaluations, feedback, and records related to the probation period are strictly confidential.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 29",
+    "text": "Employees must not disclose or discuss probation-related feedback, evaluations, or performance gaps with colleagues.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 30",
+    "text": "Breach of confidentiality may lead to disciplinary action, including but not limited to withholding confirmation, corrective measures, or termination. Reference to Other Policies All Company policies, including Code of Ethics and Business Conduct, Assets, Attendance, Leave, PMS and Separation Policy, POSH, Referral, Holiday, are applicable during the probation period unless explicitly stated otherwise. Termination During Probation",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 31",
+    "text": "The Company reserves the right to terminate employment at any time during probation due to unsatisfactory performance, behavior, or policy violations.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 32",
+    "text": "Termination may be immediate or require short notice, as determined by the Company.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 33",
+    "text": "Employees leaving voluntarily during probation must follow applicable exit formalities as per the separation policy of FiftyFive Technologies. Confirmation of Employment",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 34",
+    "text": "Confirmation is subject to satisfactory performance, conduct, and compliance with Company policies.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
+  },
+  {
+    "header": "Probation Period Rule 35",
+    "text": "Confirmed employees will be permanent members of the organization. Right to Amend Policies This Employee Handbook is intended to provide general guidance on Company policies and practices. FiftyFive Technologies reserves the right to amend, modify, suspend, or withdraw any policy, procedure, or benefit described in this handbook at any time, with or without notice, based on business, operational, or legal requirements.",
+    "policy_name": "Probation Period",
+    "record_type": "policy_segment",
+    "source_file": "Probation Period.pdf",
+    "doc_name": "Probation Period"
   }
 ]

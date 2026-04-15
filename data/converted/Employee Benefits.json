@@ -1,26 +1,130 @@
 [
   {
-    "policy_id": "POL:Employee Benefits",
+    "header": "Employee Benefits Summary",
+    "text": "This FiftyFive Technologies Policy on employee benefits is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at anytime as per the company policy.",
     "policy_name": "Employee Benefits",
-    "filename": "Employee Benefits.pdf",
-    "category": "Employee Benefits",
-    "summary": "This FiftyFive Technologies Policy on employee benefits is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at anytime as per the company policy.",
-    "key_rules": [
-      "Salary Benefit: The salary of the month is credited every 1st of the month if in case there is a holiday on the same date, the salary gets credited on the next working day.",
-      "Health Insurance: FiftyFive currently provides individuals, spouses, and their children health insurance benefits for eligible full-time employees. FiftyFive presently pays the individual insurance premium for all its employees.",
-      "Accidental Insurance: FiftyFive also provides individual accidental insurance benefits for eligible full-time employees. FiftyFive presently pays the individual insurance premium for all its employees.",
-      "Reimbursement Expense: Reimbursement is authorized for reasonable and necessary expenses incurred in carrying out job responsibilities. Mileage or transportation, parking fees, business telephone calls, and meal costs when required to attend a luncheon or banquet, are all illustrative of reasonable and necessary expenses.",
-      "Meal Benefit: FiftyFive provides lunch facilities for employees. Additionally, a full-time coffee/tea machine is available within the office premises to ensure employees can refresh themselves and stay comfortable during work hours.",
-      "Special Friday: FiftyFive treats Friday as a special day of the week wherein employees get the opportunity to enjoy themselves through outdoor/indoor games, activities, and parties including a special meal.",
-      "Team Quarterly Surprises: A special surprise including trips, activities, parties, and fitness programs is organized on behalf of the company on a quarterly basis to create a healthy and friendly working culture among the employees of the company.",
-      "Certification Policy: To continue and promote learning within the organization, we are formally introducing FiftyFive Technologies learning program. We are introducing a Certification Policy. Employees can go for various certifications relevant to their current profile and enhance their skill set. On successful completion, the cost of certifications will be reimbursed by the company. Rules:",
-      "Employees who are availing this benefit should be confirmed employee only and while opting this course benefit, they should serve the company for at least 12 months more.",
-      "If an employee avails reimbursement for any certification and he/she resigns from the organization after or during the period availing the benefit, he/she has to bear the cost of certification which will hence be adjusted in the full and final settlement.",
-      "Candidates can only opt for certification relevant to the skill set required as per candidate’s work allocation or aligned with organization goals.",
-      "Certification requirements and reimbursement must be approved by the reporting manager.",
-      "To start with each candidate can avail reimbursement of up to INR 40000 per financial year.",
-      "Reimbursement is subject to completion of certification only, registration or attending training sessions or courses will not be considered for reimbursement.",
-      "Employee Bonus Clause FiftyFive Technologies offers several types of bonuses to its employees. Please refer to the explanation of each type of bonus mentioned below: A) Performance Bonus: Performance Bonus means the performance bonus in respect of an individual's performance. A performance bonus is a form of additional compensation paid to an employee as a reward for achieving specific goals or hitting predetermined targets. Hence will be payable according to the terms and conditions decided by the company. In the event of you resigning from the services of the Company on your own accord within the duration, the bonus will be considered as NIL. B) Company Performance Bonus: A company performance bonus is a financial reward given to employees based on the overall success and profitability of the company, often tied to achieving specific performance goals or benchmarks. Unlike individual bonuses, which are typically linked to an employee's achievements or role-specific targets, a performance bonus reflects the collective effort and accomplishments of the entire organization. This type of bonus encourages employees to work toward shared objectives and contributes to a unified company culture. Performance bonuses are usually awarded annually or quarterly, depending on company policy, and may be based on metrics such as revenue growth, cost savings, productivity, or customer satisfaction scores. By sharing in the company's success, employees feel recognized for their contributions and motivated to continue driving positive results for the business. In the event of you resigning from the services of the Company on your own accord within the duration, the bonus will be considered as NIL. C) Retention Bonus: A retention bonus is a targeted one-time payment or reward outside of an employee's regular salary that is offered as an incentive to keep a key employee on the job. Terms of a retention bonus agreement may also include non- disclosure terms, assignment right terms, and reimbursement terms should retention bonus installment payments be made. Hence will be payable according to the terms and conditions decided by the company. In the event of you resigning from the services of the Company on your own accord within the duration, the bonus will be considered as NIL. Note: Terms and Conditions are accordingly applied for the above bonus components point"
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 1",
+    "text": "Salary Benefit: The salary of the month is credited every 1st of the month if in case there is a holiday on the same date, the salary gets credited on the next working day.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 2",
+    "text": "Health Insurance: FiftyFive currently provides individuals, spouses, and their children health insurance benefits for eligible full-time employees. FiftyFive presently pays the individual insurance premium for all its employees.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 3",
+    "text": "Accidental Insurance: FiftyFive also provides individual accidental insurance benefits for eligible full-time employees. FiftyFive presently pays the individual insurance premium for all its employees.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 4",
+    "text": "Reimbursement Expense: Reimbursement is authorized for reasonable and necessary expenses incurred in carrying out job responsibilities. Mileage or transportation, parking fees, business telephone calls, and meal costs when required to attend a luncheon or banquet, are all illustrative of reasonable and necessary expenses.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 5",
+    "text": "Meal Benefit: FiftyFive provides lunch facilities for employees. Additionally, a full-time coffee/tea machine is available within the office premises to ensure employees can refresh themselves and stay comfortable during work hours.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 6",
+    "text": "Special Friday: FiftyFive treats Friday as a special day of the week wherein employees get the opportunity to enjoy themselves through outdoor/indoor games, activities, and parties including a special meal.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 7",
+    "text": "Team Quarterly Surprises: A special surprise including trips, activities, parties, and fitness programs is organized on behalf of the company on a quarterly basis to create a healthy and friendly working culture among the employees of the company.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 8",
+    "text": "Certification Policy: To continue and promote learning within the organization, we are formally introducing FiftyFive Technologies learning program. We are introducing a Certification Policy. Employees can go for various certifications relevant to their current profile and enhance their skill set. On successful completion, the cost of certifications will be reimbursed by the company. Rules:",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 9",
+    "text": "Employees who are availing this benefit should be confirmed employee only and while opting this course benefit, they should serve the company for at least 12 months more.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 10",
+    "text": "If an employee avails reimbursement for any certification and he/she resigns from the organization after or during the period availing the benefit, he/she has to bear the cost of certification which will hence be adjusted in the full and final settlement.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 11",
+    "text": "Candidates can only opt for certification relevant to the skill set required as per candidate’s work allocation or aligned with organization goals.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 12",
+    "text": "Certification requirements and reimbursement must be approved by the reporting manager.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 13",
+    "text": "To start with each candidate can avail reimbursement of up to INR 40000 per financial year.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 14",
+    "text": "Reimbursement is subject to completion of certification only, registration or attending training sessions or courses will not be considered for reimbursement.",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
+  },
+  {
+    "header": "Employee Benefits Rule 15",
+    "text": "Employee Bonus Clause FiftyFive Technologies offers several types of bonuses to its employees. Please refer to the explanation of each type of bonus mentioned below: A) Performance Bonus: Performance Bonus means the performance bonus in respect of an individual's performance. A performance bonus is a form of additional compensation paid to an employee as a reward for achieving specific goals or hitting predetermined targets. Hence will be payable according to the terms and conditions decided by the company. In the event of you resigning from the services of the Company on your own accord within the duration, the bonus will be considered as NIL. B) Company Performance Bonus: A company performance bonus is a financial reward given to employees based on the overall success and profitability of the company, often tied to achieving specific performance goals or benchmarks. Unlike individual bonuses, which are typically linked to an employee's achievements or role-specific targets, a performance bonus reflects the collective effort and accomplishments of the entire organization. This type of bonus encourages employees to work toward shared objectives and contributes to a unified company culture. Performance bonuses are usually awarded annually or quarterly, depending on company policy, and may be based on metrics such as revenue growth, cost savings, productivity, or customer satisfaction scores. By sharing in the company's success, employees feel recognized for their contributions and motivated to continue driving positive results for the business. In the event of you resigning from the services of the Company on your own accord within the duration, the bonus will be considered as NIL. C) Retention Bonus: A retention bonus is a targeted one-time payment or reward outside of an employee's regular salary that is offered as an incentive to keep a key employee on the job. Terms of a retention bonus agreement may also include non- disclosure terms, assignment right terms, and reimbursement terms should retention bonus installment payments be made. Hence will be payable according to the terms and conditions decided by the company. In the event of you resigning from the services of the Company on your own accord within the duration, the bonus will be considered as NIL. Note: Terms and Conditions are accordingly applied for the above bonus components point",
+    "policy_name": "Employee Benefits",
+    "record_type": "policy_segment",
+    "source_file": "Employee Benefits.pdf",
+    "doc_name": "Employee Benefits"
   }
 ]

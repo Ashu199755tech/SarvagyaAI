@@ -1,41 +1,1722 @@
 [
   {
-    "policy_id": "POL:Leave Policy",
+    "header": "Leave Policy Summary",
+    "text": "This FiftyFive Technologies Policy on leave and attendance policy is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
     "policy_name": "Leave Policy",
-    "filename": "Leave Policy.pdf",
-    "category": "Leave Policy",
-    "summary": "This FiftyFive Technologies Policy on leave and attendance policy is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
-    "key_rules": [
-      "Additional Leaves Each comprising of specific sub-categories as defined under the respective leave provisions. Leave Provisions Monthly Leaves Leaves are provided on a monthly pro-rata basis and are accrued at the beginning of each month. Employees are entitled to a total of 24 leaves per year, comprising Casual Leave (CL) and Privilege Leave (PL). Employees are expected to plan and apply for their leaves in advance through the HRIS Leave Management System to enable effective project and resource planning.",
-      "Casual Leave: Purpose The purpose of the Casual Leave Policy is to enable employees to plan short-term time off from work for personal and unforeseen requirements. Casual Leave may be availed for reasons such as rest and de-stressing, personal commitments, appearing for examinations, family events (including marriage of family members), minor illness, or other personal exigencies. Eligibility This Policy is applicable to:",
-      "All Full-time employees of FiftyFive Technologies Pvt Limited including support staff, trainees and probationers. This policy is not applicable to:",
-      "Business Associates, Associate Consultant / Contractual Employee, Freelancers Provisions",
-      "The employees are entitled to 12 working days of Casual leave every year.",
-      "The year for the purpose of leave accounting is the year from January to December.",
-      "These types of leaves are a part of the total of 24 leaves allowed to an employee in a year that can be taken for some casual work.",
-      "The casual leave will be credited on a pro rata monthly basis, i.e. 1 in a month.",
-      "The leave entitlement for the year is prorated every month to arrive at the monthly entitlement.",
-      "The entitlement for each month is credited at the beginning of each month.",
-      "All Unutilized Causal leaves lapse at the end of the calendar year and cannot be reimbursed through any monetary means.",
-      "Availing the benefits:",
-      "The leave may be prefixed and or suffixed with other leave types/weekends/statutory holidays. Intervening weekends and holidays are not counted as Casual Leave days and cannot be combined with Paternity Leave, Maternity Leave, Adoption Leave, Exam Leave.",
-      "These leaves can only be combined with Privilege leave; Floater Leave and Bereavement Leave.",
-      "Leaves may be applied for a minimum of half a day.",
-      "Employees may apply for leave multiple times during the year, subject to availability of the balance. However, such applicants must not violate the principle and purpose for which casual leave is provided.",
-      "Leave when availed more than 2 days needs to be informed well in advance before a prior notice of 7 days.",
-      "The leave days in a request may span across the years.",
-      "The leaves cannot be applied after availing the same, hence no back-date leaves can be applied. If not, the applied prior may use his/her discretion to convert this into a Loss of pay.",
-      "If the employee applies for Casual Leave but does not avail of the same due to any reason, he/she may choose to cancel the same.",
-      "New Joined: The employee can avail leave if he/she has sufficient balance. Casual Leave for employees who join during the year will be credited after their first payroll run and their entitlement will be prorated based on their joining.",
-      "Employee goes on leave without pay (LWP): The employee is not entitled to leave when he/she is on leave without pay, hence there will be no leave of credit for the duration of the LWP.",
-      "Employee serving notice period: The employee serving period cannot avail of Casual leave at the time they have started serving the notice period.",
-      "Employee in Performance Improvement Plan (PIP): The employee in PIP cannot avail of Casual leave at this time. Terms and Conditions",
-      "You are not allowed to apply past day leave. Your manager or HR manager can apply on your behalf.",
-      "Casual Leave requires comment while applying for leave.",
-      "Casual Leave cannot be applied when in the notice period and during the performance improvement plan.",
-      "Casual Leave cannot be taken along with Paternity Leave, Maternity Leave, Exam Leave, Adoption Leave.",
-      "In case the leave is rejected after it is availed, and the employee is still on leave, it will be considered a loss of pay and the employee will be subject to disciplinary actions based on HR’s discretion.",
-      "During the leave period, the employee cannot take up any part-time or full-time employment of remuneration or otherwise, for any reason whatsoever. Procedure Applying for Leave: o The employee can apply for leave through the Keka Portal. o Login to KEKA-Go to Me section- Click on Leave- Apply for Leave. o The employee completed the leave application form and submitted it for approval of the same. Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow: o The leave goes for two levels of approval: to the employee's immediate Reporting Manager and to the Branch Head."
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 2",
+    "text": "Additional Leaves Each comprising of specific sub-categories as defined under the respective leave provisions. Leave Provisions Monthly Leaves Leaves are provided on a monthly pro-rata basis and are accrued at the beginning of each month. Employees are entitled to a total of 24 leaves per year, comprising Casual Leave (CL) and Privilege Leave (PL). Employees are expected to plan and apply for their leaves in advance through the HRIS Leave Management System to enable effective project and resource planning.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 3",
+    "text": "Casual Leave: Purpose The purpose of the Casual Leave Policy is to enable employees to plan short-term time off from work for personal and unforeseen requirements. Casual Leave may be availed for reasons such as rest and de-stressing, personal commitments, appearing for examinations, family events (including marriage of family members), minor illness, or other personal exigencies. Eligibility This Policy is applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 4",
+    "text": "All Full-time employees of FiftyFive Technologies Pvt Limited including support staff, trainees and probationers. This policy is not applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 5",
+    "text": "Business Associates, Associate Consultant / Contractual Employee, Freelancers Provisions",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 7",
+    "text": "The employees are entitled to 12 working days of Casual leave every year.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 8",
+    "text": "The year for the purpose of leave accounting is the year from January to December.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 9",
+    "text": "These types of leaves are a part of the total of 24 leaves allowed to an employee in a year that can be taken for some casual work.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 10",
+    "text": "The casual leave will be credited on a pro rata monthly basis, i.e. 1 in a month.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 11",
+    "text": "The leave entitlement for the year is prorated every month to arrive at the monthly entitlement.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 12",
+    "text": "The entitlement for each month is credited at the beginning of each month.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 13",
+    "text": "All Unutilized Causal leaves lapse at the end of the calendar year and cannot be reimbursed through any monetary means.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 14",
+    "text": "Availing the benefits:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 15",
+    "text": "The leave may be prefixed and or suffixed with other leave types/weekends/statutory holidays. Intervening weekends and holidays are not counted as Casual Leave days and cannot be combined with Paternity Leave, Maternity Leave, Adoption Leave, Exam Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 16",
+    "text": "These leaves can only be combined with Privilege leave; Floater Leave and Bereavement Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 17",
+    "text": "Leaves may be applied for a minimum of half a day.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 18",
+    "text": "Employees may apply for leave multiple times during the year, subject to availability of the balance. However, such applicants must not violate the principle and purpose for which casual leave is provided.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 19",
+    "text": "Leave when availed more than 2 days needs to be informed well in advance before a prior notice of 7 days.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 20",
+    "text": "The leave days in a request may span across the years.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 21",
+    "text": "The leaves cannot be applied after availing the same, hence no back-date leaves can be applied. If not, the applied prior may use his/her discretion to convert this into a Loss of pay.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 22",
+    "text": "If the employee applies for Casual Leave but does not avail of the same due to any reason, he/she may choose to cancel the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 24",
+    "text": "New Joined: The employee can avail leave if he/she has sufficient balance. Casual Leave for employees who join during the year will be credited after their first payroll run and their entitlement will be prorated based on their joining.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 25",
+    "text": "Employee goes on leave without pay (LWP): The employee is not entitled to leave when he/she is on leave without pay, hence there will be no leave of credit for the duration of the LWP.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 26",
+    "text": "Employee serving notice period: The employee serving period cannot avail of Casual leave at the time they have started serving the notice period.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 27",
+    "text": "Employee in Performance Improvement Plan (PIP): The employee in PIP cannot avail of Casual leave at this time. Terms and Conditions",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 28",
+    "text": "You are not allowed to apply past day leave. Your manager or HR manager can apply on your behalf.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 29",
+    "text": "Casual Leave requires comment while applying for leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 30",
+    "text": "Casual Leave cannot be applied when in the notice period and during the performance improvement plan.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 31",
+    "text": "Casual Leave cannot be taken along with Paternity Leave, Maternity Leave, Exam Leave, Adoption Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 32",
+    "text": "In case the leave is rejected after it is availed, and the employee is still on leave, it will be considered a loss of pay and the employee will be subject to disciplinary actions based on HR’s discretion.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 33",
+    "text": "During the leave period, the employee cannot take up any part-time or full-time employment of remuneration or otherwise, for any reason whatsoever. Procedure Applying for Leave: o The employee can apply for leave through the Keka Portal. o Login to KEKA-Go to Me section- Click on Leave- Apply for Leave. o The employee completed the leave application form and submitted it for approval of the same. Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow: o The leave goes for two levels of approval: to the employee's immediate Reporting Manager and to the Branch Head.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 34",
+    "text": "Privileged Leave (PL) Purpose This Policy is designed to enable employees to plan their time off from work. The purpose of the privilege leave policy is to grant the employee a fixed number of days off from work. As a benefit they have earned on account of working for a specific number of days in a particular period. Eligibility This Policy is applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 35",
+    "text": "All Full-time employees of FiftyFive Technologies Pvt Limited including trainees and probationers. This policy is not applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 36",
+    "text": "Support Staff, Business Associates, Associate Consultant / Contractual Employee, Freelancers Provisions",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 38",
+    "text": "The employees are entitled to 12 working days of Privilege Leaves every year.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 39",
+    "text": "The year for the purpose of leave accounting is the year from January to December.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 40",
+    "text": "These types of leaves are a part of the total of 24 leaves allowed to an employee in a year.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 41",
+    "text": "The leave of entitlement for the year is prorated on a monthly basis to arrive at the monthly entitlement. The entitlement for each month is credited at the beginning of each month.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 42",
+    "text": "Employees can avail the leave balance of upcoming months in advance based on the accumulated balance of projection.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 43",
+    "text": "Leaves that are entitled to be carried forward will be up to the days as maximum of 12 in a year.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 44",
+    "text": "The encashment is processed in the financial year, i.e. March month.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 45",
+    "text": "The maximum accumulation of privilege leave balances is capped at a maximum of 24 days. Number of days left in excess of 24, accumulated till the end of the calendar year are treated as “Surplus” in the month of December.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 46",
+    "text": "Any excess beyond 24 days will be subject to encashment, and employees will be required to either avail of those leaves or the surplus balance into encashment.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 47",
+    "text": "Availing the benefits:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 48",
+    "text": "Employees may apply for leave multiple times during the year, subject to availability of the balance to be informed well in advance of at least 15 days of notice. However, such applicants must not violate the principle and purpose for which casual leave is provided.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 49",
+    "text": "Leaves may be applied for a minimum of full days. There is no limit on the maximum number of days, subject to availability of balance.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 50",
+    "text": "In a month, employees can avail maximum up to 5 days of Privilege leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 51",
+    "text": "In a year, employees can avail maximum up to 12 days of Privilege leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 52",
+    "text": "The leaves cannot be applied after availing the same, hence no back date leaves can be applied. If not applied prior may use his/her discretion to convert this into Loss of pay.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 53",
+    "text": "If the employee applies Privilege Leave but does not avail of the same due to any reason, he/she may choose to cancel the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 54",
+    "text": "The leave may be prefixed and or suffixed with weekends/statutory holidays. Intervening weekends and holidays are not counted as privilege leave days and cannot be combined with Maternity, Adoption, Paternity and Exam Leaves.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 55",
+    "text": "The encashment formula is followed as mentioned below: Encashment amount = (last drawn basic salary of the last calendar year /number of days within a year) * eligible leave balance.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 58",
+    "text": "The employee can avail leave if he/she has sufficient balance.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 59",
+    "text": "Privilege leave is credited only after the employee has served his probation period.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 60",
+    "text": "Employee goes on leave without pay (LWP): The employee is not entitled to leave when he/she is on leave without pay, hence there will be no leave of credit for the duration of the LWP.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 61",
+    "text": "Employee serving notice period: The employee serving period cannot avail of Privilege leave at the time they have started serving the notice period.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 62",
+    "text": "Employee Retirement: In case of retirement, the accumulated leave balance as of the date of retirement is encashed and paid to the employee in full and final accordance with the encashment formula.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 63",
+    "text": "Employee Death: In case of death, the accumulated leave balance as of the date of death is encashed and paid to the nominee.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 64",
+    "text": "Employee in Performance Improvement Plan (PIP): The employee in PIP cannot avail of Privilege leave at the time. Terms and Conditions:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 65",
+    "text": "There is a provision for an employee to apply for Advance Privileged leave which is that the employee has to inform the reporting manager/HR Department prior to 15 days of the leave to occur.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 66",
+    "text": "During the leave period, the employee cannot take up any part-time or full-time employment for remuneration or otherwise, for any reason whatsoever.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 67",
+    "text": "In case the leave exceeds the balance allotted in a month, it will result in a loss of pay, based on the HR manager’s discretion.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 68",
+    "text": "In case the employee does not report back to his/her supervisor on the leave end date, the excess leave will be treated as unauthorized leave. Such unauthorized leave will be applied by HR and will result in a loss of pay.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 69",
+    "text": "FiftyFive Technologies reserves the right to initiate an exit procedure in case of the following: ❖ The employee does not report back by the approved leave end date and does not inform the supervisor. ❖ Privilege Leave cannot be applied when in the notice period or in the performance improvement Plan.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 70",
+    "text": "These leaves can only be combined with Casual Leave, Floater Leave, and Bereavement Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 71",
+    "text": "Privilege Leave cannot be taken along with Paternity Leave, Maternity Leave, Exam Leave, or Adoption Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 72",
+    "text": "The leaves can be approved or rejected by the reporting manager or the HR Manager based on the project requirements. Procedure Applying for Leave: o The employee can apply for leave through the Keka Portal. o Login to KEKA-Go to Me section- Click on Leave- Apply for Leave. o The employee completed the leave application form and submitted it for approval of the same. Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow: o The leave goes for two levels of approval: to the employee's immediate Reporting Manager and to the Branch Head. Leave Calculation of Monthly Leaves: Let us frame examples to understand better- CASE I: For Casual Leaves Let us assume that Ram joined FiftyFive on 1st January and avails 5 leaves till September. As per the leave policy, his accrued leave till September is 1*9 =9 (1 leave provided per month). So, after consuming his 5 leaves, the balance available for September is 4 leaves out of 9 accrued so far and the remaining balance will be 3 out of a total annual quota of 12 till December. CASE II: For Privilege leaves Let us assume that Ram joined FiftyFive on 1st January and avails 5 leaves till September. As per the leave policy, his accrued leaves till September is 1*9 =9 (1 leave provided per month). So, after consuming his 5 leaves, the balance available in September is 4 leave out of 9 accrued so far and remaining balance will be 3 out of total annual quota of 12 till December. Let us assume that Ram has completed 3 years with FiftyFive and wants to know his total balance of PL and the encashment process. As per the leave policy, his entitlement of leaves till December is 1*12 =12 (1 leave provided per month). The same pointer is applied for next both years. So, his total leave balance would be of 36 (12+12+12) from which his extra leave balance exceeding from 24 will be eligible for encashment i.e. 12 which will be encashed to him in the financial year i.e. in March and rest balance will be carried forward again until availed. Incase Ram resigns between the third year or so, then his accumulated balance (24 carried forward leaves and accumulated till that year) will be given as encashment during his full and final settlement. Let us assume that Ram has completed 3 years with FiftyFive and wants to consume his leaves along with encashment. As per the leave policy, his entitlement of leaves till December is 1*12 =12 (1 leave provided per month) Privilege Leave (PL) Calculation – Illustrated Through Table Opening Leave Total Annual Carried Forward Leave Year Availed Leave Balance Quota Balance 2024 0 12 5 7 2025 7 12 3 16 27 (24 carried forward to 2026 16 12 1 2027 and 3 encashed) 36 (24 carried forward to 2027 24 12 0 2028 and 12 encashed) ADDITIONAL LEAVES",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 74",
+    "text": "Eligibility This Policy is applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 75",
+    "text": "All male Full-time employees of FiftyFive Technologies Pvt Limited who have completed one year with the company. This policy is not applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 76",
+    "text": "Trainees, Business Associates, Female Employees, Employee on probation period, Business Associates, Associate Consultant / Contractual Employee, Freelancer",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 78",
+    "text": "This benefit can be claimed by male employee during his employment period at the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 79",
+    "text": "Every married male employee will be allowed to take 5 calendar days leave in one go for his new- born.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 80",
+    "text": "The Paternity Leave will be limited only up to 2 children and can be availed one instance per year and twice during the tenure with the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 81",
+    "text": "Paternity leave is applicable only to the newborn child’s father and hence the employee can avail of this balance within 6 months from the birth of a child.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 82",
+    "text": "Paternity Leave is event based and cannot be encashed or accumulated.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 83",
+    "text": "If the employee applied for Paternity Leave but does not avail of the same due to any reason, he may choose to cancel the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 85",
+    "text": "Eligible employees may apply for paternity leave only twice during their tenure in FiftyFive Technologies Pvt Limited but only one paternity leave request will be permitted in the same instance per year.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 86",
+    "text": "The other leave types/weekends/statutory holidays falling during the period of leave will be considered as leave days.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 87",
+    "text": "Paternity leave should be planned in advance at least 30 calendar days prior before availing the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 88",
+    "text": "All the leave days in a request should be availed continuously without any break.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 90",
+    "text": "New Joinee: Employees can avail the balance once they have served one year with the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 91",
+    "text": "Employee goes on leave without pay (LWP): The employee is not entitled to leave when he/she is on leave without pay, hence there will be no leave of credit for the duration of the LWP.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 92",
+    "text": "Employee serving notice period: The employee serving period cannot avail this leave at the time they have started serving notice period and have completed one year with the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 93",
+    "text": "Employee in Performance Improvement Plan (PIP): The employee in PIP cannot avail of this leave at the time. Procedure Applying for Leave:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 94",
+    "text": "The employee can apply for leave through the Keka Portal.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 95",
+    "text": "Login to KEKA-Go to Me section- Click on Leave- Apply for Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 96",
+    "text": "The employee completed the leave application form and submitted it for approval of the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 97",
+    "text": "Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow: The leave goes for two levels of approval: to the employee’s immediate Reporting Manager and to the HR head. Terms and Conditions",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 98",
+    "text": "The applicant should inform the HR department about this event a minimum of 30 days in advance before proceeding on leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 99",
+    "text": "It is the responsibility of employees to coordinate with the HR Department and ensure that their personal details are accurate and up to date in FiftyFive Technologies’ records",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 100",
+    "text": "Paternity leave cannot be combined with accrued Privilege leave, F l oater leaves, Casual Leave, Maternity Leave, Bereavement Leave, Exam Leave, and Adoption Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 101",
+    "text": "Non-availed Paternity Leave is not cashable. The weekly offs and holidays falling during this period will be part of the leaves availed (they will also count as leaves).",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 102",
+    "text": "Exceeding the leave balance may lead to loss of pay.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 104",
+    "text": "Eligibility: This Policy is applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 105",
+    "text": "All female Full-time employee of FiftyFive Technologies Pvt Limited. This policy is not applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 106",
+    "text": "Male Employees, Support Staff, Business Associates, Associate Consultant / Contractual Employee, Freelancers",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 108",
+    "text": "This benefit can be claimed by a female employee during her employment period at the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 109",
+    "text": "The Maternity Leave will be limited only up to 2 children and can be availed with one instance per year and only twice during the tenure with the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 110",
+    "text": "Maternity Leave is event based and cannot be encashed or accumulated.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 111",
+    "text": "If the employee applied for Maternity Leave but does not avail of the same due to any reason, he may choose to cancel the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 112",
+    "text": "An Employee may avail of Maternity Leave for the following reasons:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 113",
+    "text": "In Case of Childbirth and Pregnancy: Every married female employee will be allowed to take 182 calendar days of leave in one go for her child. ii) In Case of a miscarriage or medical termination of pregnancy: Every married female employee is entitled to avail for 6 weeks of paid leave immediately. following the date of the miscarriage or the medical termination of her pregnancy. iii) In case the employee undergoes a Tubectomy operation: Every married female employee is entitled to avail 2 weeks of paid leave immediately following the date of her Tubectomy operation.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 114",
+    "text": "Availing the Benefit:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 115",
+    "text": "Eligible employees may apply for maternity leave twice during their tenure in FiftyFive Technologies Pvt Limited but only one maternity leave request will be permitted in the same instance per year.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 116",
+    "text": "The other leave types/ weekends/statutory holidays falling during the period of leave will be considered as leave days.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 117",
+    "text": "Maternity leave should be planned in advance at least 30 calendar days prior before availing the same in case of childbirth.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 118",
+    "text": "All the leave days in a request should be availed continuously without any break.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 120",
+    "text": "New Joinees: Female employees can avail the balance once they have served 80 days with the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 121",
+    "text": "Employee goes on leave without pay (LWP): The female employee is not entitled for leave when she is on leave without pay, hence there will be no leave credit for the duration of the LWP.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 122",
+    "text": "Employee serving notice period: The female employee serving period cannot avail this leave at the time they have started serving notice period. Procedure: Applying for Leave:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 123",
+    "text": "The employee can apply for leave through the Keka Portal.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 124",
+    "text": "Login to KEKA-Go to Me section- Click on Leave- Apply for Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 125",
+    "text": "The employee completed the leave application form and submitted it for approval of the same. Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 126",
+    "text": "The leave goes for two levels of approval: to the employee’s immediate Reporting Manager and to the HR head. Terms and Conditions",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 127",
+    "text": "The applicant should inform about her pregnancy to the HR department minimum 30 Days in advance before proceeding on leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 128",
+    "text": "The application should be supported by a medical certificate confirming the pregnancy and expected date of childbirth.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 129",
+    "text": "Maternity leave cannot be combined with accrued Privilege leave, Floater Leaves, Casual Leave, Paternity Leave, Bereavement Leave, Exam Leave, Adoption Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 130",
+    "text": "Non-availed Maternity Leave is not cashable. The weekly offs and holidays falling during this period will be part of the leaves availed (they will also count as leaves).",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 131",
+    "text": "Upon exhaustion of the approved maternity leave entitlement, an employee may apply for an extension of leave for a maximum of 30 (thirty) days as Loss of Pay (LOP), subject to business requirements and management approval.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 132",
+    "text": "Any extension beyond the permissible 30 days of LOP shall not be allowed and may be treated as a policy violation, which could lead to disciplinary action in accordance with the Company’s disciplinary policy and applicable labor laws.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 133",
+    "text": "The employee must inform the HR Department in writing, in advance, if she intends to extend her absence beyond the approved maternity leave period.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 134",
+    "text": "Any extension of leave or LOP must be approved in advance by both the Reporting Manager and HR. Absence without prior approval may be treated as unauthorized leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 135",
+    "text": "The Company reserves the right to take appropriate action in compliance with statutory obligations while ensuring fair and consistent application of this policy.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 136",
+    "text": "The appraisal cycle, eligibility, or prorated performance assessment (if applicable) may be reviewed based on the actual period of active service, subject to management discretion and statutory compliance.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 138",
+    "text": "Eligibility This Policy is applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 139",
+    "text": "All female employees of FiftyFive Technologies Pvt Limited. This policy is not applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 140",
+    "text": "Male Employees, Support Staff, Business Associates, Associate Consultant / Contractual Employee, Freelancers",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 142",
+    "text": "This benefit can be claimed by a female employee during her employment period at the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 143",
+    "text": "Every married female employee will be allowed to take 15 calendar days leave in one go for her child.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 144",
+    "text": "The Adoption Leave will be limited to only up to 2 children and can be availed with one instance per year.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 145",
+    "text": "Adoption Leave is event based and cannot be encashed or accumulated.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 146",
+    "text": "If the employee applied for Adoption Leave but does not avail the same due to any reason, she may choose to cancel the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 148",
+    "text": "Eligible employees may apply for Adoption leave twice during their tenure at FiftyFive Technologies Pvt Limited, but only one adoption leave request will be permitted in the same instance per year.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 149",
+    "text": "The leave may be prefixed and/Suffixed with other leave types/ weekends/statutory holidays. The other leave types/weekends/statutory holidays will be considered leave days.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 150",
+    "text": "This leave should be planned in advance at least 30 calendar days prior before availing the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 151",
+    "text": "All the leave days in a request should be availed continuously without any break.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 153",
+    "text": "New Joinee: Female employees can avail the balance once they have served 80 days with the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 154",
+    "text": "Employee goes on leave without pay (LWP): The employee is not entitled for leave when she is on leave without pay, hence there will be no leave credit for the duration of the LWP.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 155",
+    "text": "Employee serving notice period: The employee serving period cannot avail this leave at the time they have started serving notice period. Procedure Applying for Leave:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 156",
+    "text": "The employee can apply for leave through the Keka Portal.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 157",
+    "text": "Login to KEKA-Go to Me section- Click on Leave- Apply for Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 158",
+    "text": "The employee completed the leave application form and submitted it for approval of the same. Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow: The leave goes for two levels of approval: to the employee’s immediate Reporting Manager and to the HR head. Terms and Conditions:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 159",
+    "text": "The applicant should inform the HR department at least 30 days in advance before proceeding on leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 160",
+    "text": "It is the responsibility of employees to coordinate with the HR Department and ensure that their personal details are accurate and up to date in FiftyFive Technologies’ records",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 161",
+    "text": "Adoption leave cannot be combined with accrued Privilege leave, Floater Leaves, Casual Leave, Maternity Leave, Bereavement Leave, Exam Leave, Paternity Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 162",
+    "text": "Non-availed Adoption Leave is not cashable. The weekly offs and holidays falling during this period will be part of the leaves availed (they will also count as leaves).",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 163",
+    "text": "Exceeding the leave balance may lead to loss of pay.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 165",
+    "text": "Eligibility This Policy is applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 166",
+    "text": "All employees of FiftyFive Technologies Pvt Limited after completion of one year. This policy is not applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 167",
+    "text": "Business Associates, Associate Consultant / Contractual Employee, Freelancers",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 169",
+    "text": "This benefit can be claimed by an employee during her employment period at the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 170",
+    "text": "Every employee will be allowed to take 1 day leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 171",
+    "text": "This leave can be availed in case there is demise of any of the immediate family members starting in the same house. Immediate family members will refer to Grandmother, Grandfather, Siblings, spouse, In-laws, Parents, and children.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 172",
+    "text": "If the employee applied for Bereavement Leave but does not avail of the same due to any reason, she/he may choose to cancel the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 174",
+    "text": "Eligible employees may apply for Bereavement leave during their tenure at FiftyFive Technologies Pvt Limited after completion of one year can avail for this leave type.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 175",
+    "text": "The leave may be prefixed and/Suffixed with Privilege and Casual leave type/ weekends/statutory holidays. The other leave types/weekends/statutory holidays will be considered leave days.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 176",
+    "text": "This leave should be informed before availing the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 177",
+    "text": "All the leave days in a request should be availed continuously without any break.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 179",
+    "text": "New Joinee: Employees can avail the balance once they have served one year with the company.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 180",
+    "text": "Employee goes on leave without pay (LWP): The employee is not entitled for leave when she is on leave without pay, hence there will be no leave credit for the duration of the LWP.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 181",
+    "text": "Employee serving notice period: The employee serving period cannot avail this leave at the time they have started serving notice period. Procedure Applying for Leave:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 182",
+    "text": "The employee can apply for leave through the Keka Portal.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 183",
+    "text": "Login to KEKA-Go to Me section- Click on Leave- Apply for Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 184",
+    "text": "The employee completed the leave application form and submitted it for approval of the same. Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 185",
+    "text": "The leave goes for two levels of approval: to the employee’s immediate Reporting Manager and to the HR head. Terms and Conditions:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 186",
+    "text": "The applicant should inform the HR department or Reporting manager immediately of proceeding on leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 187",
+    "text": "It is the responsibility of employees to coordinate with the HR Department and ensure that their personal details are accurate and up to date in FiftyFive Technologies’ records",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 188",
+    "text": "Bereavement leave can be combined with accrued Privilege leave, Floater and Casual Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 189",
+    "text": "Bereavement leave cannot be combined with accrued Maternity, Paternity, Adoption and Exam Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 190",
+    "text": "The weekly offs and holidays falling during this period will be part of the leaves availed (they will also count as leaves).",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 191",
+    "text": "Exceeding the leave balance may lead to loss of pay.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 193",
+    "text": "Eligibility This Policy is applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 194",
+    "text": "All employees of FiftyFive Technologies Pvt Limited. This policy is not applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 195",
+    "text": "Supporting Staff, Business Associates, Associate Consultant / Contractual Employee, Freelancers",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 197",
+    "text": "This leave can be claimed by an employee during the employment period at the company in case the employee is working on week offs. i.e. on Saturday and Sunday or on any fixed holidays allotted by the company or working beyond actual working hours i.e. 8 hours.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 198",
+    "text": "Employees can avail this leave with a maximum of 2 days at a time of a quarter.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 199",
+    "text": "If an employee works a week off and wishes to avail compensatory leave, it must be taken within the quarter; failure to apply within this timeframe will result in the expiration of compensatory leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 200",
+    "text": "These leaves are credited to the employee on request only and shall be prior approved by the Client (if any), Reporting manager and the Human Resource Department.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 202",
+    "text": "This leave cannot be clubbed with any other type of leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 203",
+    "text": "This leave should be informed and approved before availing the same.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 204",
+    "text": "All the leave days in a request should be availed within a quarter; failure to the same will lapse the balance.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 205",
+    "text": "The leaves will be credited by the Head of Human Resource Department and accordingly employees can avail it. Procedure Applying for Leave:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 206",
+    "text": "The employee can apply for leave through the Keka Portal.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 207",
+    "text": "Login to KEKA-Go to Me section- Click on Leave- Apply for Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 208",
+    "text": "The employee completed the leave application form and submitted it for approval of the same. Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 209",
+    "text": "The leave goes for two levels of approval: to the employee’s immediate Reporting Manager and to the HR. Terms and Conditions:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 210",
+    "text": "To avail compensatory off, the applicant should inform the HR department or Reporting manager prior to the 15 days of notice.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 211",
+    "text": "It is the responsibility of employees to coordinate with the HR Department and ensure that their personal details are accurate and up to date in FiftyFive Technologies’ records.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 212",
+    "text": "Compensatory offs cannot be combined with Floater Leave, Privilege leave, Casual Leave, Maternity Leave, Paternity Leave, Bereavement Leave, Adoption Leave and Exam leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 213",
+    "text": "Exceeding the leave balance may lead to loss of pay.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 214",
+    "text": "Working overtime (including working beyond normal working hours, on weekends or holidays) without prior written approval and HR intimation shall be considered unauthorized and will not be eligible for compensatory off.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 215",
+    "text": "Prior approval must clearly mention the reason for overtime, expected duration, and nature of work.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 216",
+    "text": "In case of unavoidable or emergency business requirements where prior approval is not feasible, the employee must inform the Reporting Manager and HR at the earliest possible time, preferably on the same working day or the next business day, along with a valid justification.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 217",
+    "text": "In addition to the Client and Reporting Manager’s approval, the employee must formally inform the HR Department through email or the designated communication channel before commencing overtime work.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 219",
+    "text": "Eligibility This Policy is applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 220",
+    "text": "All Full-time employees of FiftyFive Technologies Pvt This policy is not applicable to:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 221",
+    "text": "Business Associates, Associate Consultant / Contractual Employee, Freelancers",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 223",
+    "text": "Employees are eligible for a fixed number of 5 days per year as defined by FiftyFive. and statutory requirements.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 224",
+    "text": "However, there may be personal reasons, for example, prolonged illness of the employee; personal emergency leaves wherein the employee may need additional time away from work. The company provides leave without pay for specific reasons and is subject to approvals as defined in this policy.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 225",
+    "text": "These leaves are provided to extend support to employees during various life stages or during personal emergencies.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 226",
+    "text": "All LWP requests are subject to due approvals from the immediate reporting manager and Head of HR.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 227",
+    "text": "The Head HR, after receiving inputs from the reporting manager, will evaluate the LWP request taking into consideration various parameters, including but not limited to: reason for the LWP request, relevance to the course for which the leave is applied, current and past performance, past utilization records, allocation prospects at the time of returning from LWP and so on.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 228",
+    "text": "Head HR may reject an LWP request if they find that it is not in line with the policy provisions or not meeting the objectives under which this benefit is applicable.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 229",
+    "text": "In case of LWP for more than 5 days, it will be considered unpaid leave and it will be mandatory for an employee to get a clearance from various teams he or she works for on LWP. This is to ensure that no outstanding assets or dues are recoverable from the employee.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 230",
+    "text": "Clearance required from Admin team, Finance Team, HR Team, Client Clearance.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 231",
+    "text": "Compensation and Benefits during LWP",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 232",
+    "text": "The employee is not eligible for any compensation and benefits for the duration of LWP.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 233",
+    "text": "Employees are not eligible for any benefits if the leaves are extended for more than 5 days provided from the company’s side, like health and accidental insurance, certification benefits, and any reimbursement for the expenses being made.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 234",
+    "text": "In case the employee wants to reduce or extend the LWP, subject to necessary approvals (refer to provisions of document in this document). Terms and Condition",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 235",
+    "text": "It is mandatory for an employee to apply for LWP in the HRMS system, and the same should be approved at all levels before he or she proceeds on LWP. An employee must not proceed on LWP unless the request has been approved by the Head of HR.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 236",
+    "text": "During the LWP, the employee should not take up any part-time or full-time employment for remuneration or otherwise, for any reason whatsoever. Procedure Applying for Leave:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 237",
+    "text": "The employee can apply for leave through the Keka Portal.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 238",
+    "text": "Login to KEKA-Go to Me section- Click on Leave- Apply for Leave.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 239",
+    "text": "The employee completed the leave application form and submitted it for approval of the same. Note: The employee can also view the details of previous leaves availed and outstanding balance through the KEKA app. Approval Workflow:",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
+  },
+  {
+    "header": "Leave Policy Rule 240",
+    "text": "The leave goes for two levels of approval: to the employee’s immediate Reporting Manager and to the HR head. Right to Amend Policies This Employee Handbook is intended to provide general guidance on Company policies and practices. FiftyFive Technologies reserves the right to amend, modify, suspend, or withdraw any policy, procedure, or benefit described in this handbook at any time, with or without notice, based on business, operational, or legal requirements.",
+    "policy_name": "Leave Policy",
+    "record_type": "policy_segment",
+    "source_file": "Leave Policy.pdf",
+    "doc_name": "Leave Policy"
   }
 ]

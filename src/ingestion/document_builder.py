@@ -170,37 +170,43 @@ def _flatten_value(val: object) -> str:
 
 def build_generic_document(record: dict, source_filename: str, index: int) -> Document:
     """
-    Dynamically build a LangChain Document from ANY JSON record.
-
-    - All keys in the record become searchable text in page_content.
-    - record_id = {filename_stem}_{index}  e.g. 'training_calendar_3'
-    - record_type = {filename_stem}        e.g. 'training_calendar'
-
-    This means NO code changes are needed when a new JSON file is added.
+    Dynamically build a Document from ANY JSON record.
+    Prioritizes 'header' and 'text' for readability.
     """
-    stem = Path(source_filename).stem  # e.g. "training_calendar"
+    stem = Path(source_filename).stem
+    source_tag = stem.replace("_", " ").title()
     
-    # Use a clean, prompt-friendly source tag
-    source_tag = stem.replace("_", " ").title()  # e.g. "Test Training"
+    header = record.get("header") or record.get("title") or ""
+    text = record.get("text") or record.get("content") or ""
     
-    lines = []
+    # 1. Build Page Content
+    content_lines = [f"[Source: {source_tag}]"]
+    if header:
+        content_lines.append(f"Header: {header}")
+    
+    # Add other fields (excluding header, text, and internal metadata)
     for key, val in record.items():
-        if key.startswith("_"):          # skip internal metadata keys
+        if key.lower() in ["header", "text", "title", "content", "record_type", "source_file", "doc_name"] or key.startswith("_"):
             continue
-        lines.append(f"{key}: {_flatten_value(val)}")
+        content_lines.append(f"{key}: {_flatten_value(val)}")
     
-    content = f"[Source: {source_tag}]\n" + "\n".join(lines) + "\n"
+    # Final text always at the bottom for better attention
+    if text:
+        content_lines.append(f"\n{text}")
+        
+    content = "\n".join(content_lines)
 
+    # 2. Build Metadata
     metadata = {
         "source": source_filename,
-        "record_type": stem,
-        "record_id": f"{stem}_{index}",
+        "record_type": record.get("record_type") or stem,
+        "record_id": record.get("record_id") or f"{stem}_{index}",
         "source_tag": source_tag,
     }
     # Promote top-level string fields to metadata for filtering
     for key, val in record.items():
-        if isinstance(val, str) and not key.startswith("_"):
-            metadata[key.lower().replace(" ", "_")] = val[:200]
+        if isinstance(val, (str, int, float)) and not key.startswith("_"):
+            metadata[key.lower().replace(" ", "_")] = str(val)[:400]
 
     return Document(page_content=content, metadata=metadata)
 

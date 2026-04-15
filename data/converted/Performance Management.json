@@ -1,41 +1,754 @@
 [
   {
-    "policy_id": "POL:Performance Management",
+    "header": "Performance Management Summary",
+    "text": "This FiftyFive Technologies Policy on performance management system is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
     "policy_name": "Performance Management",
-    "filename": "Performance Management.pdf",
-    "category": "Performance Management",
-    "summary": "This FiftyFive Technologies Policy on performance management system is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
-    "key_rules": [
-      "Performance Management System (PMS): A structured process for planning, monitoring, evaluating, and improving employee performance.",
-      "Performance Improvement Plan (PIP): A formal, time-bound plan initiated to address performance gaps and provide structured support to enable improvement.",
-      "Appraisal Cycle: The defined period during which employee performance is reviewed for appraisal and reward consideration.",
-      "Reporting Manager: The immediate supervisor responsible for managing, evaluating, and providing feedback on an employee’s performance.",
-      "Loss of Pay (LOP): Leave availed without pay, resulting in a proportional salary deduction for the applicable period.",
-      "Probation: The initial employment period during which confirmation is subject to satisfactory performance. Applicability This Performance Management System is applicable to all full-time employees of the Company, unless otherwise specified. Employees on probation, internship, or contractual engagement may be covered under a separate evaluation process or as defined in their respective employment terms. Participation in the Performance Management System is mandatory for all applicable employees and forms an integral part of performance reviews, appraisals, and other employment-related decisions. Documentation and Record Maintenance All documentation related to PMS, including performance reviews, appraisal records, feedback, PIPs, written notices, review meeting minutes, and outcomes, shall be formally documented and maintained by the HR Department. These records shall be retained for internal reference, compliance, audits, and decision-making purposes and may be used in matters related to appraisals, disciplinary action, or separation, as applicable. Provisions:",
-      "Performance Evaluation Criteria Employee performance shall be assessed based on, but not limited to, the following",
-      "Achievement of assigned goals and targets",
-      "Quality and timeliness of work",
-      "Skills, competency, and role effectiveness",
-      "Attendance, discipline, and adherence to Company policies",
-      "Collaboration, communication, and professional conduct",
-      "Demonstration of Company values and culture",
-      "Roles and Responsibilities - Employee Responsibilities:",
-      "Actively participate in the PMS process",
-      "Work towards agreed goals and performance expectations",
-      "Seek and accept constructive feedback",
-      "Maintain professionalism and transparency during evaluations. - Reporting Manager Responsibilities:",
-      "Set clear performance expectations and goals",
-      "Provide timely feedback and guidance",
-      "Conduct fair, objective, and unbiased evaluations",
-      "Recommend development plans and performance outcomes - HR Responsibilities:",
-      "Facilitate and administer the PMS process",
-      "Ensure consistency, fairness, and confidentiality",
-      "Maintain records related to performance evaluations",
-      "Support employees and managers during the PMS cycle",
-      "Salary appraisals may be considered upon completion of one (1) year, i.e., 12 months of continuous service with the Company.",
-      "The appraisal process is entirely performance-driven and discretionary. The Company is not obligated to conduct appraisals at a fixed time or on a mandatory basis.",
-      "All information related to salary appraisals, increments, and compensation is strictly confidential and has a long-term impact on the Company’s working environment and culture.",
-      "Employees are expected to maintain confidentiality regarding their wages and appraisal outcomes as part of the performance review process."
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 1",
+    "text": "Performance Management System (PMS): A structured process for planning, monitoring, evaluating, and improving employee performance.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 2",
+    "text": "Performance Improvement Plan (PIP): A formal, time-bound plan initiated to address performance gaps and provide structured support to enable improvement.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 3",
+    "text": "Appraisal Cycle: The defined period during which employee performance is reviewed for appraisal and reward consideration.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 4",
+    "text": "Reporting Manager: The immediate supervisor responsible for managing, evaluating, and providing feedback on an employee’s performance.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 5",
+    "text": "Loss of Pay (LOP): Leave availed without pay, resulting in a proportional salary deduction for the applicable period.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 6",
+    "text": "Probation: The initial employment period during which confirmation is subject to satisfactory performance. Applicability This Performance Management System is applicable to all full-time employees of the Company, unless otherwise specified. Employees on probation, internship, or contractual engagement may be covered under a separate evaluation process or as defined in their respective employment terms. Participation in the Performance Management System is mandatory for all applicable employees and forms an integral part of performance reviews, appraisals, and other employment-related decisions. Documentation and Record Maintenance All documentation related to PMS, including performance reviews, appraisal records, feedback, PIPs, written notices, review meeting minutes, and outcomes, shall be formally documented and maintained by the HR Department. These records shall be retained for internal reference, compliance, audits, and decision-making purposes and may be used in matters related to appraisals, disciplinary action, or separation, as applicable. Provisions:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 7",
+    "text": "Performance Evaluation Criteria Employee performance shall be assessed based on, but not limited to, the following",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 8",
+    "text": "Achievement of assigned goals and targets",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 9",
+    "text": "Quality and timeliness of work",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 10",
+    "text": "Skills, competency, and role effectiveness",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 11",
+    "text": "Attendance, discipline, and adherence to Company policies",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 12",
+    "text": "Collaboration, communication, and professional conduct",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 13",
+    "text": "Demonstration of Company values and culture",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 14",
+    "text": "Roles and Responsibilities - Employee Responsibilities:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 15",
+    "text": "Actively participate in the PMS process",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 16",
+    "text": "Work towards agreed goals and performance expectations",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 17",
+    "text": "Seek and accept constructive feedback",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 18",
+    "text": "Maintain professionalism and transparency during evaluations. - Reporting Manager Responsibilities:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 19",
+    "text": "Set clear performance expectations and goals",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 20",
+    "text": "Provide timely feedback and guidance",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 21",
+    "text": "Conduct fair, objective, and unbiased evaluations",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 22",
+    "text": "Recommend development plans and performance outcomes - HR Responsibilities:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 23",
+    "text": "Facilitate and administer the PMS process",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 24",
+    "text": "Ensure consistency, fairness, and confidentiality",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 25",
+    "text": "Maintain records related to performance evaluations",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 26",
+    "text": "Support employees and managers during the PMS cycle",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 28",
+    "text": "Salary appraisals may be considered upon completion of one (1) year, i.e., 12 months of continuous service with the Company.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 29",
+    "text": "The appraisal process is entirely performance-driven and discretionary. The Company is not obligated to conduct appraisals at a fixed time or on a mandatory basis.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 30",
+    "text": "All information related to salary appraisals, increments, and compensation is strictly confidential and has a long-term impact on the Company’s working environment and culture.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 31",
+    "text": "Employees are expected to maintain confidentiality regarding their wages and appraisal outcomes as part of the performance review process.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 32",
+    "text": "Any discussion or disclosure of increments and/or salary hikes among colleagues is strictly prohibited. If such instances are observed, the Company may initiate strict disciplinary action against the concerned parties, which may include withdrawal of increment, reduction of the current CTC, or other appropriate action, as deemed necessary, for adversely affecting the Company’s work environment.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 33",
+    "text": "Approved increments, if any, shall be effective from the employee’s appraisal of month and date, upon completion of one year of service. Appraisal on Resignation During Appraisal Cycle",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 34",
+    "text": "In the event an employee submits their resignation during the appraisal cycle or at the time when their appraisal becomes due, the appraisal process shall be kept on hold.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 35",
+    "text": "Due to the employee’s resignation shall not be initiated, processed, or finalized, and the employee shall not be eligible for any appraisal-related benefits, including salary revision, increment, or performance-based rewards.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 36",
+    "text": "Any appraisal under such circumstances shall be considered null and void, and no retrospective or pro-rata appraisal benefits shall be applicable during the notice of period or resignation of tenure.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 37",
+    "text": "The Company reserves the right to make the final decision in such cases based on business requirements and policy discretion.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 38",
+    "text": "Performance Feedback and Development The PMS encourages continuous feedback and communication between employees and managers. Based on performance outcomes, employees may be guided through:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 39",
+    "text": "Skill development initiatives",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 40",
+    "text": "Training and learning opportunities",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 41",
+    "text": "Performance improvement plans (if required) Linkage to Appraisal and Rewards Performance outcomes under the PMS may be considered for:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 42",
+    "text": "Salary appraisals and increments",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 43",
+    "text": "Promotions or role enhancements",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 44",
+    "text": "Recognition and rewards All appraisal-related decisions remain at the sole discretion of the Company and are subject to business needs and policy guidelines.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 45",
+    "text": "Performance Improvement Plan The performance improvement plan is a key aspect of the Performance Management System in FiftyFive Technologies. An important outcome of the employee's further professional development and motivates him or her to continuously improve the performance. An important aspect is standard and assists them to improve the same. This is achieved through the administration of the Performance Improvement Plan. A Performance Improvement Plan (PIP) may be initiated when an employee’s performance consistently falls below the expected standards or when significant performance gaps are identified. A. Key aspects of the PIP include:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 46",
+    "text": "Clearly defined performance gaps and improvement areas",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 47",
+    "text": "Specific, measurable goals and expectations",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 48",
+    "text": "Support mechanisms such as training, coaching, or mentoring",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 49",
+    "text": "A defined review period, typically ranging from 15 days to 90 days, as determined by the Company",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 50",
+    "text": "Regular progress reviews and documented feedback. B. Work Performance Definitions: Unsatisfactory Work Performance: Unsatisfactory Work Performance may include, but is not limited to, the following behaviors:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 51",
+    "text": "Inability to complete assigned tasks or correct errors within a reasonable timeframe",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 52",
+    "text": "Inability or unwillingness to learn new tasks or skills or to work collaboratively",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 53",
+    "text": "Inability to exercise sound judgment",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 54",
+    "text": "Inability to receive, understand, or follow instructions or directions",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 55",
+    "text": "Unprofessional behavior as a team member or in a managerial role Average Work Performance: Average Work Performance may include, but is not limited to, the following behaviors:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 56",
+    "text": "Inability to consistently complete all assigned tasks or correct errors within a reasonable timeframe",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 57",
+    "text": "Inconsistent willingness or ability to learn new tasks or collaborate",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 58",
+    "text": "Inability to consistently exercise good judgment",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 59",
+    "text": "Inability to fully receive, understand, or follow instructions or directions",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 60",
+    "text": "Unprofessional behavior as a team member or manager on more than one occasion. Satisfactory Work Performance: Satisfactory Work Performance may include, but is not limited to, the following behaviors:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 61",
+    "text": "Ability to complete assigned tasks or correct errors within a reasonable timeframe",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 62",
+    "text": "Willingness and ability to learn new tasks or skills and work collaboratively",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 63",
+    "text": "Ability to exercise sound judgment",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 64",
+    "text": "Ability to receive, understand, and follow instructions or directions",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 65",
+    "text": "Professional behavior as a team member or in a managerial role. C. Leave Clause During Performance Improvement Plan (PIP)",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 66",
+    "text": "During the Performance Improvement Plan (PIP) period, all leave balances as defined under the Leave Policy of FiftyFive Technologies, including monthly leave and additional leave entitlements, shall be kept on hold. This period is specifically intended for the employee to focus exclusively on performance improvement and meeting the defined expectations.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 67",
+    "text": "Employees under an active PIP shall not be permitted to avail any type of leave during the PIP duration.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 68",
+    "text": "In the event of genuine emergency situations, the employee may avail strictly on a Loss of Pay (LOP) basis, subject to prior approval from the Reporting Manager and the HR Department.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 69",
+    "text": "Any LOP availed during the PIP period shall not be converted, adjusted, or reversed against Casual Leave, Privilege Leave, or any other leave balance, even after successful completion or closure of the PIP.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 70",
+    "text": "Normal leave eligibility and balances shall be reinstated only after the formal closure of the PIP and subject to satisfactory performance improvement. D. Pre-Performance Improvement Plan: Before initiating a formal PIP, the Reporting Manager must address performance concerns through informal discussions, guidance, and coaching. These discussions must be supported by documented evidence such as emails, feedback notes, or meeting records. If the informal approach does not result in satisfactory improvement, the Reporting Manager shall inform the HR Team, and the matter shall proceed to the formal PIP stage. E. Initiation of Performance Improvement Plan Written Notice Once the formal PIP is initiated, the employee shall receive a written notice, with the Reporting Manager and HR Team involved. The notice shall clearly outline:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 71",
+    "text": "Areas of improvement identified by the Reporting Manager",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 72",
+    "text": "Duration of the PIP, typically ranging between 15 to 90 days (The final decision on the PIP duration shall rest with the Reporting Manager, in consultation with HR)",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 73",
+    "text": "Applicable terms and conditions during the PIP period, including forfeiture of any bonus or incentive for the month",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 74",
+    "text": "Support measures to be provided, such as additional training, supervision, coaching, or peer support",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 75",
+    "text": "Consequences of failure to demonstrate improvement within the review period. F. Conditions During the PIP Period",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 76",
+    "text": "Employees under an active PIP are not eligible to opt for or avail any type of leave",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 77",
+    "text": "Employees shall not be eligible for appraisal, salary increment, promotion, or bonus during the PIP period",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 78",
+    "text": "Employees are expected to strictly adhere to performance expectations and cooperate fully with the PIP process. G. Performance Review Meeting At the end of the PIP review period, a Performance Review Meeting shall be conducted. The meeting shall be led by the Immediate Reporting Manager or Project Manager, and the Head of Human Resources shall also be present. H. Outcomes of the Performance Review",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 79",
+    "text": "Satisfactory Improvement Potential Outcome: If the Reporting Manager determines that the employee has met the required performance standards, no further corrective action shall be taken, and the PIP shall be considered cleared. Action: The employee shall continue under observation for the next three (3) months to ensure sustained performance.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 80",
+    "text": "Partial Improvement Potential Outcome: If significant improvement is observed and performance standards are likely to be met shortly, the PIP period may be extended. Action:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 81",
+    "text": "Extension of the PIP shall be communicated in writing",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 82",
+    "text": "Revised terms and duration shall be clearly outlined",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 83",
+    "text": "Additional training or support may be recommended",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 84",
+    "text": "A new performance review meeting date shall be scheduled",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 85",
+    "text": "No Improvement / Insufficient Improvement Potential Outcome: If there is no overall improvement or performance that remains below the required standard, the matter shall be formally escalated to HR. Action:",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 86",
+    "text": "HR shall proceed with separation of the employee from the organization in accordance with the Company’s separation policy.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 87",
+    "text": "Final salary settlement and issuance of the Experience Letter shall be governed by the applicable separation clause.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 88",
+    "text": "The Company reserves the right to make the separation effective immediately. I. PIP Provisions and Confidentiality",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 89",
+    "text": "During the Performance Improvement Plan (PIP) period, employees shall not be eligible to avail any type of leave.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 90",
+    "text": "An employee may be issued a maximum of three (3) Performance Improvement Plans (PIPs) during their entire tenure with the Company.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 91",
+    "text": "Under no circumstances shall an employee be placed under a Performance Improvement Plan (PIP) more than three (3) times during their tenure with the Company. In the event that performance concerns continue to recur after the completion of three PIPs, the Company shall initiate strict corrective action, which may include disciplinary measures or separation from employment, in accordance with Company policy and applicable laws.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 92",
+    "text": "All records, communications, discussions, and outcomes related to the PIP process are strictly confidential and shall be handled in accordance with Company confidentiality standards.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 93",
+    "text": "All information, records, discussions, documentation, feedback, and outcomes related to the Performance Improvement Plan (PIP) process are strictly confidential. Such information shall be shared only on a need-to-know basis with the employee concerned, the Reporting Manager, the HR Team, and authorized management representatives.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
+  },
+  {
+    "header": "Performance Management Rule 94",
+    "text": "Employees are strictly prohibited from disclosing, discussing, or sharing any PIP- related information with colleagues or unauthorized parties. Any breach of confidentiality may result in disciplinary action, which may include withdrawal of benefits, corrective measures, or separation from employment, in accordance with Company policy. Disciplinary Action Any misuse, misrepresentation, or manipulation of the PMS process, including influencing evaluations or breaching confidentiality, may lead to disciplinary action, up to and including withdrawal of appraisal benefits or other corrective measures. Confidentiality All performance-related information, including ratings, feedback, and appraisal outcomes, is strictly confidential. Employees are expected to maintain confidentiality and refrain from discussing performance reviews, ratings, or compensation details with colleagues. Any breach of confidentiality may result in disciplinary action as per Company policy. Non-Cooperation During PMS / PIP Failure or refusal by an employee to actively participate in the Performance Management System or cooperate during the Performance Improvement Plan process—including non-attendance of review meetings, failure to follow instructions, or lack of effort toward improvement—may be treated as non-compliance or misconduct. Such behavior may result in accelerated corrective action, including extension of the PIP, withholding of appraisal benefits, disciplinary action, or separation from employment, at the Company’s discretion. Impact on Confirmation / Probation (If Applicable) For employees on probation, placement under a Performance Improvement Plan may result in extension of the probation period, deferment of confirmation, or other corrective measures, as deemed appropriate by the Company. Confirmation of employment shall be subject to satisfactory performance and successful completion of all performance requirements. Policy Review and Amendments Notwithstanding anything stated in this policy, the Company reserves the right to take appropriate action, including modification of performance timelines, PIP duration, appraisal decisions, or separation, based on business exigencies, organizational requirements, or employee conduct, in accordance with applicable laws. Right to Amend Policies This Employee Handbook is intended to provide general guidance on Company policies and practices. FiftyFive Technologies reserves the right to amend, modify, suspend, or withdraw any policy, procedure, or benefit described in this handbook at any time, with or without notice, based on business, operational, or legal requirements.",
+    "policy_name": "Performance Management",
+    "record_type": "policy_segment",
+    "source_file": "Performance Management.pdf",
+    "doc_name": "Performance Management"
   }
 ]

@@ -1,41 +1,698 @@
 [
   {
-    "policy_id": "POL:Assets Policy",
+    "header": "Assets Policy Summary",
+    "text": "This FiftyFive Technologies Policy on assets policy is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
     "policy_name": "Assets Policy",
-    "filename": "Assets Policy.pdf",
-    "category": "Assets Policy",
-    "summary": "This FiftyFive Technologies Policy on assets policy is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
-    "key_rules": [
-      "Provision of Assets i. Laptop Standard configuration of laptops shall be provided to all the employees on the basis of following mentioned details: ❖ For any Developer, QA Engineer or any similar IT Based profile Minimum 16 GB RAM (up to 32 GB) and 512 GB SSD Hard Disk with the processor of i5/i7 according to the profile. ❖ For any Sales, HR, Accountant, Designer or any similar non-IT Profile Minimum 16 GB RAM and 512 GB SSD Hard Disk with the processor of i5. ii. Provision of Laptop Based on Location",
-      "For employees working from Jaipur office the laptop can be provided on the date of joining itself",
-      "For employees joining from Gurgaon and Indore office the laptop will be dispatched after 7 working days from the date of joining",
-      "For employees joining from home the laptop will be dispatched after 21 working days from the date of joining iii. Spare Laptop for Work From Home",
-      "For employees joining from home, a spare laptop has to be arranged till the company laptop is not received by him/her.",
-      "If the spare laptop is not available, the employee needs to inform the asset manager while onboarding itself, and the laptop may be collected by the employee as stated in the clause below. 3 iv. Urgent Laptop Requirement",
-      "If in case the employee has an urgent need of the laptop and the work quality is getting affected due to unavailability of proper laptop, employee will have to collect their laptop from Jaipur office after a prior discussion and approval from asset manager and reporting manager. v. Screen, Mobile, Tablet, Testing Devices",
-      "Employee is eligible for the provision of a screen/monitor, Mobile, Tablet & Testing devices for the purpose of work if and only if the following conditions are satisfied:",
-      "There is client based or project based requirement of the assets. The Request of devices like mobile, tablet, testing devices, etc., should be approved by the direct reporting manager of the employee",
-      "The company will not provide external monitors to employees by default.",
-      "An external monitor will be issued only if it is absolutely required for client delivery, mandated by a specific project, or approved due to medical necessity.",
-      "All requests must include a written justification from the Reporting Manager and require final approval from Management and/or the Asset Manager.",
-      "Interns, hybrid employees, and remote employees are not eligible for an external monitor.",
-      "The screen or monitor cannot be provided or carried to the home/any other destination subject to prior approval from reporting manager & Assets manager. If in case any of the above conditions are not satisfied, the case shall be handled by the asset manager and the final decision will be taken on the basis of requirement/urgency and location of provision, subject to prior approval of management. 4 vi. General Conditions",
-      "Provision of asset is subject to availability",
-      "Any customized or upgraded asset provision apart from the standard configuration will be subject to the approval by management.",
-      "The final decision for provision of assets remains with the management",
-      "Lost or Theft of Assets The safety and security of assets provided by the company is the responsibility of an employee. In the event of lost or theft of an asset, following actions shall be taken by the employee on immediate basis:",
-      "The incident shall be reported to Asset Manager and Reporting Manager",
-      "A FIR should be filed by the employee and a copy of the FIR should be mailed to Asset Manager, keeping Accounts Manager and Reporting Manager in CC A committee shall be formed consisting of Asset Manager, Accounts Manager and Reporting Manager which would be responsible for investigating, analyzing and reporting the case of loss or theft.",
-      "The employee shall bear the cost of the loss due to lost or stolen laptop.",
-      "The cost would include the depreciated value of asset in the beginning of the current financial year and the value of data the asset holds (if any)",
-      "The above said committee would be deciding the cost which is to be borne by the employee.",
-      "Repayment installments can vary if the above said committee agrees on any other distribution. 5 i. Lost or Stolen and Found Asset",
-      "If an asset is lost/stolen and is found at a later stage by the employee, the employee shall inform the asset manager on priority basis.",
-      "After checking the condition of the asset, the asset manager would then take charge of the laptop.",
-      "The amount which has been charged for the asset which was lost or stolen shall be refunded back to the employee, if the asset is in working state.",
-      "If in case there are any damages which are not covered under the brand warranty, the repair amount shall be deducted from the refunded amount. Please Note: The Final decision in any case if lost or theft stays with the management.",
-      "Safety of an asset remains the responsibility of the employee.",
-      "If there is any physical damage to an asset, the incident shall immediately be reported to the Asset Manager on Keka Help Desk."
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 1",
+    "text": "Provision of Assets i. Laptop Standard configuration of laptops shall be provided to all the employees on the basis of following mentioned details: ❖ For any Developer, QA Engineer or any similar IT Based profile Minimum 16 GB RAM (up to 32 GB) and 512 GB SSD Hard Disk with the processor of i5/i7 according to the profile. ❖ For any Sales, HR, Accountant, Designer or any similar non-IT Profile Minimum 16 GB RAM and 512 GB SSD Hard Disk with the processor of i5. ii. Provision of Laptop Based on Location",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 2",
+    "text": "For employees working from Jaipur office the laptop can be provided on the date of joining itself",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 3",
+    "text": "For employees joining from Gurgaon and Indore office the laptop will be dispatched after 7 working days from the date of joining",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 4",
+    "text": "For employees joining from home the laptop will be dispatched after 21 working days from the date of joining iii. Spare Laptop for Work From Home",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 5",
+    "text": "For employees joining from home, a spare laptop has to be arranged till the company laptop is not received by him/her.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 6",
+    "text": "If the spare laptop is not available, the employee needs to inform the asset manager while onboarding itself, and the laptop may be collected by the employee as stated in the clause below. 3 iv. Urgent Laptop Requirement",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 7",
+    "text": "If in case the employee has an urgent need of the laptop and the work quality is getting affected due to unavailability of proper laptop, employee will have to collect their laptop from Jaipur office after a prior discussion and approval from asset manager and reporting manager. v. Screen, Mobile, Tablet, Testing Devices",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 8",
+    "text": "Employee is eligible for the provision of a screen/monitor, Mobile, Tablet & Testing devices for the purpose of work if and only if the following conditions are satisfied:",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 9",
+    "text": "There is client based or project based requirement of the assets. The Request of devices like mobile, tablet, testing devices, etc., should be approved by the direct reporting manager of the employee",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 10",
+    "text": "The company will not provide external monitors to employees by default.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 11",
+    "text": "An external monitor will be issued only if it is absolutely required for client delivery, mandated by a specific project, or approved due to medical necessity.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 12",
+    "text": "All requests must include a written justification from the Reporting Manager and require final approval from Management and/or the Asset Manager.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 13",
+    "text": "Interns, hybrid employees, and remote employees are not eligible for an external monitor.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 14",
+    "text": "The screen or monitor cannot be provided or carried to the home/any other destination subject to prior approval from reporting manager & Assets manager. If in case any of the above conditions are not satisfied, the case shall be handled by the asset manager and the final decision will be taken on the basis of requirement/urgency and location of provision, subject to prior approval of management. 4 vi. General Conditions",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 15",
+    "text": "Provision of asset is subject to availability",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 16",
+    "text": "Any customized or upgraded asset provision apart from the standard configuration will be subject to the approval by management.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 17",
+    "text": "The final decision for provision of assets remains with the management",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 18",
+    "text": "Lost or Theft of Assets The safety and security of assets provided by the company is the responsibility of an employee. In the event of lost or theft of an asset, following actions shall be taken by the employee on immediate basis:",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 19",
+    "text": "The incident shall be reported to Asset Manager and Reporting Manager",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 20",
+    "text": "A FIR should be filed by the employee and a copy of the FIR should be mailed to Asset Manager, keeping Accounts Manager and Reporting Manager in CC A committee shall be formed consisting of Asset Manager, Accounts Manager and Reporting Manager which would be responsible for investigating, analyzing and reporting the case of loss or theft.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 21",
+    "text": "The employee shall bear the cost of the loss due to lost or stolen laptop.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 22",
+    "text": "The cost would include the depreciated value of asset in the beginning of the current financial year and the value of data the asset holds (if any)",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 23",
+    "text": "The above said committee would be deciding the cost which is to be borne by the employee.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 24",
+    "text": "Repayment installments can vary if the above said committee agrees on any other distribution. 5 i. Lost or Stolen and Found Asset",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 25",
+    "text": "If an asset is lost/stolen and is found at a later stage by the employee, the employee shall inform the asset manager on priority basis.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 26",
+    "text": "After checking the condition of the asset, the asset manager would then take charge of the laptop.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 27",
+    "text": "The amount which has been charged for the asset which was lost or stolen shall be refunded back to the employee, if the asset is in working state.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 28",
+    "text": "If in case there are any damages which are not covered under the brand warranty, the repair amount shall be deducted from the refunded amount. Please Note: The Final decision in any case if lost or theft stays with the management.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 30",
+    "text": "Safety of an asset remains the responsibility of the employee.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 31",
+    "text": "If there is any physical damage to an asset, the incident shall immediately be reported to the Asset Manager on Keka Help Desk.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 32",
+    "text": "The case would be analyzed by the asset manager on first stage, then based on the location of the employee, following actions would be taken: ❖ Jaipur Office The employee shall connect with the Asset Manager directly and can proceed accordingly ❖ Gurgaon Office or Work From Home The employee will have to take the asset to nearest official service center of the respective brand and get the asset checked 6 Repair Conditions ❖ If the damage is not covered under the brand warranty, the employee is liable to bear the cost incurred in repair of the asset. ❖ Company would be bearing an amount of up to INR 3000 out of the total repair cost which is not covered under brand warranty. ❖ Employees will only be eligible for the above said amount if the damage is accidental or due to unavoidable reasons. ❖ Any intentional or careless damage will not be covered. ❖ The employee shall ensure repairs are done only at official service centers. ❖ Proper invoice must be submitted to asset manager and accounts manager.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 33",
+    "text": "If the asset is fully non-functional until repaired, employee should arrange a spare asset or collect from Jaipur office.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 34",
+    "text": "Spare asset provision is subject to availability.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 35",
+    "text": "New Asset Requirement / Asset Upgradation",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 36",
+    "text": "Request must be generated on Keka “Request an Asset” section by the employee.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 37",
+    "text": "The request shall be approved by the Reporting Manager followed by the Asset Manager.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 38",
+    "text": "Once approved, asset manager will ensure provision or upgradation of asset.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 39",
+    "text": "The provision process can vary depending on the location of the employee and availability of the asset. 7",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 40",
+    "text": "Asset Handover Assets are to be handed over in following cases: Ending the Employment",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 41",
+    "text": "Employees must return all assets once employment ends.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 42",
+    "text": "Full and Final settlement will be on hold until assets are received. Work From Home Employees",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 43",
+    "text": "If in case a courier is executed, any courier charges shall not exceed from 1500, any charges over the above shall be approved by the reporting manager & asset manager.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 44",
+    "text": "In case of a laptop, it can be couriered via any trusted courier facility. Company shall reimburse the courier amount to the employee as per the fixed budget.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 45",
+    "text": "If any employee working from home has a screen allotted, they will have to visit the Jaipur office and return the screen at Jaipur office only, no courier would be encouraged in case of screen.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 46",
+    "text": "The employee should take care of the assets in transit such as packaging and insurance. For Jaipur, Indore and Gurgaon Employees",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 47",
+    "text": "For any asset allotted to an employee working from an office in Jaipur, Indore, or Gurgaon, the asset shall be returned only to the Jaipur Head Office, either in person or via courier, and the courier cost (refundable in FNF) will be reimbursed up to ₹1500, with any higher courier quotation requiring prior approval from the Asset Manager.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 48",
+    "text": "If in case an employee fails to return any of the assets after ending of the employment, the full and final settlement of the employee shall be put on hold until the assets are received by the asset manager.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 49",
+    "text": "The responsibility of the asset lies with the employee until the asset is not received by the asset manager. If there is any damage/loss to the asset before that, the employee shall be paying for the damages or loss. 8",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 50",
+    "text": "Intangible Assets Any Intangible item of value to the company held by the employee will also be considered as an Asset of the company. Intangible assets can include:",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 51",
+    "text": "Any course/learning material offered by the company or paid/reimbursed by the company",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 52",
+    "text": "Any data item of the company (images, documents, code etc.)",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 53",
+    "text": "Company documents (Policies, Procedures, Notices etc.)",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 54",
+    "text": "Employee Letters (Offer Letters, Increment Letters etc.) ❖ The intangible assets shall not be shared to any external parties or exchanged within the employees unless and until permitted by the management or policy ❖ Any customer data available on an employee's workstation shall also be considered as an intangible asset of the company. ❖ Any employee violating the terms of this clause shall be liable to strict disciplinary action.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 55",
+    "text": "Client Assets / Testing Devices",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 56",
+    "text": "Any Asset provided by a client or any testing device provided to employee shall also be considered as an “asset”",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 57",
+    "text": "The asset policy shall apply to all the client assets and testing devices as per the above- mentioned clauses. 9",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 58",
+    "text": "Monitor Provision Policy i. Purpose The purpose of this policy is to optimize operational and infrastructure costs while ensuring that employees have the necessary tools to perform their roles effectively. Accordingly, the company will limit the provision of external monitors and approve them only in essential and justified cases. ii. Policy Statement The company follows a “No External Monitor by Default” approach. External monitors will be provided only when there is a clear business, project, or medical necessity, subject to formal approvals. iii. Scope This policy applies to all employees, including full-time employees, interns, and contractual staff, across all departments and locations. iv. Monitor Provision Guidelines External monitors are not provided by default to any employee. A monitor may be issued only if it is essential for:",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 59",
+    "text": "Client delivery requirements",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 60",
+    "text": "Project-specific mandates",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 61",
+    "text": "Approved medical necessity",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 62",
+    "text": "All monitor requests must:",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 63",
+    "text": "Include a written justification from the Reporting Manager",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 64",
+    "text": "Receive final approval from the HR and/or Asset Manager",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 65",
+    "text": "Approval is case-specific and does not set a precedent for future requests. 10 v. Eligibility Criteria A request for an external monitor may be considered only under the following circumstances:",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 66",
+    "text": "A client or project requirement explicitly mandates dual-screen or extended display usage.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 67",
+    "text": "A documented medical condition requiring a larger display, subject to HR review and management approval.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 68",
+    "text": "Employees who work from the office on a full-time basis and have a clearly established business need. vi. Non-Eligibility Criteria (Strictly Not Allowed) External monitors will not be provided to:",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 70",
+    "text": "Hybrid or fully remote employees",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 71",
+    "text": "Employees without a client-specific or project-mandated requirement",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 72",
+    "text": "Employees requesting monitors solely for convenience or personal productivity preference",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 73",
+    "text": "Policy Compliance Non-compliance with this policy may result in:",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 74",
+    "text": "Rejection of asset requests",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 75",
+    "text": "Recovery of unauthorized assets",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 76",
+    "text": "Disciplinary action as per company policies viii. Policy Review",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 78",
+    "text": "Provision An employee is eligible for provision of IT Peripherals as stated in the list, if and only if the requirement is approved by the Reporting Manager and the Asset Manager. If any of them rejects the request, the Peripheral will not be provided to the employee. Employees are eligible for provision of Peripherals only after completing 3 months of employment.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 79",
+    "text": "Retention The employees can retain the allotted IT Peripheral if he/she has completed 2 calendar years as full- time employee with the company from the date of allotment. This will not be applicable if the employee resigns before completion of 2 years from the date of allotment.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 80",
+    "text": "Damage / Non-Functioning If a peripheral is damaged or becomes non-functional within 2 years of allotment, the employee will not be eligible for new peripherals until 2 years from the date of allotment. If an employee resigns before completion of 2 calendar years of allotment, then the employee will have to bear the cost of the peripheral which is Damaged / Non-functioning.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 81",
+    "text": "Renewal / Upgradation Employees can request for a new Peripheral or upgradation in currently held IT Peripherals if and only if the older one is non-functional or damaged and the allotment of peripheral has completed 2 calendar years, the former and latter shall be verified by the asset manager before provision of new peripherals.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 82",
+    "text": "Lost or Stolen Employees may not be eligible for any new peripherals if in case peripherals are lost or have been stolen from them. The case shall be analyzed by Asset Manager and Accounts Manager before giving any final decision on provision of new peripheral. 13 Handover",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 83",
+    "text": "If the employee resigns before completion of 2 Years of allotment the IT Peripheral shall b returned back to the Company as per their location",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 84",
+    "text": "If an employee is working from home, the Peripherals shall be couriered back to Jaipur head office from a trusted courier vendor, it will be the responsibility of the employee to ensure safe delivery of the peripherals back to office.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 85",
+    "text": "It will be the responsibility of the employee to ensure safe delivery of the peripherals back to the office. The cost of the courier will be included in the fixed budget of 1500 as mentioned in the asset policy.",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 86",
+    "text": "If an employee resigns before completion of 2 calendar years of allotment of peripheral devices like keyboard, mouse, headphone, then the employee will have to bear the cost of the peripheral which is Damaged/Non-Functioning. Right to Amend Policies This Employee Handbook is intended to provide general guidance on Company policies and practices. FiftyFive Technologies reserves the right to amend, modify, suspend, or withdraw any policy, procedure, or benefit described in this handbook at any time, with or without notice, based on business, operational, or legal requirements. 14 IT Peripherals List SNo. Item Budget 1 Wireless Keyboard 1000 2 Headphones 1500 3 Wireless Mouse 500 5 USB Hub 500 6 HDMI Cable 300 7 Power Cable 200 8 Laptop Stand 400 9 Mobile Stand 150 10 Charger Cable 200 11 Power Adapter 1000 14 Cooling Stand 1200 Please Note",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 87",
+    "text": "Laptop stand, mobile stand and USB Hub would only be provided once in the employment period",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 88",
+    "text": "Cooling stand shall only be provided to gaming team employees that too once in the employment period",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
+  },
+  {
+    "header": "Assets Policy Rule 89",
+    "text": "The cables and adapters provided along with any asset (Laptop/Screen/Testing Devices) shall not be considered as peripheral and will be counted as an asset. 15 16",
+    "policy_name": "Assets Policy",
+    "record_type": "policy_segment",
+    "source_file": "Assets Policy.pdf",
+    "doc_name": "Assets Policy"
   }
 ]

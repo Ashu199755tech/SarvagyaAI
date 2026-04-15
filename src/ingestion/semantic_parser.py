@@ -21,7 +21,62 @@ class SemanticPDFParser:
         if "Document Release Notice" in text or "Approved By:" in text:
             return SemanticPDFParser.parse_policy(text, filename)
 
-        return None
+        # 3. Universal Fallback: Generic Structural Parsing
+        return SemanticPDFParser.parse_generic_prose(text, filename)
+
+
+    @staticmethod
+    def parse_generic_prose(text: str, filename: str) -> List[Dict[str, Any]]:
+        """
+        Generic parser that splits text into logical blocks using structural cues.
+        """
+        stem = Path(filename).stem.replace('_', ' ').title()
+        segments = []
+        
+        # Split by blocks (double newlines) or Entry markers
+        # Pattern detects "Entry X", "Section X", "Part X" or just single-line Title Case headers
+        pattern = re.compile(r'\n\s*(\d{1,3}\.|[A-Z][\w\s]{2,40}|Entry\s+\d+|Section\s+\d+)\s*\n')
+        
+        # Find all potential breaks
+        parts = pattern.split("\n" + text)
+        
+        # if no clear headers found, just split by double line breaks
+        if len(parts) < 3:
+            parts = re.split(r'\n\n+', text)
+            for i, chunk in enumerate(parts):
+                if chunk.strip():
+                    segments.append({
+                        "header": f"{stem} Segment {i+1}",
+                        "text": chunk.strip().replace('\n', ' '),
+                        "page": (i // 2) + 1  # rough estimate
+                    })
+        else:
+            # First part is intro text before first header
+            if parts[0].strip():
+                segments.append({
+                    "header": f"{stem} Intro",
+                    "text": parts[0].strip().replace('\n', ' '),
+                    "page": 1
+                })
+            
+            # parts contains [header, content, header, content...]
+            for i in range(1, len(parts), 2):
+                header = parts[i].strip()
+                content = parts[i+1].strip()
+                if content:
+                    segments.append({
+                        "header": header,
+                        "text": content.replace('\n', ' '),
+                        "page": (i // 4) + 1 # rough estimate
+                    })
+
+        # Add global metadata
+        for seg in segments:
+            seg["source_file"] = filename
+            seg["record_type"] = "universal_segment"
+            seg["doc_name"] = stem
+
+        return segments
 
     @staticmethod
     def parse_projects(text: str) -> List[Dict[str, Any]]:
@@ -109,38 +164,38 @@ class SemanticPDFParser:
     @staticmethod
     def parse_policy(text: str, filename: str) -> List[Dict[str, Any]]:
         """
-        Parses a single Policy PDF into a structured format.
+        Parses a single Policy PDF into granular sections/rules.
         """
-        # Clean title from filename
         policy_name = Path(filename).stem.replace('_', ' ').title()
-        
-        policy_data = {
-            "policy_id": f"POL:{policy_name}",
-            "policy_name": policy_name,
-            "filename": filename,
-            "category": policy_name,
-            "summary": "Official FiftyFive Technologies Policy document.",
-            "key_rules": []
-        }
+        segments = []
 
-        # Extract Summary from "Document Release Notice" or intro
+        # 1. Extract Summary/Intro as its own segment
         m = re.search(r'This FiftyFive Technologies.*?(?=Approved By|$)', text, re.DOTALL)
         if m:
-            policy_data["summary"] = m.group(0).strip().replace('\n', ' ')
+            segments.append({
+                "header": f"{policy_name} Summary",
+                "text": m.group(0).strip().replace('\n', ' '),
+                "policy_name": policy_name,
+                "record_type": "policy_segment"
+            })
 
-        # Extract Key Rules
-        # Rule detection: look for lines starting with bullets, letters or numbers
-        # e.g., "a) ...", "1. ...", "● ..."
+        # 2. Extract Key Rules as individual segments
         rule_pattern = re.compile(r'(?:\n|^)\s*(?:[a-z]\)|[0-9]+\.|[\u25CF\u2022\u25CB\u25AA*])\s*(.*?)(?=\n\s*(?:[a-z]\)|[0-9]+\.|[\u25CF\u2022\u25CB\u25AA*])|$)', re.DOTALL)
         rules = rule_pattern.findall(text)
         
-        # Clean and filter rules (ignore very short ones or approvals)
-        cleaned_rules = []
-        for r in rules:
+        for i, r in enumerate(rules):
             clean = r.strip().replace('\n', ' ')
             if len(clean) > 20 and "Approved By" not in clean:
-                cleaned_rules.append(clean)
-        
-        policy_data["key_rules"] = cleaned_rules[:30] # Limit to top 30 rules per doc
+                segments.append({
+                    "header": f"{policy_name} Rule {i+1}",
+                    "text": clean,
+                    "policy_name": policy_name,
+                    "record_type": "policy_segment"
+                })
 
-        return [policy_data]
+        # Add global metadata to all
+        for seg in segments:
+            seg["source_file"] = filename
+            seg["doc_name"] = policy_name
+
+        return segments

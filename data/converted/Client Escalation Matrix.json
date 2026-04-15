@@ -1,21 +1,90 @@
 [
   {
-    "policy_id": "POL:Client Escalation Matrix",
+    "header": "Client Escalation Matrix Summary",
+    "text": "This FiftyFive Technologies Policy on client escalation matrix is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
     "policy_name": "Client Escalation Matrix",
-    "filename": "Client Escalation Matrix.pdf",
-    "category": "Client Escalation Matrix",
-    "summary": "This FiftyFive Technologies Policy on client escalation matrix is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
-    "key_rules": [
-      "Purpose The Client Escalation Matrix is designed to provide a structured approach for escalating client issues based on their severity and impact. It ensures timely resolution and appropriate involvement of relevant stakeholders.",
-      "Scope This matrix applies to all client-related issues and incidents requiring escalation within the organization. It covers the escalation process from initial contact to resolution, including the roles and responsibilities of each escalation level.",
-      "Escalation Levels Response Escalation Level Criteria Actions Contact Points Time - Address issue according Routine issues or Client Manager / IT Level 1: Frontline to standard procedures. Within 24 requests with Team (as applicable) Support - Document issue and hours standard procedures resolution. - Escalate to supervisor. Issues not resolved - Review issue and take Level 2: at Level 1 or Within 48 appropriate action. Project Manager Supervisory requiring higher hours - Communicate progress to authority client. - Escalate to manager. Critical issues - Develop and implement HR Team / Finance Level 3: affecting multiple Within 72 action plan. Team (based on issue Managerial clients or high- hours - Provide regular updates to type) impact issues client and internal teams. - Escalate to executive. - Oversee resolution Severe issues with strategy. Within 5 Level 4: significant impact - Ensure client satisfaction Leadership / business Executive or where other and final resolution. Management days levels have failed - Communicate final resolution and corrective actions.",
-      "Roles and Responsibilities",
-      "Frontline Support Team: ❖ Address initial client issues and follow standard procedures. ❖ Escalate issues as required.",
-      "Support Supervisor: ❖ Oversee unresolved or complex issues. ❖ Ensure effective communication and timely resolution.",
-      "Support Manager: ❖ Handle critical issues and develop resolution strategies. ❖ Provide regular updates to stakeholders and clients.",
-      "Executive Contact: ❖ Manage severe issues with significant impact. ❖ Ensure overall client satisfaction and resolution.",
-      "Frontline Support Team: ❖ IT Team ❖ itteam@fiftyfivetech.io",
-      "Support Manager: ❖ HR Team ❖ teamhr@fiftyfivetech.io"
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 1",
+    "text": "Purpose The Client Escalation Matrix is designed to provide a structured approach for escalating client issues based on their severity and impact. It ensures timely resolution and appropriate involvement of relevant stakeholders.",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 2",
+    "text": "Scope This matrix applies to all client-related issues and incidents requiring escalation within the organization. It covers the escalation process from initial contact to resolution, including the roles and responsibilities of each escalation level.",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 3",
+    "text": "Escalation Levels Response Escalation Level Criteria Actions Contact Points Time - Address issue according Routine issues or Client Manager / IT Level 1: Frontline to standard procedures. Within 24 requests with Team (as applicable) Support - Document issue and hours standard procedures resolution. - Escalate to supervisor. Issues not resolved - Review issue and take Level 2: at Level 1 or Within 48 appropriate action. Project Manager Supervisory requiring higher hours - Communicate progress to authority client. - Escalate to manager. Critical issues - Develop and implement HR Team / Finance Level 3: affecting multiple Within 72 action plan. Team (based on issue Managerial clients or high- hours - Provide regular updates to type) impact issues client and internal teams. - Escalate to executive. - Oversee resolution Severe issues with strategy. Within 5 Level 4: significant impact - Ensure client satisfaction Leadership / business Executive or where other and final resolution. Management days levels have failed - Communicate final resolution and corrective actions.",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 4",
+    "text": "Roles and Responsibilities",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 5",
+    "text": "Frontline Support Team: ❖ Address initial client issues and follow standard procedures. ❖ Escalate issues as required.",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 6",
+    "text": "Support Supervisor: ❖ Oversee unresolved or complex issues. ❖ Ensure effective communication and timely resolution.",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 7",
+    "text": "Support Manager: ❖ Handle critical issues and develop resolution strategies. ❖ Provide regular updates to stakeholders and clients.",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 8",
+    "text": "Executive Contact: ❖ Manage severe issues with significant impact. ❖ Ensure overall client satisfaction and resolution.",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 10",
+    "text": "Frontline Support Team: ❖ IT Team ❖ itteam@fiftyfivetech.io",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
+  },
+  {
+    "header": "Client Escalation Matrix Rule 11",
+    "text": "Support Manager: ❖ HR Team ❖ teamhr@fiftyfivetech.io",
+    "policy_name": "Client Escalation Matrix",
+    "record_type": "policy_segment",
+    "source_file": "Client Escalation Matrix.pdf",
+    "doc_name": "Client Escalation Matrix"
   }
 ]

@@ -1,41 +1,330 @@
 [
   {
-    "policy_id": "POL:Nonconformity And Corrective Action Procedure",
+    "header": "Nonconformity And Corrective Action Procedure Summary",
+    "text": "This FiftyFive Technologies Policy on nonconformity and corrective action procedure is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
     "policy_name": "Nonconformity And Corrective Action Procedure",
-    "filename": "Nonconformity and Corrective Action Procedure.pdf",
-    "category": "Nonconformity And Corrective Action Procedure",
-    "summary": "This FiftyFive Technologies Policy on nonconformity and corrective action procedure is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
-    "key_rules": [
-      "Purpose The purpose of this Nonconformity and Corrective Action Procedure is to define the process for identifying, documenting, and addressing nonconformities within FiftyFive Technologies. The procedure ensures that corrective actions are taken to eliminate the causes of nonconformities and prevent their recurrence.",
-      "Scope This procedure applies to all departments and processes within FiftyFive Technologies. It covers nonconformities related to products, services, processes, and compliance with internal and external requirements.",
-      "Nonconformity: A deviation from specified requirements or standards that affects the quality or compliance of a product, service, or process.",
-      "Corrective Action: Actions taken to eliminate the causes of nonconformities to prevent their recurrence.",
-      "Preventive Action: Actions taken to eliminate the causes of potential nonconformities to prevent their occurrence.",
-      "1 Identification of Nonconformities",
-      "Detection: Identify nonconformities through various means, including inspections, audits, customer feedback, or employee reports.",
-      "Documentation: Document the nonconformity in a Nonconformity Report (NCR), including details of the issue, the affected area, and any immediate actions taken.",
-      "2 Evaluation of Nonconformities",
-      "Impact Assessment: Evaluate the impact of the nonconformity on product quality, service delivery, or compliance. Determine whether the nonconformity affects customer satisfaction or poses a risk to the organization.",
-      "Root Cause Analysis: Conduct a root cause analysis to identify the underlying causes of the nonconformity.",
-      "3 Corrective Action Planning",
-      "Action Plan: Develop a Corrective Action Plan (CAP) to address the root causes of the nonconformity. The plan should include specific actions, responsible individuals, and deadlines for completion.",
-      "Approval: Obtain approval for the Corrective Action Plan from relevant stakeholders or management.",
-      "4 Implementation of Corrective Actions",
-      "Execution: Implement the corrective actions as outlined in the plan. Ensure that actions are carried out effectively and according to the specified timeline.",
-      "Communication: Communicate the corrective actions to all affected parties and provide any necessary training or support.",
-      "5 Verification of Effectiveness",
-      "Follow-Up: Verify the effectiveness of the corrective actions by monitoring the affected processes or products. Ensure that the nonconformity has been resolved and that no new issues have arisen.",
-      "Review: Conduct a review to assess whether the corrective actions have achieved the desired outcomes and prevented recurrence of the nonconformity.",
-      "6 Documentation and Records",
-      "Record Keeping: Maintain records of nonconformities, corrective actions, and their effectiveness. Ensure that records are accessible for review and auditing purposes.",
-      "Reporting: Report the status and outcomes of corrective actions to management and relevant stakeholders.",
-      "7 Preventive Actions (if applicable)",
-      "Identification: Identify potential nonconformities and areas for improvement through risk assessments or other proactive measures.",
-      "Action Planning: Develop and implement preventive actions to address potential issues before they result in nonconformities.",
-      "Monitoring: Monitor the effectiveness of preventive actions and adjust as necessary to ensure continued effectiveness.",
-      "Roles and Responsibilities",
-      "Oversight: Oversee the nonconformity and corrective action process, including the review and approval of corrective action plans.",
-      "Support: Provide guidance and support for identifying nonconformities and implementing corrective actions."
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 1",
+    "text": "Purpose The purpose of this Nonconformity and Corrective Action Procedure is to define the process for identifying, documenting, and addressing nonconformities within FiftyFive Technologies. The procedure ensures that corrective actions are taken to eliminate the causes of nonconformities and prevent their recurrence.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 2",
+    "text": "Scope This procedure applies to all departments and processes within FiftyFive Technologies. It covers nonconformities related to products, services, processes, and compliance with internal and external requirements.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 4",
+    "text": "Nonconformity: A deviation from specified requirements or standards that affects the quality or compliance of a product, service, or process.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 5",
+    "text": "Corrective Action: Actions taken to eliminate the causes of nonconformities to prevent their recurrence.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 6",
+    "text": "Preventive Action: Actions taken to eliminate the causes of potential nonconformities to prevent their occurrence.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 8",
+    "text": "1 Identification of Nonconformities",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 9",
+    "text": "Detection: Identify nonconformities through various means, including inspections, audits, customer feedback, or employee reports.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 10",
+    "text": "Documentation: Document the nonconformity in a Nonconformity Report (NCR), including details of the issue, the affected area, and any immediate actions taken.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 11",
+    "text": "2 Evaluation of Nonconformities",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 12",
+    "text": "Impact Assessment: Evaluate the impact of the nonconformity on product quality, service delivery, or compliance. Determine whether the nonconformity affects customer satisfaction or poses a risk to the organization.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 13",
+    "text": "Root Cause Analysis: Conduct a root cause analysis to identify the underlying causes of the nonconformity.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 14",
+    "text": "3 Corrective Action Planning",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 15",
+    "text": "Action Plan: Develop a Corrective Action Plan (CAP) to address the root causes of the nonconformity. The plan should include specific actions, responsible individuals, and deadlines for completion.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 16",
+    "text": "Approval: Obtain approval for the Corrective Action Plan from relevant stakeholders or management.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 17",
+    "text": "4 Implementation of Corrective Actions",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 18",
+    "text": "Execution: Implement the corrective actions as outlined in the plan. Ensure that actions are carried out effectively and according to the specified timeline.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 19",
+    "text": "Communication: Communicate the corrective actions to all affected parties and provide any necessary training or support.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 20",
+    "text": "5 Verification of Effectiveness",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 21",
+    "text": "Follow-Up: Verify the effectiveness of the corrective actions by monitoring the affected processes or products. Ensure that the nonconformity has been resolved and that no new issues have arisen.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 22",
+    "text": "Review: Conduct a review to assess whether the corrective actions have achieved the desired outcomes and prevented recurrence of the nonconformity.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 23",
+    "text": "6 Documentation and Records",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 24",
+    "text": "Record Keeping: Maintain records of nonconformities, corrective actions, and their effectiveness. Ensure that records are accessible for review and auditing purposes.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 25",
+    "text": "Reporting: Report the status and outcomes of corrective actions to management and relevant stakeholders.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 26",
+    "text": "7 Preventive Actions (if applicable)",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 27",
+    "text": "Identification: Identify potential nonconformities and areas for improvement through risk assessments or other proactive measures.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 28",
+    "text": "Action Planning: Develop and implement preventive actions to address potential issues before they result in nonconformities.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 29",
+    "text": "Monitoring: Monitor the effectiveness of preventive actions and adjust as necessary to ensure continued effectiveness.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 30",
+    "text": "Roles and Responsibilities",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 32",
+    "text": "Oversight: Oversee the nonconformity and corrective action process, including the review and approval of corrective action plans.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 33",
+    "text": "Support: Provide guidance and support for identifying nonconformities and implementing corrective actions.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 34",
+    "text": "2 Department Managers",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 35",
+    "text": "Implementation: Ensure that corrective actions are implemented within their respective departments and that affected personnel are informed.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 36",
+    "text": "Monitoring: Monitor the effectiveness of corrective actions and report any issues to the Quality Manager.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 38",
+    "text": "Reporting: Report nonconformities and potential issues to their supervisors or designated personnel.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 39",
+    "text": "Compliance: Follow corrective action plans and contribute to the resolution of nonconformities.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 40",
+    "text": "Policy Compliance and Enforcement",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 42",
+    "text": "Regulatory Requirements: Ensure that corrective actions comply with applicable laws, regulations, and industry standards.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 43",
+    "text": "Internal Audits: Conduct regular audits to assess compliance with this procedure and identify areas for improvement.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 45",
+    "text": "Disciplinary Actions: Failure to adhere to this procedure may result in disciplinary action, up to and including termination of employment. Ensure that actions are consistent with company policies and legal requirements.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
+  },
+  {
+    "header": "Nonconformity And Corrective Action Procedure Rule 46",
+    "text": "Procedure Review and Updates This procedure will be reviewed annually or as needed to ensure it remains current and effective. Updates will be communicated to all employees and relevant stakeholders.",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Nonconformity and Corrective Action Procedure.pdf",
+    "doc_name": "Nonconformity And Corrective Action Procedure"
   }
 ]

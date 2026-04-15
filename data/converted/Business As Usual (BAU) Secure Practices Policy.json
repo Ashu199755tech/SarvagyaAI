@@ -1,41 +1,314 @@
 [
   {
-    "policy_id": "POL:Business As Usual (Bau) Secure Practices Policy",
+    "header": "Business As Usual (Bau) Secure Practices Policy Summary",
+    "text": "This FiftyFive Technologies Policy on business as usual secure practices policy is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
     "policy_name": "Business As Usual (Bau) Secure Practices Policy",
-    "filename": "Business As Usual (BAU) Secure Practices Policy.pdf",
-    "category": "Business As Usual (Bau) Secure Practices Policy",
-    "summary": "This FiftyFive Technologies Policy on business as usual secure practices policy is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
-    "key_rules": [
-      "Introduction This document establishes the standard security practices and procedures to be followed by all employees, contractors, and third-party vendors of FiftyFive Technologies during their day-to-day activities. The BAU Secure Practices policy aims to protect the confidentiality, integrity, and availability of the organization's information assets and mitigate the risk of security incidents.",
-      "Scope This policy applies to all individuals who have access to FiftyFive Technologies's systems, networks, applications, and data, regardless of their role or position within the organization. It encompasses activities conducted on company premises, remote locations, and while using company-issued or personal devices to access company resources.",
-      "Roles and Responsibilities",
-      "Employees are responsible for adhering to the security practices outlined in this policy and reporting any security concerns or incidents to the appropriate authorities.",
-      "Employees must undergo security awareness training regularly to stay informed about security best practices and emerging threats.",
-      "Employees must protect their access credentials (e.g., passwords, authentication tokens) and use them only for authorized purposes.",
-      "2 Managers and Supervisors",
-      "Managers and supervisors are responsible for ensuring that their teams are aware of and comply with the BAU Secure Practices policy.",
-      "Managers and supervisors must provide support and resources to facilitate compliance with security practices, including training and access to security tools.",
-      "Managers and supervisors are accountable for addressing any security-related issues or violations within their respective teams.",
-      "3 Information Security Team",
-      "The Information Security Team is responsible for developing, implementing, and maintaining the BAU Secure Practices policy.",
-      "The Information Security Team must monitor compliance with security practices, investigate security incidents, and enforce disciplinary actions for policy violations.",
-      "The Information Security Team will review and update the policy as necessary to address changes in technology, regulations, or organizational requirements.",
-      "Access to company systems, networks, and data is granted based on job roles and responsibilities.",
-      "Employees must use strong authentication methods, such as passwords or multi-factor authentication, to access company resources.",
-      "Employees must not share their access credentials with unauthorized individuals or use another person's credentials to access company systems.",
-      "Employees must handle sensitive and confidential information with care and follow data protection guidelines outlined in the organization's data protection policy.",
-      "Encryption must be used to protect sensitive data when transmitted over public networks or stored on portable devices.",
-      "Employees must adhere to data retention and disposal policies to ensure that data is retained only as long as necessary and securely disposed of when no longer needed.",
-      "Company-issued devices must be kept up-to-date with the latest security patches and antivirus definitions.",
-      "Personal devices used to access company resources must meet minimum security requirements, including password protection and encryption.",
-      "Lost or stolen devices must be reported to IT immediately to mitigate the risk of unauthorized access to company data.",
-      "4 Email and Communication Security",
-      "Employees must exercise caution when opening email attachments or clicking on links in emails, especially from unknown or suspicious senders.",
-      "Confidential or sensitive information must not be shared via email or other communication channels unless encrypted or securely transmitted.",
-      "Employees must report any phishing attempts, suspicious emails, or communication security incidents to IT or the Information Security Team.",
-      "Employees must keep work areas secure and ensure that company-issued devices and documents are not left unattended in public areas.",
-      "Visitors to company premises must be escorted and supervised at all times to prevent unauthorized access to sensitive areas.",
-      "Access to physical facilities must be controlled through the use of access badges, biometric authentication, or other appropriate measures."
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 1",
+    "text": "Introduction This document establishes the standard security practices and procedures to be followed by all employees, contractors, and third-party vendors of FiftyFive Technologies during their day-to-day activities. The BAU Secure Practices policy aims to protect the confidentiality, integrity, and availability of the organization's information assets and mitigate the risk of security incidents.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 2",
+    "text": "Scope This policy applies to all individuals who have access to FiftyFive Technologies's systems, networks, applications, and data, regardless of their role or position within the organization. It encompasses activities conducted on company premises, remote locations, and while using company-issued or personal devices to access company resources.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 3",
+    "text": "Roles and Responsibilities",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 5",
+    "text": "Employees are responsible for adhering to the security practices outlined in this policy and reporting any security concerns or incidents to the appropriate authorities.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 6",
+    "text": "Employees must undergo security awareness training regularly to stay informed about security best practices and emerging threats.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 7",
+    "text": "Employees must protect their access credentials (e.g., passwords, authentication tokens) and use them only for authorized purposes.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 8",
+    "text": "2 Managers and Supervisors",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 9",
+    "text": "Managers and supervisors are responsible for ensuring that their teams are aware of and comply with the BAU Secure Practices policy.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 10",
+    "text": "Managers and supervisors must provide support and resources to facilitate compliance with security practices, including training and access to security tools.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 11",
+    "text": "Managers and supervisors are accountable for addressing any security-related issues or violations within their respective teams.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 12",
+    "text": "3 Information Security Team",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 13",
+    "text": "The Information Security Team is responsible for developing, implementing, and maintaining the BAU Secure Practices policy.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 14",
+    "text": "The Information Security Team must monitor compliance with security practices, investigate security incidents, and enforce disciplinary actions for policy violations.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 15",
+    "text": "The Information Security Team will review and update the policy as necessary to address changes in technology, regulations, or organizational requirements.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 18",
+    "text": "Access to company systems, networks, and data is granted based on job roles and responsibilities.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 19",
+    "text": "Employees must use strong authentication methods, such as passwords or multi-factor authentication, to access company resources.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 20",
+    "text": "Employees must not share their access credentials with unauthorized individuals or use another person's credentials to access company systems.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 22",
+    "text": "Employees must handle sensitive and confidential information with care and follow data protection guidelines outlined in the organization's data protection policy.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 23",
+    "text": "Encryption must be used to protect sensitive data when transmitted over public networks or stored on portable devices.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 24",
+    "text": "Employees must adhere to data retention and disposal policies to ensure that data is retained only as long as necessary and securely disposed of when no longer needed.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 26",
+    "text": "Company-issued devices must be kept up-to-date with the latest security patches and antivirus definitions.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 27",
+    "text": "Personal devices used to access company resources must meet minimum security requirements, including password protection and encryption.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 28",
+    "text": "Lost or stolen devices must be reported to IT immediately to mitigate the risk of unauthorized access to company data.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 29",
+    "text": "4 Email and Communication Security",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 30",
+    "text": "Employees must exercise caution when opening email attachments or clicking on links in emails, especially from unknown or suspicious senders.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 31",
+    "text": "Confidential or sensitive information must not be shared via email or other communication channels unless encrypted or securely transmitted.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 32",
+    "text": "Employees must report any phishing attempts, suspicious emails, or communication security incidents to IT or the Information Security Team.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 34",
+    "text": "Employees must keep work areas secure and ensure that company-issued devices and documents are not left unattended in public areas.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 35",
+    "text": "Visitors to company premises must be escorted and supervised at all times to prevent unauthorized access to sensitive areas.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 36",
+    "text": "Access to physical facilities must be controlled through the use of access badges, biometric authentication, or other appropriate measures.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 37",
+    "text": "6 Security Awareness Training",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 38",
+    "text": "All employees must undergo regular security awareness training to stay informed about the latest security threats, best practices, and organizational policies.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 39",
+    "text": "Training sessions should cover topics such as phishing awareness, social engineering, password security, and incident response procedures.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 40",
+    "text": "7 Incident Reporting and Response",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 41",
+    "text": "Employees must promptly report any suspected security incidents or breaches to the designated IT/security team.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 42",
+    "text": "An incident response plan must be in place, outlining procedures for containing, mitigating, and recovering from security incidents.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 43",
+    "text": "Post-incident reviews should be conducted to identify lessons learned and improve the organization's security posture.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
+  },
+  {
+    "header": "Business As Usual (Bau) Secure Practices Policy Rule 45",
+    "text": "Non-compliance with this policy may result in disciplinary action, including but not limited to termination of employment, contract termination, and legal consequences as appropriate.",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "record_type": "policy_segment",
+    "source_file": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "doc_name": "Business As Usual (Bau) Secure Practices Policy"
   }
 ]

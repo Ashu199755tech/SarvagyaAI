@@ -1,41 +1,290 @@
 [
   {
-    "policy_id": "POL:Documented Information Control Procedure",
+    "header": "Documented Information Control Procedure Summary",
+    "text": "This FiftyFive Technologies Policy on documented information control is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
     "policy_name": "Documented Information Control Procedure",
-    "filename": "Documented Information Control Procedure.pdf",
-    "category": "Documented Information Control Procedure",
-    "summary": "This FiftyFive Technologies Policy on documented information control is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
-    "key_rules": [
-      "Purpose The purpose of this Documented Information Control Procedure is to establish guidelines for managing and controlling documented information within FiftyFive Technologies. This procedure ensures that all documented information is accurate, accessible, secure, and compliant with relevant standards and regulations.",
-      "Scope This procedure applies to all documented information created, received, or maintained by FiftyFive Technologies. It covers all forms of documented information, including physical documents, electronic files, and records.",
-      "Documented Information: Information that is required to be controlled and maintained to ensure the effectiveness of the organization's processes. This includes policies, procedures, work instructions, records, and other types of documents.",
-      "Control: Measures taken to ensure that documented information is accurate, accessible, secure, and properly managed throughout its lifecycle.",
-      "1 Document Creation and Approval",
-      "Creation: ❖ Create documents according to established templates and formats to ensure consistency and compliance. ❖ Ensure documents are accurate, clear, and complete, with all required information included.",
-      "Approval: ❖ Submit documents for review and approval by designated personnel. ❖ Obtain formal approval before finalizing and distributing documents. Record approval with the name, date, and signature or electronic equivalent of the approver.",
-      "2 Document Identification and Revision Control",
-      "Identification: ❖ Assign a unique identifier to each document, including a title, version number, and date of issue. ❖ Use a document numbering system to facilitate easy tracking and retrieval.",
-      "Revision Control: ❖ Implement a revision control system to manage updates to documents. ❖ Document all changes, including the reason for changes, date of revision, and the individual responsible for the update. ❖ Ensure that obsolete versions are archived or removed from active circulation to prevent confusion.",
-      "3 Document Distribution and Accessibility",
-      "Distribution: ❖ Distribute documents to relevant personnel based on their role and responsibilities. ❖ Use secure methods to distribute sensitive or confidential documents to prevent unauthorized access.",
-      "Accessibility: ❖ Ensure that documents are readily accessible to authorized users, including physical access and electronic access through appropriate systems. ❖ Implement access controls to restrict document access to authorized personnel only.",
-      "4 Document Storage and Protection",
-      "Storage: ❖ Store physical documents in secure locations that protect them from damage, loss, or unauthorized access. ❖ Store electronic documents in secure systems with backup and recovery capabilities.",
-      "Protection: ❖ Implement security measures to protect the integrity and confidentiality of documents, such as encryption, password protection, and physical security controls.",
-      "5 Document Review and Update",
-      "Review: ❖ Schedule regular reviews of documents to ensure they remain current and accurate. Review periods should be specified for each document or based on changes in processes or regulations.",
-      "Update: ❖ Update documents as necessary to reflect changes, correct errors, or improve clarity. Ensure that updates are approved and communicated to relevant personnel. ❖ Archive or appropriately handle outdated documents to avoid confusion and ensure that only current versions are in use.",
-      "6 Document Retention and Disposal",
-      "Retention: ❖ Define retention periods for different types of documents based on legal, regulatory, and organizational requirements. ❖ Ensure that documents are retained for the required duration and are easily retrievable during this time.",
-      "Disposal: ❖ Dispose of documents that are no longer needed according to established procedures. ❖ Use secure disposal methods for confidential or sensitive documents, such as shredding physical documents and securely deleting electronic files.",
-      "Roles and Responsibilities",
-      "1 Document Control Manager",
-      "Oversight: Manage and oversee the document control process, ensuring compliance with this procedure.",
-      "Support: Provide guidance and support for document management activities across the organization.",
-      "2 Department Managers",
-      "Implementation: Ensure adherence to document control procedures within their departments. Monitor compliance and address any issues.",
-      "Review: Participate in the review and update of documents relevant to their areas of responsibility.",
-      "Compliance: Follow established procedures for document creation, distribution, storage, and disposal. Report any issues or discrepancies related to documents to their supervisors or the Document Control Manager."
-    ]
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 1",
+    "text": "Purpose The purpose of this Documented Information Control Procedure is to establish guidelines for managing and controlling documented information within FiftyFive Technologies. This procedure ensures that all documented information is accurate, accessible, secure, and compliant with relevant standards and regulations.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 2",
+    "text": "Scope This procedure applies to all documented information created, received, or maintained by FiftyFive Technologies. It covers all forms of documented information, including physical documents, electronic files, and records.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 4",
+    "text": "Documented Information: Information that is required to be controlled and maintained to ensure the effectiveness of the organization's processes. This includes policies, procedures, work instructions, records, and other types of documents.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 5",
+    "text": "Control: Measures taken to ensure that documented information is accurate, accessible, secure, and properly managed throughout its lifecycle.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 7",
+    "text": "1 Document Creation and Approval",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 8",
+    "text": "Creation: ❖ Create documents according to established templates and formats to ensure consistency and compliance. ❖ Ensure documents are accurate, clear, and complete, with all required information included.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 9",
+    "text": "Approval: ❖ Submit documents for review and approval by designated personnel. ❖ Obtain formal approval before finalizing and distributing documents. Record approval with the name, date, and signature or electronic equivalent of the approver.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 10",
+    "text": "2 Document Identification and Revision Control",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 11",
+    "text": "Identification: ❖ Assign a unique identifier to each document, including a title, version number, and date of issue. ❖ Use a document numbering system to facilitate easy tracking and retrieval.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 12",
+    "text": "Revision Control: ❖ Implement a revision control system to manage updates to documents. ❖ Document all changes, including the reason for changes, date of revision, and the individual responsible for the update. ❖ Ensure that obsolete versions are archived or removed from active circulation to prevent confusion.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 13",
+    "text": "3 Document Distribution and Accessibility",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 14",
+    "text": "Distribution: ❖ Distribute documents to relevant personnel based on their role and responsibilities. ❖ Use secure methods to distribute sensitive or confidential documents to prevent unauthorized access.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 15",
+    "text": "Accessibility: ❖ Ensure that documents are readily accessible to authorized users, including physical access and electronic access through appropriate systems. ❖ Implement access controls to restrict document access to authorized personnel only.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 16",
+    "text": "4 Document Storage and Protection",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 17",
+    "text": "Storage: ❖ Store physical documents in secure locations that protect them from damage, loss, or unauthorized access. ❖ Store electronic documents in secure systems with backup and recovery capabilities.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 18",
+    "text": "Protection: ❖ Implement security measures to protect the integrity and confidentiality of documents, such as encryption, password protection, and physical security controls.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 19",
+    "text": "5 Document Review and Update",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 20",
+    "text": "Review: ❖ Schedule regular reviews of documents to ensure they remain current and accurate. Review periods should be specified for each document or based on changes in processes or regulations.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 21",
+    "text": "Update: ❖ Update documents as necessary to reflect changes, correct errors, or improve clarity. Ensure that updates are approved and communicated to relevant personnel. ❖ Archive or appropriately handle outdated documents to avoid confusion and ensure that only current versions are in use.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 22",
+    "text": "6 Document Retention and Disposal",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 23",
+    "text": "Retention: ❖ Define retention periods for different types of documents based on legal, regulatory, and organizational requirements. ❖ Ensure that documents are retained for the required duration and are easily retrievable during this time.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 24",
+    "text": "Disposal: ❖ Dispose of documents that are no longer needed according to established procedures. ❖ Use secure disposal methods for confidential or sensitive documents, such as shredding physical documents and securely deleting electronic files.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 25",
+    "text": "Roles and Responsibilities",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 26",
+    "text": "1 Document Control Manager",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 27",
+    "text": "Oversight: Manage and oversee the document control process, ensuring compliance with this procedure.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 28",
+    "text": "Support: Provide guidance and support for document management activities across the organization.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 29",
+    "text": "2 Department Managers",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 30",
+    "text": "Implementation: Ensure adherence to document control procedures within their departments. Monitor compliance and address any issues.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 31",
+    "text": "Review: Participate in the review and update of documents relevant to their areas of responsibility.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 33",
+    "text": "Compliance: Follow established procedures for document creation, distribution, storage, and disposal. Report any issues or discrepancies related to documents to their supervisors or the Document Control Manager.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 34",
+    "text": "Policy Compliance and Enforcement",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 36",
+    "text": "Regulatory Requirements: Ensure document control practices comply with applicable regulations and industry standards.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 37",
+    "text": "Internal Audits: Conduct audits to assess compliance with this procedure and identify areas for improvement.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 39",
+    "text": "Disciplinary Actions: Failure to adhere to this procedure may result in disciplinary action. Ensure enforcement is consistent with company policies and legal requirements.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
+  },
+  {
+    "header": "Documented Information Control Procedure Rule 40",
+    "text": "Procedure Review and Updates Review this procedure annually or as needed to ensure it remains effective and current. Communicate any updates to all employees and stakeholders.",
+    "policy_name": "Documented Information Control Procedure",
+    "record_type": "policy_segment",
+    "source_file": "Documented Information Control Procedure.pdf",
+    "doc_name": "Documented Information Control Procedure"
   }
 ]
