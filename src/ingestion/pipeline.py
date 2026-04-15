@@ -153,6 +153,7 @@ class IngestionPipeline:
             if record_type in ATOMIC_TYPES:
                 chunk = doc.copy()
                 chunk.metadata["chunk_index"] = 0
+                chunk.metadata["parent_record_id"] = doc.metadata.get("record_id", "doc")
                 chunk.metadata.setdefault("record_id", "doc")
                 all_chunks.append(chunk)
                 continue
@@ -161,6 +162,7 @@ class IngestionPipeline:
             if len(doc.page_content) <= 1200:
                 chunk = doc.copy()
                 chunk.metadata["chunk_index"] = 0
+                chunk.metadata["parent_record_id"] = doc.metadata.get("record_id", "doc")
                 chunk.metadata.setdefault("record_id", "doc")
                 all_chunks.append(chunk)
                 continue
@@ -170,6 +172,7 @@ class IngestionPipeline:
             base_id = doc.metadata.get("record_id", "doc")
             for i, chunk in enumerate(doc_chunks):
                 chunk.metadata["chunk_index"] = i
+                chunk.metadata["parent_record_id"] = base_id
                 chunk.metadata["record_id"] = f"{base_id}_c{i}"
             all_chunks.extend(doc_chunks)
 

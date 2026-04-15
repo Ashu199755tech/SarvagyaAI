@@ -1,0 +1,41 @@
+[
+  {
+    "policy_id": "POL:Business As Usual (Bau) Secure Practices Policy",
+    "policy_name": "Business As Usual (Bau) Secure Practices Policy",
+    "filename": "Business As Usual (BAU) Secure Practices Policy.pdf",
+    "category": "Business As Usual (Bau) Secure Practices Policy",
+    "summary": "This FiftyFive Technologies Policy on business as usual secure practices policy is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
+    "key_rules": [
+      "Introduction This document establishes the standard security practices and procedures to be followed by all employees, contractors, and third-party vendors of FiftyFive Technologies during their day-to-day activities. The BAU Secure Practices policy aims to protect the confidentiality, integrity, and availability of the organization's information assets and mitigate the risk of security incidents.",
+      "Scope This policy applies to all individuals who have access to FiftyFive Technologies's systems, networks, applications, and data, regardless of their role or position within the organization. It encompasses activities conducted on company premises, remote locations, and while using company-issued or personal devices to access company resources.",
+      "Roles and Responsibilities",
+      "Employees are responsible for adhering to the security practices outlined in this policy and reporting any security concerns or incidents to the appropriate authorities.",
+      "Employees must undergo security awareness training regularly to stay informed about security best practices and emerging threats.",
+      "Employees must protect their access credentials (e.g., passwords, authentication tokens) and use them only for authorized purposes.",
+      "2 Managers and Supervisors",
+      "Managers and supervisors are responsible for ensuring that their teams are aware of and comply with the BAU Secure Practices policy.",
+      "Managers and supervisors must provide support and resources to facilitate compliance with security practices, including training and access to security tools.",
+      "Managers and supervisors are accountable for addressing any security-related issues or violations within their respective teams.",
+      "3 Information Security Team",
+      "The Information Security Team is responsible for developing, implementing, and maintaining the BAU Secure Practices policy.",
+      "The Information Security Team must monitor compliance with security practices, investigate security incidents, and enforce disciplinary actions for policy violations.",
+      "The Information Security Team will review and update the policy as necessary to address changes in technology, regulations, or organizational requirements.",
+      "Access to company systems, networks, and data is granted based on job roles and responsibilities.",
+      "Employees must use strong authentication methods, such as passwords or multi-factor authentication, to access company resources.",
+      "Employees must not share their access credentials with unauthorized individuals or use another person's credentials to access company systems.",
+      "Employees must handle sensitive and confidential information with care and follow data protection guidelines outlined in the organization's data protection policy.",
+      "Encryption must be used to protect sensitive data when transmitted over public networks or stored on portable devices.",
+      "Employees must adhere to data retention and disposal policies to ensure that data is retained only as long as necessary and securely disposed of when no longer needed.",
+      "Company-issued devices must be kept up-to-date with the latest security patches and antivirus definitions.",
+      "Personal devices used to access company resources must meet minimum security requirements, including password protection and encryption.",
+      "Lost or stolen devices must be reported to IT immediately to mitigate the risk of unauthorized access to company data.",
+      "4 Email and Communication Security",
+      "Employees must exercise caution when opening email attachments or clicking on links in emails, especially from unknown or suspicious senders.",
+      "Confidential or sensitive information must not be shared via email or other communication channels unless encrypted or securely transmitted.",
+      "Employees must report any phishing attempts, suspicious emails, or communication security incidents to IT or the Information Security Team.",
+      "Employees must keep work areas secure and ensure that company-issued devices and documents are not left unattended in public areas.",
+      "Visitors to company premises must be escorted and supervised at all times to prevent unauthorized access to sensitive areas.",
+      "Access to physical facilities must be controlled through the use of access badges, biometric authentication, or other appropriate measures."
+    ]
+  }
+]

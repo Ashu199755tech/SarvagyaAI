@@ -1,0 +1,41 @@
+[
+  {
+    "policy_id": "POL:Code Of Conduct Policy",
+    "policy_name": "Code Of Conduct Policy",
+    "filename": "Code of Conduct Policy.pdf",
+    "category": "Code Of Conduct Policy",
+    "summary": "This FiftyFive Technologies Policy, Code of Ethics & Business Conduct is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.",
+    "key_rules": [
+      "Employee Data Privacy",
+      "The Company is committed to protecting the privacy and confidentiality of employee personal data. Employee information is collected, processed, and stored only for legitimate business, employment, legal, and compliance purposes. These purposes may include recruitment, onboarding, payroll, benefits administration, performance management, IT and information security, and statutory or regulatory reporting.",
+      "Access to employee data is strictly restricted to authorized personnel on a need-to-know basis. The Company implements appropriate technical, administrative, and organizational safeguards to prevent unauthorized access, misuse, loss, or disclosure of employee information.",
+      "Employee data may be shared with third parties only where required by applicable law, contractual obligations, or legitimate business necessity. Such data shall be retained only for as long as necessary to fulfill its intended purpose or to comply with legal requirements.",
+      "Employees are expected to safeguard personal and Company data at all times and must promptly report any suspected or actual data breach, unauthorized access, or misuse to the HR Department immediately. Accessing another employee’s personal information through Company platforms or portals without the consent of the concerned employee or without official authorization is strictly discouraged and may lead to disciplinary action. 4",
+      "Conflict of Interest A “conflict of interest occurs when an employee’s actions, transactions, interests, and/or relationships, both inside and outside of the company interfere in any way with the employee/team/company’s interests and work. The following are some examples of conflict-of-interest situations: Any activity that may oblige one to an outside entity such as a supplier or a customer.",
+      "Holding a financial interest in a competitor or vendor company of FiftyFive Technologies where one could personally affect the business with that company. Financial interest could include, ownership of capital stock, bonds, or notes; partnership interest; direct or indirect interest through a family member, trust or other relationship.",
+      "Working on a part-time, temporary basis, moonlighting, freelancing, or providing advisory consultancy to another organization/person/business.",
+      "Any activity carried out with the support of or through family or friends for mis-utilizing the company resources, facilities, and equipment.",
+      "Receiving disproportionate/special gifts, discounts, and benefits, which are not generally offered by an outside concern while being in a position to influence the company decisions.",
+      "Working with any not-for-profit entity where you can influence the company's investment decisions.",
+      "Preferential hiring, promoting, supervising, directing business to, investing in, or in any other manner favoring a family member or friend, without the prior written consent from the management. Note: On occurrence/potential occurrence of such conflict, the Employee shall disclose such information to their supervisor/manager over mail; Try and avoid entering such a transaction without the guidance of the supervisor/manager. The appropriate parties will decide to determine if the conflict is substantial enough to exclude the Employee from any further involvement in such activity or decision process. 5",
+      "Maintaining Accurate Records The employees are mandatorily required to keep accurate, complete information in a timely manner to:",
+      "Meet our legal obligations.",
+      "Ensure any reports that are based on those records are also accurate and complete. The records include all work-related documents, emails, spreadsheets, notes, reports (including timecard records and operating metrics), financial records, plans, procedures, and process documents, business information, including engagement documents and deliverables, payroll records, performance evaluations, and time and expense reports. Note: The security of these documents is also the responsibility of the concerned employee.",
+      "Protecting Customer Data Leaking, manipulating, mismanagement, stealing or mishandling of any customer data, be it confidential or otherwise is strictly prohibited. Employees deployed on projects are trusted with sensitive information considering that they have understood all the clauses of the Non-Disclosure Agreement (NDA). The NDA restricts the employee to:",
+      "Share/disclose client information whether during or after their employment with FiftyFive Technologies.",
+      "Use the information for any kind of benefit (personal or otherwise) or engage with an entity relating to the employer’s business, during their employment and till 12 months of their separation from the company.",
+      "Publishing the customer data, code, or any other documents of the company on platforms such as GitHub is not only prohibited but also illegal. 6",
+      "Protecting Intellectual Property Rights The intellectual property of FiftyFive Technologies is a strategic and valuable asset and must be adequately protected. Intellectual property includes, but is not limited to, patents, copyrights, trademarks, trade secrets, inventions, software source code, designs, documents, methodologies, data, and all work products created during the course of employment. Employees are expected to take all necessary steps to protect the Company’s proprietary and confidential information and to respect the intellectual property rights of others. In certain circumstances, employees may be required to share confidential information with third parties such as customers, vendors, or suppliers. Any such disclosure must be made with utmost care and strictly in accordance with the Company’s policies, approvals, and processes. Unauthorized use, copying, distribution, or disclosure of intellectual property—including software, proprietary tools, or training materials—is strictly prohibited and may be illegal. Confidentiality and intellectual property obligations continue even after the termination of employment. Any violation may result in disciplinary action, including termination, and may also lead to legal consequences.",
+      "Anti-Money Laundering Definition of Money Laundering Money laundering refers to any process used to disguise the origin of illegally obtained money to make it appear legitimate. This includes, but is not limited to:",
+      "Concealing the source of funds",
+      "Converting illegal money into legal assets",
+      "Using Company resources or systems for unlawful financial transactions Employee Responsibilities All employees are required to:",
+      "Act with integrity and honesty in all financial and business dealings",
+      "Ensure that Company funds, reimbursements, and transactions are used only for legitimate business purposes",
+      "Follow all internal financial controls, approval processes, and documentation requirements",
+      "Complete any mandatory AML or compliance training provided by the Company 7 Prohibited Activities Employees must not:",
+      "Engage in or facilitate money laundering or financial fraud",
+      "Accept or process funds that are suspected to be from illegal sources"
+    ]
+  }
+]

@@ -1062,6 +1062,128 @@ def _text_search_keywords(store: Chroma, keywords: list[str], k: int = 10) -> li
 # Intent classification
 # ---------------------------------------------------------------------------
 
+
+# ---------------------------------------------------------------------------
+# Context Expansion (Sliding Window / Neighbor Fetching)
+# ---------------------------------------------------------------------------
+
+def _get_neighbors(store: Chroma, parent_id: str, current_index: int, window: int = 1) -> list[Document]:
+    """
+    Fetch the neighbor chunks for a given parent record by their index.
+    
+    Args:
+        store: Chroma vector store.
+        parent_id: The base ID of the document.
+        current_index: The chunk index of the 'hit' chunk.
+        window: How many neighbors to fetch in each direction.
+    """
+    if not parent_id or current_index is None:
+        return []
+
+    target_indices = []
+    for offset in range(-window, window + 1):
+        if offset == 0: continue
+        idx = current_index + offset
+        if idx >= 0:
+            target_indices.append(idx)
+
+    if not target_indices:
+        return []
+
+    try:
+        # Use metadata filtering to find all siblings within the window
+        # Note: We fetch ALL siblings in one go if possible, or iterate
+        all_neighbors = []
+        for idx in target_indices:
+            results = store._collection.get(
+                where={
+                    "$and": [
+                        {"parent_record_id": parent_id},
+                        {"chunk_index": idx}
+                    ]
+                },
+                include=["documents", "metadatas"],
+                limit=1
+            )
+            for i, content in enumerate(results.get("documents") or []):
+                meta = (results.get("metadatas") or [{}])[i] or {}
+                all_neighbors.append(Document(page_content=content, metadata=meta))
+        return all_neighbors
+    except Exception:
+        logger.debug("Failed to fetch neighbors for %s index %d", parent_id, current_index)
+        return []
+
+
+def _expand_and_stitch_context(store: Chroma, docs: list[Document], window: int = 1) -> list[Document]:
+    """
+    For each search result, fetch its neighbors and stitch contiguous chunks together.
+    
+    This turns fragmentation into flow and ensures no info is hidden across boundaries.
+    """
+    if not docs:
+        return []
+
+    # 1. Expand the set with neighbors
+    expanded_pool = list(docs)
+    seen_ids = {doc.metadata.get("record_id") for doc in docs if doc.metadata.get("record_id")}
+
+    for doc in docs:
+        parent_id = doc.metadata.get("parent_record_id")
+        current_idx = doc.metadata.get("chunk_index")
+        
+        if parent_id and current_idx is not None:
+            neighbors = _get_neighbors(store, parent_id, current_idx, window=window)
+            for n in neighbors:
+                n_id = n.metadata.get("record_id")
+                if n_id and n_id not in seen_ids:
+                    seen_ids.add(n_id)
+                    expanded_pool.append(n)
+
+    # 2. Group by parent document and stitch
+    # We want to keep the original retrieval order but improve the content of each 'hit'
+    stitched_docs: list[Document] = []
+    
+    # Sort pool by parent and index to make stitching easy
+    # But we want to preserve the relative 'relevancy' order from the original search
+    # So we'll iterate through the ORIGINAL hits and just replace them with their stitched context
+    
+    handled_parents = set()
+    for doc in docs:
+        parent_id = doc.metadata.get("parent_record_id")
+        if not parent_id:
+            stitched_docs.append(doc)
+            continue
+            
+        if parent_id in handled_parents:
+            continue
+            
+        handled_parents.add(parent_id)
+        
+        # Find all expanded chunks for THIS parent
+        family = [d for d in expanded_pool if d.metadata.get("parent_record_id") == parent_id]
+        # Sort by index
+        family.sort(key=lambda x: x.metadata.get("chunk_index", 0))
+        
+        # Stitch them together
+        full_content = ""
+        last_idx = -1
+        for member in family:
+            curr_idx = member.metadata.get("chunk_index", 0)
+            if last_idx != -1 and curr_idx > last_idx + 1:
+                full_content += "\n\n... [gap in document] ...\n\n"
+            
+            full_content += member.page_content + " "
+            last_idx = curr_idx
+            
+        # Create the new super-doc
+        stitched_docs.append(Document(
+            page_content=full_content.strip(),
+            metadata=doc.metadata # Keep the metadata of the highest scoring hit
+        ))
+
+    return stitched_docs
+
+
 def _classify_query_intent(question: str, names: list[str]) -> str:
     """
     Classify the user's query into one of three intent categories.
@@ -1508,6 +1630,16 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
     else:
         # FlashRank unavailable or too few candidates — just truncate
         combined = combined[:k]
+
+    # ── Step 8: Adaptive Context Expansion ─────────────────────────────────
+    # Automatically fetch neighbor chunks and stitch contiguous pieces.
+    # This ensures no content is hidden across chunk boundaries.
+    logger.info(">> Step 8 | Expanding and stitching context (window=%d)...", settings.rag_retriever_look_ahead)
+    combined = _expand_and_stitch_context(
+        store, 
+        combined, 
+        window=settings.rag_retriever_look_ahead
+    )
 
     # ── Final summary log ──────────────────────────────────────────────────
     _log_selected_chunks(combined, "FINAL -- context sent to LLM")

@@ -1,0 +1,8 @@
+.TS
+tab(|);
+l l l.
+Project ID|Client Name|Reduction %
+PRJ101|Dubai Tech|40%
+PRJ102|Artefact|25%
+PRJ103|Sorai|15%
+.TE

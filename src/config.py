@@ -134,13 +134,10 @@ class Settings(BaseSettings):
     # Previously hardcoded as 0.1 inside _get_llm() in chain.py — now configurable.
     ollama_temperature: float = 0.1
 
-    # num_ctx is the LLM's context window size in tokens.
-    # This is how much text the LLM can "see" at once (retrieved chunks + question).
-    # PERFORMANCE NOTE: Reducing this from 32768 → 8192 is the single biggest
-    # speed improvement. With top_k=8 chunks of ~300 chars each, the total context
-    # is ~2400 tokens — well within 8192. This cuts LLM processing time ~4x.
-    # Increase this only if answers are getting cut off or missing context.
-    ollama_num_ctx: int = 8192
+    # PERFORMANCE NOTE: Reducing this from 32768 → 16384 supports large 
+    # context expansion (neighbor fetching) while remaining much faster 
+    # than the full 32k window.
+    ollama_num_ctx: int = 16384
 
     # -------------------------------------------------------------------------
     # ChromaDB — Vector Database
@@ -190,6 +187,10 @@ class Settings(BaseSettings):
     # BM25 casts a wide net; FlashRank then picks the best `retriever_top_k`.
     # Higher values = more candidates for re-ranking but slightly slower retrieval.
     bm25_top_k: int = 30
+
+    # How many neighbor chunks to fetch in each direction during retrieval expansion.
+    # Higher = more context but handles larger context window.
+    rag_retriever_look_ahead: int = 1
 
     # -------------------------------------------------------------------------
     # Chunking Settings (used by ingestion/pipeline.py)

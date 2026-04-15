@@ -1,0 +1,41 @@
+[
+  {
+    "policy_id": "POL:Nonconformity And Corrective Action Procedure",
+    "policy_name": "Nonconformity And Corrective Action Procedure",
+    "filename": "Nonconformity and Corrective Action Procedure.pdf",
+    "category": "Nonconformity And Corrective Action Procedure",
+    "summary": "This FiftyFive Technologies Policy on nonconformity and corrective action procedure is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
+    "key_rules": [
+      "Purpose The purpose of this Nonconformity and Corrective Action Procedure is to define the process for identifying, documenting, and addressing nonconformities within FiftyFive Technologies. The procedure ensures that corrective actions are taken to eliminate the causes of nonconformities and prevent their recurrence.",
+      "Scope This procedure applies to all departments and processes within FiftyFive Technologies. It covers nonconformities related to products, services, processes, and compliance with internal and external requirements.",
+      "Nonconformity: A deviation from specified requirements or standards that affects the quality or compliance of a product, service, or process.",
+      "Corrective Action: Actions taken to eliminate the causes of nonconformities to prevent their recurrence.",
+      "Preventive Action: Actions taken to eliminate the causes of potential nonconformities to prevent their occurrence.",
+      "1 Identification of Nonconformities",
+      "Detection: Identify nonconformities through various means, including inspections, audits, customer feedback, or employee reports.",
+      "Documentation: Document the nonconformity in a Nonconformity Report (NCR), including details of the issue, the affected area, and any immediate actions taken.",
+      "2 Evaluation of Nonconformities",
+      "Impact Assessment: Evaluate the impact of the nonconformity on product quality, service delivery, or compliance. Determine whether the nonconformity affects customer satisfaction or poses a risk to the organization.",
+      "Root Cause Analysis: Conduct a root cause analysis to identify the underlying causes of the nonconformity.",
+      "3 Corrective Action Planning",
+      "Action Plan: Develop a Corrective Action Plan (CAP) to address the root causes of the nonconformity. The plan should include specific actions, responsible individuals, and deadlines for completion.",
+      "Approval: Obtain approval for the Corrective Action Plan from relevant stakeholders or management.",
+      "4 Implementation of Corrective Actions",
+      "Execution: Implement the corrective actions as outlined in the plan. Ensure that actions are carried out effectively and according to the specified timeline.",
+      "Communication: Communicate the corrective actions to all affected parties and provide any necessary training or support.",
+      "5 Verification of Effectiveness",
+      "Follow-Up: Verify the effectiveness of the corrective actions by monitoring the affected processes or products. Ensure that the nonconformity has been resolved and that no new issues have arisen.",
+      "Review: Conduct a review to assess whether the corrective actions have achieved the desired outcomes and prevented recurrence of the nonconformity.",
+      "6 Documentation and Records",
+      "Record Keeping: Maintain records of nonconformities, corrective actions, and their effectiveness. Ensure that records are accessible for review and auditing purposes.",
+      "Reporting: Report the status and outcomes of corrective actions to management and relevant stakeholders.",
+      "7 Preventive Actions (if applicable)",
+      "Identification: Identify potential nonconformities and areas for improvement through risk assessments or other proactive measures.",
+      "Action Planning: Develop and implement preventive actions to address potential issues before they result in nonconformities.",
+      "Monitoring: Monitor the effectiveness of preventive actions and adjust as necessary to ensure continued effectiveness.",
+      "Roles and Responsibilities",
+      "Oversight: Oversee the nonconformity and corrective action process, including the review and approval of corrective action plans.",
+      "Support: Provide guidance and support for identifying nonconformities and implementing corrective actions."
+    ]
+  }
+]

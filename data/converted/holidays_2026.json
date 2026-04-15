@@ -1,0 +1,175 @@
+[
+  {
+    "Date": "JAN 01",
+    "Holiday": "New Year's Day",
+    "Day": "Thursday",
+    "Floater Leave": "-",
+    "_page": 1
+  },
+  {
+    "Date": "JAN 14",
+    "Holiday": "Makar Sankranti/Pongal",
+    "Day": "Wednesday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 1
+  },
+  {
+    "Date": "JAN 26",
+    "Holiday": "Republic Day",
+    "Day": "Monday",
+    "Floater Leave": "-",
+    "_page": 1
+  },
+  {
+    "Date": "MAR 04",
+    "Holiday": "Holi",
+    "Day": "Wednesday",
+    "Floater Leave": "-",
+    "_page": 1
+  },
+  {
+    "Date": "MAR 08",
+    "Holiday": "Rangpanchmi",
+    "Day": "Sunday",
+    "Floater Leave": "-",
+    "_page": 1
+  },
+  {
+    "Date": "MAR 21",
+    "Holiday": "Eid ul Fitr",
+    "Day": "Saturday",
+    "Floater Leave": "-",
+    "_page": 1
+  },
+  {
+    "Date": "MAR 26",
+    "Holiday": "Ram Navami",
+    "Day": "Thursday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 1
+  },
+  {
+    "Date": "MAR 31",
+    "Holiday": "Mahaveer Jayanti",
+    "Day": "Tuesday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 1
+  },
+  {
+    "Date": "APR 03",
+    "Holiday": "Good Friday",
+    "Day": "Friday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 1
+  },
+  {
+    "Date": "APR 14",
+    "Holiday": "Ambedkar Jayanti",
+    "Day": "Tuesday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 1
+  },
+  {
+    "Date": "MAY 27",
+    "Holiday": "Eid Al Adha",
+    "Day": "Wednesday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 1
+  },
+  {
+    "Date": "AUG 15",
+    "Holiday": "Independence Day",
+    "Day": "Saturday",
+    "Floater Leave": "-",
+    "_page": 1
+  },
+  {
+    "Date": "AUG 26",
+    "Holiday": "Onam",
+    "Day": "Wednesday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 1
+  },
+  {
+    "Date": "AUG 28",
+    "Holiday": "Raksha Bandhan",
+    "Day": "Friday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 2
+  },
+  {
+    "Date": "SEP 04",
+    "Holiday": "Janmashtami",
+    "Day": "Friday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 2
+  },
+  {
+    "Date": "SEP 14",
+    "Holiday": "Ganesh Chaturthi",
+    "Day": "Monday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 2
+  },
+  {
+    "Date": "OCT 02",
+    "Holiday": "Mahatama Gandhi Jayanti",
+    "Day": "Friday",
+    "Floater Leave": "-",
+    "_page": 2
+  },
+  {
+    "Date": "OCT 19",
+    "Holiday": "Mahav Navmi/ Durga Pooja",
+    "Day": "Monday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 2
+  },
+  {
+    "Date": "OCT 20",
+    "Holiday": "Dusshera",
+    "Day": "Tuesday",
+    "Floater Leave": "-",
+    "_page": 2
+  },
+  {
+    "Date": "NOV 08",
+    "Holiday": "Diwali",
+    "Day": "Sunday",
+    "Floater Leave": "-",
+    "_page": 2
+  },
+  {
+    "Date": "NOV 11",
+    "Holiday": "Bhai Dooj",
+    "Day": "Wednesday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 2
+  },
+  {
+    "Date": "NOV 15",
+    "Holiday": "Chhath Pooja",
+    "Day": "Sunday",
+    "Floater Leave": "-",
+    "_page": 2
+  },
+  {
+    "Date": "NOV 24",
+    "Holiday": "Guru Nanak Jayanti",
+    "Day": "Tuesday",
+    "Floater Leave": "FLOATER LEAVE",
+    "_page": 2
+  },
+  {
+    "Date": "DEC 25",
+    "Holiday": "Christmas Day",
+    "Day": "Friday",
+    "Floater Leave": "-",
+    "_page": 2
+  },
+  {
+    "source_file": "holidays_2026.pdf",
+    "page": 3,
+    "text": "Source Screenshot\nIncluded for visual reference.\nPage 3"
+  }
+]

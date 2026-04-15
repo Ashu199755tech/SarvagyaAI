@@ -1,0 +1,41 @@
+[
+  {
+    "policy_id": "POL:Attendance Policy",
+    "policy_name": "Attendance Policy",
+    "filename": "Attendance Policy.pdf",
+    "category": "Attendance Policy",
+    "summary": "This FiftyFive Technologies Policy on employee benefits is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
+    "key_rules": [
+      "Permanent / Extended Work from Home",
+      "Work From Office (WFO – 5 Days a Week) For detailed attendance and penalisation policy applicable to each of the above working models, please refer to the respective provisions section of this policy. Provisions Standard Working Hours (All Locations): 8 hours Standard Shift Timings (All Locations) : 10:00 AM to 7:00 PM Weekly Working Hours: Minimum of 40 working hours per week, excluding lunch breaks Break Time : 60 minutes (Lunch/Tea/Short Breaks): Break time allotted for lunch, tea, and short rests; this duration is excluded from total working hours. Working hours and break time may vary based on project, role, or client requirements. Any deviation from standard working hours must be approved in advance by the Reporting Manager and HR Department. Employees are expected to maintain punctuality, discipline, and professional conduct to ensure smooth execution of work.",
+      "Hybrid Attendance Policy: This policy defines attendance tracking, working-hour compliance, and work-from-home procedures for employees following a hybrid work model, ensuring transparency, accountability, and accurate payroll processing.",
+      "Attendance Tracking for Hybrid Employees:",
+      "All hybrid employees must record their attendance through the office biometric system on the days they work from the office.",
+      "Attendance records must reflect a minimum of 8 working hours per day on KEKA.",
+      "It is mandatory for all employees to use Compliance Tool to track working hours, including while working from home (temporary or permanent).",
+      "Employees must ensure Compliance Tool is active during working hours and accurately reflects time spent on work- related tasks.",
+      "Early Office Exit & Continuation of Work Remotely If an employee needs to leave the office before completing 8 working hours, the following process must be followed:",
+      "Prior approval must be obtained from the Reporting Manager (RM) and HR.",
+      "The employee must clock out through the office biometric system before leaving the premises.",
+      "If the employee continues working after leaving the office, they must remote clock-in on KEKA at the time they resume work.",
+      "All remote clock-in requests are subject to approval by the Reporting Manager and HR.",
+      "Upon completion of work, the employee must remote clock-out on KEKA.",
+      "Total working hours for the day will be calculated based on combined logs from office biometric attendance and approved remote clock-in records. Failure to follow the above process may result in attendance shortfall and payroll impact.",
+      "Work From Home (Work from Home) Beyond Permitted Limit Hybrid employees are permitted to work from home for up to 2 days per week by default. If an employee intends to exceed 2 Work from Home days in a week, the following process must be followed:",
+      "The employee must seek prior approval via email from both the Reporting Manager and HR Department .",
+      "Upon approval, HR will raise and apply the Work from Home request on KEKA on behalf of the employee. Once the Work from Home request is approved on KEKA, the employee must:",
+      "Log attendance using KEKA as per Work from Home attendance capture scheme for the approved Work from Home days.",
+      "Employee Responsibility & Attendance Accuracy: It is the employee’s responsibility to ensure:",
+      "Proper clock-in and clock-out on KEKA",
+      "Completion of 8 working hours per day. In case of missing swipes or attendance discrepancies due to error, the employee must:",
+      "Proper clock-in and clock-out on KEKA and Compliance Tool",
+      "Completion of 8 working hours per day In case of missing swipes or attendance discrepancies due to error, the employee must:",
+      "HR will not make any attendance corrections. As payroll processing begins on the 25th of each month, employees are requested to review and ensure their attendance is accurate before this date. Be subject to penalties as per the KEKA Attendance Penalization Policy.",
+      "Whenever an employee is away from work, they must update their status accordingly to Compliance Tool.",
+      "If the required working hours are not completed or accurately reflected on Compliance Tool, HR reserves the right to raise an escalation and take necessary action as per company policy.",
+      "Policy Compliance Failure to adhere to this policy may result in:",
+      "Attendance penalties as per to the penalization policy.",
+      "Disciplinary action as per company policies"
+    ]
+  }
+]

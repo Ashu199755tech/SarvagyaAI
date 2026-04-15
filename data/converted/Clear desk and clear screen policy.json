@@ -1,0 +1,41 @@
+[
+  {
+    "policy_id": "POL:Clear Desk And Clear Screen Policy",
+    "policy_name": "Clear Desk And Clear Screen Policy",
+    "filename": "Clear desk and clear screen policy.pdf",
+    "category": "Clear Desk And Clear Screen Policy",
+    "summary": "This FiftyFive Technologies Policy on clear desk and clear screen policy is released for use in FiftyFive Technologies Pvt Limited with effect from 01 January 2026. This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.",
+    "key_rules": [
+      "Purpose The purpose of this Clear Desk and Clear Screen Policy is to protect FiftyFive Technologies's sensitive and confidential information from unauthorized access, loss, or theft. This policy sets out guidelines to ensure that workspaces and computer screens are secure when unattended, promoting a culture of information security and reducing potential risks associated with information exposure.",
+      "Scope This policy applies to all employees, contractors, consultants, temporary and other workers, including third-party vendors who have access to FiftyFive Technologies's physical or virtual workspaces. It covers all workspaces and devices where sensitive information is accessed, processed, or stored.",
+      "Protect sensitive and confidential information from unauthorized access or exposure.",
+      "Minimize risks related to data loss, theft, or accidental disclosure.",
+      "Promote secure working practices for a clean, organized, and secure workspace environment.",
+      "Clear Desk: Practice of keeping desks free of documents and other materials containing sensitive or confidential information when they are not in use.",
+      "Clear Screen: Practice of locking or logging off computer screens when not in use to prevent unauthorized access to displayed information.",
+      "Roles and Responsibilities",
+      "All Employees and Contractors: Comply with clear desk and screen practices, and ensure confidential information is protected at all times.",
+      "Managers and Supervisors: Ensure team members adhere to this policy and encourage good security practices.",
+      "IT and Security Team: Provide technical support to enforce clear screen requirements and educate users on best practices.",
+      "Facilities Management: Provide secure storage options, such as lockable drawers and cabinets, for sensitive information.",
+      "1 Clear Desk Requirements",
+      "Document Security: All sensitive and confidential documents must be securely stored in lockable cabinets, drawers, or designated storage areas when not actively in use.",
+      "End-of-Day Desk Clearing: Employees must clear all sensitive information and materials from their desks at the end of each workday. This includes removing any documents, notes, removable storage devices, and equipment that contain or access sensitive information.",
+      "Temporary Absence Protocol: If an employee is away from their desk for extended periods during the day, they must ensure that all sensitive materials are secured in a locked drawer or file cabinet.",
+      "Secure Printing: Employees must retrieve printed documents immediately and avoid leaving them unattended on printers or shared desks. If printed materials are sensitive, employees should use secure printing options, such as requiring a code to release the document.",
+      "2 Clear Screen Requirements",
+      "Screen Locking Standards: All employees must lock their computer screens whenever stepping away from their workstation, regardless of the duration. This can be done by using keyboard shortcuts (e.g., \"Ctrl + Alt + Del\" or \"Windows Key + L\" on Windows or enabling screen saver lock on Mac).",
+      "Automatic Screen Lock Configuration: IT will configure all devices to automatically lock screens after a set period of inactivity (e.g., 5–15 minutes), based on organizational risk tolerance and regulatory requirements.",
+      "Use of Privacy Screens: Employees handling sensitive information in open or public workspaces must use privacy screens on monitors to prevent unauthorized viewing of displayed information.",
+      "Remote Work Screen Security: When working remotely, employees must follow the same clear screen practices and ensure that screen visibility is limited to authorized individuals only.",
+      "3 Physical Security of Devices and Media",
+      "Securing Laptops and Mobile Devices: Employees must lock or secure laptops, mobile devices, and other equipment when not in use, especially in shared or open environments. This includes using physical locks when available.",
+      "Storage of Removable Media: USB drives, external hard drives, and other removable media should be securely stored when not in use and must not be left unattended on desks or in shared areas.",
+      "Confidential Document Disposal: Sensitive and confidential information must be disposed of in secure shred bins, not left in general recycling or trash bins.",
+      "4 Shared and Open Workspaces",
+      "Clean Desk in Shared Spaces: Employees using shared desks or workstations must clear all documents, notes, and electronic devices before leaving to maintain a clutter-free and secure workspace.",
+      "Meeting Room Practices: Employees must remove all materials containing sensitive information, erase any information from whiteboards, and ensure that no confidential documents are left behind in meeting rooms.",
+      "Secure Document Removal: Any confidential information brought into shared or open workspaces must be removed or securely stored after use."
+    ]
+  }
+]
