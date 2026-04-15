@@ -3,6 +3,8 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+from src.config import settings
+
 logger = logging.getLogger(__name__)
 
 class DataInterpreter:
@@ -11,8 +13,8 @@ class DataInterpreter:
     counts and summaries that RAG vector search often misses.
     """
 
-    def __init__(self, data_dir: str = "./data/converted"):
-        self.data_dir = Path(data_dir)
+    def __init__(self, data_dir: str | None = None):
+        self.data_dir = Path(data_dir or settings.converted_dir)
 
     def query(self, entity_type: str, criteria: str) -> Optional[Dict[str, Any]]:
         """
@@ -25,14 +27,10 @@ class DataInterpreter:
         results = []
         criteria_lower = criteria.lower().strip()
 
-        # Map entity types to specific files to speed up search
-        file_map = {
-            "employee": "fiftyfive_employee_directory.json",
-            "project": "Case Studies @55 Website .json",
-            "holiday": "holidays_2026.json"
-        }
+        # Map entity types to specific files — driven by config, not hardcoded
+        file_map = settings.interpreter_file_map
 
-        # If it's a policy, we scan all files that aren't the maps above
+        # If it's a policy or general, we scan all files
         target_files = []
         if entity_type in file_map:
             target_files = [self.data_dir / file_map[entity_type]]
@@ -129,7 +127,11 @@ class DataInterpreter:
         if not criteria or len(criteria) < 2:
             return None, None
 
-        # Edge case: "AI Team" -> "Artificial Intelligence" (optional bridge)
-        if criteria == "Ai" or criteria == "Ai Team": criteria = "Artificial Intelligence"
+        # Department Alias Bridge — driven by config, not hardcoded
+        # Resolves short names like "Ai" → "Artificial Intelligence"
+        dept_aliases = settings.department_aliases
+        criteria_key = criteria.lower().strip()
+        if criteria_key in dept_aliases:
+            criteria = dept_aliases[criteria_key]
 
         return entity, criteria

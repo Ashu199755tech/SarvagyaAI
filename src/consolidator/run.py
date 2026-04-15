@@ -31,7 +31,9 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
 )
 logger = logging.getLogger(__name__)
-OUTPUT_DIR = "./data"
+
+from src.config import settings
+OUTPUT_DIR = settings.data_dir
 
 
 async def run_consolidation() -> dict:

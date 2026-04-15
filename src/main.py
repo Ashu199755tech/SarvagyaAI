@@ -144,8 +144,8 @@ async def upload_and_ingest(file: UploadFile = File(...)):
     from src.ingestion.universal_converter import convert_to_json, CONVERTERS
     from pathlib import Path as _Path
 
-    INBOX_DIR     = _Path("./data/inbox")
-    CONVERTED_DIR = _Path("./data/converted")
+    INBOX_DIR     = _Path(settings.inbox_dir)
+    CONVERTED_DIR = _Path(settings.converted_dir)
     INBOX_DIR.mkdir(parents=True, exist_ok=True)
     CONVERTED_DIR.mkdir(parents=True, exist_ok=True)
 

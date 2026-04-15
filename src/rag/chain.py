@@ -98,9 +98,10 @@ _COMMON_WORDS: frozenset[str] = frozenset({
     "Been", "Will", "Would", "Could", "Should", "May", "Might", "Shall",
     "Use", "Used", "In", "On", "At", "By", "To", "Of", "Up",
     # ── Organisation / company nouns ─────────────────────────────────────
-    # After alias expansion "@55" → "FiftyFive Technologies", these words
-    # appear in the question. They must not be extracted as person names.
-    "Technologies", "FiftyFive", "Company", "Organisation", "Organization",
+    # After alias expansion, company name words appear in the question.
+    # They must not be extracted as person names.
+    # NOTE: Company-specific words are injected dynamically from settings below.
+    "Company", "Organisation", "Organization",
     "Institute", "Corporation", "Services", "Solutions",
     # ── Technology / acronym words ────────────────────────────────────────
     # BUG FIX: Words like "GPUs", "APIs", "ML", "AI" start with a capital
@@ -110,7 +111,7 @@ _COMMON_WORDS: frozenset[str] = frozenset({
     # excluded from name extraction.
     # We handle this in _extract_names() logic below rather than listing
     # every possible acronym here — see the _is_acronym_token() helper.
-})
+}) | frozenset(settings.company_common_words)  # Inject company-specific words from config
 
 # Common English words that carry no useful information for keyword search.
 # Used by _extract_keywords() to filter out noise words before searching.
@@ -146,12 +147,9 @@ _STOP_WORDS: frozenset[str] = frozenset({
     "details", "info",        # "give me details on..." — meaningless search terms
     "where", "which",         # "which projects where X" — positional words
     # ── Company name fragments — too broad, match every case study ────────
-    # After alias expansion "as 55" → "FiftyFive Technologies", these words
-    # appear in the query and pass keyword extraction. But $contains "FiftyFive"
-    # and $contains "Technologies" match EVERY case study chunk, flooding
-    # retrieval with noise instead of signal. Filter them here.
-    "fiftyfive", "technologies",
-})
+    # Company-specific stop words are injected dynamically from config.
+    # They match every chunk and add noise instead of signal.
+}) | frozenset(settings.company_stop_words)  # Inject company-specific words from config
 
 # ---------------------------------------------------------------------------
 # Global cached vector store — created ONCE, reused across all requests
@@ -831,21 +829,21 @@ def _normalise_company_aliases(question: str) -> str:
     Returns:
         The question with company aliases replaced by the canonical name.
     """
-    replacements = [
-        (r"@\s*55\b",              "FiftyFive Technologies"),
-        (r"\bat\s+55\b",           "FiftyFive Technologies"),
-        (r"\bas\s+55\b",           "FiftyFive Technologies"),
-        (r"\b55\s+tech\b",         "FiftyFive Technologies"),
-        (r"\b55\s+technologies\b", "FiftyFive Technologies"),
-        # NOTE: "fiftyfive" rule deliberately removed — after expanding "as 55"
-        # to "FiftyFive Technologies", re-matching "fiftyfive" in that result
-        # would add another "Technologies", giving "FiftyFive Technologies Technologies"
-    ]
+    # Build regex patterns dynamically from config — no hardcoded company names
+    canonical = settings.company_name  # e.g. "FiftyFive Technologies"
+    replacements = []
+    for alias in settings.company_aliases:
+        # Escape special regex chars in the alias, then allow flexible whitespace
+        pattern = r"\b" + re.escape(alias).replace(r"\ ", r"\s+") + r"\b"
+        replacements.append((pattern, canonical))
+
     result = question
     for pattern, replacement in replacements:
         result = re.sub(pattern, replacement, result, flags=re.IGNORECASE)
-    # Collapse accidental double "Technologies Technologies" just in case
-    result = re.sub(r"\bTechnologies\s+Technologies\b", "Technologies", result)
+
+    # Collapse accidental double last-word duplication (e.g. "Technologies Technologies")
+    last_word = canonical.split()[-1]
+    result = re.sub(rf"\b{last_word}\s+{last_word}\b", last_word, result)
     return result
 
 

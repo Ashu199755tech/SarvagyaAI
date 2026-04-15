@@ -34,9 +34,9 @@ from src.ingestion.universal_converter import convert_inbox
 
 logger = logging.getLogger(__name__)
 
-DATA_DIR      = Path("./data")
-INBOX_DIR     = DATA_DIR / "inbox"
-CONVERTED_DIR = DATA_DIR / "converted"
+DATA_DIR      = Path(settings.data_dir)
+INBOX_DIR     = Path(settings.inbox_dir)
+CONVERTED_DIR = Path(settings.converted_dir)
 
 # Legacy known JSON files (handled by specialized registry builders)
 LEGACY_JSON_FILES = [

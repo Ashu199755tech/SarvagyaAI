@@ -37,6 +37,62 @@ class Settings(BaseSettings):
     employee_api_base_url: str = "http://localhost:8005"
 
     # -------------------------------------------------------------------------
+    # Client Identity — Company-specific values
+    # -------------------------------------------------------------------------
+    # The canonical company name used in responses and alias expansion.
+    company_name: str = "FiftyFive Technologies"
+
+    # Short aliases users type instead of the full company name.
+    # Each alias is expanded to company_name during query pre-processing.
+    # Override in .env as a JSON list: COMPANY_ALIASES='["@55","at 55"]'
+    company_aliases: list[str] = [
+        "@55", "at 55", "as 55", "55 tech", "55 technologies",
+    ]
+
+    # Company-specific words to add to the keyword stop-word filter.
+    # These appear in nearly every chunk and add noise to $contains search.
+    company_stop_words: list[str] = ["fiftyfive", "technologies"]
+
+    # Company-specific words to add to the name-extraction exclusion list.
+    # Prevents the system from treating "FiftyFive" as a person's name.
+    company_common_words: list[str] = ["Technologies", "FiftyFive"]
+
+    # -------------------------------------------------------------------------
+    # Data Paths — Centralized directory locations
+    # -------------------------------------------------------------------------
+    # Root directory for all data files (JSON, ChromaDB, inbox, converted).
+    data_dir: str = "./data"
+
+    # Directory where uploaded files are stored before conversion.
+    inbox_dir: str = "./data/inbox"
+
+    # Directory where converted JSON files are stored after ingestion.
+    converted_dir: str = "./data/converted"
+
+    # -------------------------------------------------------------------------
+    # Data Interpreter — Entity File Map
+    # -------------------------------------------------------------------------
+    # Maps entity types to their JSON filenames in the converted directory.
+    # The DataInterpreter uses this to know which file to scan for each type.
+    # Override in .env as JSON: INTERPRETER_FILE_MAP='{"employee":"staff.json"}'
+    interpreter_file_map: dict = {
+        "employee": "fiftyfive_employee_directory.json",
+        "project": "Case Studies @55 Website .json",
+        "holiday": "holidays_2026.json",
+    }
+
+    # -------------------------------------------------------------------------
+    # Department Alias Bridge
+    # -------------------------------------------------------------------------
+    # Maps short user phrases to actual department names in the data.
+    # Used by the DataInterpreter to resolve abbreviations like "AI" → full name.
+    department_aliases: dict = {
+        "ai": "Artificial Intelligence",
+        "hr": "Human Resource",
+        "ml": "Machine Learning",
+    }
+
+    # -------------------------------------------------------------------------
     # PDF Ingestion
     # -------------------------------------------------------------------------
     # Absolute path to the folder containing company policy PDFs.

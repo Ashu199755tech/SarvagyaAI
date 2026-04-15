@@ -36,7 +36,7 @@ from src.consolidator.entities import (
 
 logger = logging.getLogger(__name__)
 
-DATA_DIR = Path("./data")
+DATA_DIR = Path(settings.data_dir)
 SOT_EMPLOYEES = DATA_DIR / "employees.json"
 SOT_POLICIES  = DATA_DIR / "policies.json"
 SOT_PROJECTS  = DATA_DIR / "projects.json"
