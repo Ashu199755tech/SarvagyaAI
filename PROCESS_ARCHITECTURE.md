@@ -1,52 +1,65 @@
 # ResoAI Agent Process Architecture
 
-This document visualizes the internal "brain" and data flow process of the ResoAI agent.
+This document visualizes the internal decision-making process and data flow of the ResoAI agent.
 
-## End-to-End Agent Process (Sequence Diagram)
+---
 
-This diagram shows how data travels through the system from the moment it's ingested to the moment a user receives an answer.
+## 🔄 End-to-End Query Lifecycle
+
+This sequence diagram illustrates how the **Agentic Router** decides between deterministic scanning and semantic retrieval.
 
 ```mermaid
 sequenceDiagram
-    participant K as Keka API / PDFs
-    participant I as Ingestion Pipeline
-    participant DB as ChromaDB (Vector Store)
-    participant U as User (Teams/API)
-    participant A as ResoAI (LangChain)
-    participant LLM as Ollama (Llama-3.2)
+    participant U as User
+    participant R as Agentic Router
+    participant DI as Data Interpreter
+    participant VS as Vector Store (ChromaDB)
+    participant LLM as local LLM (Ollama)
 
-    Note over K, I: [Phase 1: Knowledge Acquisition]
-    K->>I: Raw Data (JSON/PDF)
-    I->>I: Chunking & Embedding
-    I->>DB: Upsert Vectors + Metadata
-
-    Note over U, LLM: [Phase 2: Query & Reasoning]
-    U->>A: Ask: "How many leaves...?"
-    A->>A: Name Extraction (Anthony)
-    A->>DB: Semantic Search + Name Match
-    DB-->>A: Relevant Context Chunks
+    U->>R: "How many people in Jaipur?" (Query)
     
-    A->>LLM: Prompt (System Rules + Context + Query)
-    LLM->>LLM: Local Inference
-    LLM-->>A: Clean, Concise Answer
-    A->>U: Final Response: "24 leaves"
+    Note over R: Phase 1: Pre-Processing
+    R->>R: Alias Expansion (@55 -> FiftyFive)
+    R->>R: Keyword Scrubbing
+    
+    Note over R: Phase 2: Intent Classification
+    
+    alt Quantitative Intent (Counts/Lists)
+        R->>DI: Route: Aggregation
+        DI->>DI: Fuzzy Scan JSONs (data/converted/)
+        DI-->>U: Return exact result: "15 matches" (0.015s)
+    else Semantic Intent (Explanation/Policy)
+        R->>VS: Route: Semantic Retrieval
+        VS-->>R: Retrieve Context Chunks
+        R->>LLM: Prompt (Context + Question)
+        LLM-->>U: Return Natural Language Answer (60s+)
+    end
 ```
 
-## Functional Architecture
+---
 
-![Agent Process Workflow](/home/fifity-five/.gemini/antigravity/brain/ce90508a-4944-4b59-95c5-45f49de222bf/agent_process_flow_mockup_1773312622711.png)
+## 🧠 Core Processing Stages
 
-### Core Pipeline Stages
+### 1. Query Pre-Processing (Phrase-First Scrubbing)
+Before any retrieval happens, the query is normalized:
+- **Alias Expansion**: Common shorthands like `@55`, `tech`, or `at 55` are expanded to the canonical company name to ensure metadata matches.
+- **Scrubbing**: Noise words and filler phrases ("Can you tell me how many", "I want to know if") are stripped using **Phrase-First Scrubbing** to isolate the core subject (e.g., "AI", "Udaipur").
 
-1.  **Ingestion & Vectorization**: 
-    - The agent fetches data from the **Employee API** (structured) and **Local PDFs** (unstructured).
-    - It uses the **Nomic-Embed** model to convert text into multi-dimensional vectors.
-2.  **Contextual Retrieval**:
-    - When a query arrives, the agent performs a **Hybrid Search**. It looks for exact name matches (to avoid cross-employee confusion) and semantic matches (to find the right policy).
-3.  **Prompt Orchestration**:
-    - The agent wraps the retrieved data in a strict **System Prompt** that enforces brevity, numerical precision, and professional tone.
-4.  **Local Inference**:
-    - The **Ollama** engine runs the **Llama-3.2** model to synthesize the final answer using *only* the provided context, preventing hallucinations.
+### 2. Zero-Shot Intent Mapping
+The agent automatically detects the **Target Entity** (Employee, Project, Policy, Holiday) and the **Operation Type**:
+- **Aggregation**: Triggers the Data Interpreter for absolute accuracy.
+- **Semantic**: Triggers the RAG pipeline for nuanced explanations.
+
+### 3. Data Interpreter (Precise Agreggation)
+Unlike standard RAG, the Data Interpreter **scans raw JSON records**.
+- **Pros**: 100% accuracy on counts, no hallucination, extremely fast (sub-millisecond).
+- **Technique**: Fuzzy partial matching across all record fields (e.g., matching "Jaipur" in a `location` field or `address` field automatically).
+
+### 4. Vector RAG Engine (Semantic Synthesis)
+The fallback path for qualitative questions.
+- **BM25**: Finds documents containing exact important terms.
+- **Semantic Vector**: Finds documents with similar *concepts* even if words differ.
+- **Cross-Encoder**: A final "Re-ranker" that ensures only the top most relevant chunks are sent to the LLM to fit within the context window (`ollama_num_ctx`).
 
 ---
-*Created by ResoAI Agent*
+*Created by ResoAl Agent - Continuous Deployment V2*

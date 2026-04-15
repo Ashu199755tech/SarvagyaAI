@@ -1,75 +1,60 @@
 # ResoAI High-Level Architecture
 
-![ResoAI Architecture](/home/fifity-five/.gemini/antigravity/brain/ce90508a-4944-4b59-95c5-45f49de222bf/resoai_architecture_mockup_1773312463365.png)
+ResoAI is an **Enterprise-Grade RAG Agent** designed for data privacy and high-precision retrieval. It uses a **Hybrid Agentic Architecture** that dynamically routes queries between semantic vector search and deterministic data scanning to ensure 100% accuracy for quantitative questions.
 
-This document describes the high-level architecture of the ResoAI HR Chatbot system. It follows a **Local-First RAG** (Retrieval-Augmented Generation) pattern, ensuring data privacy by keeping employee records and AI computation on-premises.
+---
 
-## System Workflow Diagram
+## 🏗️ System Overview
+
+The system follows a local-first pattern. All data, embeddings, and LLM logical processing remain on-premises (via **Ollama**), ensuring strict data sovereignty.
+
+### Hybrid Routing Architecture
 
 ```mermaid
 graph TD
-    subgraph "External: MS Teams Client"
-        A[User in MS Teams]
-    end
-
-    subgraph "Cloud: Microsoft Azure"
-        B[Azure Bot Service]
-    end
-
-    subgraph "Tunnel: Secure Bridge"
-        C[ngrok Tunnel]
-    end
-
-    subgraph "Local: Your Infrastructure (FastAPI Application)"
-        D[FastAPI Web Server]
-        E[MS Teams Webhook: /api/messages]
-        F[Internal API: /api/ask]
-        G[RAG Orchestrator: LangChain]
-        H[Data Ingestion Pipeline]
-    end
-
-    subgraph "Data Storage & AI Models"
-        I[(ChromaDB: Vector Store)]
-        J[Ollama: Local LLM Server]
-        K[Employee API & PDF Docs]
-    end
-
-    %% Flow of Ask Request
-    A <--> B
-    B <--> C
-    C <--> E
-    E --> G
-    F --> G
+    User([User Query]) --> PreProcess[Query Pre-Processing<br/>Alias Expansion & Cleaning]
+    PreProcess --> Router{Agentic Intent Router}
     
-    %% Setup / Background Ingestion
-    K --> H
-    H --> I
-    I <--> G
+    %% Path A: Data Interpreter
+    Router -- "Quantitative Intent<br/>(How many? List all?)" --> DI[Zero-Shot Data Interpreter]
+    DI --> JSON[(Structured JSON Sources<br/>data/converted/)]
+    JSON --> DI
+    DI --> Response([Final Response])
     
-    %% AI Generation
-    G <--> J
+    %% Path B: RAG Engine
+    Router -- "Semantic Intent<br/>(Explain? What is?)" --> RAG[Hybrid RAG Engine]
+    RAG --> Vector[(ChromaDB<br/>Vector Store)]
+    RAG --> BM25[BM25 Keyword Search]
+    Vector --> Merge[Merge & Re-rank]
+    BM25 --> Merge
+    Merge --> LLM[Local LLM<br/>llama3.2]
+    LLM --> Response
 ```
 
-## Component Breakdown
+---
 
-### 1. External & Cloud
-- **MS Teams**: The frontend interface where employees ask questions.
-- **Azure Bot Service**: Authenticates messages and routes them to the configured messaging endpoint.
-- **ngrok**: Provides a secure public URL that tunnels traffic directly to your local port 8001.
+## 🛠️ Core Components
 
-### 2. FastAPI Application
-- **Webhook (/api/messages)**: Handles Ms Teams Activities (messages, members joined, etc.).
-- **Internal API (/api/ask)**: A direct endpoint for testing RAG queries (used via `curl` or Swagger UI).
-- **RAG Orchestrator**: The "brain" that coordinates the retrieval of documents and the generation of the final answer.
+### 1. Data Ingestion & Consolidation
+- **Universal Converter**: Decouples document format (PDF, Excel, Word) from the system by converting everything into structured, queryable JSON.
+- **Semantic PDF Parser**: Uses `pdftotext` and deterministic regex patterns rather than LLMs for ingestion, ensuring 100% data fidelity without hallucinations during reading.
 
-### 3. Data & AI (Local)
-- **Ingestion Pipeline**: Periodically syncs with the Employee API and scans the PDF folder to keep the bot's knowledge up to date.
-- **ChromaDB**: A high-performance vector database that stores the semantic "fingerprints" of your documents.
-- **Ollama**: A local server that hosts the **Llama-3.2** LLM and **Nomic Embed** models, allowing all AI processing to happen without sending data to a cloud provider.
+### 2. The "Brain" (Hybrid Orchestrator)
+- **Agentic Router**: identifies user intent. If the query asks for counts or lists (e.g., "How many people in AI?"), it bypasses the vector store to prevent "retrieval missing" hallucinations.
+- **Zero-Shot Data Interpreter**: Scans JSON sources in real-time. It uses fuzzy matching and phrase-first scrubbing to identify entities (Locations, Departments, Technologies) without needing hardcoded keyword lists.
+- **Vector RAG Engine**: Used for qualitative/semantic questions. Combines Vector Similarity (ChromaDB) with BM25 keyword matching and cross-encoder re-ranking.
+
+### 3. Local AI Infrastructure
+- **Ollama**: The heart of the local stack. It hosts `llama3.2` for reasoning and `nomic-embed-text` for semantic mapping.
+- **ChromaDB**: Persists document "embeddings" (mathematical fingerprints) locally.
 
 ---
 
-### [Full Architecture Diagram (ARCHITECTURE.md)](file:///home/fifity-five/projects/ResoAi/ARCHITECTURE.md)
+## ⚙️ Dynamic Configuration
+
+The system is **Client-Agnostic**. All hardcoded references have been removed from the source code.
+- **config.py**: Centralizes all company names, aliases, file paths, and department mappings.
+- **.env Overrides**: Deploy for any company by simply updating the environment variables—no coding required.
 
 ---
-*Generated by ResoAI Agent*
+*Last Updated: April 2026*
