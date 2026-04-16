@@ -49,6 +49,36 @@ from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
 from langchain_ollama import ChatOllama
 
+# Setup dedicated debug logger for chunks
+import os
+from datetime import datetime
+
+os.makedirs("logs", exist_ok=True)
+DEBUG_LOG_PATH = "logs/retrieval_debug.log"
+
+def _log_retrieval(question: str, path_name: str, items: list, criteria: str = None):
+    """Writes detailed retrieval results to logs/retrieval_debug.log"""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open(DEBUG_LOG_PATH, "w", encoding="utf-8") as f:
+        f.write(f"\n{'='*80}\n")
+        f.write(f"TIMESTAMP: {timestamp}\n")
+        f.write(f"QUESTION:  {question}\n")
+        f.write(f"PATHWAY:   {path_name}\n")
+        if criteria:
+            f.write(f"CRITERIA:  {criteria}\n")
+        f.write(f"{'-'*80}\n")
+        
+        for i, item in enumerate(items, 1):
+            if hasattr(item, "page_content"): # LangChain Document
+                source = item.metadata.get("source", "unknown")
+                page = item.metadata.get("page", "?")
+                score = item.metadata.get("relevance_score", "N/A")
+                f.write(f"CHUNK {i} [Source: {source} | Page: {page} | Score: {score}]\n")
+                f.write(f"CONTENT: {item.page_content[:500]}...\n\n")
+            else: # Interpreter Result
+                f.write(f"MATCH {i}: {item.get('name')} (from {item.get('file')})\n")
+        f.write(f"{'='*80}\n")
+
 from src.config import settings
 from src.rag.store import get_vector_store
 from src.rag.prompts import RAG_PROMPT
@@ -1743,6 +1773,9 @@ async def ask(question: str) -> dict:
                 
                 answer = f"Based on the live data scan, there are **{count}** {entity_type}(s) matching '{criteria}'. The results include: {match_listing}."
                 
+                # Dynamic Logging for Interpreter
+                _log_retrieval(question, "DataInterpreter", matches, criteria=criteria)
+
                 total_time = time.monotonic() - start_time
                 return {
                     "answer": answer,
@@ -1760,7 +1793,9 @@ async def ask(question: str) -> dict:
         # Run the full hybrid retrieval pipeline
         docs = await _retrieve_mixed(store, question, k=settings.retriever_top_k)
         retrieval_time = time.monotonic() - start_time
-        logger.info("Retrieval completed in %.2fs", retrieval_time)
+
+        # Dynamic Logging for Hybrid RAG
+        _log_retrieval(question, "HybridRAG", docs)
 
         # Format retrieved chunks into the context string for the LLM
         context = _format_docs(docs)

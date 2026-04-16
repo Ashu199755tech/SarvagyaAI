@@ -21,12 +21,12 @@ class SemanticPDFParser:
         if "Document Release Notice" in text or "Approved By:" in text:
             return SemanticPDFParser.parse_policy(text, filename)
 
-        # 3. Universal Fallback: Generic Structural Parsing
-        return SemanticPDFParser.parse_generic_prose(text, filename)
+        # No high-confidence specialized format matched
+        return None
 
 
     @staticmethod
-    def parse_generic_prose(text: str, filename: str) -> List[Dict[str, Any]]:
+    def parse_generic_chunks(text: str, filename: str) -> List[Dict[str, Any]]:
         """
         Generic parser that splits text into logical blocks using structural cues.
         """

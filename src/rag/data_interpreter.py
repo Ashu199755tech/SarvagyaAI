@@ -26,8 +26,10 @@ UNIVERSAL_NOISE = {
     "and", "or", "but", "so", "yet", "nor", "if", "then", "than",
     # Auxiliary verbs
     "is", "are", "was", "were", "be", "been", "being",
-    "have", "has", "had", "do", "does", "did",
+    "have", "has", "had", "do", "does", "did", "does", "done",
     "will", "would", "shall", "should", "can", "could", "may", "might", "must",
+    # Question words
+    "who", "what", "which", "how", "where", "when", "why",
     # Common question verbs & participles
     "get", "got", "getting", "give", "gave", "given", "giving",
     "take", "took", "taken", "taking",
@@ -62,7 +64,8 @@ UNIVERSAL_NOISE = {
     "entry", "entries", "file", "files", "report", "reports",
     "holiday", "holidays", "leave", "leaves",
     "rule", "rules", "benefits", "benefit", "item", "items",
-    "category", "categories", "type", "types",
+    "category", "categories", "type", "types", "details", "detail",
+    "department", "departments", "dept", "location", "locations", "office", "offices",
     # Polite/conversational noise
     "please", "can", "want", "need", "like", "regarding", "concerning",
 }
@@ -92,23 +95,17 @@ class DataInterpreter:
     def query(self, entity_type: str, criteria: str) -> Optional[Dict[str, Any]]:
         """
         Dynamically scans JSON records to count and group data.
-
-        Args:
-            entity_type: 'employee', 'project', 'policy', 'holiday', or 'general'
-            criteria: The value to filter by (e.g. 'Gurgaon', 'Vipin Rai')
         """
         results = []
         criteria_lower = criteria.lower().strip()
+        seen_names = set()
 
-        # Map entity types to specific files — driven by config, not hardcoded
+        # Map entity types to specific files
         file_map = settings.interpreter_file_map
-
-        # Determine which files to scan
         target_files = []
         if entity_type in file_map:
             target_files = [self.data_dir / file_map[entity_type]]
         else:
-            # "general" → Scan EVERYTHING (any new PDF auto-included)
             target_files = list(self.data_dir.glob("*.json"))
 
         for fpath in target_files:
@@ -122,25 +119,29 @@ class DataInterpreter:
                         data = [data]
 
                     for record in data:
-                        # Scan all values for the criteria (fuzzy match)
                         match_found = False
-                        for key, val in record.items():
-                            val_str = str(val).lower().replace('\n', ' ').strip()
-                            if criteria_lower in val_str:
-                                match_found = True
-                                break
+                        if criteria == "__all__":
+                            match_found = True
+                        else:
+                            for val in record.values():
+                                val_str = " ".join(str(val).lower().split())
+                                if criteria_lower in val_str:
+                                    match_found = True
+                                    break
 
                         if match_found:
-                            # Smart label: try structured keys, then source_file, then filename
                             name = (
                                 record.get("Name")
+                                or record.get("name")
                                 or record.get("project_name")
                                 or record.get("policy_name")
                                 or record.get("Holiday")
                                 or record.get("source_file", "").replace(".pdf", "").replace(".json", "").replace("_", " ").title()
                                 or fpath.stem.replace("_", " ").title()
                             )
-                            results.append({"name": name, "file": fpath.name})
+                            if name not in seen_names:
+                                results.append({"name": name, "file": fpath.name})
+                                seen_names.add(name)
             except Exception as e:
                 logger.error(f"Error reading {fpath.name}: {e}")
 
@@ -161,55 +162,64 @@ class DataInterpreter:
         1. Check if the question contains aggregation triggers
         2. Detect entity type (employee/project/policy/holiday/general)
         3. Strip ALL function words → whatever remains IS the search criteria
+        Dynamic intent detection using Subtraction-First logic.
+        
+        1. Identifies if the question is asking for a count/list (Intent).
+        2. Specifically identifies the target entity (Employee/Project/etc).
+        3. Strips away all noise (English function words).
+        4. Whatever survives is the criteria.
         """
         q = question.lower().strip()
         if q.endswith('?'):
             q = q[:-1].strip()
 
-        # 1. Aggregation trigger check (longest-first greedy matching)
-        triggered = False
-        for trigger in AGGREGATION_TRIGGERS:
-            if trigger in q:
-                triggered = True
-                break
+        # 1. Intent Detection: Is this an aggregation/listing question?
+        # We look for "Data Starters" (Who, What, Which, How) or "Quantity" words
+        DATA_STARTERS = {"who", "what", "which", "how", "list", "total", "show", "count", "name", "give"}
+        words = q.split()
+        
+        has_intent = False
+        if any(w in DATA_STARTERS for w in words[:3]): # Check first few words for intent
+            has_intent = True
+        
+        if not has_intent:
+            # Check for explicit triggers anywhere in the question
+            for trigger in AGGREGATION_TRIGGERS:
+                if trigger in q:
+                    has_intent = True
+                    break
 
-        if not triggered:
+        if not has_intent:
             return None, None
 
-        # 2. Entity detection
+        # 2. Entity Detection (from the RAW question to be safe)
         entity = "general"
-        if any(w in q for w in ["people", "employee", "person", "member", "team", "staff"]):
+        if any(w in q for w in ["people", "employee", "person", "member", "team", "staff", "intern", "engineer"]):
             entity = "employee"
-        elif any(w in q for w in ["project", "case study", "case studies"]):
+        elif any(w in q for w in ["project", "case study", "case studies", "used"]):
             entity = "project"
-        elif any(w in q for w in ["policy", "rule", "benefits"]):
+        elif any(w in q for w in ["policy", "rule", "benefits", "guideline"]):
             entity = "policy"
-        elif any(w in q for w in ["holiday", "holidays"]):
+        elif any(w in q for w in ["holiday", "holidays", "leave"]):
             entity = "holiday"
 
         # 3. Aggressive Subtraction
-        clean = q
+        # We strip ALL UNIVERSAL_NOISE tokens
+        criteria_words = [w for w in words if w not in UNIVERSAL_NOISE and len(w) > 1]
+        
+        # Also strip any leftover entity words used for detection
+        entity_noise = {"people", "employee", "employees", "person", "persons", "project", "projects", "policy", "policies", "holiday", "holidays"}
+        final_words = [w for w in criteria_words if w not in entity_noise]
 
-        # Strip trigger phrases first (longest-first to avoid partial matches)
-        for trigger in sorted(AGGREGATION_TRIGGERS, key=len, reverse=True):
-            clean = clean.replace(trigger, " ")
+        criteria = " ".join(final_words).strip().title()
 
-        # Split into words and strip ALL function/noise words
-        words = clean.split()
-        criteria_words = [w for w in words if w.lower() not in UNIVERSAL_NOISE and len(w) > 1]
-
-        # Rejoin and clean up
-        criteria = " ".join(criteria_words).strip().title()
-
-        # Strip redundant suffixes (e.g. "Gurgaon Location" → "Gurgaon")
-        for sfx in [" Location", " Department", " Office", " City", " Region", " Area"]:
-            if criteria.endswith(sfx):
-                criteria = criteria[:-len(sfx)].strip()
-
-        if not criteria or len(criteria) < 2:
+        # Handle "Total" questions with no specific filters
+        if not criteria:
+            if any(w in words for w in ["total", "all", "every", "count", "list"]):
+                return entity, "__all__"
             return None, None
 
-        # 4. Department Alias Bridge — driven by config, not hardcoded
+        # 4. Department Alias Bridge
         dept_aliases = settings.department_aliases
         criteria_key = criteria.lower().strip()
         if criteria_key in dept_aliases:

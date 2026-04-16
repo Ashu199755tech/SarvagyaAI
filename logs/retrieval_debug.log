@@ -1,0 +1,174 @@
+
+================================================================================
+TIMESTAMP: 2026-04-16 16:08:33
+QUESTION:  Total How many employees are in Gaming department?
+PATHWAY:   HybridRAG
+--------------------------------------------------------------------------------
+CHUNK 1 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: Teekesh Kumawat
+Role: Senior 3D Animator
+Source: Fiftyfive Employee Directory
+Department: Gaming
+Location: Jaipur
+Email: teekesh.kumawat@fiftyfivegamestudio.com
+Phone: Mobile: 9529399655 Work: 9529399655...
+
+CHUNK 2 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: Mahaveer Sharma
+Role: Senior Game Artist
+Source: Fiftyfive Employee Directory
+Department: Gaming
+Location: Jaipur
+Email: mahaveer.sharma@fiftyfivegamestudio.com
+Phone: Mobile: 8824082560 Work: 8824082560...
+
+CHUNK 3 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: N Rudreswar Rao
+Role: Senior Game Developer
+Source: Fiftyfive Employee Directory
+Department: Gaming
+Location: Jaipur
+Email: rudreswar.rao@fiftyfivegamestudio.com
+Phone: Mobile: 8117962128 Work: 8117962128...
+
+CHUNK 4 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: Harry Pancholi
+Role: Senior Unity Developer
+Source: Fiftyfive Employee Directory
+Department: Gaming
+Location: Work from Home
+Email: harry.pancholi@fiftyfivegamestudio.com
+Phone: Mobile: 816 035 2327...
+
+CHUNK 5 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: Aman Khandelwal
+Role: Senior Game Developer
+Source: Fiftyfive Employee Directory
+Department: Gaming
+Location: Jaipur
+Email: aman.khandelwal@fiftyfivegamestudio.com
+Phone: Mobile: 8619067110...
+
+CHUNK 6 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: Ayush Saini
+Role: Senior 3D Artist
+Source: Fiftyfive Employee Directory
+Department: Gaming
+Location: Jaipur
+Email: ayush.saini@fiftyfivegamestudio.com
+Phone: Mobile: 9636416464...
+
+CHUNK 7 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: Devanshi Tiwari
+Role: Software Engineer
+Source: Fiftyfive Employee Directory
+Department: Gaming
+Location: Jaipur
+Email: devanshi.tiwari@fiftyfivetech.io
+Phone: Mobile: 7568895962...
+
+CHUNK 8 [Source: Holiday Policy.json | Page: ? | Score: N/A]
+CONTENT: [Source: Holiday Policy]
+Header: Holiday Policy Rule 6
+policy_name: Holiday Policy Floater Holidays    i. A Floater Holiday is a paid flexible holiday that may be used to observe religious,  festive, or civic occasions chosen by the associate from the approved FiftyFive  Technologies Floater Holiday list.    ii. Out of the total 10 holidays, a predefined list of flexible holidays will be  designated by FiftyFive Technologies as Floater Holidays. Employees may avail  up to two (2) floater leaves ...
+
+CHUNK 9 [Source: Attendance Policy.json | Page: ? | Score: N/A]
+CONTENT: [Source: Attendance Policy]
+Header: Attendance Policy Rule 3
+policy_name: Attendance Policy
+
+Work From Office (WFO – 5 Days a Week)  For detailed attendance and penalisation policy applicable to each of the above working models,  please refer to the respective provisions section of this policy.                         Provisions  Standard Working Hours (All Locations):  8 hours  Standard Shift Timings (All Locations) : 10:00 AM to 7:00 PM   Weekly Working Hours: Minimum of 40 working hours per w...
+
+CHUNK 10 [Source: Assets Policy.json | Page: ? | Score: N/A]
+CONTENT: [Source: Assets Policy]
+Header: Assets Policy Rule 88
+policy_name: Assets Policy
+
+Cooling stand shall only be provided to gaming team employees that too once in the  employment period...
+
+CHUNK 11 [Source: policies.json | Page: ? | Score: N/A]
+CONTENT: Policy: Leave Policy
+Category: Leave Policy
+Summary: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
+Key Rules:
+- This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any
+- time as per the company policy.
+- Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
+- Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
+- This leave policy outli...
+
+CHUNK 12 [Source: policies.json | Page: ? | Score: N/A]
+CONTENT: Policy: Referral Policy
+Category: Referral Policy
+Summary: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
+Key Rules:
+- This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any
+- time as per the company policy.
+- Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
+- Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
+- This Employ...
+
+CHUNK 13 [Source: Assets Policy.json | Page: ? | Score: N/A]
+CONTENT: [Source: Assets Policy]
+Header: Assets Policy Rule 32
+policy_name: Assets Policy
+
+The case would be analyzed by the asset manager on first stage, then based on the location of  the employee, following actions would be taken:  ❖ Jaipur Office  The employee shall connect with the Asset Manager directly and can proceed  accordingly  ❖ Gurgaon Office or Work From Home  The employee will have to take the asset to nearest official service center of the  respective brand and get the asset checked      ...
+
+CHUNK 14 [Source: Leave Policy.json | Page: ? | Score: N/A]
+CONTENT: [Source: Leave Policy]
+Header: Leave Policy Rule 2
+policy_name: Leave Policy
+
+Additional Leaves    Each comprising of specific sub-categories as defined under the respective leave provisions.     Leave Provisions  Monthly Leaves   Leaves are provided on a monthly pro-rata basis and are accrued at the beginning of each  month. Employees are entitled to a total of 24 leaves per year, comprising Casual Leave  (CL) and Privilege Leave (PL). Employees are expected to plan and apply for their leaves i...
+
+CHUNK 15 [Source: policies.json | Page: ? | Score: N/A]
+CONTENT: Policy: Travel Policy
+Category: Travel Policy
+Summary: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at anytime as per the company policy.
+Key Rules:
+- This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at
+- anytime as per the company policy.
+- Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
+- Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
+- This document pro...
+
+CHUNK 16 [Source: policies.json | Page: ? | Score: N/A]
+CONTENT: Policy: Code Of Conduct Policy
+Category: CEBC Policy
+Summary: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
+Key Rules:
+- Code of Ethics & Business Conduct
+- This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any
+- time as per the company policy.
+- Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
+- Approved By: Sanchi Saxena (Head HR-FiftyFive Techno...
+
+CHUNK 17 [Source: Performance Management.pdf | Page: ? | Score: N/A]
+CONTENT: •   Ability to complete assigned tasks or correct errors within a reasonable timeframe
+      •   Willingness and ability to learn new tasks or skills and work collaboratively
+      •   Ability to exercise sound judgment
+      •   Ability to receive, understand, and follow instructions or directions
+      •   Professional behavior as a team member or in a managerial role.
+
+C. Leave Clause During Performance Improvement Plan (PIP) •   During the Performance Improvement Plan (PIP) period, all leave...
+
+CHUNK 18 [Source: Documented Information Control Procedure.pdf | Page: ? | Score: N/A]
+CONTENT: 4.6 Document Retention and Disposal
+
+   •   Retention:
+
+          ❖ Define retention periods for different types of documents based on legal,
+            regulatory, and organizational requirements.
+
+          ❖ Ensure that documents are retained for the required duration and are easily
+            retrievable during this time.
+
+   •   Disposal:
+
+          ❖ Dispose of documents that are no longer needed according to established
+            procedures.
+
+          ❖ Use secure disposal methods fo...
+
+================================================================================

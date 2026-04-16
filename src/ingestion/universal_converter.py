@@ -121,7 +121,34 @@ def _convert_pdf(path: Path) -> list[dict]:
     import pdfplumber
     from src.ingestion.semantic_parser import SemanticPDFParser
     
-    # 1. Try Semantic Parsing first (High precision for Projects/Policies)
+    rows: list[dict] = []
+    
+    # 1. Try structured TABLE extraction first
+    try:
+        with pdfplumber.open(str(path)) as pdf:
+            for page_num, page in enumerate(pdf.pages, start=1):
+                tables = page.extract_tables()
+                page_table_rows = []
+                for table in tables:
+                    if not table or len(table) < 2:
+                        continue
+                    headers = [_clean(h) or f"col_{i+1}" for i, h in enumerate(table[0])]
+                    for raw_row in table[1:]:
+                        d = _row_to_dict(headers, [_clean(c) for c in raw_row])
+                        if any(v for v in d.values()):
+                            d["_page"] = page_num
+                            page_table_rows.append(d)
+                
+                if page_table_rows:
+                    rows.extend(page_table_rows)
+    except Exception as e:
+        logger.warning(f"Table extraction failed for {path.name}, falling back: {e}")
+
+    if rows:
+        logger.info("PDF: TABLE extraction successful for %s (%d rows)", path.name, len(rows))
+        return rows
+
+    # 2. Try Semantic Parsing (for Projects/Policies)
     with pdfplumber.open(str(path)) as pdf:
         full_text = "\n".join(page.extract_text() or "" for page in pdf.pages)
     
@@ -130,32 +157,16 @@ def _convert_pdf(path: Path) -> list[dict]:
         logger.info("PDF: SEMANTIC extraction successful for %s", path.name)
         return semantic_data
 
-    # 2. Fallback to Table/Text extraction
-    rows: list[dict] = []
+    # 3. Universal Fallback: Plain text extraction
     with pdfplumber.open(str(path)) as pdf:
+        fallback_rows = []
         for page_num, page in enumerate(pdf.pages, start=1):
-            # Try structured tables first
-            tables = page.extract_tables()
-            table_found = False
-            for table in tables:
-                if not table or len(table) < 2:
-                    continue
-                headers = [_clean(h) or f"col_{i+1}" for i, h in enumerate(table[0])]
-                for raw_row in table[1:]:
-                    d = _row_to_dict(headers, [_clean(c) for c in raw_row])
-                    if any(v for v in d.values()):
-                        d["_page"] = page_num
-                        rows.append(d)
-                table_found = True
-
-            # Fallback: plain text if no tables found on this page
-            if not table_found:
-                text = (page.extract_text() or "").strip()
-                if text:
-                    rows.append({"source_file": path.name, "page": page_num, "text": text})
-
-    logger.info("PDF: extracted %d records from %s (generic)", len(rows), path.name)
-    return rows
+            text = (page.extract_text() or "").strip()
+            if text:
+                fallback_rows.append({"source_file": path.name, "page": page_num, "text": text})
+    
+    logger.info("PDF: extracted %d records from %s (generic fallback)", len(fallback_rows), path.name)
+    return fallback_rows
 
 
 def _convert_txt(path: Path) -> list[dict]:
