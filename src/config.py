@@ -95,10 +95,10 @@ class Settings(BaseSettings):
     # -------------------------------------------------------------------------
     # PDF Ingestion
     # -------------------------------------------------------------------------
-    # Absolute path to the folder containing company policy PDFs.
+    # Relative path to the folder containing company policy PDFs.
     # The ingestion pipeline recursively scans this folder for *.pdf files.
-    # Change this path if your policies folder is in a different location.
-    pdf_folder: str = "/home/fifity-five/Downloads/Policies 2026"
+    # Users can place their PDF files here for scanning.
+    pdf_folder: str = "./data/inbox"
 
     # -------------------------------------------------------------------------
     # Ollama — Local LLM Server
