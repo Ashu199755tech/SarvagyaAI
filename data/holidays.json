@@ -1,14 +1,22 @@
 [
   {
-    "id": "HOL_1",
-    "name": "New Year - 2026",
+    "id": "HOL_01",
+    "name": "New Year's Day",
     "date": "2026-01-01",
     "day": "Thursday",
     "month": "January",
     "type": "Fixed"
   },
   {
-    "id": "HOL_2",
+    "id": "HOL_02",
+    "name": "Makar Sankranti/Pongal",
+    "date": "2026-01-14",
+    "day": "Wednesday",
+    "month": "January",
+    "type": "Floater Leave"
+  },
+  {
+    "id": "HOL_03",
     "name": "Republic Day",
     "date": "2026-01-26",
     "day": "Monday",
@@ -16,7 +24,7 @@
     "type": "Fixed"
   },
   {
-    "id": "HOL_3",
+    "id": "HOL_04",
     "name": "Holi",
     "date": "2026-03-04",
     "day": "Wednesday",
@@ -24,55 +32,7 @@
     "type": "Fixed"
   },
   {
-    "id": "HOL_4",
-    "name": "Independence Day",
-    "date": "2026-08-15",
-    "day": "Saturday",
-    "month": "August",
-    "type": "Weekend"
-  },
-  {
-    "id": "HOL_5",
-    "name": "Mahatma Gandhi Jayanti",
-    "date": "2026-10-02",
-    "day": "Friday",
-    "month": "October",
-    "type": "Fixed"
-  },
-  {
-    "id": "HOL_6",
-    "name": "Dusshera",
-    "date": "2026-10-20",
-    "day": "Tuesday",
-    "month": "October",
-    "type": "Fixed"
-  },
-  {
-    "id": "HOL_7",
-    "name": "Diwali",
-    "date": "2026-11-08",
-    "day": "Sunday",
-    "month": "November",
-    "type": "Weekend"
-  },
-  {
-    "id": "HOL_8",
-    "name": "Christmas Day",
-    "date": "2026-12-25",
-    "day": "Friday",
-    "month": "December",
-    "type": "Fixed"
-  },
-  {
-    "id": "HOL_1",
-    "name": "Makar Sankranti / Pongal",
-    "date": "2026-01-14",
-    "day": "Wednesday",
-    "month": "January",
-    "type": "Floater Leave"
-  },
-  {
-    "id": "HOL_2",
+    "id": "HOL_05",
     "name": "Rangpanchmi",
     "date": "2026-03-08",
     "day": "Sunday",
@@ -80,15 +40,15 @@
     "type": "Weekend"
   },
   {
-    "id": "HOL_3",
-    "name": "Eid-ul-Fitr",
+    "id": "HOL_06",
+    "name": "Eid ul Fitr",
     "date": "2026-03-21",
     "day": "Saturday",
     "month": "March",
     "type": "Weekend"
   },
   {
-    "id": "HOL_4",
+    "id": "HOL_07",
     "name": "Ram Navami",
     "date": "2026-03-26",
     "day": "Thursday",
@@ -96,7 +56,7 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_5",
+    "id": "HOL_08",
     "name": "Mahaveer Jayanti",
     "date": "2026-03-31",
     "day": "Tuesday",
@@ -104,7 +64,7 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_6",
+    "id": "HOL_09",
     "name": "Good Friday",
     "date": "2026-04-03",
     "day": "Friday",
@@ -112,7 +72,7 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_7",
+    "id": "HOL_10",
     "name": "Ambedkar Jayanti",
     "date": "2026-04-14",
     "day": "Tuesday",
@@ -120,7 +80,7 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_8",
+    "id": "HOL_11",
     "name": "Eid Al Adha",
     "date": "2026-05-27",
     "day": "Wednesday",
@@ -128,7 +88,15 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_9",
+    "id": "HOL_12",
+    "name": "Independence Day",
+    "date": "2026-08-15",
+    "day": "Saturday",
+    "month": "August",
+    "type": "Weekend"
+  },
+  {
+    "id": "HOL_13",
     "name": "Onam",
     "date": "2026-08-26",
     "day": "Wednesday",
@@ -136,7 +104,7 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_10",
+    "id": "HOL_14",
     "name": "Raksha Bandhan",
     "date": "2026-08-28",
     "day": "Friday",
@@ -144,7 +112,7 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_11",
+    "id": "HOL_15",
     "name": "Janmashtami",
     "date": "2026-09-04",
     "day": "Friday",
@@ -152,7 +120,7 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_12",
+    "id": "HOL_16",
     "name": "Ganesh Chaturthi",
     "date": "2026-09-14",
     "day": "Monday",
@@ -160,15 +128,39 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_13",
-    "name": "Mahav Navmi / Durga Pooja",
+    "id": "HOL_17",
+    "name": "Mahatma Gandhi Jayanti",
+    "date": "2026-10-02",
+    "day": "Friday",
+    "month": "October",
+    "type": "Fixed"
+  },
+  {
+    "id": "HOL_18",
+    "name": "Mahaveer Navmi/ Durga Pooja",
     "date": "2026-10-19",
     "day": "Monday",
     "month": "October",
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_14",
+    "id": "HOL_19",
+    "name": "Dusshera",
+    "date": "2026-10-20",
+    "day": "Tuesday",
+    "month": "October",
+    "type": "Fixed"
+  },
+  {
+    "id": "HOL_20",
+    "name": "Diwali",
+    "date": "2026-11-08",
+    "day": "Sunday",
+    "month": "November",
+    "type": "Weekend"
+  },
+  {
+    "id": "HOL_21",
     "name": "Bhai Dooj",
     "date": "2026-11-11",
     "day": "Wednesday",
@@ -176,7 +168,7 @@
     "type": "Floater Leave"
   },
   {
-    "id": "HOL_15",
+    "id": "HOL_22",
     "name": "Chhath Pooja",
     "date": "2026-11-15",
     "day": "Sunday",
@@ -184,11 +176,19 @@
     "type": "Weekend"
   },
   {
-    "id": "HOL_16",
+    "id": "HOL_23",
     "name": "Guru Nanak Jayanti",
     "date": "2026-11-24",
     "day": "Tuesday",
     "month": "November",
     "type": "Floater Leave"
+  },
+  {
+    "id": "HOL_24",
+    "name": "Christmas Day",
+    "date": "2026-12-25",
+    "day": "Friday",
+    "month": "December",
+    "type": "Fixed"
   }
 ]

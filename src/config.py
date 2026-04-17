@@ -78,7 +78,8 @@ class Settings(BaseSettings):
     interpreter_file_map: dict = {
         "employee": "fiftyfive_employee_directory.json",
         "project": "Case Studies @55 Website .json",
-        "holiday": "holidays_2026.json",
+        "holiday": "holidays.json",
+        "praise": "praise_report.json",
     }
 
     # -------------------------------------------------------------------------
@@ -192,6 +193,28 @@ class Settings(BaseSettings):
     # Higher = more context but handles larger context window.
     rag_retriever_look_ahead: int = 1
 
+    # Maximum number of chunks formatted into the final LLM context.
+    rag_context_max_chunks: int = 10
+
+    # Max docs fetched during exact name search per search variant.
+    rag_name_search_top_k: int = 5
+
+    # Max docs fetched during keyword text search per search variant.
+    rag_keyword_search_top_k: int = 10
+
+    # Max directory rows fetched for directory-specific listing queries.
+    rag_directory_sweep_top_k: int = 30
+
+    # Manual keyword boost tuning applied after FlashRank re-ranking.
+    rag_keyword_boost_per_match: float = 0.05
+    rag_keyword_boost_cap: float = 0.2
+
+    # Progress logging cadence during slow LLM generations.
+    rag_generation_log_interval_seconds: int = 5
+
+    # Reported elapsed time for cache hits.
+    rag_cache_hit_elapsed_seconds: float = 0.05
+
     # -------------------------------------------------------------------------
     # Chunking Settings (used by ingestion/pipeline.py)
     # -------------------------------------------------------------------------
@@ -302,6 +325,48 @@ class Settings(BaseSettings):
         "email", "employee id", "emp id",
     ]
 
+    # Capitalized tokens that should never be treated as person names.
+    rag_common_words: list[str] = [
+        "What", "Who", "How", "When", "Where", "Which", "Why", "Can", "Tell",
+        "Does", "List", "Show", "Find", "Give", "The", "And", "For", "About",
+        "Many", "Much", "Please", "His", "Her", "Their", "Our", "This", "That",
+        "From", "With", "Not", "All", "Any", "Some",
+        "Employee", "Department", "Project", "Salary", "Leave", "Policy",
+        "Travel", "Manager", "Engineer", "Lead", "Benefits", "Quote", "Exact",
+        "Clause", "Per", "Year", "Month", "Day", "Sick", "Casual", "Privilege",
+        "Annual", "Total", "Case", "Study", "Studies", "Client", "Team",
+        "Have", "Has", "Had", "Do", "Did", "Is", "Are", "Was", "Were", "Be",
+        "Been", "Will", "Would", "Could", "Should", "May", "Might", "Shall",
+        "Use", "Used", "In", "On", "At", "By", "To", "Of", "Up",
+        "Company", "Organisation", "Organization",
+        "Institute", "Corporation", "Services", "Solutions",
+    ]
+
+    # Listing / enumeration triggers for project and directory style queries.
+    rag_listing_triggers: list[str] = [
+        "give me all",
+        "list all",
+        "show all",
+        "tell me all",
+        "all projects",
+        "all cases",
+        "every project",
+        "which projects",
+        "what projects",
+        "in which projects",
+        "how many projects",
+        "list of projects",
+        "all the projects",
+        "projects where",
+        "projects that",
+        "projects using",
+        "directory",
+        "list some",
+    ]
+
+    # Similarity threshold for typo-tolerant employee-name expansion.
+    rag_fuzzy_name_threshold: float = 0.78
+
     # -------------------------------------------------------------------------
     # Known Tech Acronyms — for case-insensitive normalisation
     # -------------------------------------------------------------------------
@@ -372,6 +437,107 @@ class Settings(BaseSettings):
         # Other tech
         "stripe", "twilio", "openai", "ollama",
     ]
+
+    # Structured query interpreter vocabulary.
+    data_interpreter_universal_noise: list[str] = [
+        "the", "a", "an", "this", "that", "these", "those",
+        "i", "you", "he", "she", "it", "we", "they", "me", "him", "her",
+        "us", "them", "who", "what", "which", "my", "your", "our", "their",
+        "its", "whose", "whom",
+        "in", "on", "at", "from", "to", "of", "by", "with", "for", "about",
+        "between", "through", "during", "into", "onto", "upon", "under",
+        "over", "after", "before", "since", "until", "within", "without",
+        "and", "or", "but", "so", "yet", "nor", "if", "then", "than",
+        "is", "are", "was", "were", "be", "been", "being",
+        "have", "has", "had", "do", "does", "did", "done",
+        "will", "would", "shall", "should", "can", "could", "may", "might", "must",
+        "how", "where", "when", "why",
+        "get", "got", "getting", "give", "gave", "given", "giving",
+        "take", "took", "taken", "taking",
+        "tell", "told", "telling", "say", "said", "saying",
+        "know", "knew", "known", "knowing",
+        "go", "went", "gone", "going", "come", "came", "coming",
+        "make", "made", "making", "see", "seen", "seeing",
+        "find", "found", "finding", "show", "shown", "showing",
+        "praise", "praises", "praised", "mentioned", "awarded", "appreciated", "recognized",
+        "used", "using", "involved", "included", "including",
+        "discussed", "discussing", "referred", "referring",
+        "talked", "talking", "described", "describing",
+        "covered", "covering", "addressed", "addressing",
+        "listed", "listing", "received", "receiving",
+        "appeared", "appearing", "featured", "featuring",
+        "worked", "working", "doing", "completed", "completing",
+        "delivered", "delivering", "contributed", "contributing",
+        "participated", "participating", "related", "relating",
+        "associated", "belonging",
+        "there", "here", "also", "just", "only", "very", "much",
+        "many", "some", "any", "all", "each", "every", "other",
+        "more", "most", "such", "too", "quite", "really", "still",
+        "even", "already", "always", "never", "often", "ever",
+        "total", "count", "number", "sum", "times", "time",
+        "people", "person", "persons", "employee", "employees",
+        "member", "members", "team", "teams", "staff",
+        "project", "projects", "policy", "policies",
+        "document", "documents", "record", "records",
+        "entry", "entries", "file", "files", "report", "reports",
+        "holiday", "holidays", "leave", "leaves",
+        "rule", "rules", "benefits", "benefit", "item", "items",
+        "category", "categories", "type", "types", "details", "detail",
+        "department", "departments", "dept", "location", "locations", "office", "offices",
+        "please", "want", "need", "like", "regarding", "concerning",
+    ]
+
+    data_interpreter_aggregation_triggers: list[str] = [
+        "how many times", "how many", "how often", "how much",
+        "total count of", "total count", "total number of", "total number",
+        "count all", "count of", "list all", "number of",
+    ]
+
+    data_interpreter_data_starters: list[str] = [
+        "who", "what", "which", "how", "list", "total", "show", "count", "name", "give",
+    ]
+
+    data_interpreter_employee_keywords: list[str] = [
+        "people", "employee", "person", "member", "team", "staff", "intern", "engineer",
+    ]
+
+    data_interpreter_project_keywords: list[str] = [
+        "project", "case study", "case studies", "used",
+    ]
+
+    data_interpreter_policy_keywords: list[str] = [
+        "policy", "rule", "benefits", "guideline",
+    ]
+
+    data_interpreter_holiday_keywords: list[str] = [
+        "holiday", "holidays", "leave",
+    ]
+
+    data_interpreter_entity_noise: list[str] = [
+        "people", "employee", "employees", "person", "persons",
+        "project", "projects", "policy", "policies", "holiday", "holidays",
+    ]
+
+    data_interpreter_all_query_words: list[str] = [
+        "total", "all", "every", "count", "list",
+    ]
+
+    data_interpreter_count_tokens: list[str] = [
+        "many", "count", "number", "total", "headcount",
+    ]
+
+    data_interpreter_list_tokens: list[str] = [
+        "which", "list", "show", "who", "name",
+    ]
+
+    data_interpreter_selective_term_max_ratio: float = 0.6
+    data_interpreter_schema_sample_size: int = 50
+    data_interpreter_entity_value_sample_size: int = 75
+    data_interpreter_entity_value_max_length: int = 3
+    data_interpreter_enable_nlp_fallback: bool = True
+    data_interpreter_nlp_model: str = "en_core_web_sm"
+
+    rag_fallback_answer: str = "Sorry, I couldn't find an answer."
 
     # -------------------------------------------------------------------------
     # FastAPI Server

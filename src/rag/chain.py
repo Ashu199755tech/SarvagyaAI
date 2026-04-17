@@ -107,41 +107,10 @@ _ask_lock = asyncio.Lock()  # Protects the counter from race conditions
 #   2. `x in frozenset` is O(1) — same speed as a regular set
 
 # Words that look like names (capitalized) but are NOT person names.
-# Used by _extract_names() to avoid false positives like "What", "How", etc.
-_COMMON_WORDS: frozenset[str] = frozenset({
-    # ── Question / grammar words ──────────────────────────────────────────
-    # These start with a capital in a sentence but are never person names.
-    "What", "Who", "How", "When", "Where", "Which", "Why", "Can", "Tell",
-    "Does", "List", "Show", "Find", "Give", "The", "And", "For", "About",
-    "Many", "Much", "Please", "His", "Her", "Their", "Our", "This", "That",
-    "From", "With", "Not", "All", "Any", "Some",
-    # ── HR / domain nouns ─────────────────────────────────────────────────
-    # Capitalized HR terms that look like names but aren't.
-    "Employee", "Department", "Project", "Salary", "Leave", "Policy",
-    "Travel", "Manager", "Engineer", "Lead", "Benefits", "Quote", "Exact",
-    "Clause", "Per", "Year", "Month", "Day", "Sick", "Casual", "Privilege",
-    "Annual", "Total", "Case", "Study", "Studies", "Client", "Team",
-    # ── Sentence-starting verb forms ─────────────────────────────────────
-    # These appear capitalised at the start of a question but are verbs,
-    # never person names: "Have we used GPUs?" — "Have" is not a name.
-    "Have", "Has", "Had", "Do", "Did", "Is", "Are", "Was", "Were", "Be",
-    "Been", "Will", "Would", "Could", "Should", "May", "Might", "Shall",
-    "Use", "Used", "In", "On", "At", "By", "To", "Of", "Up",
-    # ── Organisation / company nouns ─────────────────────────────────────
-    # After alias expansion, company name words appear in the question.
-    # They must not be extracted as person names.
-    # NOTE: Company-specific words are injected dynamically from settings below.
-    "Company", "Organisation", "Organization",
-    "Institute", "Corporation", "Services", "Solutions",
-    # ── Technology / acronym words ────────────────────────────────────────
-    # BUG FIX: Words like "GPUs", "APIs", "ML", "AI" start with a capital
-    # letter and pass the basic name check — but they are NEVER person names.
-    # Any word where ALL letters are uppercase (acronym) or that ends with
-    # a lowercase 's' after an uppercase run (e.g. "GPUs", "APIs") must be
-    # excluded from name extraction.
-    # We handle this in _extract_names() logic below rather than listing
-    # every possible acronym here — see the _is_acronym_token() helper.
-}) | frozenset(settings.company_common_words)  # Inject company-specific words from config
+# Base values come from config so the behavior can be tuned without code edits.
+_COMMON_WORDS: frozenset[str] = frozenset(
+    settings.rag_common_words
+) | frozenset(settings.company_common_words)
 
 # Common English words that carry no useful information for keyword search.
 # Used by _extract_keywords() to filter out noise words before searching.
@@ -481,9 +450,8 @@ def _format_docs(docs: list[Document]) -> str:
         else:
             parts.append(f"{label}\n{content}")
         
-    # SMALLL MODEL STABILIZATION: Cap at 10 chunks.
-    # On CPU, 3B models struggle with >10 chunks (drowning in noise).
-    return "\n\n---\n\n".join(parts[:10])
+    # Keep the final prompt bounded without hardcoding the cap in code.
+    return "\n\n---\n\n".join(parts[: settings.rag_context_max_chunks])
 
 
 # ---------------------------------------------------------------------------
@@ -705,7 +673,7 @@ def _fuzzy_expand_names(typed_names: list[str], store: Chroma) -> list[str]:
         Deduplicated list of name strings including both typed names and any
         fuzzy-matched correct spellings found in the database.
     """
-    FUZZY_THRESHOLD = 0.78
+    fuzzy_threshold = settings.rag_fuzzy_name_threshold
 
     # Fetch all stored employee names from ChromaDB metadata (one-time per call)
     try:
@@ -747,7 +715,7 @@ def _fuzzy_expand_names(typed_names: list[str], store: Chroma) -> list[str]:
             ratio = difflib.SequenceMatcher(
                 None, typed.lower(), candidate.lower()
             ).ratio()
-            if ratio >= FUZZY_THRESHOLD and ratio > best_ratio:
+            if ratio >= fuzzy_threshold and ratio > best_ratio:
                 best_ratio = ratio
                 best_match_name = full_name
 
@@ -1309,26 +1277,7 @@ def _is_listing_query(question: str) -> bool:
     q = question.lower()
 
     # ── Exact phrase triggers ─────────────────────────────────────────────
-    listing_triggers = [
-        "give me all",        # "give me all projects where..."
-        "list all",           # "list all projects that..."
-        "show all",           # "show all cases where..."
-        "tell me all",        # "tell me all projects..."
-        "all projects",       # "which/what are all projects..."
-        "all cases",
-        "every project",      # "every project that used..."
-        "which projects",     # "which projects used OCR?"
-        "what projects",      # "what projects have used..."
-        "in which projects",  # "in which projects was OCR used?"
-        "how many projects",  # "how many projects used GPU?"
-        "list of projects",
-        "all the projects",
-        "projects where",     # "projects where X was used"
-        "projects that",      # "projects that used X"
-        "projects using",     # "projects using X"
-        "directory",          # "list of people in the directory"
-        "list some",          # "list some data scientists"
-    ]
+    listing_triggers = settings.rag_listing_triggers
 
     if any(trigger in q for trigger in listing_triggers):
         return True
@@ -1432,7 +1381,10 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
     # ── Step 1: Name match ─────────────────────────────────────────────────
     names = _extract_names(question)
     logger.info(">> Step 1 | Extracted names: %s", names if names else "none")
-    name_docs = _text_search_employees(store, names, k=5) if names else []
+    name_docs = (
+        _text_search_employees(store, names, k=settings.rag_name_search_top_k)
+        if names else []
+    )
     _log_selected_chunks(name_docs, "Step 1 -- Name Match")
 
     # ── Step 2: BM25 keyword search ────────────────────────────────────────
@@ -1442,7 +1394,10 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
     # ── Step 3: Regex keyword search ───────────────────────────────────────
     keywords = _extract_keywords(question)
     logger.info(">> Step 3 | Extracted keywords: %s", keywords if keywords else "none")
-    keyword_docs = _text_search_keywords(store, keywords, k=10) if keywords else []
+    keyword_docs = (
+        _text_search_keywords(store, keywords, k=settings.rag_keyword_search_top_k)
+        if keywords else []
+    )
     _log_selected_chunks(keyword_docs, "Step 3 -- Regex Keywords")
 
     # ── Step 4: Intent classification + vector budget ──────────────────────
@@ -1516,13 +1471,13 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
     # to the directory. This allows the system to recognize synonyms like
     # 'Developer' vs 'Engineer'.
     directory_sweep_docs = []
-    if is_listing_query or "directory" in question.lower():
+    if intent in ("employee", "mixed") and (is_listing_query or "directory" in question.lower()):
         try:
             # We use a high k (30) to capture all matching people.
             # Filtering by 'misc_table_row' ensures we only get directory records.
             directory_sweep_docs = store.similarity_search(
-                question, 
-                k=30, 
+                question,
+                k=settings.rag_directory_sweep_top_k,
                 filter={"record_type": "misc_table_row"}
             )
             logger.info(
@@ -1536,7 +1491,7 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
     # For directory listing queries, if we found matches via the surgical sweep,
     # we enter 'PURE DIRECTORY MODE'. We discard everything else to avoid noise
     # from project case studies that might confuse the LLM.
-    if directory_sweep_docs and (is_listing_query or "directory" in question.lower()):
+    if directory_sweep_docs and intent in ("employee", "mixed") and (is_listing_query or "directory" in question.lower()):
         combined = directory_sweep_docs[:k]
         logger.info(">> Step 6 | PURE DIRECTORY MODE: Using %d sweep matches, discarding %d other candidates", len(combined), len(bm25_docs + keyword_docs + pdf_docs))
     else:
@@ -1636,9 +1591,10 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
                 # Count how many unique query keywords are present in this chunk
                 matches = sum(1 for kw in boost_kws if kw in text_lower)
                 if matches > 0:
-                    # Apply a conservative boost (e.g. +0.05 per keyword)
-                    # capped at a reasonable limit so we don't break the model's logic entirely.
-                    score += min(matches * 0.05, 0.2)
+                    score += min(
+                        matches * settings.rag_keyword_boost_per_match,
+                        settings.rag_keyword_boost_cap,
+                    )
                 
                 res["boosted_score"] = score
                 boosted_results.append(res)
@@ -1751,7 +1707,7 @@ async def ask(question: str) -> dict:
         # --- CACHE CHECK ---
         cached_res = get_cached_answer(question)
         if cached_res:
-            cached_res["time_elapsed_seconds"] = 0.05 # Indicate it was nearly instant
+            cached_res["time_elapsed_seconds"] = settings.rag_cache_hit_elapsed_seconds
             return cached_res
         # ------------------
 
@@ -1760,28 +1716,51 @@ async def ask(question: str) -> dict:
         # Detect if this is a 'How many' or 'List all' query that requires
         # 100% precision from structured files.
         interpreter = DataInterpreter()
-        entity_type, criteria = interpreter.detect_intent(question)
-        if entity_type and criteria:
-            logger.info("[Interpreter] Aggregation detected: Entity=%s | Criteria=%s", entity_type, criteria)
-            itp_result = interpreter.query(entity_type, criteria)
-            if itp_result:
-                count = itp_result["count"]
-                matches = itp_result["matches"]
-                match_listing = ", ".join([m["name"] for m in matches[:10]])
-                if len(matches) > 10:
-                    match_listing += f", and {len(matches)-10} others"
-                
-                answer = f"Based on the live data scan, there are **{count}** {entity_type}(s) matching '{criteria}'. The results include: {match_listing}."
-                
-                # Dynamic Logging for Interpreter
-                _log_retrieval(question, "DataInterpreter", matches, criteria=criteria)
+        itp_result = interpreter.interpret(question)
+        if itp_result:
+            entity_type = itp_result["entity"]
+            criteria = itp_result["criteria"]
+            operation = itp_result.get("operation", "count")
+            logger.info(
+                "[Interpreter] Structured query detected: operation=%s | entity=%s | criteria=%s",
+                operation, entity_type, criteria,
+            )
 
-                total_time = time.monotonic() - start_time
-                return {
-                    "answer": answer,
-                    "sources": [{"record_type": "data_interpreter", "count_found": count, "criteria": criteria, "filename": "universal_json_scan"}],
-                    "time_elapsed_seconds": total_time
-                }
+            count = itp_result["count"]
+            matches = itp_result["matches"]
+            preview_limit = min(settings.rag_context_max_chunks, len(matches))
+            match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
+            if len(matches) > preview_limit:
+                match_listing += f", and {len(matches)-preview_limit} others"
+
+            if operation == "list":
+                answer = (
+                    f"Based on the live data scan, I found **{count}** {entity_type}(s). "
+                    f"The results include: {match_listing}."
+                )
+            else:
+                qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
+                answer = (
+                    f"Based on the live data scan, there are **{count}** {entity_type}(s)"
+                    f"{qualifier}. The results include: {match_listing}."
+                )
+
+            # Dynamic Logging for Interpreter
+            _log_retrieval(question, "DataInterpreter", matches, criteria=criteria)
+
+            total_time = time.monotonic() - start_time
+            return {
+                "answer": answer,
+                "sources": [{
+                    "record_type": "data_interpreter",
+                    "count_found": count,
+                    "criteria": criteria,
+                    "entity": entity_type,
+                    "operation": operation,
+                    "filename": settings.interpreter_file_map.get(entity_type, "universal_json_scan"),
+                }],
+                "time_elapsed_seconds": total_time
+            }
         # ------------------------------------------------------------
 
         # Get the cached global vector store (no-op after first request)
@@ -1813,7 +1792,7 @@ async def ask(question: str) -> dict:
             gen_start = time.monotonic()
             try:
                 while True:
-                    await asyncio.sleep(5)
+                    await asyncio.sleep(settings.rag_generation_log_interval_seconds)
                     elapsed = time.monotonic() - gen_start
                     logger.info("... LLM still generating (%.1fs elapsed)", elapsed)
             except asyncio.CancelledError:
@@ -1850,7 +1829,7 @@ async def ask(question: str) -> dict:
         # --------------------
 
         return {
-            "answer":               answer or "Sorry, I couldn't find an answer.",
+            "answer":               answer or settings.rag_fallback_answer,
             "sources":              sources,
             "time_elapsed_seconds": round(total_time, 2),
         }

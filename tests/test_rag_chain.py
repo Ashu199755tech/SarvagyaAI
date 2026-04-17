@@ -71,3 +71,20 @@ async def test_ask_handles_empty_context():
 
     assert result["answer"] == "Sorry, I couldn't find an answer."
     assert result["sources"] == []
+
+
+def test_format_docs_uses_configured_chunk_cap():
+    """_format_docs respects the configured context chunk limit."""
+    import src.rag.chain as chain_module
+
+    docs = [
+        Document(page_content=f"Chunk {i}", metadata={"record_type": "pdf", "record_id": f"id-{i}"})
+        for i in range(4)
+    ]
+
+    with patch.object(chain_module.settings, "rag_context_max_chunks", 2):
+        formatted = chain_module._format_docs(docs)
+
+    assert "Chunk 0" in formatted
+    assert "Chunk 1" in formatted
+    assert "Chunk 2" not in formatted
