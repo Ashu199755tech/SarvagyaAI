@@ -1,98 +1,169 @@
 
 ================================================================================
-TIMESTAMP: 2026-04-17 17:20:12
-QUESTION:  What is the notice period for interns who resignation before completing the period?
+TIMESTAMP: 2026-04-21 10:19:53
+QUESTION:  List all the Fullstack Developers in the Engineering department.
 PATHWAY:   HybridRAG
 --------------------------------------------------------------------------------
-CHUNK 1 [Source: Intern Training Period.json | Page: ? | Score: N/A]
-CONTENT: [Source: Intern Training Period]
-Header: Intern Training Period Rule 3
-policy_name: Intern Training Period
+CHUNK 1 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: M
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-Exit Process for “Interns” It is hereby clarified and understood that during the probation period, the Company invests significant time, effort, and resources in training and developing the employee, thereby adding value at its own cost. The stipend or remuneration paid during this period is not intended to be full compensation for such investment. Accordingly, if the employee chooses to r...
+CHUNK 2 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: J
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-CHUNK 2 [Source: Intern Training Period.pdf | Page: ? | Score: N/A]
-CONTENT: [DOCUMENT_NAME]: Intern Training Period
+CHUNK 3 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: C
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-FiftyFive Policy - Intern Training Period
-                               Document Release Notice
+CHUNK 4 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: V
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
+CHUNK 5 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: P
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-This FiftyFive Technologies Policy on trainee period is released for use in FiftyFive Technologies Pvt
-                             Limited with effect from 01 January 2026.
+CHUNK 6 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: R
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any
-                                  time as per the company policy.
+CHUNK 7 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: U
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-             Approv...
+CHUNK 8 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: B
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-CHUNK 3 [Source: policies.json | Page: ? | Score: N/A]
-CONTENT: Policy: Separation Policy
-Category: Separation Policy
-Summary: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
-Key Rules:
-- This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time
-- Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-- Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
-- FiftyFive has a mandatory Separation Polic...
+CHUNK 9 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: I
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-CHUNK 4 [Source: Separation Policy.json | Page: ? | Score: N/A]
-CONTENT: [Source: Separation Policy]
-Header: Separation Policy Rule 10
-policy_name: Separation Policy
+CHUNK 10 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: S
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-Only after completion of the notice period and clearance of all obligations will the employee be formally relieved and eligible for final settlement. Confidentiality of Resignation Resignation is a sensitive matter and must be treated with strict confidentiality by the employee, the Reporting Manager, and the Company. Details of the resignation, including intent, notice period, and last working day, sha...
+CHUNK 11 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: H
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-CHUNK 5 [Source: Intern Training Period.json | Page: ? | Score: N/A]
-CONTENT: [Source: Intern Training Period]
-Header: Intern Training Period Rule 1
-policy_name: Intern Training Period
+CHUNK 12 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: L
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-Employment Status and Termination During your tenure as an intern employee, your services shall be treated as “probationary” and can be terminated anytime without any notice period or without assigning any reasons. This decision rests entirely with the Company, and the decision of the Company shall be final and binding on you in all respects....
+CHUNK 13 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: A
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-CHUNK 6 [Source: Separation Policy.json | Page: ? | Score: N/A]
-CONTENT: [Source: Separation Policy]
-Header: Separation Policy Rule 33
-policy_name: Separation Policy
+CHUNK 14 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: D
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-Any leave taken during the resignation month or notice period shall be treated as Loss of Pay (LOP). Full and Final Settlement dues shall be processed only upon completion of the notice period and fulfillment of all exit formalities....
+CHUNK 15 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: T
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-CHUNK 7 [Source: Separation Policy.json | Page: ? | Score: N/A]
-CONTENT: [Source: Separation Policy]
-Header: Separation Policy Rule 8
-policy_name: Separation Policy
+CHUNK 16 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: K
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-Upon acceptance of resignation, employees are required to serve the notice period as per Company policy, subject to completion of No Dues Clearance....
+CHUNK 17 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: N
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
-CHUNK 8 [Source: Separation Policy.json | Page: ? | Score: N/A]
-CONTENT: [Source: Separation Policy]
-Header: Separation Policy Rule 6
-policy_name: Separation Policy
-
-Employee Initiated Separation (Resignation) Policy Overview Employee Initiated Separation refers to a voluntary resignation initiated by the employee. For all purposes, the date of intimation of resignation shall be considered as the start date for computing the notice period. Wherein the Employee desires to part ways with the organization & initiates separation. With reference to the clause of “Letter o...
-
-CHUNK 9 [Source: Intern Training Period.json | Page: ? | Score: N/A]
-CONTENT: [Source: Intern Training Period]
-Header: Intern Training Period Rule 8
-policy_name: Intern Training Period
-
-Company Assets Policy for Interns Paid Interns may be provided with Company assets such as laptops, mobile devices, software, or other equipment required for their work. These assets remain in the property of the Company and must be used solely for work-related purposes. Interns are responsible for their care, maintenance, and security, and any loss, damage, or misuse may make the Intern f...
-
-CHUNK 10 [Source: Separation Policy.json | Page: ? | Score: N/A]
-CONTENT: . Confidentiality & Data Security Post-Separation All obligations relating to confidentiality, non-disclosure, data protection, intellectual property, and information security, as agreed under the Letter of Employment or any other agreement, shall continue to remain binding even after cessation of employment. The employee shall not, directly or indirectly, use, disclose, copy, retain, or share any confidential information, proprietary data, client information, trade secrets, or internal Company ...
-
-CHUNK 11 [Source: Separation Policy.json | Page: ? | Score: N/A]
-CONTENT: [Source: Separation Policy]
-Header: Separation Policy Rule 21
-policy_name: Separation Policy
-
-The LWD shall be calculated from the date of resignation intimation, which shall be considered the start date for computing the notice period, unless otherwise specified in the employee’s Offer or Appointment Letter....
-
-CHUNK 12 [Source: Separation Policy.json | Page: ? | Score: N/A]
-CONTENT: [Source: Separation Policy]
-Header: Separation Policy Rule 32
-policy_name: Separation Policy
-
-During the resignation month and the entire notice period, all categories of leave including earned leave, casual leave, additional leave, maternity leave, paternity leave, floater leave, compensatory offs, exam leave, and accrued leave balances or any other leave type shall remain on hold and shall not be availed....
+CHUNK 18 [Source: fiftyfive_employee_directory.pdf | Page: ? | Score: N/A]
+CONTENT: Name: G
+Role: 
+Source: Fiftyfive Employee Directory
+Department: 
+Location: 
+Email: 
+Phone:...
 
 ================================================================================
