@@ -42,6 +42,7 @@ SOT_POLICIES  = DATA_DIR / "policies.json"
 SOT_PROJECTS  = DATA_DIR / "projects.json"
 SOT_HOLIDAYS  = DATA_DIR / "holidays.json"
 SOT_MISC      = DATA_DIR / "misc_docs.json"
+SOT_DIRECTORY = DATA_DIR / "directory.json"
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -184,48 +185,63 @@ def ingest_holidays_from_pdf() -> list[HolidayEntity]:
         logger.warning("No Holiday Policy PDF found in %s", pdf_dir)
         return []
 
-    logger.info("Extracting holidays from %s using pdfplumber", holiday_pdf)
-    rows = _extract_table_data(holiday_pdf)
-    
+    logger.info("Extracting holidays from %s", holiday_pdf)
     holidays = []
     records = []
     
-    for row in rows:
-        # Map dynamic headers to HolidayEntity fields
-        # Note: headers vary by page/table, so we check for common keys
-        idx  = row.get("Sr. No") or row.get("Index") or ""
-        name = row.get("Holiday") or row.get("Name") or ""
-        mon  = row.get("Month") or ""
-        dstr = row.get("Date") or ""
-        day  = row.get("Day") or ""
-        rem  = row.get("Remarks") or row.get("Type") or ""
+    for page_idx, page in enumerate(pdfplumber.open(holiday_pdf).pages):
+        tables = page.extract_tables()
+        if not tables: continue
         
-        if not name: continue  # Skip rows without names
-
-        try:
-            # Parse date e.g. "4-Sep-26" or "21-Mar-26" -> 2026-09-04
-            clean_date = None
-            if dstr:
-                dt = datetime.strptime(dstr, "%d-%b-%y")
-                clean_date = dt.date()
-        except ValueError:
-            clean_date = None
+        # Determine category based on page/text context
+        page_text = page.extract_text().upper()
+        current_table_category = "FIXED"
+        if "FLOATER" in page_text:
+            current_table_category = "FLOATER"
             
-        entity = HolidayEntity(
-            id=f"HOL_{idx}" if idx else f"HOL_{name[:3].upper()}",
-            name=name.strip(),
-            date=clean_date,
-            day=day.strip(),
-            month=mon.strip(),
-            type=rem.strip()
-        )
-        holidays.append(entity)
-        
-        # Format for JSON
-        record = asdict(entity)
-        if record["date"]:
-            record["date"] = record["date"].isoformat()
-        records.append(record)
+        for table in tables:
+            headers = [str(h or "").strip().replace("\n", " ") for h in table[0]]
+            for row_vals in table[1:]:
+                if not any(row_vals): continue
+                row = dict(zip(headers, row_vals))
+                
+                name = row.get("Holiday") or row.get("Name") or ""
+                if not name: continue
+                
+                idx  = row.get("Sr. No") or row.get("Index") or ""
+                mon  = row.get("Month") or ""
+                dstr = row.get("Date") or ""
+                day  = row.get("Day") or ""
+                rem  = row.get("Remarks") or row.get("Type") or ""
+                
+                try:
+                    clean_date = None
+                    if dstr:
+                        dt = datetime.strptime(dstr, "%d-%b-%y")
+                        clean_date = dt.date()
+                except ValueError:
+                    clean_date = None
+                
+                # SLUG-BASED UNIQUE ID: e.g. HOL_NEW_YEAR_2026
+                # This prevents any numbering collisions between tables
+                slug = re.sub(r'[^A-Z0-9]', '_', name.upper().strip()).replace("__", "_")
+                holiday_id = f"HOL_{slug}_2026"
+
+                entity = HolidayEntity(
+                    id=holiday_id,
+                    name=name.strip(),
+                    date=clean_date,
+                    day=day.strip(),
+                    month=mon.strip(),
+                    type=rem.strip()
+                )
+                holidays.append(entity)
+                
+                # Format for JSON
+                record = asdict(entity)
+                if record["date"]:
+                    record["date"] = record["date"].isoformat()
+                records.append(record)
         
     if records:
         _save_json(records, SOT_HOLIDAYS)
@@ -386,17 +402,30 @@ def _parse_policy_pdf(pdf_path: Path) -> dict:
     }
 
 
-def refresh_policies(pdf_folder: str | None = None) -> list[dict]:
-    """Rebuild policies.json from all non-case-study PDFs."""
+def refresh_policies(pdf_folder: str | None = None,
+                     policy_keywords: list[str] | None = None) -> list[dict]:
+    """Rebuild policies.json only from PDFs that match policy keywords."""
     folder = Path(pdf_folder or settings.pdf_folder)
+    policy_kws = policy_keywords or settings.policy_keywords
     policies = []
 
     for pdf_path in sorted(folder.rglob("*.pdf")):
         name_lower = pdf_path.name.lower()
+        
+        # Skip Projects and Holidays
         if "case stud" in name_lower or "case_stud" in name_lower:
             continue
-        logger.info("Parsing policy PDF: %s", pdf_path.name)
-        policies.append(_parse_policy_pdf(pdf_path))
+        if "holiday" in name_lower:
+            continue
+            
+        # Skip Directories (Handled by refresh_directory)
+        if "directory" in name_lower:
+            continue
+            
+        # Match against policy keywords (e.g., 'policy', 'conduct', 'separation')
+        if any(kw in name_lower for kw in policy_kws):
+            logger.info("Parsing policy PDF: %s", pdf_path.name)
+            policies.append(_parse_policy_pdf(pdf_path))
 
     _save_json(policies, SOT_POLICIES)
     return policies
@@ -407,33 +436,27 @@ def refresh_policies(pdf_folder: str | None = None) -> list[dict]:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def refresh_misc_docs(pdf_folder: str | None = None,
-                      policy_keywords: list[str] | None = None) -> list[dict]:
-    """Collect PDFs that don't match case study or policy patterns."""
+                       policy_keywords: list[str] | None = None) -> list[dict]:
+    """Collect PDFs that don't match case study, policy, or directory patterns."""
     folder = Path(pdf_folder or settings.pdf_folder)
-    policy_kws = policy_keywords or ["polic", "leave", "travel", "attendance",
-                                     "hr", "gratuity", "referral", "separation"]
+    policy_kws = policy_keywords or settings.policy_keywords
     misc = []
 
     for pdf_path in sorted(folder.rglob("*.pdf")):
         name_lower = pdf_path.name.lower()
-        if "case stud" in name_lower or "case_stud" in name_lower:
-            continue
+        
+        # Exclude Projects, Holidays, and Specific Directories
+        if "case stud" in name_lower or "case_stud" in name_lower: continue
+        if "holiday" in name_lower: continue
+        if "directory" in name_lower: continue
+        
+        # Exclude Core Policies
         if any(kw in name_lower for kw in policy_kws):
             continue
             
         logger.info("Parsing misc PDF: %s", pdf_path.name)
-        
-        # Check if it's a directory - use structured table extract
-        if "directory" in name_lower:
-            logger.info("Structured table extraction for directory: %s", pdf_path.name)
-            table_data = _extract_table_data(pdf_path)
-            # Store as formatted text for now so RAG can still read it 
-            # OR store the list and let RAG deal with it.
-            # Best is to store the list in a specific 'table_data' field
-            full_text = json.dumps(table_data, indent=2)
-        else:
-            table_data = []
-            full_text = _pdftotext(pdf_path).replace('\x0c', '\n')
+        table_data = []
+        full_text = _pdftotext(pdf_path).replace('\x0c', '\n')
 
         misc.append({
             "doc_id":      f"DOC:{pdf_path.stem}",
@@ -449,23 +472,41 @@ def refresh_misc_docs(pdf_folder: str | None = None,
     return misc
 
 
+def refresh_directory(pdf_folder: str | None = None) -> list[dict]:
+    """Extract structured data from directory PDFs into directory.json."""
+    folder = Path(pdf_folder or settings.pdf_folder)
+    directory_data = []
+
+    for pdf_path in sorted(folder.rglob("*.pdf")):
+        name_lower = pdf_path.name.lower()
+        if "directory" in name_lower:
+            logger.info("Parsing Directory PDF: %s", pdf_path.name)
+            table_data = _extract_table_data(pdf_path)
+            directory_data.extend(table_data)
+
+    _save_json(directory_data, SOT_DIRECTORY)
+    return directory_data
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # 5. PUBLIC API — called by consolidator/run.py
 # ─────────────────────────────────────────────────────────────────────────────
 
 def refresh_all_sources(pdf_folder: str | None = None) -> dict:
-    """Rebuild all 5 source-of-truth JSON files from raw data."""
+    """Rebuild all 6 source-of-truth JSON files from raw data."""
     folder = pdf_folder or settings.pdf_folder
     projects    = refresh_projects(folder)
     policies    = refresh_policies(folder)
     misc_docs   = refresh_misc_docs(folder)
     holidays    = ingest_holidays_from_pdf()
+    directory   = refresh_directory(folder)
 
     return {
         "projects":  len(projects),
         "policies":  len(policies),
         "misc_docs": len(misc_docs),
         "holidays":  len(holidays),
+        "directory": len(directory),
     }
 
 

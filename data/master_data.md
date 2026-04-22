@@ -1,6 +1,6 @@
 # ResoAI — Consolidated Knowledge Base
 
-> **Generated automatically** | 25 employees, 116 projects, 23 policies, 49 tools, 1251 relationships
+> **Generated automatically** | 25 employees, 116 projects, 13 policies, 49 tools, 1001 relationships
 
 ---
 
@@ -27,7 +27,7 @@
 - **Current Project**: Phoenix [PRJ:Phoenix]
   - Client: Accenture
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Anthony Young [EMP0001]
 
@@ -39,7 +39,7 @@
 - **Current Project**: Phoenix [PRJ:Phoenix]
   - Client: Accenture
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Joseph Scott [EMP0019]
 
@@ -51,7 +51,7 @@
 - **Current Project**: Auggit [PRJ:Auggit]
   - Client: Digital Solutions
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Robert Thomas [EMP0009]
 
@@ -63,7 +63,7 @@
 - **Current Project**: Auggit [PRJ:Auggit]
   - Client: Digital Solutions
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Sandra Perez [EMP0025]
 
@@ -75,7 +75,7 @@
 - **Current Project**: Ares [PRJ:Ares]
   - Client: Amazon
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 ---
 
@@ -91,7 +91,7 @@
 - **Current Project**: Apollo [PRJ:Apollo]
   - Client: IBM
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Karen Carter [EMP0023]
 
@@ -103,7 +103,7 @@
 - **Current Project**: Ares [PRJ:Ares]
   - Client: Amazon
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Michael Brown [EMP0004]
 
@@ -115,7 +115,7 @@
 - **Current Project**: Apollo [PRJ:Apollo]
   - Client: IBM
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 ---
 
@@ -131,7 +131,7 @@
 - **Current Project**: Hercules [PRJ:Hercules]
   - Client: Wipro
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: David Wilson [EMP0006]
 
@@ -143,7 +143,7 @@
 - **Current Project**: Hercules [PRJ:Hercules]
   - Client: Wipro
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 ---
 
@@ -159,7 +159,7 @@
 - **Current Project**: Orion [PRJ:Orion]
   - Client: Infosys
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Jennifer Jackson [EMP0010]
 
@@ -171,7 +171,7 @@
 - **Current Project**: Polaris [PRJ:Polaris]
   - Client: Capgemini
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: John Smith [EMP0002]
 
@@ -183,7 +183,7 @@
 - **Current Project**: Atlas [PRJ:Atlas]
   - Client: TCS
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Kevin Mitchell [EMP0024]
 
@@ -195,7 +195,7 @@
 - **Current Project**: Zeus [PRJ:Zeus]
   - Client: FiftyFive
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Margaret Green [EMP0020]
 
@@ -207,7 +207,7 @@
 - **Current Project**: Polaris [PRJ:Polaris]
   - Client: Capgemini
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Matthew King [EMP0017]
 
@@ -219,7 +219,7 @@
 - **Current Project**: Orion [PRJ:Orion]
   - Client: Infosys
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Patricia Martin [EMP0013]
 
@@ -231,7 +231,7 @@
 - **Current Project**: Atlas [PRJ:Atlas]
   - Client: TCS
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Thomas Nelson [EMP0022]
 
@@ -243,7 +243,7 @@
 - **Current Project**: Zeus [PRJ:Zeus]
   - Client: FiftyFive
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 ---
 
@@ -257,7 +257,7 @@
 - **Salary**: ₹700,000.00
 - **Date of Joining**: 2021-11-15
 - **Current Project**: None assigned
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Sarah Miller [EMP0003]
 
@@ -267,7 +267,7 @@
 - **Salary**: ₹950,000.00
 - **Date of Joining**: 2021-03-10
 - **Current Project**: None assigned
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 ---
 
@@ -281,7 +281,7 @@
 - **Salary**: ₹850,000.00
 - **Date of Joining**: 2021-07-22
 - **Current Project**: None assigned
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Susan Wright [EMP0018]
 
@@ -291,7 +291,7 @@
 - **Salary**: ₹650,000.00
 - **Date of Joining**: 2021-09-10
 - **Current Project**: None assigned
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 ---
 
@@ -307,7 +307,7 @@
 - **Current Project**: Artemis [PRJ:Artemis]
   - Client: Cognizant
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 #### Employee: Emily Davis [EMP0005]
 
@@ -319,7 +319,7 @@
 - **Current Project**: Artemis [PRJ:Artemis]
   - Client: Cognizant
   - Period: N/A → N/A
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 ---
 
@@ -333,7 +333,7 @@
 - **Salary**: ₹1,100,000.00
 - **Date of Joining**: 2021-05-05
 - **Current Project**: None assigned
-- **Applicable Policies**: Assets Policy, Attendance Policy, Code Of Conduct Policy, Company Intro, Employee Benefits (+18 more)
+- **Applicable Policies**: Acceptable Usage Policy (Aup), Assets Policy, Attendance Policy, Business As Usual (Bau) Secure Practices Policy, Clear Desk And Clear Screen Policy (+8 more)
 
 ---
 
@@ -357,7 +357,7 @@
 - Data Engineering
 
 **Technologies (Detected):**
-`AI, CI, UI, Fastapi, Openai, ERP, API, ETL, BI`
+`UI, CI, ETL, Openai, API, ERP, Fastapi, AI, BI`
 
 **Challenges :**
 - Designing a flexible database schema supporting multi-source financial inputs.​
@@ -399,7 +399,7 @@
 **The Story:** The client envisioned a platform to simplify presentation creation by combining automation with customization. They partnered with FiftyFive Technologies as their software development provider, leveraging a dedicated engineering team covering backend, AI/ML, frontend, and cloud deployment. The goal was to design and deliver a scalable, AI-powered web application that could generate professional presentations quickly, reduce manual effort, and ensure reliability for a growing user base.
 
 **Technologies (Detected):**
-`Mongodb, React, CD, RAG, AI, CI, Langchain, UI, Fastapi, Openai, API, ML, APIS, BI`
+`UI, CI, React, Langchain, Openai, CD, RAG, API, Fastapi, AI, Mongodb, ML, BI, APIS`
 
 **Challenges :**
 - Automating content generation with natural language processing while
@@ -438,7 +438,7 @@
 - UI/UX
 
 **Technologies (Detected):**
-`Django, React, Laravel, UI, API, ML, Mysql, BI`
+`UI, Mysql, React, Laravel, API, ML, BI, Django`
 
 **Challenges :**
 - Developing a secure cryptocurrency transaction engine supporting multi-flow
@@ -477,7 +477,7 @@
 **The Story:** This project aimed to enhance our client's service by implementing token gating and NFT minting with custom metadata, including airdropping NFT collections. The goal was to create a robust system for controlling access to services and minting NFTs across multiple blockchain networks, making digital experiences more secure and engaging.
 
 **Technologies (Detected):**
-`AI, CI, ML, BI`
+`CI, AI, ML, BI`
 
 **Challenges :**
 - Contract Address Validation: Ensuring contract addresses existed on selected
@@ -521,7 +521,7 @@
 - Development
 
 **Technologies (Detected):**
-`UX, UI, ML, BI`
+`UI, UX, ML, BI`
 
 **Challenges :**
 - Fragmented appliance ecosystems with limited interoperability across brands and
@@ -593,7 +593,7 @@
 **The Story:** The client engaged FiftyFive Technologies to build a unified digital ecosystem combining a CMS, a multi-organization web application, real-time analytics, and interactive engagement modules. They needed a platform that could scale with growing users and data volume while remaining accessible to older adults. FiftyFive provided full-cycle custom software development, DevOps, and QA, delivering an enterprise-grade system aligned with the client’s technical and operational goals.
 
 **Technologies (Detected):**
-`Mongodb, React, CD, AI, Postgres, CI, UX, Docker, UI, ERP, API, ML, BI`
+`UI, CI, React, UX, CD, API, ERP, Docker, AI, Mongodb, ML, BI, Postgres`
 
 **Challenges :**
 - Integrating CMS, web application, data pipelines, and analytics services into a
@@ -655,7 +655,7 @@
 - Team Extension
 
 **Technologies (Detected):**
-`React, RAG, AWS, AI, Postgres, UX, UI, Postgresql, BI, Redis`
+`UI, AWS, React, Postgresql, UX, RAG, AI, Redis, BI, Postgres`
 
 **Challenges :**
 - Manual visa status retrieval requiring repeated navigation of government
@@ -723,7 +723,7 @@
 **The Story:** The client wanted to modernize the traditional travel agent ecosystem, where agents lacked a digital interface to showcase offers or engage consumers. They engaged FiftyFive Technologies to design, architect, and build two applications, one for travel agents and another for consumers—to streamline communication, centralize offer sharing, and create a scalable digital infrastructure. Our engineering team handled full-cycle development, from product consulting and UI/UX to backend, mobile apps, cloud setup, and QA. The goal was to deliver a unified travel-tech solution that could support high traffic, multilingual features, and multi-currency travel services.
 
 **Technologies (Detected):**
-`Flutter, Firebase, CI, UX, UI, API, ML, APIS, BI`
+`UI, CI, UX, API, Firebase, ML, BI, APIS, Flutter`
 
 **Challenges :**
 - No centralized digital interface for listing, updating, or managing agent travel
@@ -767,7 +767,7 @@
 **The Story:** The client engaged FiftyFive to address stagnating engagement and revenue for their YouTube ‘Official Channel’ in the UK and US markets. Despite a loyal audience, growth had plateaued, traffic sources were declining, and revenue targets were not met. FiftyFive deployed its data engineering and software development expertise to build scalable analytics pipelines, optimize content strategies, and enhance decision-making through advanced BI solutions.
 
 **Technologies (Detected):**
-`AI, CI, UI, BI`
+`UI, CI, AI, BI`
 
 **Challenges :**
 - Stagnant viewership and flat growth in key geographies (UK, US).​
@@ -806,7 +806,7 @@
 **The Story:** The client aimed to transform restaurant management by simplifying onboarding, handling large-scale multi-platform data, automating dispute resolution, and delivering actionable insights. They partnered with FiftyFive Technologies to engineer a scalable
 
 **Technologies (Detected):**
-`AI, CI, UI, ERP, ML, BI`
+`UI, CI, ERP, AI, ML, BI`
 
 **The Solution :**
 - Built CSV-based onboarding pipeline for seamless, error-free store integration.​
@@ -845,7 +845,7 @@
 **The Story:** The client partnered with FiftyFive Technologies to modernize customer service operations through advanced AI, automation, and data-driven insights. Our role was to design, develop, and deploy a tailored solution integrating queue analysis, NLP-powered reporting, and performance monitoring. A dedicated engineering team specialized in custom software development, AI/ML, and cloud deployment ensured the solution was robust, scalable, and business-driven.
 
 **Technologies (Detected):**
-`AWS, AI, CI, UI, Openai, ML, BI, NLP`
+`UI, AWS, CI, Openai, AI, NLP, ML, BI`
 
 **Challenges :**
 - Data variability across multiple queues impacting benchmark consistency.​
@@ -878,7 +878,7 @@
 **Industry :** IoT Service- ● Custom Software Development ● AI/ML Engineering ● IoT Engineering ● Cloud & Architecture ● Quality Assurance
 
 **Technologies (Detected):**
-`AI, CI, UI, ML, IOT, BI`
+`UI, CI, AI, ML, BI, IOT`
 
 **Challenges :**
 - Static HVAC logic lacking data-driven and adaptive control mechanisms.​
@@ -959,7 +959,7 @@
 **The Story:** The client collaborated with FiftyFive Technologies to build a scalable, data-driven platform that redefined how job seekers and employers connect. The goal was to deliver real-time job insights, automate data extraction, and improve hiring efficiency using advanced engineering and analytics. FiftyFive deployed a dedicated team of data engineers, backend developers, and QA specialists to design and implement the platform’s data ecosystem using HPCC Systems and the ECL language.
 
 **Technologies (Detected):**
-`CI, UI, API, ML, BI`
+`UI, CI, API, ML, BI`
 
 **Challenges :**
 - Extracting large-scale job and candidate data from multiple API sources.​
@@ -1066,7 +1066,7 @@
 **The Story:** The client sought a robust application that allowed artists to upload music, cover photos, lyrics, and voice memos while ensuring seamless collaboration. The goal was to develop a secure, scalable, and high-performing app compatible across Mobile, Desktop, and Web. However, achieving this vision required overcoming several technical and functional challenges.
 
 **Technologies (Detected):**
-`React, CD, RAG, AI, CI, UX, UI, ML, BI`
+`UI, CI, React, UX, CD, RAG, AI, ML, BI`
 
 **Challenges :**
 - Developing a feature-rich, personalized, and secure platform.
@@ -1104,7 +1104,7 @@
 **The Story:** The client engaged FiftyFive as a global software development and technology consulting partner to design, build, and scale a custom Customer Portal for multi-country partner operations. The objective was to replace manual, phone-driven workflows and fragmented legacy systems with a centralized, cloud-native platform owned and operated by the client. FiftyFive delivered the engagement as a full-cycle custom software development initiative, covering architecture, engineering, DevOps, QA automation, performance validation, and analytics. A dedicated cross-functional team worked closely with the client to ensure the platform could support regional expansion, localization, and high-traffic service operations.
 
 **Technologies (Detected):**
-`Kubernetes, React, CD, RAG, AI, Postgres, CI, UI, API, Postgresql, APIS`
+`UI, CI, React, Postgresql, Kubernetes, CD, RAG, API, AI, Postgres, APIS`
 
 **Challenges :**
 - Phone-based ordering workflows with no digital transaction traceability​
@@ -1157,7 +1157,7 @@
 **The Story:** The client partnered with FiftyFive Technologies to build a Smart Waste Management System addressing inefficiencies in urban waste collection. Through the Team Extension model, FiftyFive deployed a Data Engineer and Business Analyst to design, develop, and integrate a custom data engineering solution. The system leveraged AI, IoT, and real-time processing to classify waste on streets, notify authorities, and optimize collection routes. This engagement highlighted FiftyFive’s ability to deliver scalable, tailored solutions that align with smart city and sustainability goals. The challenge ● Static collection schedules not linked to real waste volumes. ● Lack of automated waste type recognition and categorization. ● Inefficient route planning causing fuel overuse and higher costs. ● No real-time alerts for critical waste issues (illegal dumping, overflowing bins).
 
 **Technologies (Detected):**
-`RAG, AI, CI, Mariadb, Tensorflow, UI, IOT, BI`
+`UI, CI, RAG, AI, Mariadb, BI, IOT, Tensorflow`
 
 **The Solution :**
 - Deployed three-sided cameras on collection trucks for continuous street video
@@ -1190,7 +1190,7 @@
 - Digital Transformation Consulting
 
 **Technologies (Detected):**
-`Flutter, AI, BI`
+`AI, BI, Flutter`
 
 **Challenges :**
 - Manual port workflows causing latency, bottlenecks, and limited throughput​
@@ -1229,7 +1229,7 @@
 **The Story:** The client faced challenges with manual accounting processes, which led to inefficiencies and errors. They partnered with FiftyFive Technologies to automate document management and accounting workflows. The goal was to streamline processes, improve accuracy, and enable real-time decision-making using AI-driven technologies.
 
 **Technologies (Detected):**
-`Flutter, React, AI, CI, UI, ML, BI, NLP, OCR`
+`UI, CI, React, AI, NLP, ML, BI, OCR, Flutter`
 
 **Challenges :**
 - Insufficient data for training deep learning models, affecting document
@@ -1277,7 +1277,7 @@
 **The Story:** The client sought to consolidate its car rental operations into a single, scalable digital platform. They partnered with FiftyFive Technologies to design and deliver a robust, mobile-first solution. The goal was to streamline user journeys, integrate secure identity verification, and support continuous feature upgrades in a highly dynamic market. FiftyFive provided a dedicated offshore development team to build and scale the product from MVP to live release.
 
 **Technologies (Detected):**
-`Flutter, RAG, AI, CI, UX, UI, API, ML, APIS, BI, OCR`
+`UI, CI, UX, RAG, API, AI, ML, BI, OCR, APIS, Flutter`
 
 **Challenges :**
 - Frequent scope changes due to dynamic rental business requirements.​
@@ -1307,7 +1307,7 @@
 **Industry :** 
 
 **Technologies (Detected):**
-`AI, CI, BI`
+`CI, AI, BI`
 
 **Challenges :**
 - Creating scientifically accurate yet engaging microscopic environments
@@ -1381,7 +1381,7 @@
 **The Story:** The client engaged FiftyFive Technologies to design, build, and deploy a customer portal from the ground up. Our role was to provide full-cycle custom software development and DevOps engineering. A dedicated team of cloud engineers, backend/frontend developers, and DevOps specialists was deployed to ensure the platform was scalable, automated, and production-ready. The engagement focused on enabling business growth while minimizing manual operations and infrastructure costs.
 
 **Technologies (Detected):**
-`Kubernetes, CD, AI, Postgres, CI, Docker, UI, Postgresql, BI`
+`UI, CI, Postgresql, Kubernetes, CD, Docker, AI, BI, Postgres`
 
 **Challenges :**
 - Designing a scalable and fault-tolerant infrastructure for portal deployment​
@@ -1418,7 +1418,7 @@
 **About the Client:** The client is a Swedish restaurant enterprise operating a large-scale AWS-based inventory management system requiring secure infrastructure, automated deployments, and improved DevOps workflows to support operational growth and sensitive data handling.
 
 **Technologies (Detected):**
-`AWS, CI, UI, Jenkins, ML, Mysql, BI`
+`UI, AWS, CI, Mysql, Jenkins, ML, BI`
 
 **Challenges :**
 - Inadequate security protocols for accessing AWS and MySQL resources​
@@ -1452,7 +1452,7 @@
 **About the Client:** The client is a leading enterprise software company requiring large-scale, globally distributed synthetic monitoring capabilities to track website and API performance with consistent reliability, automated workflows, and high availability across multiple regions.
 
 **Technologies (Detected):**
-`Terraform, AI, CI, Docker, UI`
+`UI, CI, Terraform, Docker, AI`
 
 **Challenges :**
 - Complex multi-region infrastructure requirements for distributed synthetic
@@ -1494,7 +1494,7 @@
 **The Story:** The client recognized a significant gap in traditional cricket coaching—lack of precise, accessible performance analysis. They sought to create an AI-powered platform that could deliver real-time feedback on player technique, enabling professional-level coaching anytime, anywhere. FiftyFive Technologies was engaged to design and implement the custom software solution, leveraging AI and cloud technologies to meet the client’s vision.
 
 **Technologies (Detected):**
-`Kubernetes, Pytorch, Terraform, CV, Firebase, GCP, RAG, AI, CI, UI, ML, BI`
+`UI, CI, Terraform, Pytorch, Kubernetes, RAG, CV, GCP, AI, Firebase, ML, BI`
 
 **Challenges :**
 - Accurate motion detection for player movement analysis.​
@@ -1533,7 +1533,7 @@
 - Application Architecture Design
 
 **Technologies (Detected):**
-`Terraform, Stripe, React, AWS, AI, UX, Docker, UI, API, ML, APIS, BI`
+`UI, AWS, React, Terraform, UX, API, Docker, AI, ML, BI, Stripe, APIS`
 
 **Challenges :**
 - Managing real-time court availability across multiple venues.​
@@ -1598,7 +1598,7 @@
 - Software Testing & QA
 
 **Technologies (Detected):**
-`Sqlite, AI, CI, UI`
+`UI, CI, AI, Sqlite`
 
 **Challenges :**
 - Training a machine learning model to detect and segment individual grains from
@@ -1649,7 +1649,7 @@
 **The Story:** The client engaged FiftyFive Technologies to address the limitations of traditional e-learning platforms, which often lack personalization, real-time responsiveness, and measurable engagement. Our mandate was to design, build, and deploy a scalable AI tutoring platform capable of replicating classroom-like interactivity while reducing manual workload for educators. FiftyFive provided a dedicated engineering team to deliver full-cycle custom software development, AI/ML integration, and cloud deployment.
 
 **Technologies (Detected):**
-`RAG, AI, CI, UI, Fastapi, API, ML, BI`
+`UI, CI, RAG, API, Fastapi, AI, ML, BI`
 
 **Challenges :**
 - Designing adaptive learning paths for diverse student requirements.​
@@ -1688,7 +1688,7 @@
 **The Story:** FiftyFive Technologies partnered with the client to design and develop a unified SaaS platform for end-to-end data pipeline management. The goal was to consolidate diverse data sources, enable advanced processing, and strengthen governance. This engagement was delivered through a dedicated development team including frontend engineers, backend developers, data engineers, cloud architects, and QA specialists. By leveraging our expertise in custom SaaS development, cloud engineering, and data management, we built a scalable, future-ready platform aligned with the client’s growth needs.
 
 **Technologies (Detected):**
-`RAG, CI, UI, ERP, ML, BI`
+`UI, CI, RAG, ERP, ML, BI`
 
 **Challenges :**
 - Integrating heterogeneous data sources (data lakes, warehouses, APIs, cloud
@@ -1741,7 +1741,7 @@
 **The Story:** The client engaged FiftyFive Technologies to build a unified e-commerce and mobile platform capable of supporting multi-state operations, regulatory workflows, and cross-location customer experiences. Their existing systems were fragmented, store-specific, and unable to synchronize customer data or support central compliance. FiftyFive was tasked with developing a centralized, scalable, and regulation-ready architecture that could consolidate identity verification, streamline purchases, and introduce a multi-store rewards engine. Our role was to deliver full-cycle custom software development, backend engineering, UI/UX design, and platform integration.
 
 **Technologies (Detected):**
-`RAG, CI, UX, UI, ML, BI`
+`UI, CI, UX, RAG, ML, BI`
 
 **Challenges :**
 - Integrating multi-store sales flows governed by varying taxation and
@@ -1793,7 +1793,7 @@
 **The Story:** The client partnered with FiftyFive Technologies to design and build an autonomous Sales Development Representative (SDR) platform. The goal was to automate prospecting, outreach, and scheduling while ensuring compliance, scalability, and market differentiation. FiftyFive deployed a dedicated engineering team specializing in MERN stack, AI/ML, and cloud solutions to deliver a platform integrating OpenAI models, real-time data sources, and CRM ecosystems. The engagement focused on achieving business growth by aligning advanced AI with secure, enterprise-grade architecture.
 
 **Technologies (Detected):**
-`CRM, Mongodb, AWS, AI, CI, UI, Openai, ERP, API, ML, APIS, BI, NLP`
+`UI, CRM, AWS, CI, Openai, API, ERP, AI, Mongodb, NLP, ML, BI, APIS`
 
 **Challenges :**
 - Training AI models for accurate business profile interpretation and
@@ -1876,7 +1876,7 @@
 **About the Client:** The client is a health tech company focused on revolutionizing menstrual health management for women by providing AI-driven, personalized health insights and symptom tracking through a mobile application.
 
 **Technologies (Detected):**
-`Flutter, Firebase, LLM, RAG, AI, CI, Openai, ERP, ML, BI`
+`CI, Openai, RAG, ERP, AI, Firebase, ML, BI, LLM, Flutter`
 
 **Challenges :**
 - No effective, scalable solution for tracking menstrual health and managing
@@ -1909,7 +1909,7 @@
 **The Story:** The client wanted a platform that could combat misinformation and enhance trust by verifying authors and their articles. With features like NFC-based biometric passport verification, blockchain integration, and a unique verification seal, the app aimed to guarantee the authenticity of published content. Their goal was to provide a seamless user experience for authors and agencies alike, while ensuring robust security and scalability across iOS, Android, and web platforms.
 
 **Technologies (Detected):**
-`Flutter, Mongodb, RAG, AI, CI, UI, API, ML, APIS, BI`
+`UI, CI, RAG, API, AI, Mongodb, ML, BI, APIS, Flutter`
 
 **Challenges :**
 - Implementing NFC-based biometric passport scanning for accurate journalist
@@ -1950,7 +1950,7 @@
 - Consulting & Offshore Team Extension.
 
 **Technologies (Detected):**
-`Flutter, Firebase, AI, CI, UI, ML, BI`
+`UI, CI, AI, Firebase, ML, BI, Flutter`
 
 **Challenges :**
 - Consolidating multiple tourism services into a unified platform.​
@@ -1988,7 +1988,7 @@
 **The Story:** The client partnered with FiftyFive Technologies to replace costly off-the-shelf RPA tools with a secure, customizable, and scalable automation system. Their objective was to automate repetitive tasks such as data extraction, form-filling, and file management through a Python-script-based platform. The engagement was delivered by a dedicated FiftyFive team comprising backend developers, RPA specialists, DevOps engineers, and QA experts. The goal was to unify workflows across applications, reduce licensing costs, and ensure complete data privacy.
 
 **Technologies (Detected):**
-`Flutter, Mongodb, CD, RAG, AI, RPA, Airflow, CI, UX, UI, Fastapi, ERP, Jenkins, API, BI`
+`UI, CI, RPA, UX, Airflow, CD, RAG, API, ERP, Fastapi, AI, Jenkins, Mongodb, BI, Flutter`
 
 **Challenges :**
 - High licensing and operational costs of market RPA platforms.​
@@ -2029,7 +2029,7 @@
 **The Story:** The client engaged FiftyFive Technologies to develop a custom AI-driven conversational assistant capable of handling multi-modal inputs like text and audio. The goal was to create a system that mimicked the client's voice while providing a seamless, personalized user experience. Over time, the initiative evolved from an experimental project into a robust backend pipeline that integrated Google Cloud Platform (GCP) and Firebase to handle real-time, scalable conversational interactions.
 
 **Technologies (Detected):**
-`Terraform, Firebase, GCP, AI, API, ML, BI`
+`Terraform, API, GCP, AI, Firebase, ML, BI`
 
 **Challenges :**
 - Converting text and audio inputs into structured data while preserving context
@@ -2070,7 +2070,7 @@
 - Third-Party Integrations (broker APIs for execution)
 
 **Technologies (Detected):**
-`RAG, AI, CI, UI, ML, BI`
+`UI, CI, RAG, AI, ML, BI`
 
 **Challenges :**
 - Non-technical users lacked coding expertise for algorithmic trading model
@@ -2128,7 +2128,7 @@
 **The Story:** The client relied on manual documentation, fragmented approvals, and unstructured workflows, creating delays and limited visibility across training engagements. They engaged FiftyFive Technologies to design and develop a fully digital platform that automated document generation, standardized approval flows, and enabled secure multi-stakeholder collaboration. Our engineering team implemented a scalable backend, cloud deployment model, and real-time communication features to support high-volume coaching operations. The goal was to streamline operations, reduce manual dependency, and establish a scalable digital foundation for future growth.
 
 **Technologies (Detected):**
-`Mongodb, React, RAG, AWS, AI, UI, ERP, API, ML, APIS, BI`
+`UI, AWS, React, RAG, API, ERP, AI, Mongodb, ML, BI, APIS`
 
 **Challenges :**
 - Manual document processing causing inconsistent turnaround times and
@@ -2202,7 +2202,7 @@
 **About the Client:** The client operates a large-scale ferry booking platform in Abu Dhabi, serving daily commuters, tourists, and event-driven travel, and required a modernized digital system to improve accessibility, performance, and user experience.
 
 **Technologies (Detected):**
-`RAG, AI, UX, UI, BI`
+`UI, UX, RAG, AI, BI`
 
 **Challenges :**
 - Designing a fully responsive, mobile-first interface with Arabic language and RTL
@@ -2265,7 +2265,7 @@
 - Cloud Engineering​
 
 **Technologies (Detected):**
-`CD, AWS, AI, CI, Docker, Jenkins, API, APIS`
+`AWS, CI, CD, API, Docker, AI, Jenkins, APIS`
 
 **Challenges :**
 - Implementing a secure redirection-based payment flow compatible with Shopify
@@ -2309,7 +2309,7 @@
 **The Story:** The client partnered with FiftyFive Technologies to build a unified, data-driven padel platform capable of handling bookings, real-time interactions, and AI-powered performance insights. Their goal was to create a seamless user experience where players could coordinate matches, verify scores, receive live updates, and earn rewards. FiftyFive was engaged to deliver full-cycle engineering, from architecture to development and integration, ensuring the product met high standards of scalability, responsiveness, and real-time performance.
 
 **Technologies (Detected):**
-`Firebase, React, AI, UI, ML, BI`
+`UI, React, AI, Firebase, ML, BI`
 
 **Challenges :**
 - Low-latency court booking flow requiring optimized request handling.​
@@ -2355,7 +2355,7 @@
 **The Story:** The client relied on scattered documents and manual processes to maintain developer profiles and project histories, resulting in slow, inconsistent, and error-prone resume creation. Proposal teams struggled to update skills, technologies, and project information across multiple formats, affecting the speed and quality of client submissions. The client engaged FiftyFive Technologies as their engineering partner to design and develop a scalable, UI/UX-driven resume management system with automated workflows. A dedicated team of UI/UX designers, frontend engineers, backend developers, QA testers, and a project lead executed the project end-to-end.
 
 **Technologies (Detected):**
-`AI, CI, UX, UI, BI`
+`UI, CI, UX, AI, BI`
 
 **Challenges :**
 - Multiple resume versions stored across disconnected systems​
@@ -2400,7 +2400,7 @@
 **The Story:** The client’s existing document generation platform faced usability, workflow, and information architecture challenges that limited adoption and slowed internal operations. They engaged FiftyFive to redesign the platform’s UX and build a scalable, consistent design system aligned with modern legal tech standards. A dedicated offshore UI/UX and front-end consulting team collaborated through agile sprints, user testing, and iterative design improvements. The goal was to reduce cognitive load, enhance AI-assisted workflows, and prepare the product for future engineering scalability.
 
 **Technologies (Detected):**
-`AI, CI, UX, UI, ML, BI`
+`UI, CI, UX, AI, ML, BI`
 
 **Challenges :**
 - High cognitive friction due to fragmented information architecture and complex
@@ -2457,7 +2457,7 @@
 **The Story:** The client managed two learning platforms with rich content but an outdated Java, Struts, and JSP codebase. Performance, usability, and scalability issues limited adoption across schools. They partnered with FiftyFive Technologies to modernize backend architecture, improve security, and redesign the UI/UX for student-centric engagement. A dedicated Agile team of full-stack developers, UI/UX designers, and QA engineers delivered full-cycle modernization while maintaining uninterrupted services on the legacy system.
 
 **Technologies (Detected):**
-`AI, CI, UX, UI, API, ML, BI`
+`UI, CI, UX, API, AI, ML, BI`
 
 **Challenges :**
 - Legacy Java, Struts, JSP framework with complex monolithic codebase​
@@ -2509,7 +2509,7 @@
 **The Story:** The client expanded its IoT-driven climate control platform with multiple applications for consumers and service partners. As the product scaled across European markets, they required a structured QA partner to stabilize subscription workflows, streamline global payments, and automate repetitive test cycles. FiftyFive Technologies was engaged as the dedicated QA and engineering partner to implement automated testing, validate subscription logic, and ensure reliable transactions across regions. The focus was to strengthen platform performance without altering existing architecture.
 
 **Technologies (Detected):**
-`Stripe, AI, CI, UI, API, ML, IOT, BI`
+`UI, CI, API, AI, ML, BI, Stripe, IOT`
 
 **Challenges :**
 - Complex multi-tier subscription logic requiring validation across consumer and
@@ -2539,7 +2539,7 @@
 **Industry :** Heat pump manufacturing (B2B) Service - Custom Software Development Cloud Engineering / DevOps Automation Software Testing & QA Analytics Integration
 
 **Technologies (Detected):**
-`Kubernetes, React, CD, RAG, Postgres, CI, UI, API, Postgresql, APIS`
+`UI, CI, React, Postgresql, Kubernetes, CD, RAG, API, Postgres, APIS`
 
 **Challenges :**
 - Manual ordering flows dependent on phone coordination​
@@ -2575,7 +2575,7 @@
 - CI/CD & DevOps
 
 **Technologies (Detected):**
-`Flutter, CD, AI, Airflow, CI, UI, ML`
+`UI, CI, Airflow, CD, AI, ML, Flutter`
 
 **Challenges :**
 - Inconsistent scheduling and data mismatches in trend view.​
@@ -2621,7 +2621,7 @@
 - security testing
 
 **Technologies (Detected):**
-`Kubernetes, React, AI, CI, UI, Jenkins, ML, BI`
+`UI, CI, React, Kubernetes, AI, Jenkins, ML, BI`
 
 **Challenges :**
 - Order Management: Difficulty in managing orders from multiple third-party
@@ -2659,7 +2659,7 @@
 - QA & Automation
 
 **Technologies (Detected):**
-`Stripe, RAG, AI, CI, UI, API, APIS, BI`
+`UI, CI, RAG, API, AI, BI, Stripe, APIS`
 
 **Challenges :**
 - Role-based access control across Landlord, Agent, Tenant, and Partner personas​
@@ -2705,7 +2705,7 @@
 - Software Testing & QA (automated UI testing, performance validation)
 
 **Technologies (Detected):**
-`React, CD, Postgres, CI, UX, UI, Postgresql, IOT, BI, Redis`
+`UI, CI, React, Postgresql, UX, CD, Redis, BI, Postgres, IOT`
 
 **Challenges :**
 - Cross-platform performance for iOS, Android, and web applications.​
@@ -2749,7 +2749,7 @@
 **The Story:** The client engaged FiftyFive Technologies to build a full-cycle wellness platform capable of capturing breath and ECG signals, processing them in real time, and generating personalized AI insights. They required a secure, scalable system connecting Apple Watch sensors, mobile interfaces, backend services, and blockchain-ledger components for user-owned data. FiftyFive provided end-to-end engineering across mobile, backend, AI/ML, blockchain, and cloud layers to deliver a production-ready solution. The engagement focused on transforming their concept into a robust, multi-layered AI-powered ecosystem.
 
 **Technologies (Detected):**
-`Flutter, AI, CI, UX, UI, ERP, ML, BI`
+`UI, CI, UX, ERP, AI, ML, BI, Flutter`
 
 **Challenges :**
 - Real-time ECG and breath signal acquisition via Apple Watch native APIs​
@@ -2826,7 +2826,7 @@
 **The Story:** The client partnered with FiftyFive Technologies as a long-term engineering and consulting provider to modernize core systems, enhance global delivery efficiency, and build scalable digital products. The engagement covered custom software development, mobile app development, legacy modernization, AI/ML engineering, cloud-enabled scalability, DevOps automation, and agile transformation. FiftyFive deployed cross-functional engineering teams to improve performance, accelerate feature delivery, and strengthen the client’s global operational capabilities.
 
 **Technologies (Detected):**
-`React, CD, AI, CI, UX, UI, API, ML, BI`
+`UI, CI, React, UX, CD, API, AI, ML, BI`
 
 **Challenges :**
 - Monolithic legacy architecture causing latency, instability, and complex
@@ -2927,7 +2927,7 @@
 **The Story:** The client partnered with FiftyFive to develop a blockchain-based MVP that verifies journalists through digital passport scanning and authenticates articles using immutable smart contracts. The goal was to create a secure, scalable, cross-platform system that improves trust in digital publishing. FiftyFive provided end-to-end engineering across blockchain, mobile, backend, integrations, and cloud to deliver the complete MVP.
 
 **Technologies (Detected):**
-`Flutter, Mongodb, AWS, AI, API, APIS, BI`
+`AWS, API, AI, Mongodb, BI, APIS, Flutter`
 
 **Challenges :**
 - Implementing NFC-based biometric passport scanning for journalist identity
@@ -2995,7 +2995,7 @@
 **The Story:** The client partnered with FiftyFive Technologies to build a custom, fully automated system for retrieving Ethereum Layer 2 epoch data, linking historical dependencies, and calculating verifier rewards with high precision. With epochs generated every 6 minutes and 21 seconds, delays or missing data directly affected payout accuracy and network trust. FiftyFive acted as the technology partner—designing, engineering, and deploying the backend automation, data processing logic, and transparency layer. The goal was to create a scalable, tamper-proof solution that the client could operate independently while enabling future ecosystem expansion.
 
 **Technologies (Detected):**
-`RAG, AI, CI, UI, BI`
+`UI, CI, RAG, AI, BI`
 
 **Challenges :**
 - Real-time retrieval of Layer 2 epoch data without missed intervals or
@@ -3043,7 +3043,7 @@
 **The Story:** The client partnered with FiftyFive Technologies to modernize and secure its cloud infrastructure while optimizing costs and scalability. As their business expanded from public to hybrid and poly-hybrid cloud models, they required a dedicated technology partner with expertise across hyperscalers, cloud security, and DevOps. FiftyFive deployed a specialized engineering team to design and implement solutions that aligned with the client’s business objectives and compliance needs.
 
 **Technologies (Detected):**
-`CI, UI, ERP, BI`
+`UI, CI, ERP, BI`
 
 **Challenges :**
 - Infrastructure scalability without latency or performance degradation.​
@@ -3103,7 +3103,7 @@
 **The Story:** The client wanted to move beyond keyword-based recruitment and build an AI-powered SaaS platform. They needed a system that could personalize job recommendations, streamline fragmented hiring workflows, support subscription monetization, and handle scheduling and notifications in one scalable ecosystem. FiftyFive Technologies was engaged as the engineering partner to design, develop, and scale the solution from MVP to a multi-portal recruitment platform.
 
 **Technologies (Detected):**
-`Flutter, Stripe, RAG, AWS, AI, CI, Nestjs, Docker, UI, Openai, API, ML, BI`
+`UI, AWS, CI, Nestjs, Openai, RAG, API, Docker, AI, ML, BI, Stripe, Flutter`
 
 **Challenges :**
 - Matching job preferences beyond keyword search using AI/ML logic​
@@ -3150,7 +3150,7 @@
 **The Story:** The client needed to convert a complex scientific script for groundwater level calculations into a scalable web application. The goal was to deliver fast, accurate results with clear visualizations and downloadable reports while ensuring secure access, cost optimization, and future-ready scalability. FiftyFive was engaged to provide custom cloud engineering and software development services, deploying a team with expertise in Python and AWS serverless technologies.
 
 **Technologies (Detected):**
-`RAG, AWS, AI, CI, BI`
+`AWS, CI, RAG, AI, BI`
 
 **Challenges :**
 - Restrict execution of compute services to authenticated users only.​
@@ -3179,7 +3179,7 @@
 **The Story:** The client engaged FiftyFive Technologies to modernize their money transfer platform under strict regulatory timelines. The objectives included ensuring PayUK Confirmation of Payee (CoP) compliance, strengthening Equals Money API integrations, removing outdated providers from the dashboard, and improving security and communication systems. The engagement required a sprint-based delivery approach with a dedicated fintech engineering team, ensuring zero service disruption while upgrading critical workflows.
 
 **Technologies (Detected):**
-`AI, CI, UI, API, BI`
+`UI, CI, API, AI, BI`
 
 **Challenges :**
 - Meeting PayUK’s regulatory deadline for CoP validation​
@@ -3252,7 +3252,7 @@
 **The Story:** The client sought to digitize the traditionally manual and paperwork-heavy UK company incorporation process. Entrepreneurs often faced confusion over compliance requirements, company name availability, and post-registration add-ons. FiftyFive Technologies was engaged to design and build a scalable SaaS platform that would automate incorporation, ensure compliance, and provide entrepreneurs with real-time insights and guided onboarding. The goal was to deliver a frictionless, compliant, and growth-oriented experience through a single digital solution.
 
 **Technologies (Detected):**
-`AI, CI, UI, API, BI`
+`UI, CI, API, AI, BI`
 
 **Challenges :**
 - Automating UK company registration workflows with full compliance.​
@@ -3291,7 +3291,7 @@
 **About the Client:** A UK-based EdTech company operating in the corporate training sector, building a scalable SaaS platform to connect training providers with global enterprise buyers through AI-driven search and real-time availability.
 
 **Technologies (Detected):**
-`AI, API, NLP`
+`API, AI, NLP`
 
 **Challenges :**
 - Two-sided marketplace onboarding and engagement for buyers and providers.​
@@ -3320,7 +3320,7 @@
 **About the Client:** The client operates a split-payments platform enabling merchants to process transactions via cards, groups, links, and installments, integrated with acquirers and compliant with PCI-DSS, ISO 27001, and GDPR standards.
 
 **Technologies (Detected):**
-`LLM, AWS, CI, UI, API, ML`
+`UI, AWS, CI, API, ML, LLM`
 
 **Challenges :**
 - Complex orchestration of multi-card, group, link, and installment workflows.​
@@ -3349,7 +3349,7 @@
 **About the Client:** A UK-based mid-size construction services company building a SaaS platform to streamline complex project lifecycles, compliance, documentation, financial oversight, and audits for modern construction teams.
 
 **Technologies (Detected):**
-`RAG, AI, CI`
+`CI, RAG, AI`
 
 **Challenges :**
 - Multiple project journeys with unique workflows and dependencies​
@@ -3412,7 +3412,7 @@
 **About the Client:** The client is a healthcare services provider operating diagnostic centers, seeking to modernize operations by digitizing test booking, payments, and result management with a scalable, integrated web platform.
 
 **Technologies (Detected):**
-`AWS, AI, CI, UI, API, ML, IOT, APIS, BI`
+`UI, AWS, CI, API, AI, ML, BI, IOT, APIS`
 
 **Challenges :**
 - Integration of multiple third-party APIs (Randox Booking, Randox Ordering, Stripe,
@@ -3445,7 +3445,7 @@
 **About the Client:** The client operates in education technology and artificial intelligence, building next-generation collaborative platforms that integrate contextual project intelligence with advanced AI-driven automation for global users.
 
 **Technologies (Detected):**
-`AI, CI, UI, ML, BI`
+`UI, CI, AI, ML, BI`
 
 **Challenges :**
 - Context-Aware Document Intelligence – Summarize and analyze user-uploaded
@@ -3481,7 +3481,7 @@
 **About the Client:** The client provides an AI-powered sales development platform for B2B organizations, enabling automated outreach, persona targeting, and multi-channel engagement across email and LinkedIn for startups and enterprises.
 
 **Technologies (Detected):**
-`React, CD, AWS, AI, CI, UX, Langchain, UI, ERP, ML, BI`
+`UI, AWS, CI, React, Langchain, UX, CD, ERP, AI, ML, BI`
 
 **Challenges :**
 - Managing high-volume personalized outreach across LinkedIn and email
@@ -3528,7 +3528,7 @@
 **About the Client:** The client is a UK-based sports association representing football club safety and operations officers, responsible for compliance, structured reporting, and safe matchday management across leading professional football leagues.
 
 **Technologies (Detected):**
-`Firebase, React, RAG, CI, API`
+`CI, React, RAG, API, Firebase`
 
 **Challenges :**
 - Manual data entry introducing reporting delays and errors​
@@ -3575,7 +3575,7 @@
 **The Story:** The client engaged our team to enhance their research-access platform, which included Scholar and Insights applications. The engagement focused on improving performance, strengthening subscription workflows, and delivering responsive UI/UX. A dedicated team was deployed to provide full-cycle software development, bug resolution, and QA automation while ensuring scalable and maintainable code standards.
 
 **Technologies (Detected):**
-`RAG, AWS, AI, Postgres, CI, UX, UI, ML, Postgresql, BI`
+`UI, AWS, CI, Postgresql, UX, RAG, AI, ML, BI, Postgres`
 
 **Challenges :**
 - Inefficient subscription and in-app purchase workflows.​
@@ -3623,7 +3623,7 @@
 **The Story:** The client partnered with FiftyFive Technologies to design and deliver a Minimum Viable Product (MVP) that transformed charitable giving. They envisioned a QR-based mobile-first platform where donors could support performers instantly. The engagement required full-cycle development—mobile apps, backend systems, payment infrastructure, and automated compliance. FiftyFive deployed a dedicated cross-functional team including project management, mobile developers, backend engineers, and QA to deliver a secure, scalable solution.
 
 **Technologies (Detected):**
-`Stripe, AI, Postgres, Twilio, CI, UI, API, Postgresql, BI`
+`UI, CI, Postgresql, API, AI, Twilio, BI, Stripe, Postgres`
 
 **Challenges :**
 - Design mobile registration with secure OTP validation and fraud prevention.​
@@ -3662,7 +3662,7 @@
 **The Story:** The client partnered with FiftyFive Technologies after securing funding to modernize their SaaS platform. They required a dedicated engineering team to restructure the codebase, fix critical production issues, and deliver new features with improved scalability. FiftyFive provided end-to-end custom software development services, ensuring the product was stable, performant, and capable of supporting rapid growth in the restaurant-tech and martech space.
 
 **Technologies (Detected):**
-`React, AI, CI, UI, API, ML, BI`
+`UI, CI, React, API, AI, ML, BI`
 
 **Challenges :**
 - Inefficient and inconsistent folder structures within the codebase.​
@@ -3702,7 +3702,7 @@
 **The Story:** In April 2025, the client engaged FiftyFive Technologies to stabilize and enhance their existing React Native app. A dedicated four-engineer team was deployed to address outdated infrastructure, failed builds, and missing features. The engagement covered SDK migrations, Firebase reconfiguration, and development of new digital services. FiftyFive applied its expertise in custom software development, UI/UX, DevOps, and QA to deliver a scalable, future-ready platform.
 
 **Technologies (Detected):**
-`Firebase, React, CD, AI, CI, UX, UI, API, BI`
+`UI, CI, React, UX, CD, API, AI, Firebase, BI`
 
 **Challenges :**
 - Outdated Expo SDK (v48) and multiple breaking migrations​
@@ -3744,7 +3744,7 @@
 **The Story:** The client needed to modernize its compliance-driven requirements management platform to meet growing enterprise demands. Outdated architecture, limited authentication, and fragmented tools slowed adoption. FiftyFive Technologies was engaged to deliver full-cycle software modernization—covering architecture redesign, UI transformation, backend enhancements, and scalable enterprise-ready features.
 
 **Technologies (Detected):**
-`React, RAG, AI, CI, UI, ERP, API, ML, APIS, BI`
+`UI, CI, React, RAG, API, ERP, AI, ML, BI, APIS`
 
 **Challenges :**
 - Migration from outdated platform architecture to modern, scalable systems​
@@ -3789,7 +3789,7 @@
 **The Story:** As transaction volumes expanded, the client identified unauthorized file modifications as a major compliance and operational risk. They engaged FiftyFive Technologies to design and implement a custom File Integrity Monitoring (FIM) solution. The goal was to ensure continuous security, regulatory adherence, and scalability—without introducing latency or disrupting high-throughput payment operations. A dedicated engineering team from FiftyFive was deployed to deliver a cloud-native, resilient, and compliance-ready monitoring architecture.
 
 **Technologies (Detected):**
-`AWS, AI, CI, UI, ERP, ML, BI`
+`UI, AWS, CI, ERP, AI, ML, BI`
 
 **Challenges :**
 - Unauthorized modifications to payment-critical files.​
@@ -3831,7 +3831,7 @@
 **The Story:** FiftyFive Technologies partnered with the client to deliver a full-scale production build of an AI-powered multi-tenant deployment platform. The goal was to democratize AI app hosting for non-technical business teams by eliminating manual provisioning, invoicing, and server management. A dedicated 12-member FiftyFive team—including frontend, backend, DevOps, and QA engineers—was engaged to design and implement a secure, cost-efficient, and scalable “AI-as-a-Service” platform.
 
 **Technologies (Detected):**
-`Kubernetes, Stripe, React, CD, LLM, RAG, AWS, AI, CI, Docker, UI, Openai, API, APIS, BI, GPU, OCR`
+`UI, GPU, AWS, CI, React, Openai, Kubernetes, CD, RAG, API, Docker, AI, BI, OCR, Stripe, APIS, LLM`
 
 **Challenges :**
 - Deliver a user-friendly UI for non-technical users to deploy AI services.​
@@ -3868,7 +3868,7 @@
 **Industry :** 
 
 **Technologies (Detected):**
-`RAG, UI`
+`UI, RAG`
 
 **Challenges :**
 - Building a ChatGPT-style conversational UI supporting embedded charts, tables,
@@ -3915,7 +3915,7 @@
 - Architecture & Consulting​
 
 **Technologies (Detected):**
-`CD, AI, CI, UI, ETL`
+`UI, CI, ETL, CD, AI`
 
 **Challenges :**
 - Manual, Excel-driven data processing across multiple government sub-entities​
@@ -3960,7 +3960,7 @@
 **The Story:** The client relied on manually reviewing TLV Excel files to track AIP and AUP price updates. This process was slow, error-prone, and unsuitable for regulatory-sensitive pricing decisions. FiftyFive was engaged as a custom software development partner to design and build a secure, production-grade pricing intelligence platform. The objective was to automate ingestion, historical tracking, and alerting while ensuring enterprise-level security and reliability.
 
 **Technologies (Detected):**
-`React, AI, Postgres, CI, UI, ERP, API, Postgresql, BI`
+`UI, CI, React, Postgresql, API, ERP, AI, BI, Postgres`
 
 **Challenges :**
 - Manual Excel-based price monitoring workflows​
@@ -4005,7 +4005,7 @@
 - Dedicated Engineering Team Deployment
 
 **Technologies (Detected):**
-`Ollama, LLM, AWS, Laravel, AI, LLMS, Docker, UI, Openai, Mysql`
+`UI, AWS, Mysql, Openai, Laravel, Docker, AI, LLMS, Ollama, LLM`
 
 **Challenges :**
 - Manual compliance reviews exceeding 48 hours per document​
@@ -4054,7 +4054,7 @@
 **The Story:** The client’s deployment ecosystem was fragile, with hardcoded GitHub workflows, inconsistent Terraform and Terragrunt versions, and poorly structured infrastructure modules that caused frequent failures. They also lacked visibility into third-party licenses across repositories, creating compliance risks. FiftyFive was engaged to analyze their CI/CD pipelines and outage history, standardize and parameterize configurations, refactor infrastructure code and introduce governance and automation for stable, low-maintenance deployments. At the same time, the client needed to migrate a product from Azure—despite limited technical knowledge—and successfully onboard it onto their primary platform while ensuring reliability and continuity.
 
 **Technologies (Detected):**
-`Terraform, CD, RAG, AI, CI, UI, ERP, BI`
+`UI, CI, Terraform, CD, RAG, ERP, AI, BI`
 
 **Challenges :**
 - Inconsistent Terraform and Terragrunt versions across repositories
@@ -4102,7 +4102,7 @@
 - Data Engineering – Embedding pipeline, indexing workflow, validation systems
 
 **Technologies (Detected):**
-`RAG, AWS, AI, CI, UI, Openai, BI, GPU`
+`UI, GPU, AWS, CI, Openai, RAG, AI, BI`
 
 **Challenges :**
 - Manual clause-by-clause policy-to-law matching and remediation drafting​
@@ -4152,7 +4152,7 @@
 **About the Client:** The client supports a UAE government entity managing international development aid, overseeing billions of AED across 100+ countries while ensuring OECD DAC compliance, transparency, and multi-stakeholder coordination.
 
 **Technologies (Detected):**
-`CD, RAG, AI, Postgres, CI, ML, Postgresql, ETL, BI, GPU`
+`GPU, CI, ETL, Postgresql, CD, RAG, AI, ML, BI, Postgres`
 
 **Challenges :**
 - Disparate data across 8+ heterogeneous systems without centralized architecture​
@@ -4197,7 +4197,7 @@
 - Risk Analytics
 
 **Technologies (Detected):**
-`AI, UI, ERP, BI, OCR`
+`UI, ERP, AI, BI, OCR`
 
 **Challenges :**
 - Limited transparency and borrower-level explainability in PD models​
@@ -4234,7 +4234,7 @@
 - System Architecture
 
 **Technologies (Detected):**
-`RAG, AI, Postgres, UI, Postgresql`
+`UI, Postgresql, RAG, AI, Postgres`
 
 **Challenges :**
 - Integrating unstructured document retrieval with structured database querying in
@@ -4388,7 +4388,7 @@
 
 ### Policy: Acceptable Usage Policy (Aup) [POL:Acceptable Usage Policy (AUP)]
 
-- **Category**: ISO Policies
+- **Category**: inbox
 - **Source File**: Acceptable Usage Policy (AUP).pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
@@ -4414,9 +4414,26 @@
   - • Use FiftyFive Technologies's resources, including email, internet, software, and
   - hardware, to perform your job responsibilities and tasks effectively.
 
+### Policy: Ai Ethics Policy [POL:ai_ethics_policy]
+
+- **Category**: inbox
+- **Source File**: ai_ethics_policy.pdf
+- **Applicable To**: All employees
+- **Summary**: Our organization is committed to the responsible and ethical use of artificial intelligence. We ensure that all AI systems are designed and deployed with fairness, transparency, and accountability. Bias in data and models is actively monitored and mitigated to promote equitable outcomes for all users.
+- **Key Rules**:
+  - Our organization is committed to the responsible and ethical use of artificial intelligence. We ensure
+  - that all AI systems are designed and deployed with fairness, transparency, and accountability. Bias
+  - in data and models is actively monitored and mitigated to promote equitable outcomes for all users.
+  - We prioritize data privacy and security in every AI-driven solution. Personal and sensitive
+  - information is handled in compliance with applicable regulations, and strict access controls are
+  - maintained. AI systems are continuously audited to ensure they operate within defined ethical and
+  - Human oversight remains central to all AI implementations. Decisions made by AI systems are
+  - subject to review, and mechanisms are in place to allow users to challenge or appeal outcomes.
+  - We strive to build AI solutions that enhance human capabilities while maintaining trust and integrity.
+
 ### Policy: Assets Policy [POL:Assets Policy]
 
-- **Category**: Assets Policy
+- **Category**: inbox
 - **Source File**: Assets Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
@@ -4444,7 +4461,7 @@
 
 ### Policy: Attendance Policy [POL:Attendance Policy]
 
-- **Category**: Attendance Policy
+- **Category**: inbox
 - **Source File**: Attendance Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
@@ -4472,7 +4489,7 @@
 
 ### Policy: Business As Usual (Bau) Secure Practices Policy [POL:Business As Usual (BAU) Secure Practices Policy]
 
-- **Category**: ISO Policies
+- **Category**: inbox
 - **Source File**: Business As Usual (BAU) Secure Practices Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
@@ -4500,7 +4517,7 @@
 
 ### Policy: Clear Desk And Clear Screen Policy [POL:Clear desk and clear screen policy]
 
-- **Category**: ISO Policies
+- **Category**: inbox
 - **Source File**: Clear desk and clear screen policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
@@ -4526,37 +4543,9 @@
   - unauthorized access to displayed information.
   - • All Employees and Contractors: Comply with clear desk and screen practices, and ensure
 
-### Policy: Client Escalation Matrix [POL:Client Escalation Matrix]
-
-- **Category**: ISO Policies
-- **Source File**: Client Escalation Matrix.pdf
-- **Applicable To**: All employees
-- **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
-- **Key Rules**:
-  - This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per
-  - Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-  - Approved By: Sanchi Saxena (Head HR FiftyFive Technologies Pvt Limited)
-  - The Client Escalation Matrix is designed to provide a structured approach for escalating client issues
-  - based on their severity and impact. It ensures timely resolution and appropriate involvement of
-  - This matrix applies to all client-related issues and incidents requiring escalation within the
-  - organization. It covers the escalation process from initial contact to resolution, including the roles and
-  - responsibilities of each escalation level.
-  - Escalation Level Criteria Actions Contact Points
-  - Routine issues or Client Manager / IT
-  - Level 1: Frontline to standard procedures. Within 24
-  - requests with Team (as applicable)
-  - Support - Document issue and hours
-  - Level 2: at Level 1 or Within 48
-  - appropriate action. Project Manager
-  - Supervisory requiring higher hours
-  - - Develop and implement HR Team / Finance
-  - Level 3: affecting multiple Within 72
-  - action plan. Team (based on issue
-  - Managerial clients or high- hours
-
 ### Policy: Code Of Conduct Policy [POL:Code of Conduct Policy]
 
-- **Category**: CEBC Policy
+- **Category**: inbox
 - **Source File**: Code of Conduct Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
@@ -4582,37 +4571,9 @@
   - meticulously. The violation of the code may call for investigation, warning, censure, transfers
   - (departments, location, or roles), demotions, holding of salaries and benefits, and in serious violations
 
-### Policy: Company Intro [POL:Company Intro]
-
-- **Category**: Company Intro
-- **Source File**: Company Intro.pdf
-- **Applicable To**: All employees
-- **Summary**: FiftyFive Technologies is a Technology-empowered IT outsourcing company founded in 2016 in Jaipur, Rajasthan. We are relentlessly broadening our horizons and we have offices in Jaipur, Gurugram, Indore, London (United Kingdom), Dubai (UAE). As a Multinational Corporation, we are stretching ourselves to the prominent business locations across the globe.
-- **Key Rules**:
-  - FiftyFive Technologies is a Technology-empowered IT outsourcing company founded in 2016 in Jaipur,
-  - Rajasthan. We are relentlessly broadening our horizons and we have offices in Jaipur, Gurugram, Indore,
-  - London (United Kingdom), Dubai (UAE). As a Multinational Corporation, we are stretching ourselves to
-  - the prominent business locations across the globe.
-  - As an outsourcing company we provide a diverse array of consulting & development services to the top
-  - HNI customers operating in IoT, AI, Gaming, Energy, FinTech, Travel & Manufacturing, etc sectors.
-  - Having launched our own games, we are now positioned as a progressive gaming company with a strong
-  - product portfolio. This marks the evolution of our product-driven side, focused on creativity, scalability,
-  - FiftyFive Technologies is not operating as an organization full of Work Zombies giving tones of work.
-  - Instead, we are a family, we want to create fun-loving stories at the workplace with flexible hours, a
-  - hybrid structure, and a jovial environment. In order to avoid beating around the bush, “We are a culturally
-  - At FiftyFive Technologies, we’re not just about tech; we’re about creating a vibrant, people-first
-  - culture that celebrates work-life harmony. We envision a workplace where every team member feels
-  - like a valued part of the FiftyFive Family, working in an open and dynamic environment where
-  - Our goal is to build a company powered by cutting-edge technology and extraordinary people—a
-  - company that propels businesses into the future while prioritizing trust, transparency, and satisfaction
-  - for both clients and employees.
-  - We’re committed to uncovering hidden talent from every corner of India, especially from smaller
-  - cities where big dreams often face limited opportunities. Our vision is to provide a platform where
-  - talent can shine, careers can thrive, and boundaries are redefined.
-
 ### Policy: Continual Improvement Policy [POL:Continual Improvement Policy]
 
-- **Category**: ISO Policies
+- **Category**: inbox
 - **Source File**: Continual Improvement Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
@@ -4638,177 +4599,9 @@
   - • Customer Focus: Understand and meet customer needs and expectations. Use customer
   - feedback to drive improvements.
 
-### Policy: Documented Information Control Procedure [POL:Documented Information Control Procedure]
-
-- **Category**: ISO Policies
-- **Source File**: Documented Information Control Procedure.pdf
-- **Applicable To**: All employees
-- **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
-- **Key Rules**:
-  - This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at
-  - any time as per the company policy.
-  - Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-  - Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
-  - The purpose of this Documented Information Control Procedure is to establish guidelines for
-  - managing and controlling documented information within FiftyFive Technologies. This procedure
-  - ensures that all documented information is accurate, accessible, secure, and compliant with relevant
-  - This procedure applies to all documented information created, received, or maintained by FiftyFive
-  - Technologies. It covers all forms of documented information, including physical documents,
-  - • Documented Information: Information that is required to be controlled and maintained to
-  - ensure the effectiveness of the organization's processes. This includes policies, procedures,
-  - work instructions, records, and other types of documents.
-  - • Control: Measures taken to ensure that documented information is accurate, accessible,
-  - secure, and properly managed throughout its lifecycle.
-  - 1 Document Creation and Approval
-  - ❖ Create documents according to established templates and formats to ensure
-  - ❖ Ensure documents are accurate, clear, and complete, with all required information
-  - ❖ Submit documents for review and approval by designated personnel.
-  - ❖ Obtain formal approval before finalizing and distributing documents. Record
-  - approval with the name, date, and signature or electronic equivalent of the
-
-### Policy: Employee Benefits [POL:Employee Benefits]
-
-- **Category**: Employee Benefits
-- **Source File**: Employee Benefits.pdf
-- **Applicable To**: All employees
-- **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at anytime as per the company policy.
-- **Key Rules**:
-  - This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at
-  - anytime as per the company policy.
-  - Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-  - Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
-  - An employee shall be entitled to the benefits provided by the Company upon joining. However,
-  - FiftyFive Technologies reserves the right to amend, modify, or withdraw any benefits at its sole
-  - discretion, in accordance with business requirements and applicable laws.
-  - The salary of the month is credited every 1st of the month if in case there is a holiday on the
-  - same date, the salary gets credited on the next working day.
-  - FiftyFive currently provides individuals, spouses, and their children health insurance benefits
-  - for eligible full-time employees. FiftyFive presently pays the individual insurance premium for
-  - FiftyFive also provides individual accidental insurance benefits for eligible full-time
-  - employees. FiftyFive presently pays the individual insurance premium for all its employees.
-  - Reimbursement is authorized for reasonable and necessary expenses incurred in carrying out
-  - job responsibilities. Mileage or transportation, parking fees, business telephone calls, and meal
-  - costs when required to attend a luncheon or banquet, are all illustrative of reasonable and
-  - FiftyFive provides lunch facilities for employees. Additionally, a full-time coffee/tea machine is
-  - available within the office premises to ensure employees can refresh themselves and stay
-  - FiftyFive treats Friday as a special day of the week wherein employees get the opportunity to
-  - enjoy themselves through outdoor/indoor games, activities, and parties including a special
-
-### Policy: Fiftyfive Employee Directory [POL:fiftyfive_employee_directory]
-
-- **Category**: Policies 2026
-- **Source File**: fiftyfive_employee_directory.pdf
-- **Applicable To**: All employees
-- **Summary**: FiftyFive Employee Directory Formatted from the pasted Keka employee directory text export. Source file: Pasted text.txt
-- **Key Rules**:
-  - Formatted from the pasted Keka employee directory text export.
-  - Name Role Department Location Email Phone
-  - AAKSHI MITTAL Data Scientist Artificial Intelligence Work from Home aakshi.mittal@fiftyfivetech.io Mobile: 9557637034
-  - Aanchal Jain Technical Lead Technology Jaipur aanchal.jain@fiftyfivetech.io Mobile: 9602862884
-  - AARUSHI MADHANI Technical Recruiter Human Resource Jaipur aarushi.madhani@fiftyfivetech.io Mobile: 9352170440
-  - Aayushree Jaiswal Software Engineer Apps 1 Work from Home aayushree.jaiswal@fiftyfivetech.io Mobile: 9799121634
-  - Abhay Mathur Head of Mobile Development Mobile and Apps Jaipur abhay.mathur@fiftyfivetech.io Mobile: 9784805822
-  - ABHIMANYU SRIVASTAVA Senior Software Engineer Apps-2 Gurgaon abhimanyu.srivastava@fiftyfivetech.io
-  - Abhinav Bharti Senior Technical Lead Mobile and Apps Jaipur abhinav.bharti@fiftyfivetech.io Mobile: 8764212049
-  - Abhinav Singh Software Engineer Apps-3 Gurgaon abhinav.singh@fiftyfivetech.io Mobile: 6387486537
-  - Abhipsa Hota Senior Software Engineer Apps-2 Work from Home abhipsa.hota@fiftyfivetech.io Mobile: 8839638804
-  - Abhiruchi Khandelwal Technical Lead Mobile and Apps Work from Home abhiruchi.khandelwal@fiftyfivetech.io Mobile: 8562096802
-  - Abhishek Anand Sales and Marketing Gurgaon abhishek.anand@fiftyfivetech.io Mobile: 7997009128
-  - Abhishek Jangid Chief Marketing Officer Sales and Marketing Gurgaon abhishek@fiftyfivetech.io Mobile: 9818064240
-  - Quality Assurance Mobile: 7728029074
-  - Abhishek Kumar Senior Software Tester Jaipur abhishek.kumar@fiftyfivetech.io
-  - Engineers Work: 7728029074
-  - Abhishek Suryavanshi Software Engineer Apps 1 Indore abhishek.suryavanshi@fiftyfivetech.io Mobile: 6265684292
-  - Aditi Khandelwal Software Engineer Apps-3 Jaipur aditi.khandelwal@fiftyfivetech.io Mobile: 7610073769
-  - Aditya Govind Purohit DevOps Engineer Intern DevOps Jaipur aditya.govind@fiftyfivetech.io Mobile: 8955294661
-
-### Policy: Holiday Policy [POL:Holiday Policy]
-
-- **Category**: Holiday Policy
-- **Source File**: Holiday Policy.pdf
-- **Applicable To**: All employees
-- **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
-- **Key Rules**:
-  - This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time
-  - Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-  - Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
-  - FiftyFive Technologies Pvt. Ltd. establishments observe 10 paid holidays in a calendar year. These
-  - holidays include National Statutory Holidays, Company Fixed Holidays, and Flexi (Floater) Holidays.
-  - The holidays fall on days of national significance, key festivals, or specific occasions observed across
-  - regions or faiths. As FiftyFive Technologies operates in multiple cities with a diverse workforce from
-  - across the country, the concept of Flexi (Floater) Holidays has been introduced to provide associates
-  - the flexibility to observe regional or religious occasions not covered under the standard company
-  - The list of National Statutory Holidays, Company Fixed Holidays, and Flexi Holiday options is
-  - KEKA > Organization Documents > Holiday Calendar
-  - • All full-time employees, including trainees and probationers, working in India.
-  - This policy is not applicable if in case:
-  - • Any employee is working on-site at client location or under client directed work from home
-  - • In such cases the client’s official holiday calendar may apply.
-  - The purpose of this policy is to provide flexibility to associates to choose certain holidays for specific
-  - regional or religious observances while maintaining a uniform holiday structure across the
-  - FiftyFive Technologies publishes a list of paid company holidays every calendar year. There are 10
-  - holidays allotted in the year of 2026, which include:
-  - The Company observes three national statutory holidays in a calendar year. These holidays
-
-### Policy: Holidays 2026 [POL:holidays_2026]
-
-- **Category**: Policies 2026
-- **Source File**: holidays_2026.pdf
-- **Applicable To**: All employees
-- **Summary**: 2026 Holiday Calendar Transcribed from the provided holiday calendar screenshot. Includes date, holiday name, weekday, and floater leave status.
-- **Key Rules**:
-  - Transcribed from the provided holiday calendar screenshot. Includes date, holiday name, weekday, and floater leave status.
-  - Total holidays: 24 Floater leave holidays: 13 Weekend holidays: 5 Weekday holidays: 19
-  - Date Holiday Day Floater Leave
-  - 01 New Year's Day Thursday -
-  - 14 Makar Sankranti/Pongal Wednesday FLOATER LEAVE
-  - 26 Republic Day Monday -
-  - 04 Holi Wednesday -
-  - 08 Rangpanchmi Sunday -
-  - 21 Eid ul Fitr Saturday -
-  - 26 Ram Navami Thursday FLOATER LEAVE
-  - 31 Mahaveer Jayanti Tuesday FLOATER LEAVE
-  - 03 Good Friday Friday FLOATER LEAVE
-  - 14 Ambedkar Jayanti Tuesday FLOATER LEAVE
-  - 27 Eid Al Adha Wednesday FLOATER LEAVE
-  - 15 Independence Day Saturday -
-  - 26 Onam Wednesday FLOATER LEAVE
-  - Date Holiday Day Floater Leave
-  - 28 Raksha Bandhan Friday FLOATER LEAVE
-  - 04 Janmashtami Friday FLOATER LEAVE
-  - 14 Ganesh Chaturthi Monday FLOATER LEAVE
-
-### Policy: Intern Training Period [POL:Intern Training Period]
-
-- **Category**: Intern Training Period
-- **Source File**: Intern Training Period.pdf
-- **Applicable To**: All employees
-- **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
-- **Key Rules**:
-  - FiftyFive Policy - Intern Training Period
-  - This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any
-  - time as per the company policy.
-  - Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-  - Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
-  - FiftyFive Technologies has a mandatory Intern Training Period that every Intern joining the
-  - organization is required to undergo. This Intern Training Period enables the Intern to clearly
-  - understand their role, goals, responsibilities, and performance expectations aligned with FiftyFive’s
-  - standards. Upon successful completion of the Training Period, the Intern may be confirmed as a
-  - permanent employee, subject to satisfactory performance and business requirements.
-  - The purpose of this policy is to ensure that every Intern joining FiftyFive Technologies undergoes a
-  - structured Intern Training Period that helps them understand their roles, responsibilities, goals, and
-  - expected performance standards. This policy aims to facilitate smooth onboarding, assess the Intern’s
-  - suitability for the role, align individual performance with organizational objectives, and ensure
-  - readiness for confirmation as a permanent employee upon successful completion of the Intern
-  - This policy is applicable to all Learning & Industry Exposure, Paid & Unpaid Internship and Training,
-  - Student Internship employees of FiftyFive Technologies.
-  - This policy is not applicable to experienced employees of FiftyFive Technologies who possess a
-  - minimum of six (6) months of prior work experience at the time of joining the organization.
-  - For the purpose of this policy, Intern Trainees include individuals engaged under Learning & Industry
-
 ### Policy: Leave Policy [POL:Leave Policy]
 
-- **Category**: Leave Policy
+- **Category**: inbox
 - **Source File**: Leave Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
@@ -4834,65 +4627,9 @@
   - • All Full-time employees of FiftyFive Technologies Pvt Limited including support
   - staff, trainees and probationers.
 
-### Policy: Nonconformity And Corrective Action Procedure [POL:Nonconformity and Corrective Action Procedure]
-
-- **Category**: ISO Policies
-- **Source File**: Nonconformity and Corrective Action Procedure.pdf
-- **Applicable To**: All employees
-- **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
-- **Key Rules**:
-  - Nonconformity and Corrective Action Procedure
-  - This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at
-  - any time as per the company policy.
-  - Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-  - Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
-  - The purpose of this Nonconformity and Corrective Action Procedure is to define the process for
-  - identifying, documenting, and addressing nonconformities within FiftyFive Technologies. The
-  - procedure ensures that corrective actions are taken to eliminate the causes of nonconformities and
-  - This procedure applies to all departments and processes within FiftyFive Technologies. It covers
-  - nonconformities related to products, services, processes, and compliance with internal and external
-  - • Nonconformity: A deviation from specified requirements or standards that affects the quality
-  - or compliance of a product, service, or process.
-  - • Corrective Action: Actions taken to eliminate the causes of nonconformities to prevent their
-  - • Preventive Action: Actions taken to eliminate the causes of potential nonconformities to
-  - 1 Identification of Nonconformities
-  - • Detection: Identify nonconformities through various means, including inspections,
-  - audits, customer feedback, or employee reports.
-  - • Documentation: Document the nonconformity in a Nonconformity Report (NCR),
-  - including details of the issue, the affected area, and any immediate actions taken.
-  - 2 Evaluation of Nonconformities
-
-### Policy: Performance Management [POL:Performance Management]
-
-- **Category**: Performance Management
-- **Source File**: Performance Management.pdf
-- **Applicable To**: All employees
-- **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
-- **Key Rules**:
-  - This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any
-  - time as per the company policy.
-  - Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-  - Approved By: Sanchi Saxena (Head HR-FiftyFive Technologies Pvt Limited)
-  - The Performance Management System (PMS) is designed to establish a structured and continuous
-  - process for evaluating employee performance in alignment with the Company’s objectives, values,
-  - and business goals. The system aims to promote accountability, encourage continuous improvement,
-  - and support employee development through regular performance assessments and feedback.
-  - The PMS provides a fair and objective framework to measure individual contributions, identify
-  - strengths and areas for improvement, and link performance outcomes with career growth, learning
-  - opportunities, and rewards, wherever applicable. Performance evaluations under this system are
-  - conducted in a transparent, merit-based, and consistent manner, while considering organizational
-  - requirements and role expectations.
-  - The Company reserves the right to modify, implement, or review the Performance Management
-  - System at its discretion to ensure effectiveness, business alignment, and sustained organizational
-  - For the purpose of this policy:
-  - • Performance Management System (PMS): A structured process for planning, monitoring,
-  - evaluating, and improving employee performance.
-  - • Performance Improvement Plan (PIP): A formal, time-bound plan initiated to address
-  - performance gaps and provide structured support to enable improvement.
-
 ### Policy: Posh Policy [POL:POSH Policy]
 
-- **Category**: POSH Policy
+- **Category**: inbox
 - **Source File**: POSH Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
@@ -4918,37 +4655,9 @@
   - management and workmen, temporaries, trainees, and employees on contract at its workplace
   - or at client sites. The Company will not tolerate sexual Harassment if engaged in by clients
 
-### Policy: Probation Period [POL:Probation Period]
-
-- **Category**: Probation Period
-- **Source File**: Probation Period.pdf
-- **Applicable To**: All employees
-- **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
-- **Key Rules**:
-  - This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any
-  - time as per the company policy.
-  - Approved By: Jyothi Sharma (CEO-FiftyFive Technologies Pvt. Limited)
-  - Approved By: Sanchi Saxena (Head HR FiftyFive Technologies Pvt Limited)
-  - FiftyFive Technologies Pvt Limited has a mandatory Probation Period that every experienced
-  - professional who joins the company needs to undergo. The Probation Period enables the employee to
-  - understand his or her role, goals, Intern / New Joinee, and responsibilities and deliver them as per
-  - FiftyFive Technologies' expected performance standards. At the end of the successful Probation
-  - Period, the employee is confirmed as a permanent employee.
-  - Confirmation for an experienced employee is an event that marks the end of the probation
-  - period wherein the experienced professional is confirmed as a permanent employee.
-  - The purpose of this policy is to introduce the employee to the work culture, environment and
-  - performance expectations at FiftyFive Technologies, and ensure that he or she is aligned with the
-  - organization's objectives from the beginning of his or her career in FiftyFive.
-  - This policy is applicable to all new joiners of FiftyFive Technologies, including Experienced
-  - This policy is not applicable to Freelancers, Part-time employees, or Interns who are currently
-  - undergoing their Training Period.
-  - Term Definition
-  - An Experienced Professional is a new member
-  - who joins FiftyFive Technologies as a full-time
-
 ### Policy: Referral Policy [POL:Referral Policy]
 
-- **Category**: Referral Policy
+- **Category**: inbox
 - **Source File**: Referral Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at any time as per the company policy.
@@ -4976,7 +4685,7 @@
 
 ### Policy: Separation Policy [POL:Separation Policy]
 
-- **Category**: Separation Policy
+- **Category**: inbox
 - **Source File**: Separation Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change any time as per the company policy.
@@ -5004,7 +4713,7 @@
 
 ### Policy: Travel Policy [POL:Travel Policy]
 
-- **Category**: Travel Policy
+- **Category**: inbox
 - **Source File**: Travel Policy.pdf
 - **Applicable To**: All employees
 - **Summary**: This document is subject to FiftyFive Technologies Pvt Limited Procedure and subject to change at anytime as per the company policy.

@@ -5,6 +5,8 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+from src.config import settings
+
 class SemanticPDFParser:
     """
     Intelligently parses non-tabular PDF text into structured JSON schemas
@@ -141,8 +143,8 @@ class SemanticPDFParser:
             if m: project_data["outcome"] = m.group(1).strip()
 
             # Technology Used (Extracting from Outcome or Solution if possible)
-            # Or by looking for tech keywords in Solution
-            tech_keywords = ["AWS", "Ollama", "Python", "React", "Typescript", "Node", "PostgreSQL", "Gemini", "Vertex AI", "OCR", "GPU"]
+            # Replaces hardcoded list with dynamic keywords from config.
+            tech_keywords = settings.tech_keywords
             found_tech = [t for t in tech_keywords if t.lower() in project_data["solution"].lower()]
             project_data["technology_used"] = ", ".join(found_tech)
 

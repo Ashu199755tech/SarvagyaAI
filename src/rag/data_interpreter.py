@@ -28,6 +28,16 @@ def _tokenize_text(value: Any) -> list[str]:
 def _token_variants(token: str) -> set[str]:
     """Return a small set of useful token variants for fuzzy field matching."""
     variants = {token}
+    # Collective nouns and direct aliases
+    aliases = {
+        "staff": "employee",
+        "employees": "employee",
+        "projects": "project",
+        "holidays": "holiday",
+    }
+    if token in aliases:
+        variants.add(aliases[token])
+        
     if token.endswith("ies") and len(token) > 3:
         variants.add(token[:-3] + "y")
     elif token.endswith("s") and len(token) > 3:
@@ -127,6 +137,20 @@ def _semantic_token_family(token: str) -> set[str]:
     return family
 
 
+def _term_matches(term: str, text: str) -> bool:
+    """Check if a term (or its basic stem) appears in text."""
+    if term in text:
+        return True
+    # Try basic de-pluralisation: "leads" -> "lead", "engineers" -> "engineer"
+    if term.endswith("ies") and len(term) > 3:
+        return term[:-3] + "y" in text
+    if term.endswith("es") and len(term) > 3:
+        return term[:-2] in text
+    if term.endswith("s") and len(term) > 2:
+        return term[:-1] in text
+    return False
+
+
 def _criteria_matches_record(record: Dict[str, Any], criteria: str | list[str]) -> bool:
     """
     Return True when the full phrase or all criteria terms appear in a record.
@@ -141,7 +165,7 @@ def _criteria_matches_record(record: Dict[str, Any], criteria: str | list[str]) 
         combined_text = " ".join(
             part for part in (_normalize_text(val) for val in record.values()) if part
         )
-        return all(term in combined_text for term in criteria_terms)
+        return all(_term_matches(term, combined_text) for term in criteria_terms)
 
     criteria_text = _normalize_text(criteria)
     if not criteria_text:
@@ -154,7 +178,7 @@ def _criteria_matches_record(record: Dict[str, Any], criteria: str | list[str]) 
         return True
 
     criteria_terms = [term for term in criteria_text.split() if len(term) > 1]
-    return bool(criteria_terms) and all(term in combined_text for term in criteria_terms)
+    return bool(criteria_terms) and all(_term_matches(term, combined_text) for term in criteria_terms)
 
 
 @dataclass
@@ -182,7 +206,7 @@ class DataInterpreter:
     """
 
     def __init__(self, data_dir: str | None = None):
-        self.data_dir = Path(data_dir or settings.converted_dir)
+        self.data_dir = Path(data_dir or settings.data_dir)
         self._record_cache: dict[str, list[dict[str, Any]]] = {}
 
     def _load_entity_records(self, entity_type: str) -> list[dict[str, Any]]:
@@ -198,8 +222,14 @@ class DataInterpreter:
 
         path = self.data_dir / target_name
         if not path.exists():
-            self._record_cache[entity_type] = []
-            return []
+            # Fallback: check the converted sub-directory (some files like
+            # praise_report.json live there instead of the root data dir).
+            fallback = Path(settings.converted_dir) / target_name
+            if fallback.exists():
+                path = fallback
+            else:
+                self._record_cache[entity_type] = []
+                return []
 
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -214,6 +244,23 @@ class DataInterpreter:
             records = [data]
         else:
             records = []
+
+        # Filter out alphabet section headers — single-character "Name" entries
+        # with empty Role/Department that are not real records.
+        # e.g. {"Name": "A", "Role": "", "Department": "", ...}
+        # NOTE: We check both "Name" (directory) and "name" (holidays/projects)
+        # to avoid accidentally filtering out valid records that use lowercase keys.
+        records = [
+            r for r in records
+            if not (
+                # Only apply the "header" filter to records that don't have long-form text
+                "text" not in r
+                and not r.get("Project name")
+                and len(str(r.get("Name", r.get("name", ""))).strip()) <= 1
+                and not str(r.get("Role", r.get("role", ""))).strip()
+                and not str(r.get("Department", r.get("department", ""))).strip()
+            )
+        ]
 
         self._record_cache[entity_type] = records
         return records
@@ -259,8 +306,6 @@ class DataInterpreter:
         if not tokens:
             return None
 
-        best_entity: Optional[str] = None
-        best_score = 0
         token_pool = set()
         for token in tokens:
             token_pool.update(_semantic_token_family(token))
@@ -271,6 +316,57 @@ class DataInterpreter:
                 for phrase in nlp_signals.get(group, []):
                     for token in _tokenize_text(phrase):
                         token_pool.update(_semantic_token_family(token))
+
+        # ── DYNAMIC IDENTITY SCORING ──────────────────────────────────────────
+        # Instead of a hardcoded identity map, dynamically match query tokens
+        # (and their lemmas) against the entity names from config. This makes
+        # routing automatically work for any new entity added to the file map.
+        #
+        # A small alias dict handles non-obvious synonyms that lemmatisation
+        # alone cannot resolve (e.g. "vacation" → "holiday").
+        # ─────────────────────────────────────────────────────────────────────
+        entity_names = set(settings.interpreter_file_map.keys())
+        # Semantic aliases for concepts that lemmatisation can't bridge
+        semantic_aliases: dict[str, str] = {
+            "vacation": "holiday",
+            "staff": "employee",
+            "personnel": "employee",
+            "shoutout": "praise",
+            "appreciation": "praise",
+        }
+
+        # Build the full set of tokens to check: raw tokens + their variants
+        # + spaCy lemmas (which dynamically resolve verb forms like "praised" → "praise")
+        check_tokens: set[str] = set()
+        for token in tokens:
+            check_tokens.update(_token_variants(token))
+        if nlp_signals:
+            for lemma in nlp_signals.get("lemma_terms", []):
+                check_tokens.update(_token_variants(lemma))
+
+        # Score every entity by how many signals point to it
+        identity_scores: dict[str, int] = {}
+        for check_token in check_tokens:
+            # Direct match against entity name from config
+            if check_token in entity_names:
+                identity_scores[check_token] = identity_scores.get(check_token, 0) + 10
+            # Alias match for synonyms
+            if check_token in semantic_aliases:
+                target = semantic_aliases[check_token]
+                identity_scores[target] = identity_scores.get(target, 0) + 10
+
+        if identity_scores:
+            best_identity = max(identity_scores, key=identity_scores.get)
+            logger.info(
+                "[Interpreter] Dynamic identity scores: %s → winner: %s",
+                identity_scores, best_identity,
+            )
+            return best_identity
+        # ─────────────────────────────────────────────────────────────────────
+
+
+        best_entity: Optional[str] = None
+        best_score = 0
 
         for entity_type in settings.interpreter_file_map:
             records = self._load_entity_records(entity_type)
@@ -284,13 +380,17 @@ class DataInterpreter:
 
             overlap = len(token_pool & signature_family)
 
-            # Strongly reward direct entity-name mentions such as employees/projects.
-            direct_overlap = len(token_pool & {
-                term
-                for token in _tokenize_text(entity_type)
-                for term in _semantic_token_family(token)
-            })
-            score = overlap + (direct_overlap * 3)
+            # STRATEGIC BOOST: Reward direct entity-name matches (e.g. "holiday" or "holidays")
+            # We check the token variants of the entity name itself against the query pool.
+            direct_overlap = 0
+            for ent_token in _tokenize_text(entity_type):
+                ent_family = _semantic_token_family(ent_token)
+                if token_pool & ent_family:
+                    direct_overlap += 1
+            
+            # Massive score multiplier for identity matches to discourage falling back
+            # to semantic search when we have a structured entity match.
+            score = (overlap * 1) + (direct_overlap * 20)
 
             if score > best_score:
                 best_score = score
@@ -405,7 +505,13 @@ class DataInterpreter:
                         if token not in ignored_tokens
                     )
             candidate_terms.extend(enriched_terms)
+            # Deduplicate while preserving order
+            candidate_terms = list(dict.fromkeys(candidate_terms))
         if not candidate_terms:
+            # Fallback: if no tokens were selective but we have specific NLP signals
+            # (like a Month), use those instead of returning an empty list.
+            if nlp_signals and nlp_signals.get("month_terms"):
+                return nlp_signals["month_terms"]
             return []
 
         sample_records = records[: settings.data_interpreter_schema_sample_size] or records
@@ -485,17 +591,19 @@ class DataInterpreter:
             name = (
                 record.get("Name")
                 or record.get("name")
+                or record.get("Project name")
                 or record.get("project_name")
                 or record.get("policy_name")
                 or record.get("Holiday")
                 or record.get("source_file", "").replace(".pdf", "").replace(".json", "").replace("_", " ").title()
                 or Path(file_name).stem.replace("_", " ").title()
             )
-            # Prevent aggressive deduplication of generic records like 'Praise Report'
-            if name in seen_names and (name == "Praise Report" or "Report" in name or "chunk" in name):
+            # Prevent aggressive deduplication: if name already seen, suffix it
+            # so that employees with the same name are all counted.
+            if name in seen_names:
                 name = f"{name} (Record {len(results)+1})"
 
-            if name and name not in seen_names:
+            if name:
                 results.append({"name": name, "file": file_name})
                 seen_names.add(name)
 
@@ -517,21 +625,19 @@ class DataInterpreter:
             return None
 
         result = self.query(plan.entity_type, plan.criteria if plan.criteria != "__all__" else "__all__")
-        if not result:
-            return None
+        if result:
+            result["operation"] = plan.operation
+            result["criteria_terms"] = plan.criteria_terms
+            return result
 
-        result["operation"] = plan.operation
-        result["criteria_terms"] = plan.criteria_terms
-        return result
-
-    def detect_intent(self, question: str) -> tuple[Optional[str], Optional[str]]:
-        """
-        Compatibility shim for older callers.
-
-        Returns:
-            (entity_type, criteria_text) or (None, None)
-        """
-        plan = self.plan(question)
-        if not plan:
-            return None, None
-        return plan.entity_type, plan.criteria
+        # The plan was valid (entity + operation recognized) but zero records
+        # matched the criteria. Return a structured "0 found" response instead
+        # of None, which would wastefully fall through to HybridRAG.
+        return {
+            "count": 0,
+            "matches": [],
+            "criteria": plan.criteria,
+            "entity": plan.entity_type,
+            "operation": plan.operation,
+            "criteria_terms": plan.criteria_terms,
+        }

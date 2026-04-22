@@ -44,8 +44,26 @@ LEGACY_JSON_FILES = [
     DATA_DIR / "projects.json",
     DATA_DIR / "policies.json",
     DATA_DIR / "holidays.json",
+    DATA_DIR / "directory.json",
     DATA_DIR / "misc_docs.json",
 ]
+
+# Keywords to identify files already handled by specialized consolidator (SOT)
+CORE_ASSET_KEYWORDS = {
+    # Core Entities
+    "holiday", "directory", "case studies", "employee", "project",
+    # Policies
+    "aup", "asset", "attendance", "business", "clear desk", "code of conduct", 
+    "continual", "leave", "posh", "referral", "separation", "travel", "ethics",
+    # Misc Docs
+    "escalation", "culture", "benefits", "intern", "nonconformity", "performance", "probation"
+}
+
+
+def _is_core_asset(filepath: Path) -> bool:
+    """Check if a file should be skipped by the generic converter because it's an SOT asset."""
+    val = filepath.name.lower()
+    return any(kw in val for kw in CORE_ASSET_KEYWORDS)
 
 
 
@@ -89,8 +107,8 @@ class IngestionPipeline:
     def __init__(self, vector_store: Chroma | None = None) -> None:
         self.store = vector_store or get_vector_store()
         self.splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1000,
-            chunk_overlap=100,
+            chunk_size=settings.ingestion_chunk_size,
+            chunk_overlap=settings.ingestion_chunk_overlap,
             separators=["\n\n", "\n", ". ", " ", ""],
         )
 
@@ -112,7 +130,27 @@ class IngestionPipeline:
         """Convert any non-JSON files in inbox/ → converted/ as JSON."""
         INBOX_DIR.mkdir(parents=True, exist_ok=True)
         CONVERTED_DIR.mkdir(parents=True, exist_ok=True)
-        new_files = convert_inbox(INBOX_DIR, CONVERTED_DIR)
+        
+        # CLEANUP: Clear converted directory to remove stale redundant files
+        logger.info("Cleaning up converted directory: %s", CONVERTED_DIR)
+        for f in CONVERTED_DIR.glob("*.json"):
+            f.unlink()
+
+        from src.ingestion.universal_converter import CONVERTERS, convert_to_json
+        
+        new_files = []
+        for f in sorted(INBOX_DIR.iterdir()):
+            if f.suffix.lower() in CONVERTERS and f.suffix.lower() != ".json":
+                # Skip core assets handled by SOT consolidator
+                if _is_core_asset(f):
+                    logger.debug("Skipping core asset during generic conversion: %s", f.name)
+                    continue
+                try:
+                    out = convert_to_json(f, output_dir=CONVERTED_DIR)
+                    new_files.append(out)
+                except Exception:
+                    logger.exception("Failed to convert %s", f.name)
+        
         if new_files:
             logger.info("Converted %d new file(s) from inbox: %s", len(new_files), [f.name for f in new_files])
 
@@ -125,9 +163,11 @@ class IngestionPipeline:
             if p.exists():
                 files.append(p)
 
-        # 2. Auto-converted files from inbox
+        # 2. Auto-converted files from inbox (skip those already handled as legacy core)
         if CONVERTED_DIR.exists():
             for p in sorted(CONVERTED_DIR.glob("*.json")):
+                if _is_core_asset(p):
+                    continue
                 files.append(p)
 
         logger.info("Collected %d JSON files to ingest", len(files))
@@ -159,7 +199,7 @@ class IngestionPipeline:
                 continue
 
             # Generic records from converted files: also keep atomic if small
-            if len(doc.page_content) <= 1200:
+            if len(doc.page_content) <= settings.ingestion_atomic_limit:
                 chunk = doc.copy()
                 chunk.metadata["chunk_index"] = 0
                 chunk.metadata["parent_record_id"] = doc.metadata.get("record_id", "doc")

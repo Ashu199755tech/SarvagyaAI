@@ -16,7 +16,7 @@ from src.config import settings
 from src.ingestion.pipeline import IngestionPipeline
 from src.ingestion.scheduler import start_scheduler
 from src.rag.chain import ask as rag_ask
-from src.rag.chain import _retrieve_mixed, _get_or_create_store
+from src.rag.chain import _retrieve_mixed, _get_or_create_store, _interpreter
 
 logging.basicConfig(
     level=logging.INFO,
@@ -232,12 +232,29 @@ async def debug_retrieval(request_data: AskRequest):
     if not question:
         return {"status": "error", "detail": "No question provided"}
     try:
+        # Check the DataInterpreter path first (mirrors ask() logic)
+        itp_result = _interpreter.interpret(question)
+        if itp_result:
+            return {
+                "status": "success",
+                "question": question,
+                "pathway": "DataInterpreter",
+                "entity": itp_result["entity"],
+                "operation": itp_result.get("operation", "count"),
+                "criteria": itp_result["criteria"],
+                "count": itp_result["count"],
+                "matches": itp_result["matches"][:20],
+                "criteria_terms": itp_result.get("criteria_terms", []),
+            }
+
+        # Fall through to RAG retrieval
         from src.config import settings
         store = await _get_or_create_store()
         chunks = await _retrieve_mixed(store, question, k=settings.retriever_top_k)
         return {
             "status": "success",
             "question": question,
+            "pathway": "HybridRAG",
             "chunks_retrieved": len(chunks),
             "chunks": [
                 {
@@ -246,7 +263,7 @@ async def debug_retrieval(request_data: AskRequest):
                     "record_type": doc.metadata.get("record_type", "unknown"),
                     "record_id": doc.metadata.get("record_id", "unknown"),
                     "preview": doc.page_content[:300].replace("\n", " "),
-                    "contains_keyword": None,  # filled below
+                    "contains_keyword": None,
                 }
                 for i, doc in enumerate(chunks)
             ],

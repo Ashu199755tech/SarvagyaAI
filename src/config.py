@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     # -------------------------------------------------------------------------
     # Base URL for the local Keka HR API that provides employee records.
     # The ingestion pipeline calls GET /employees on this URL.
-    employee_api_base_url: str = "http://localhost:8005"
+    employee_api_base_url: str = "http://127.0.0.1:8005"
 
     # -------------------------------------------------------------------------
     # Client Identity — Company-specific values
@@ -76,9 +76,10 @@ class Settings(BaseSettings):
     # The DataInterpreter uses this to know which file to scan for each type.
     # Override in .env as JSON: INTERPRETER_FILE_MAP='{"employee":"staff.json"}'
     interpreter_file_map: dict = {
-        "employee": "fiftyfive_employee_directory.json",
-        "project": "Case Studies @55 Website .json",
+        "employee": "directory.json",
+        "project": "projects.json",
         "holiday": "holidays.json",
+        "directory": "directory.json",
         "praise": "praise_report.json",
     }
 
@@ -91,6 +92,8 @@ class Settings(BaseSettings):
         "ai": "Artificial Intelligence",
         "hr": "Human Resource",
         "ml": "Machine Learning",
+        "wfh": "Work from Home",
+        "doc": "documentation",
     }
 
     # -------------------------------------------------------------------------
@@ -106,7 +109,7 @@ class Settings(BaseSettings):
     # -------------------------------------------------------------------------
     # URL where Ollama is running. Default is localhost.
     # For remote GPU servers, set this to e.g. http://192.168.1.100:11434
-    ollama_base_url: str = "http://localhost:11434"
+    ollama_base_url: str = "http://127.0.0.1:11434"
 
     # The Ollama model used for generating answers (the "brain").
     # Pull it first with: ollama pull llama3.2
@@ -485,42 +488,11 @@ class Settings(BaseSettings):
         "category", "categories", "type", "types", "details", "detail",
         "department", "departments", "dept", "location", "locations", "office", "offices",
         "please", "want", "need", "like", "regarding", "concerning",
+        "located", "based", "situated", "placed", "stationed",
+        "company", "organization", "org", "firm", "organisation",
+        "role", "roles", "designation", "designations", "position", "positions",
     ]
 
-    data_interpreter_aggregation_triggers: list[str] = [
-        "how many times", "how many", "how often", "how much",
-        "total count of", "total count", "total number of", "total number",
-        "count all", "count of", "list all", "number of",
-    ]
-
-    data_interpreter_data_starters: list[str] = [
-        "who", "what", "which", "how", "list", "total", "show", "count", "name", "give",
-    ]
-
-    data_interpreter_employee_keywords: list[str] = [
-        "people", "employee", "person", "member", "team", "staff", "intern", "engineer",
-    ]
-
-    data_interpreter_project_keywords: list[str] = [
-        "project", "case study", "case studies", "used",
-    ]
-
-    data_interpreter_policy_keywords: list[str] = [
-        "policy", "rule", "benefits", "guideline",
-    ]
-
-    data_interpreter_holiday_keywords: list[str] = [
-        "holiday", "holidays", "leave",
-    ]
-
-    data_interpreter_entity_noise: list[str] = [
-        "people", "employee", "employees", "person", "persons",
-        "project", "projects", "policy", "policies", "holiday", "holidays",
-    ]
-
-    data_interpreter_all_query_words: list[str] = [
-        "total", "all", "every", "count", "list",
-    ]
 
     data_interpreter_count_tokens: list[str] = [
         "many", "count", "number", "total", "headcount",
@@ -538,6 +510,50 @@ class Settings(BaseSettings):
     data_interpreter_nlp_model: str = "en_core_web_sm"
 
     rag_fallback_answer: str = "Sorry, I couldn't find an answer."
+
+    # -------------------------------------------------------------------------
+    # Ingestion & Search Optimization (Dynamic Parameters)
+    # -------------------------------------------------------------------------
+    # Standard English stop words + HR/Tech chatbot specific filler words.
+    # Moved from chain.py to allow transparent tuning.
+    rag_stop_words: list[str] = [
+        "the", "a", "an", "is", "are", "was", "were", "be", "been", "being",
+        "have", "has", "had", "do", "does", "did", "will", "would", "could",
+        "should", "may", "might", "shall", "can", "need", "dare", "ought",
+        "to", "of", "in", "for", "on", "with", "at", "by", "from",
+        "as", "into", "through", "during", "before", "after", "above",
+        "below", "between", "out", "off", "over", "under", "again",
+        "further", "then", "once", "here", "there", "when", "where",
+        "why", "how", "all", "each", "every", "both", "few", "more",
+        "most", "other", "some", "such", "no", "nor", "not", "only",
+        "own", "same", "so", "than", "too", "very", "just", "because",
+        "but", "and", "or", "if", "while", "about", "what", "which",
+        "who", "whom", "this", "that", "these", "those", "am", "it",
+        "its", "me", "my", "myself", "we", "our", "ours", "you", "your",
+        "he", "him", "his", "she", "her", "they", "them", "their",
+        "give", "get", "got", "tell", "show", "find", "list", "many",
+        "much", "also", "like", "make", "know", "take", "come", "see",
+        "want", "look", "use", "day", "way", "any", "used", "using",
+        "project", "projects", "built", "build", "work", "works",
+        "details", "info",
+    ]
+
+    # Known technologies for project tech-stack extraction (moved from semantic_parser.py).
+    tech_keywords: list[str] = [
+        "AWS", "Ollama", "Python", "React", "Typescript", "Node", "PostgreSQL",
+        "Gemini", "Vertex AI", "OCR", "GPU", "Machine Learning", "FastAPI",
+    ]
+
+    # Keywords to identify potential policy documents (moved from ingestors.py).
+    policy_keywords: list[str] = [
+        "polic", "leave", "travel", "attendance", "hr", "gratuity", 
+        "referral", "separation", "security", "conduct", "ethics",
+    ]
+
+    # Chunking parameters for the ingestion pipeline.
+    ingestion_chunk_size: int = 1000
+    ingestion_chunk_overlap: int = 100
+    ingestion_atomic_limit: int = 1200
 
     # -------------------------------------------------------------------------
     # FastAPI Server

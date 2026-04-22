@@ -59,7 +59,7 @@ DEBUG_LOG_PATH = "logs/retrieval_debug.log"
 def _log_retrieval(question: str, path_name: str, items: list, criteria: str = None):
     """Writes detailed retrieval results to logs/retrieval_debug.log"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open(DEBUG_LOG_PATH, "w", encoding="utf-8") as f:
+    with open(DEBUG_LOG_PATH, "a", encoding="utf-8") as f:
         f.write(f"\n{'='*80}\n")
         f.write(f"TIMESTAMP: {timestamp}\n")
         f.write(f"QUESTION:  {question}\n")
@@ -88,6 +88,14 @@ from src.rag.data_interpreter import DataInterpreter
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
+# Module-level DataInterpreter singleton — created ONCE, reused across all requests
+# ---------------------------------------------------------------------------
+# Previously, a new DataInterpreter() was created on every ask() call, causing
+# all JSON files to be re-read from disk and re-parsed each time.
+# Now it is created once at module load and its internal _record_cache persists.
+_interpreter = DataInterpreter()
+
+# ---------------------------------------------------------------------------
 # Concurrency tracking — for dynamic thread allocation
 # ---------------------------------------------------------------------------
 # Tracks how many ask() calls are running simultaneously.
@@ -113,42 +121,10 @@ _COMMON_WORDS: frozenset[str] = frozenset(
 ) | frozenset(settings.company_common_words)
 
 # Common English words that carry no useful information for keyword search.
-# Used by _extract_keywords() to filter out noise words before searching.
-# "project" and "used" are included because they appear very frequently
-# in HR documents and would match almost every chunk if searched.
-_STOP_WORDS: frozenset[str] = frozenset({
-    # ── Standard English stop words ───────────────────────────────────────
-    "the", "a", "an", "is", "are", "was", "were", "be", "been", "being",
-    "have", "has", "had", "do", "does", "did", "will", "would", "could",
-    "should", "may", "might", "shall", "can", "need", "dare", "ought",
-    "to", "of", "in", "for", "on", "with", "at", "by", "from",
-    "as", "into", "through", "during", "before", "after", "above",
-    "below", "between", "out", "off", "over", "under", "again",
-    "further", "then", "once", "here", "there", "when", "where",
-    "why", "how", "all", "each", "every", "both", "few", "more",
-    "most", "other", "some", "such", "no", "nor", "not", "only",
-    "own", "same", "so", "than", "too", "very", "just", "because",
-    "but", "and", "or", "if", "while", "about", "what", "which",
-    "who", "whom", "this", "that", "these", "those", "am", "it",
-    "its", "me", "my", "myself", "we", "our", "ours", "you", "your",
-    "he", "him", "his", "she", "her", "they", "them", "their",
-    "give", "get", "got", "tell", "show", "find", "list", "many",
-    "much", "also", "like", "make", "know", "take", "come", "see",
-    "want", "look", "use", "day", "way", "any",
-    # ── Query filler words specific to HR/tech chatbots ───────────────────
-    # These appear in almost EVERY query and match almost every chunk,
-    # so they add zero signal and create noise in $contains search.
-    "used", "using",          # "where ocr is used" — "used" alone hits everything
-    "project", "projects",    # BUG FIX: "projects" was missing, causing noisy matches
-    "built", "build",         # "where X was built" — too broad
-    "work", "works",          # "does X work" — too broad
-    "tell", "all", "give",    # query-opener words: "tell me all..."
-    "details", "info",        # "give me details on..." — meaningless search terms
-    "where", "which",         # "which projects where X" — positional words
-    # ── Company name fragments — too broad, match every case study ────────
-    # Company-specific stop words are injected dynamically from config.
-    # They match every chunk and add noise instead of signal.
-}) | frozenset(settings.company_stop_words)  # Inject company-specific words from config
+# Replaces 100+ previously hardcoded words with values from config.py.
+_STOP_WORDS: frozenset[str] = frozenset(
+    settings.rag_stop_words
+) | frozenset(settings.company_stop_words)
 
 # ---------------------------------------------------------------------------
 # Global cached vector store — created ONCE, reused across all requests
@@ -373,7 +349,7 @@ def _get_llm(num_thread: int | None = None) -> ChatOllama:
 
         num_ctx:     The LLM's context window in tokens. This is the total
                      budget for system prompt + retrieved chunks + question.
-                     Reduced from 32768 → 8192 in settings — this is the
+                     Reduced from 32768 → 2048 in settings — this is the
                      single biggest speed improvement in the optimized version
                      because the LLM pre-allocates memory for the full window.
 
@@ -1715,7 +1691,7 @@ async def ask(question: str) -> dict:
         # --- DYNAMIC DATA INTERPRETER (ADVANCED AGENTIC ROUTING) ---
         # Detect if this is a 'How many' or 'List all' query that requires
         # 100% precision from structured files.
-        interpreter = DataInterpreter()
+        interpreter = _interpreter
         itp_result = interpreter.interpret(question)
         if itp_result:
             entity_type = itp_result["entity"]
@@ -1728,37 +1704,51 @@ async def ask(question: str) -> dict:
 
             count = itp_result["count"]
             matches = itp_result["matches"]
-            preview_limit = min(settings.rag_context_max_chunks, len(matches))
-            match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
-            if len(matches) > preview_limit:
-                match_listing += f", and {len(matches)-preview_limit} others"
 
-            if operation == "list":
+            if count == 0:
+                qualifier = "" if criteria == "__all__" else f" matching '{criteria}'"
                 answer = (
-                    f"Based on the live data scan, I found **{count}** {entity_type}(s). "
-                    f"The results include: {match_listing}."
+                    f"Based on the live data scan, there are **0** {entity_type}(s)"
+                    f"{qualifier}. No matching records were found."
                 )
             else:
-                qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
-                answer = (
-                    f"Based on the live data scan, there are **{count}** {entity_type}(s)"
-                    f"{qualifier}. The results include: {match_listing}."
-                )
+                preview_limit = min(settings.rag_context_max_chunks, len(matches))
+                match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
+                if len(matches) > preview_limit:
+                    match_listing += f", and {len(matches)-preview_limit} others"
+
+                if operation == "list":
+                    answer = (
+                        f"Based on the live data scan, I found **{count}** {entity_type}(s). "
+                        f"The results include: {match_listing}."
+                    )
+                else:
+                    qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
+                    answer = (
+                        f"Based on the live data scan, there are **{count}** {entity_type}(s)"
+                        f"{qualifier}. The results include: {match_listing}."
+                    )
+
 
             # Dynamic Logging for Interpreter
             _log_retrieval(question, "DataInterpreter", matches, criteria=criteria)
 
             total_time = time.monotonic() - start_time
+            sources = [{
+                "record_type": "data_interpreter",
+                "count_found": count,
+                "criteria": criteria,
+                "entity": entity_type,
+                "operation": operation,
+                "filename": settings.interpreter_file_map.get(entity_type, "universal_json_scan"),
+            }]
+
+            # Save interpreter results to cache so repeated questions get instant hits
+            save_to_cache(question, answer, sources)
+
             return {
                 "answer": answer,
-                "sources": [{
-                    "record_type": "data_interpreter",
-                    "count_found": count,
-                    "criteria": criteria,
-                    "entity": entity_type,
-                    "operation": operation,
-                    "filename": settings.interpreter_file_map.get(entity_type, "universal_json_scan"),
-                }],
+                "sources": sources,
                 "time_elapsed_seconds": total_time
             }
         # ------------------------------------------------------------
@@ -1801,6 +1791,7 @@ async def ask(question: str) -> dict:
         timer_task = asyncio.create_task(log_elapsed_time())
         try:
             # Invoke the chain asynchronously — waits for the full answer
+            logger.info(">> Step 10 | Generation starting... (context: %d chars)", len(context))
             answer = await chain.ainvoke({"context": context, "question": question})
         finally:
             # Always cancel the timer, whether answer succeeded or raised an exception
