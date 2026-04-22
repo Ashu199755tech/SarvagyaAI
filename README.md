@@ -8,8 +8,8 @@
 
 ResoAI (formerly SarvagyaAI) is designed to solve the "hallucination problem" inherent in standard RAG systems. It uses a **Hybrid Agentic Architecture** that dynamically routes queries:
 
-1.  **Quantitative Queries** (e.g., *"How many people from Jaipur?"*): Routed to the **Zero-Shot Data Interpreter**, which performs deterministic scans on structured JSON sources for 100% accuracy in milliseconds.
-2.  **Semantic Queries** (e.g., *"Explain the leave policy"*): Routed to the **RAG Engine**, which uses Vector Search + BM25 + Cross-Encoder Re-ranking to synthesize natural language answers from unstructured PDFs.
+1.  **Quantitative Queries** (e.g., *"How many people from Jaipur?"*): Routed to the **NLP-Enhanced Data Interpreter**. It uses **spaCy lemmatization** and signal scoring to perform deterministic scans on structured JSON sources, delivering 100% accurate results in **< 50ms**.
+2.  **Semantic Queries** (e.g., *"Explain the leave policy"*): Routed to the **Hybrid RAG Engine**, which uses Vector Search + BM25 + Cross-Encoder Re-ranking to synthesize natural language answers from unstructured PDFs.
 
 ---
 
@@ -92,26 +92,29 @@ RETRIEVER_TOP_K=12
 ## 📂 Project Structure
 
 ```text
-SarvagyaAI/
 ├── src/
 │   ├── main.py             # FastAPI App & Endpoints
-│   ├── config.py           # Centralized Dynamic Settings
-│   ├── rag/                # The Brain: Routing, Scanning, & RAG logic
+│   ├── config.py           # Centralized Dynamic Settings (now requires spaCy)
+│   ├── rag/                # The Brain: NLP Routing, Direct Scanning & RAG logic
 │   ├── ingestion/          # The Lungs: Processing PDFs & JSONs
-│   ├── consolidator/       # The Nervous System: Linking entities & generating Master Data
+│   ├── consolidator/       # The Nervous System: Rebuilding JSON SOTs from raw docs
 │   └── bot/                # The Voice: MS Teams & Adapter logic
 ├── data/
-│   ├── converted/          # Clean JSON sources for Data Interpreter
-│   ├── chromadb/           # Local Vector Store
-│   └── master_data.md      # Consolidated Context for RAG
+│   ├── directory.json      # Primary Employee/Staff SOT (230+ records)
+│   ├── holidays.json       # Holiday SOT
+│   ├── projects.json       # Project Case Study SOT
+│   ├── converted/          # Intermediate JSON fragments for policies
+│   ├── chromadb/           # Local Vector Store for semantic fallback
+│   └── master_data.md      # Consolidated markdown for RAG
 ```
 
 ---
 
 ## ⚡ Running the System
 
-1. **Refresh Data**: `python3 -m src.consolidator.run && python3 -m src.ingestion.pipeline`
-2. **Start Server**: `uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload`
+1. **Refresh All Data**: `python3 -m src.consolidator.run` (Rebuilds SOTs without LLM)
+2. **Update Embeddings**: `python3 -m src.ingestion.pipeline` (Ingests SOTs/PDFs into ChromaDB)
+3. **Start Server**: `uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload`
 3. **Verify**: `curl -X POST 'http://localhost:8000/api/ask' -d '{"question":"How many in AI team?"}'`
 
 ---

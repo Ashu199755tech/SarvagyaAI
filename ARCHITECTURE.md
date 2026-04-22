@@ -13,16 +13,16 @@ The system follows a local-first pattern. All data, embeddings, and LLM logical 
 ```mermaid
 graph TD
     User([User Query]) --> PreProcess[Query Pre-Processing<br/>Alias Expansion & Cleaning]
-    PreProcess --> Router{Agentic Intent Router}
+    PreProcess --> Router{NLP Intent Router<br/>(spaCy Lemmatized)}
     
     %% Path A: Data Interpreter
-    Router -- "Quantitative Intent<br/>(How many? List all?)" --> DI[Zero-Shot Data Interpreter]
-    DI --> JSON[(Structured JSON Sources<br/>data/converted/)]
+    Router -- "Structured Intent<br/>(Counts/Lists/Who)" --> DI[Data Interpreter]
+    DI --> JSON[(Unified JSON SOTs<br/>data/*.json)]
     JSON --> DI
     DI --> Response([Final Response])
     
     %% Path B: RAG Engine
-    Router -- "Semantic Intent<br/>(Explain? What is?)" --> RAG[Hybrid RAG Engine]
+    Router -- "Semantic Intent<br/>(Policies/Explanations)" --> RAG[Hybrid RAG Engine]
     RAG --> Vector[(ChromaDB<br/>Vector Store)]
     RAG --> BM25[BM25 Keyword Search]
     Vector --> Merge[Merge & Re-rank]
@@ -36,13 +36,13 @@ graph TD
 ## 🛠️ Core Components
 
 ### 1. Data Ingestion & Consolidation
-- **Universal Converter**: Decouples document format (PDF, Excel, Word) from the system by converting everything into structured, queryable JSON.
-- **Semantic PDF Parser**: Uses `pdftotext` and deterministic regex patterns rather than LLMs for ingestion, ensuring 100% data fidelity without hallucinations during reading.
+- **Consolidator Engine**: Automatically rebuilds Source-of-Truth (SOT) JSONs for employees, holidays, and projects directly from raw PDFs and APIs without LLM interference.
+- **Universal Converter**: Handles long-form policy documents by converting them into chunkable JSON for the semantic RAG path.
 
-### 2. The "Brain" (Hybrid Orchestrator)
-- **Agentic Router**: identifies user intent. If the query asks for counts or lists (e.g., "How many people in AI?"), it bypasses the vector store to prevent "retrieval missing" hallucinations.
-- **Zero-Shot Data Interpreter**: Scans JSON sources in real-time. It uses fuzzy matching and phrase-first scrubbing to identify entities (Locations, Departments, Technologies) without needing hardcoded keyword lists.
-- **Vector RAG Engine**: Used for qualitative/semantic questions. Combines Vector Similarity (ChromaDB) with BM25 keyword matching and cross-encoder re-ranking.
+### 2. The "Brain" (NLP Hybrid Orchestrator)
+- **NLP Intent Router**: Uses **spaCy lemmatization** to identify user intent. It resolves verb forms (e.g., "praised" -> "praise") to match structured entities dynamically, bypassing the vector store for aggregations.
+- **Data Interpreter**: Scans unified JSON sources in real-time. It uses fuzzy matching, plural-aware criteria, and phrase scrubbing to ensure sub-second accuracy for quantitative questions.
+- **Vector RAG Engine**: The semantic fallback. Combines Vector Similarity with BM25 keyword matching and cross-encoder re-ranking for qualitative answers.
 
 ### 3. Local AI Infrastructure
 - **Ollama**: The heart of the local stack. It hosts `llama3.2` for reasoning and `nomic-embed-text` for semantic mapping.
