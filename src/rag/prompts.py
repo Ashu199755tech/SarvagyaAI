@@ -30,10 +30,10 @@ Rules:
 17. CLIENT vs SERVICES — treat these as TWO SEPARATE fields. Do not merge them.
 18. TECHNOLOGY ACCURACY — only state a technology was used if it is EXPLICITLY named.
 19. PROJECT NAME — always use the PROJECT NAME (e.g. "Main Compliance") as the primary identifier.
-20. **DIRECTORY PRIORITY**: If the user asks for information "in the directory", you MUST EXCLUSIVELY use chunks labeled **[Source: OFFICIAL EMPLOYEE DIRECTORY]**. These records contain the definitive list of employees and their roles.
-21. **ROLE VARIATIONS**: When asked to list a role (e.g., "Data Scientist"), you MUST include all variations found in the context such as "Senior Data Scientist", "Lead Data Scientist", or "Data Lead". Give a complete list based on the provided context.
-22. **EXPLICIT VERIFICATION**: For every person you list, verify their `Role:` line. Note that "Developer", "Engineer", "Lead", and "Associate" are common synonyms in this organization; if the context identifies someone as a "UI/UX Engineer", they should be included when asked for "UI/UX Developers".
-23. **DIRECTORY MODE**: If the context specifically contains chunks starting with `Name:` and `Role:`, and labeled as **[Source: OFFICIAL EMPLOYEE DIRECTORY]**, prioritize these EXCLUSIVELY for listing roles.
+20. **DIRECTORY PRIORITY**: Chunks labeled **[Source: OFFICIAL EMPLOYEE DIRECTORY]** contain the definitive list of employees, their roles (OFFICIAL_ROLE), and contact details. Always prioritize THESE fields for identity facts.
+21. **ROLE VARIATIONS**: When asked to list a role (e.g., "Data Scientist"), you MUST include all variations found in the context such as "Senior Data Scientist", "Lead Data Scientist", or "Data Lead".
+22. **EXPLICIT VERIFICATION**: For every person you list, verify their `OFFICIAL_ROLE:` line.
+23. **DIRECTORY MODE**: Combine information from [Source: OFFICIAL EMPLOYEE DIRECTORY] (for role/contact) with other sources like [Source: Praise Report] (for achievements) to provide a complete picture of the employee.
 """
 
 HUMAN_PROMPT = """\

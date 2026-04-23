@@ -10,6 +10,7 @@ Architecture:
 from __future__ import annotations
 
 import json
+from pathlib import Path
 from langchain_core.documents import Document
 
 
@@ -41,9 +42,12 @@ def build_employee_document(emp: dict) -> Document:
 
 def build_project_document(prj: dict) -> Document:
     """Turn a project dict (from projects.json) into a LangChain Document."""
+    project_name = prj.get('Project name') or prj.get('project_name', 'Unknown Project')
+    industry = prj.get('Industry ') or prj.get('industry', 'N/A')
+    
     content = (
-        f"Project Name: {prj.get('Project name', 'N/A')}\n"
-        f"Industry: {prj.get('Industry ', 'N/A')}\n"
+        f"[PROJECT: {project_name}]\n"
+        f"Industry: {industry}\n"
         f"Project Brief: {prj.get('Project brief', 'N/A')}\n"
         f"Project Description: {prj.get('Project description', 'N/A')}\n"
         f"About the Client: {prj.get('About the Client', 'N/A')}\n"
@@ -104,6 +108,43 @@ def build_holiday_document(hol: dict) -> Document:
         "month": hol.get("month", ""),
     }
 
+    return Document(page_content=content, metadata=metadata)
+ 
+ 
+def build_directory_document(record: dict) -> Document:
+    """Turn a directory.json record into a High-Contrast Document."""
+    name = record.get("Name") or record.get("name", "Unknown")
+    role = record.get("Role") or record.get("role", "N/A")
+    dept = record.get("Department") or record.get("department", "N/A")
+    loc = record.get("Location") or record.get("location", "N/A")
+    
+    # Use extremely explicit, high-contrast labels for the LLM
+    content = (
+        f"EMPLOYEE_NAME: {name}\n"
+        f"OFFICIAL_ROLE: {role}\n"
+        f"OFFICIAL_DEPARTMENT: {dept}\n"
+        f"OFFICIAL_LOCATION: {loc}\n"
+    )
+    # Add email and phone at the top for better attention
+    if record.get("Email"):
+        content += f"OFFICIAL_EMAIL: {record.get('Email')}\n"
+    if record.get("Phone"):
+        content += f"OFFICIAL_PHONE: {record.get('Phone')}\n"
+
+    # Add any other present fields
+    for k, v in record.items():
+        if k.lower() not in ["name", "role", "department", "location", "email", "phone", "record_id", "record_type"]:
+            content += f"{k}: {v}\n"
+ 
+    metadata = {
+        "source": "directory.json",
+        "record_type": "employee",
+        "record_id": record.get("record_id") or f"DIR_{name.replace(' ', '_')}",
+        "name": name,
+        "role": role,
+        "department": dept,
+        "location": loc,
+    }
     return Document(page_content=content, metadata=metadata)
 
 
@@ -218,9 +259,11 @@ def build_generic_document(record: dict, source_filename: str, index: int) -> Do
 from pathlib import Path  # noqa: E402 (imported here for registry clarity)
 
 BUILDER_REGISTRY: dict[str, object] = {
-    "employees.json":  build_employee_document,
-    "projects.json":   build_project_document,
-    "policies.json":   build_policy_document,
-    "holidays.json":   build_holiday_document,
-    "misc_docs.json":  build_misc_document,      # special: handles own tabular format
+    "employees.json":    build_employee_document,
+    "projects.json":     build_project_document,
+    "policies.json":     build_policy_document,
+    "holidays.json":     build_holiday_document,
+    "directory.json":    build_directory_document,
+    "praise_report.json": lambda rec: build_generic_document(rec, "praise_report.json", 0),
+    "misc_docs.json":     build_misc_document,
 }

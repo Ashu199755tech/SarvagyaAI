@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  resoai-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./.env:/app/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    # If the app relies on internal network routing, uncomment next line
+    # network_mode: "host" 

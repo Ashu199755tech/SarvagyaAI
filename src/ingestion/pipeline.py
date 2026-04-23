@@ -86,6 +86,11 @@ def _build_docs_from_json(json_path: Path) -> list[Document]:
         builder = BUILDER_REGISTRY[filename]
         docs: list[Document] = []
         for record in records:
+            # 1. Skip Directory alphabet headers (noise)
+            name = record.get("Name") or record.get("name")
+            if filename == "directory.json" and name and len(str(name).strip()) == 1:
+                continue
+                
             result = builder(record)
             if isinstance(result, list):
                 docs.extend(result)
@@ -185,7 +190,7 @@ class IngestionPipeline:
 
     def _chunk_documents(self, docs: list[Document]) -> list[Document]:
         all_chunks: list[Document] = []
-        ATOMIC_TYPES = {"project", "holiday", "employee", "misc_table_row"}
+        ATOMIC_TYPES = {"project", "holiday", "employee", "praise", "misc_table_row"}
         for doc in docs:
             record_type = doc.metadata.get("record_type", "")
 

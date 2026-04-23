@@ -57,10 +57,10 @@ os.makedirs("logs", exist_ok=True)
 DEBUG_LOG_PATH = "logs/retrieval_debug.log"
 
 def _log_retrieval(question: str, path_name: str, items: list, criteria: str = None):
-    """Writes detailed retrieval results to logs/retrieval_debug.log"""
+    """Writes detailed retrieval results to logs/retrieval_debug.log (Overwrites on every query)"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open(DEBUG_LOG_PATH, "a", encoding="utf-8") as f:
-        f.write(f"\n{'='*80}\n")
+
+    with open(DEBUG_LOG_PATH, "w", encoding="utf-8") as f:
         f.write(f"TIMESTAMP: {timestamp}\n")
         f.write(f"QUESTION:  {question}\n")
         f.write(f"PATHWAY:   {path_name}\n")
@@ -78,6 +78,7 @@ def _log_retrieval(question: str, path_name: str, items: list, criteria: str = N
             else: # Interpreter Result
                 f.write(f"MATCH {i}: {item.get('name')} (from {item.get('file')})\n")
         f.write(f"{'='*80}\n")
+        f.flush()
 
 from src.config import settings
 from src.rag.store import get_vector_store
@@ -169,12 +170,14 @@ async def _get_or_create_store(num_thread: int | None = None) -> Chroma:
 
 def clear_vector_store_cache() -> None:
     """
-    Clear the cached vector store instance.
+    Clear the cached vector store instance and BM25 index.
     MUST be called when the underlying ChromaDB collection is truncated.
     """
-    global _vector_store
+    global _vector_store, _bm25_index, _bm25_documents
     _vector_store = None
-    logger.info("Vector store cache cleared.")
+    _bm25_index = None
+    _bm25_documents = []
+    logger.info("Vector store and BM25 cache cleared.")
 
 
 # ---------------------------------------------------------------------------
@@ -405,7 +408,7 @@ def _format_docs(docs: list[Document]) -> str:
         elif record_type == "policy":
             name = doc.metadata.get("policy_name", "Unknown Policy")
             label = f"[Source: Company Policy PDF — {name}]"
-        elif record_type == "misc_table_row":
+        elif record_type == "misc_table_row" or doc.metadata.get("source") == "directory.json":
             label = "[Source: OFFICIAL EMPLOYEE DIRECTORY]"
         elif record_type == "holiday":
             label = "[Source: Holiday Calendar PDF]"
@@ -418,13 +421,12 @@ def _format_docs(docs: list[Document]) -> str:
                 filename = doc.metadata.get("source", doc.metadata.get("filename", "Document"))
                 label = f"[Source: {filename}]"
             
-        # Optimization: If the chunk already has a [Source: ...] tag (from build_generic_document),
-        # don't double-label it.
+        # Strip existing [Source: ...] or [DOCUMENT_NAME: ...] if it exists 
+        # to ensure we use the consistent, canonical label from this formatter.
         content = doc.page_content
-        if content.startswith("[Source:"):
-            parts.append(content)
-        else:
-            parts.append(f"{label}\n{content}")
+        content = re.sub(r"^\[(Source|DOCUMENT_NAME):.*?\]\n?", "", content, flags=re.IGNORECASE).strip()
+        
+        parts.append(f"{label}\n{content}")
         
     # Keep the final prompt bounded without hardcoding the cap in code.
     return "\n\n---\n\n".join(parts[: settings.rag_context_max_chunks])
@@ -1712,22 +1714,38 @@ async def ask(question: str) -> dict:
                     f"{qualifier}. No matching records were found."
                 )
             else:
-                preview_limit = min(settings.rag_context_max_chunks, len(matches))
-                match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
-                if len(matches) > preview_limit:
-                    match_listing += f", and {len(matches)-preview_limit} others"
-
-                if operation == "list":
-                    answer = (
-                        f"Based on the live data scan, I found **{count}** {entity_type}(s). "
-                        f"The results include: {match_listing}."
-                    )
+                # OPTIMIZATION: If we have exactly 1 match, we should show the full details 
+                # (Email, Phone, etc.) regardless of the inferred operation.
+                if count == 1:
+                    match = matches[0]
+                    record = match.get("data", {})
+                    detail_lines = [f"I found one match for **{match['name']}**:"]
+                    
+                    # Ignore internal / redundant keys
+                    skip_keys = {"record_id", "record_type", "is_tabular", "id", "name", "full_text"}
+                    for key, val in record.items():
+                        if key.lower() not in skip_keys and val:
+                            label = key.replace("_", " ").title()
+                            detail_lines.append(f"- **{label}**: {val}")
+                    
+                    answer = "\n".join(detail_lines)
                 else:
-                    qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
-                    answer = (
-                        f"Based on the live data scan, there are **{count}** {entity_type}(s)"
-                        f"{qualifier}. The results include: {match_listing}."
-                    )
+                    preview_limit = min(settings.rag_context_max_chunks, len(matches))
+                    match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
+                    if len(matches) > preview_limit:
+                        match_listing += f", and {len(matches)-preview_limit} others"
+    
+                    if operation == "list":
+                        answer = (
+                            f"Based on the live data scan, I found **{count}** {entity_type}(s). "
+                            f"The results include: {match_listing}."
+                        )
+                    else:
+                        qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
+                        answer = (
+                            f"Based on the live data scan, there are **{count}** {entity_type}(s)"
+                            f"{qualifier}. The results include: {match_listing}."
+                        )
 
 
             # Dynamic Logging for Interpreter

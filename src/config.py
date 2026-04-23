@@ -197,7 +197,7 @@ class Settings(BaseSettings):
     rag_retriever_look_ahead: int = 1
 
     # Maximum number of chunks formatted into the final LLM context.
-    rag_context_max_chunks: int = 10
+    rag_context_max_chunks: int = 5
 
     # Max docs fetched during exact name search per search variant.
     rag_name_search_top_k: int = 5
@@ -427,6 +427,13 @@ class Settings(BaseSettings):
     # "Redis" is a specific tech term — just like "GPU" or "OCR".
     # chain.py checks this list to decide if Step 6b should filter chunks.
     # Add any technology name here that users might ask about by name.
+    # Tokens that, if present, should force the query to bypass the DataInterpreter
+    # and go straight to HybridRAG. These are usually complex question words
+    # or domain-specific terms (like "solution") that require multi-chunk context.
+    data_interpreter_fallthrough_tokens: list[str] = [
+        "solution", "why", "detail", "story", "outcome", "challenge",
+    ]
+
     rag_known_tech_terms: list[str] = [
         # Databases / caches
         "redis", "kafka", "mongodb", "postgres", "postgresql", "elasticsearch",
@@ -443,6 +450,7 @@ class Settings(BaseSettings):
 
     # Structured query interpreter vocabulary.
     data_interpreter_universal_noise: list[str] = [
+        "id", "email", "mobile", "phone",
         "the", "a", "an", "this", "that", "these", "those",
         "i", "you", "he", "she", "it", "we", "they", "me", "him", "her",
         "us", "them", "who", "what", "which", "my", "your", "our", "their",

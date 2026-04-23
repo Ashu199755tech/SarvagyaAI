@@ -541,6 +541,15 @@ class DataInterpreter:
             return None
 
         nlp_signals = self._extract_nlp_signals(question)
+        
+        # ── Step 0: Check for Fallthrough Tokens ───────────────────────────────
+        # If the question contains words like "solution", "how", or "why", it
+        # requires natural language reasoning over full stories, not just a 
+        # structured filter against rows. We force these to HybridRAG.
+        fallthrough_tokens = set(settings.data_interpreter_fallthrough_tokens)
+        if (set(question_tokens) & fallthrough_tokens) or (set(nlp_signals.get("lemma_terms", [])) & fallthrough_tokens):
+            logger.info(">> Plan | Fallthrough token detected (e.g. 'solution'), bypassing interpreter.")
+            return None
 
         operation = self._infer_operation(question_tokens, nlp_signals=nlp_signals)
         if not operation:
@@ -604,7 +613,11 @@ class DataInterpreter:
                 name = f"{name} (Record {len(results)+1})"
 
             if name:
-                results.append({"name": name, "file": file_name})
+                results.append({
+                    "name": name,
+                    "file": file_name,
+                    "data": record
+                })
                 seen_names.add(name)
 
         if not results:
