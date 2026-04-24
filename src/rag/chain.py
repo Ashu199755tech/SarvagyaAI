@@ -1694,7 +1694,7 @@ async def ask(question: str) -> dict:
         llm = _get_llm(num_thread=allocated_threads)
         router_prompt = (
             "You are an intent classifier. Your job is to classify the user's question into one of two categories:\n"
-            "1. STRUCTURED (If the user asks to count, list, or find specific facts like location, department, or salary).\n"
+            "1. STRUCTURED (If the user asks to count, list, or find specific facts like location, department, salary, phone number, or email).\n"
             "2. DESCRIPTIVE (If the user asks for stories, solutions, explanations, challenges, HR policy rules, or general broad information).\n\n"
             f"User Question: {question}\n\n"
             "Reply with ONLY the exact word STRUCTURED or DESCRIPTIVE."

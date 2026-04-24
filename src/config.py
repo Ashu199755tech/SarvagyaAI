@@ -325,7 +325,7 @@ class Settings(BaseSettings):
     # which allocates more vector budget to employee records than PDF chunks.
     rag_emp_signals: list[str] = [
         "salary", "joining date", "department", "designation",
-        "email", "employee id", "emp id",
+        "email", "employee id", "emp id", "phone", "number", "mobile", "contact",
     ]
 
     # Capitalized tokens that should never be treated as person names.
@@ -500,11 +500,11 @@ class Settings(BaseSettings):
 
 
     data_interpreter_count_tokens: list[str] = [
-        "many", "count", "number", "total", "headcount",
+        "many", "count", "total", "headcount",
     ]
 
     data_interpreter_list_tokens: list[str] = [
-        "which", "list", "show", "who", "name",
+        "which", "list", "show", "who", "name", "what", "where",
     ]
 
     data_interpreter_selective_term_max_ratio: float = 0.6
