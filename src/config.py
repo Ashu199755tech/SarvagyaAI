@@ -428,11 +428,8 @@ class Settings(BaseSettings):
     # chain.py checks this list to decide if Step 6b should filter chunks.
     # Add any technology name here that users might ask about by name.
     # Tokens that, if present, should force the query to bypass the DataInterpreter
-    # and go straight to HybridRAG. These are usually complex question words
-    # or domain-specific terms (like "solution") that require multi-chunk context.
-    data_interpreter_fallthrough_tokens: list[str] = [
-        "solution", "why", "detail", "story", "outcome", "challenge",
-    ]
+    # [DEPRECATED - Replaced by LLM Intent Router in chain.py]
+    data_interpreter_fallthrough_tokens: list[str] = []
 
     rag_known_tech_terms: list[str] = [
         # Databases / caches

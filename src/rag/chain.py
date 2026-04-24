@@ -1690,12 +1690,31 @@ async def ask(question: str) -> dict:
         # ------------------
 
 
-        # --- DYNAMIC DATA INTERPRETER (ADVANCED AGENTIC ROUTING) ---
-        # Detect if this is a 'How many' or 'List all' query that requires
-        # 100% precision from structured files.
-        interpreter = _interpreter
-        itp_result = interpreter.interpret(question)
-        if itp_result:
+        # --- DYNAMIC AGENTIC ROUTER (LLM Intent Classification) ---
+        llm = _get_llm(num_thread=allocated_threads)
+        router_prompt = (
+            "You are an intent classifier. Your job is to classify the user's question into one of two categories:\n"
+            "1. STRUCTURED (If the user asks to count, list, or find specific facts like location, department, or salary).\n"
+            "2. DESCRIPTIVE (If the user asks for stories, solutions, explanations, challenges, HR policy rules, or general broad information).\n\n"
+            f"User Question: {question}\n\n"
+            "Reply with ONLY the exact word STRUCTURED or DESCRIPTIVE."
+        )
+        
+        try:
+            logger.info("[Router] Classifying intent via LLM...")
+            # We ask the LLM for a zero-shot classification
+            intent_msg = await llm.ainvoke(router_prompt)
+            intent = intent_msg.content.strip().upper()
+            logger.info(f"[Router] Intent classified as: {intent}")
+        except Exception as e:
+            logger.warning(f"[Router] LLM classification failed, defaulting to DESCRIPTIVE. Error: {e}")
+            intent = "DESCRIPTIVE"
+            
+        itp_result = None
+        if intent == "STRUCTURED":
+            interpreter = _interpreter
+            itp_result = interpreter.interpret(question)
+        if itp_result and itp_result["count"] > 0:
             entity_type = itp_result["entity"]
             criteria = itp_result["criteria"]
             operation = itp_result.get("operation", "count")
@@ -1707,45 +1726,38 @@ async def ask(question: str) -> dict:
             count = itp_result["count"]
             matches = itp_result["matches"]
 
-            if count == 0:
-                qualifier = "" if criteria == "__all__" else f" matching '{criteria}'"
-                answer = (
-                    f"Based on the live data scan, there are **0** {entity_type}(s)"
-                    f"{qualifier}. No matching records were found."
-                )
+            # OPTIMIZATION: If we have exactly 1 match, we should show the full details 
+            # (Email, Phone, etc.) regardless of the inferred operation.
+            if count == 1:
+                match = matches[0]
+                record = match.get("data", {})
+                detail_lines = [f"I found one match for **{match['name']}**:"]
+                
+                # Ignore internal / redundant keys
+                skip_keys = {"record_id", "record_type", "is_tabular", "id", "name", "full_text"}
+                for key, val in record.items():
+                    if key.lower() not in skip_keys and val:
+                        label = key.replace("_", " ").title()
+                        detail_lines.append(f"- **{label}**: {val}")
+                
+                answer = "\n".join(detail_lines)
             else:
-                # OPTIMIZATION: If we have exactly 1 match, we should show the full details 
-                # (Email, Phone, etc.) regardless of the inferred operation.
-                if count == 1:
-                    match = matches[0]
-                    record = match.get("data", {})
-                    detail_lines = [f"I found one match for **{match['name']}**:"]
-                    
-                    # Ignore internal / redundant keys
-                    skip_keys = {"record_id", "record_type", "is_tabular", "id", "name", "full_text"}
-                    for key, val in record.items():
-                        if key.lower() not in skip_keys and val:
-                            label = key.replace("_", " ").title()
-                            detail_lines.append(f"- **{label}**: {val}")
-                    
-                    answer = "\n".join(detail_lines)
+                preview_limit = min(settings.rag_context_max_chunks, len(matches))
+                match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
+                if len(matches) > preview_limit:
+                    match_listing += f", and {len(matches)-preview_limit} others"
+
+                if operation == "list":
+                    answer = (
+                        f"Based on the live data scan, I found **{count}** {entity_type}(s). "
+                        f"The results include: {match_listing}."
+                    )
                 else:
-                    preview_limit = min(settings.rag_context_max_chunks, len(matches))
-                    match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
-                    if len(matches) > preview_limit:
-                        match_listing += f", and {len(matches)-preview_limit} others"
-    
-                    if operation == "list":
-                        answer = (
-                            f"Based on the live data scan, I found **{count}** {entity_type}(s). "
-                            f"The results include: {match_listing}."
-                        )
-                    else:
-                        qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
-                        answer = (
-                            f"Based on the live data scan, there are **{count}** {entity_type}(s)"
-                            f"{qualifier}. The results include: {match_listing}."
-                        )
+                    qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
+                    answer = (
+                        f"Based on the live data scan, there are **{count}** {entity_type}(s)"
+                        f"{qualifier}. The results include: {match_listing}."
+                    )
 
 
             # Dynamic Logging for Interpreter

@@ -542,14 +542,7 @@ class DataInterpreter:
 
         nlp_signals = self._extract_nlp_signals(question)
         
-        # ── Step 0: Check for Fallthrough Tokens ───────────────────────────────
-        # If the question contains words like "solution", "how", or "why", it
-        # requires natural language reasoning over full stories, not just a 
-        # structured filter against rows. We force these to HybridRAG.
-        fallthrough_tokens = set(settings.data_interpreter_fallthrough_tokens)
-        if (set(question_tokens) & fallthrough_tokens) or (set(nlp_signals.get("lemma_terms", [])) & fallthrough_tokens):
-            logger.info(">> Plan | Fallthrough token detected (e.g. 'solution'), bypassing interpreter.")
-            return None
+        # (Fallthrough logic removed: Intent classification is now handled by the LLM in chain.py)
 
         operation = self._infer_operation(question_tokens, nlp_signals=nlp_signals)
         if not operation:
