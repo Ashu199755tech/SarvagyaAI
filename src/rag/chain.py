@@ -337,40 +337,15 @@ def _bm25_search(query: str, k: int = 10) -> list[Document]:
 # LLM factory
 # ---------------------------------------------------------------------------
 
-def _get_llm(num_thread: int | None = None) -> ChatOllama:
+def _get_llm(num_thread: int | None = None, model_name: str | None = None) -> ChatOllama:
     """
     Create and return a ChatOllama LLM instance for answer generation.
-
-    ChatOllama wraps the local Ollama server, sending the formatted prompt
-    (system instructions + retrieved context + user question) to the LLM
-    and streaming back the response.
-
-    Key parameters:
-        temperature: Controls randomness in token selection.
-                     0.1 = near-deterministic. Good for factual HR answers.
-                     Higher values (0.7+) = more creative but less accurate.
-
-        num_ctx:     The LLM's context window in tokens. This is the total
-                     budget for system prompt + retrieved chunks + question.
-                     Reduced from 32768 → 2048 in settings — this is the
-                     single biggest speed improvement in the optimized version
-                     because the LLM pre-allocates memory for the full window.
-
-        num_thread:  CPU threads for this specific LLM call. Dynamically
-                     reduced when multiple requests are active simultaneously
-                     (see the thread allocator in ask()).
-
-    Args:
-        num_thread: CPU threads to allocate. None = use settings default.
-
-    Returns:
-        A configured ChatOllama instance ready to receive prompts.
     """
     return ChatOllama(
-        model=settings.ollama_llm_model,
+        model=model_name or settings.ollama_llm_model,
         base_url=settings.ollama_base_url,
-        temperature=settings.ollama_temperature,   # was hardcoded 0.1
-        num_ctx=settings.ollama_num_ctx,           # was hardcoded 32768
+        temperature=settings.ollama_temperature,
+        num_ctx=settings.ollama_num_ctx,
         num_thread=num_thread or settings.ollama_num_threads,
     )
 
@@ -1691,30 +1666,35 @@ async def ask(question: str) -> dict:
 
 
         # --- DYNAMIC AGENTIC ROUTER (LLM Intent Classification) ---
-        llm = _get_llm(num_thread=allocated_threads)
-        router_prompt = (
-            "You are an intent classifier. Your job is to classify the user's question into one of two categories:\n"
-            "1. STRUCTURED (If the user asks to count, list, or find specific facts like location, department, salary, phone number, or email).\n"
-            "2. DESCRIPTIVE (If the user asks for stories, solutions, explanations, challenges, HR policy rules, or general broad information).\n\n"
-            f"User Question: {question}\n\n"
-            "Reply with ONLY the exact word STRUCTURED or DESCRIPTIVE."
-        )
+        # 1. FALL-THROUGH OPTIMIZATION: Try the deterministic DataInterpreter first.
+        interpreter = _interpreter
+        itp_result = interpreter.interpret(question)
         
-        try:
-            logger.info("[Router] Classifying intent via LLM...")
-            # We ask the LLM for a zero-shot classification
-            intent_msg = await llm.ainvoke(router_prompt)
-            intent = intent_msg.content.strip().upper()
-            logger.info(f"[Router] Intent classified as: {intent}")
-        except Exception as e:
-            logger.warning(f"[Router] LLM classification failed, defaulting to DESCRIPTIVE. Error: {e}")
-            intent = "DESCRIPTIVE"
+        if itp_result and itp_result.get("count", 0) > 0:
+            intent = "STRUCTURED"
+            logger.info("[Router] DataInterpreter found structured matches. Bypassing LLM router.")
+        else:
+            # 2. Use the "Small Brain" (1B model) for sub-second classification
+            router_llm = _get_llm(num_thread=allocated_threads, model_name=settings.ollama_router_model)
+            router_prompt = (
+                "You are an intent classifier. Your job is to classify the user's question into one of two categories:\n"
+                "1. STRUCTURED (If the user asks to count, list, or find specific facts like location, department, salary, phone number, or email).\n"
+                "2. DESCRIPTIVE (If the user asks for stories, solutions, explanations, challenges, HR policy rules, or general broad information).\n\n"
+                f"User Question: {question}\n\n"
+                "Reply with ONLY the exact word STRUCTURED or DESCRIPTIVE."
+            )
             
-        itp_result = None
-        if intent == "STRUCTURED":
-            interpreter = _interpreter
-            itp_result = interpreter.interpret(question)
-        if itp_result and itp_result["count"] > 0:
+            try:
+                logger.info(f"[Router] Classifying intent via {settings.ollama_router_model}...")
+                intent_msg = await router_llm.ainvoke(router_prompt)
+                intent = intent_msg.content.strip().upper()
+                logger.info(f"[Router] Intent classified as: {intent}")
+            except Exception as e:
+                logger.warning(f"[Router] LLM classification failed, defaulting to DESCRIPTIVE. Error: {e}")
+                intent = "DESCRIPTIVE"
+            
+        # 3. Route Execution
+        if intent == "STRUCTURED" and itp_result and itp_result.get("count", 0) > 0:
             entity_type = itp_result["entity"]
             criteria = itp_result["criteria"]
             operation = itp_result.get("operation", "count")

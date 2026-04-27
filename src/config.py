@@ -115,6 +115,10 @@ class Settings(BaseSettings):
     # Pull it first with: ollama pull llama3.2
     ollama_llm_model: str = "llama3.2"
 
+    # The Ollama model used for fast intent routing and classification.
+    # We use a tiny 1B parameter model here for sub-second classification.
+    ollama_router_model: str = "llama3.2:1b"
+
     # The Ollama model used for creating vector embeddings during ingestion.
     # Pull it first with: ollama pull nomic-embed-text
     # Do NOT change this after ingesting data — the vectors won't match.
