@@ -12,6 +12,7 @@ from __future__ import annotations
 import logging
 
 from src.consolidator.entities import (
+    EmployeeEntity,
     HolidayEntity,
     KnowledgeBase,
     PolicyEntity,

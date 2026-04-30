@@ -84,16 +84,15 @@ from src.rag.store import get_vector_store
 from src.rag.prompts import RAG_PROMPT
 from src.rag.cache import get_cached_answer, save_to_cache
 from src.rag.data_interpreter import DataInterpreter
+from src.rag.query_decomposer import QueryDecomposer, QueryPlan
 
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Module-level DataInterpreter singleton — created ONCE, reused across all requests
+# Module-level singletons — created ONCE, reused across all requests
 # ---------------------------------------------------------------------------
-# Previously, a new DataInterpreter() was created on every ask() call, causing
-# all JSON files to be re-read from disk and re-parsed each time.
-# Now it is created once at module load and its internal _record_cache persists.
 _interpreter = DataInterpreter()
+_decomposer = QueryDecomposer()
 
 # ---------------------------------------------------------------------------
 # Concurrency tracking — for dynamic thread allocation
@@ -1538,6 +1537,79 @@ async def _retrieve_mixed(store: Chroma, question: str, k: int = 20) -> list[Doc
                 filter_keywords,
             )
 
+    # ── Step 6c: Entity-focused context pruning ────────────────────────
+    # When chunks from multiple entity types are merged, the LLM often
+    # gets confused by "noise" chunks that mention the query keywords in
+    # a different context (e.g., policy text discussing "salary" abstractly
+    # when the user asked for a specific employee's salary).
+    #
+    # Strategy:
+    #   1. Identify "anchor" chunks — chunks that directly answer the query
+    #      (contain the person's name, project name, or exact topic).
+    #   2. Determine the dominant record_type among anchors.
+    #   3. Keep ALL anchor chunks + a small cross-type budget for context.
+    #
+    # This generalizes across all entity types (employee, project, policy,
+    # holiday) using the record_type metadata that every chunk already has.
+
+    if not is_listing_query and len(combined) > 3:
+        # Build the set of query-specific anchor terms:
+        # person names, plus any strong noun phrases from the question
+        anchor_terms = [n.lower() for n in names]
+        
+        # Also extract capitalized multi-word phrases that might be
+        # project names, policy names, etc. (e.g., "Phoenix", "Leave Policy")
+        for kw in keywords:
+            if len(kw) > 2 and kw not in _STOP_WORDS:
+                anchor_terms.append(kw.lower())
+
+        if anchor_terms:
+            # Score each chunk: how many anchor terms does it contain?
+            scored = []
+            for doc in combined:
+                text_lower = doc.page_content.lower()
+                hits = sum(1 for term in anchor_terms if term in text_lower)
+                scored.append((doc, hits))
+            
+            # Identify the dominant record_type among high-scoring chunks
+            anchor_chunks = [doc for doc, hits in scored if hits > 0]
+            
+            if anchor_chunks:
+                # Count record_types among anchors to find the dominant type
+                type_counts = {}
+                for doc in anchor_chunks:
+                    rt = doc.metadata.get("record_type", "unknown")
+                    type_counts[rt] = type_counts.get(rt, 0) + 1
+                dominant_type = max(type_counts, key=type_counts.get)
+                
+                # Separate: anchor-type chunks vs cross-type chunks
+                focused = []
+                cross_type = []
+                for doc in combined:
+                    rt = doc.metadata.get("record_type", "unknown")
+                    text_lower = doc.page_content.lower()
+                    is_anchor = any(term in text_lower for term in anchor_terms)
+                    
+                    if rt == dominant_type or is_anchor:
+                        focused.append(doc)
+                    else:
+                        cross_type.append(doc)
+                
+                # Allow a small cross-type budget (e.g., for "what is John's
+                # notice period?" which needs both employee + policy chunks)
+                cross_budget = settings.rag_cross_type_budget
+                pruned = focused + cross_type[:cross_budget]
+                
+                if len(pruned) < len(combined):
+                    logger.info(
+                        ">> Step 6c | Entity-focused pruning: %d → %d chunks "
+                        "(dominant_type=%s, focused=%d, cross_type=%d/%d)",
+                        len(combined), len(pruned), dominant_type,
+                        len(focused), min(len(cross_type), cross_budget),
+                        len(cross_type),
+                    )
+                    combined = pruned
+
     # ── Step 7: FlashRank re-ranking ───────────────────────────────────────
     # Re-rank all merged candidates using a cross-encoder model.
     # Unlike bi-encoder (embedding) models which score query and doc separately,
@@ -1688,69 +1760,101 @@ async def ask(question: str) -> dict:
         # ------------------
 
 
-        # --- DYNAMIC DATA INTERPRETER (ADVANCED AGENTIC ROUTING) ---
-        # Detect if this is a 'How many' or 'List all' query that requires
-        # 100% precision from structured files.
-        interpreter = _interpreter
-        itp_result = interpreter.interpret(question)
-        if itp_result:
-            entity_type = itp_result["entity"]
-            criteria = itp_result["criteria"]
-            operation = itp_result.get("operation", "count")
-            logger.info(
-                "[Interpreter] Structured query detected: operation=%s | entity=%s | criteria=%s",
-                operation, entity_type, criteria,
-            )
+        # --- LLM QUERY DECOMPOSER (REPLACES ALL HARDCODED WORD LISTS) ---
+        # The decomposer uses a tiny LLM (llama3.2:1b) to parse the question
+        # into structured intent. This single call replaces ~400 hardcoded
+        # words across 7 config lists (noise words, intent signals, etc.).
+        query_plan = _decomposer.decompose(question)
+        logger.info(
+            "[Decomposer] Plan: intent=%s, entity=%s, terms=%s, attr=%s, listing=%s (%.1fs)",
+            query_plan.intent, query_plan.entity, query_plan.search_terms,
+            query_plan.attribute, query_plan.is_listing, query_plan.decompose_time,
+        )
 
-            count = itp_result["count"]
-            matches = itp_result["matches"]
+        # --- SMART DATA INTERPRETER (DRIVEN BY DECOMPOSER) ---
+        # If the decomposer identifies a structured query (count/list/lookup
+        # for a known entity), bypass the DataInterpreter's own parsing and
+        # use the decomposer's search_terms directly as criteria.
+        if query_plan.is_structured_query:
+            entity_type = query_plan.entity
+            criteria = query_plan.criteria
+            operation = query_plan.intent  # "count", "list", or "lookup"
 
-            if count == 0:
-                qualifier = "" if criteria == "__all__" else f" matching '{criteria}'"
-                answer = (
-                    f"Based on the live data scan, there are **0** {entity_type}(s)"
-                    f"{qualifier}. No matching records were found."
+            # Use DataInterpreter's query() directly with decomposer output
+            itp_result = _interpreter.query(entity_type, criteria)
+
+            if itp_result:
+                count = itp_result["count"]
+                matches = itp_result["matches"]
+
+                logger.info(
+                    "[Interpreter] Structured query: operation=%s | entity=%s | criteria=%s | count=%d",
+                    operation, entity_type, criteria, count,
                 )
-            else:
-                preview_limit = min(settings.rag_context_max_chunks, len(matches))
-                match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
-                if len(matches) > preview_limit:
-                    match_listing += f", and {len(matches)-preview_limit} others"
 
-                if operation == "list":
+                if count == 0:
+                    qualifier = "" if criteria == "__all__" else f" matching '{criteria}'"
                     answer = (
-                        f"Based on the live data scan, I found **{count}** {entity_type}(s). "
-                        f"The results include: {match_listing}."
+                        f"Based on the live data scan, there are **0** {entity_type}(s)"
+                        f"{qualifier}. No matching records were found."
                     )
                 else:
-                    qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
-                    answer = (
-                        f"Based on the live data scan, there are **{count}** {entity_type}(s)"
-                        f"{qualifier}. The results include: {match_listing}."
-                    )
+                    preview_limit = min(settings.rag_context_max_chunks, len(matches))
+                    match_listing = ", ".join([m["name"] for m in matches[:preview_limit]])
+                    if len(matches) > preview_limit:
+                        match_listing += f", and {len(matches)-preview_limit} others"
 
+                    if operation == "list":
+                        answer = (
+                            f"Based on the live data scan, I found **{count}** {entity_type}(s). "
+                            f"The results include: {match_listing}."
+                        )
+                    elif operation == "lookup" and count == 1 and query_plan.attribute:
+                        # For single-entity lookups, try to extract the specific attribute
+                        record = matches[0].get("record", {})
+                        attr_val = record.get(query_plan.attribute)
+                        if attr_val:
+                            answer = (
+                                f"**{matches[0]['name']}**'s {query_plan.attribute.replace('_', ' ')} "
+                                f"is **{attr_val}**."
+                            )
+                        else:
+                            answer = (
+                                f"Based on the live data scan, I found **{count}** {entity_type}(s) "
+                                f"matching '{criteria}'. The results include: {match_listing}."
+                            )
+                    else:
+                        qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
+                        answer = (
+                            f"Based on the live data scan, there are **{count}** {entity_type}(s)"
+                            f"{qualifier}. The results include: {match_listing}."
+                        )
 
-            # Dynamic Logging for Interpreter
-            _log_retrieval(question, "DataInterpreter", matches, criteria=criteria)
+                # Dynamic Logging for Interpreter
+                _log_retrieval(question, "DataInterpreter", matches, criteria=criteria)
 
-            total_time = time.monotonic() - start_time
-            sources = [{
-                "record_type": "data_interpreter",
-                "count_found": count,
-                "criteria": criteria,
-                "entity": entity_type,
-                "operation": operation,
-                "filename": settings.interpreter_file_map.get(entity_type, "universal_json_scan"),
-            }]
+                total_time = time.monotonic() - start_time
+                sources = [{
+                    "record_type": "data_interpreter",
+                    "count_found": count,
+                    "criteria": criteria,
+                    "entity": entity_type,
+                    "operation": operation,
+                    "filename": settings.interpreter_file_map.get(entity_type, "universal_json_scan"),
+                }]
 
-            # Save interpreter results to cache so repeated questions get instant hits
-            save_to_cache(question, answer, sources)
+                save_to_cache(question, answer, sources)
 
-            return {
-                "answer": answer,
-                "sources": sources,
-                "time_elapsed_seconds": total_time
-            }
+                return {
+                    "answer": answer,
+                    "sources": sources,
+                    "time_elapsed_seconds": total_time
+                }
+            else:
+                logger.info(
+                    "[Interpreter] No records found for entity=%s criteria=%s — falling through to HybridRAG",
+                    entity_type, criteria,
+                )
         # ------------------------------------------------------------
 
         # Get the cached global vector store (no-op after first request)

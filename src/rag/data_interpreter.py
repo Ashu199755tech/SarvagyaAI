@@ -256,8 +256,9 @@ class DataInterpreter:
                 # Only apply the "header" filter to records that don't have long-form text
                 "text" not in r
                 and not r.get("Project name")
-                and len(str(r.get("Name", r.get("name", ""))).strip()) <= 1
-                and not str(r.get("Role", r.get("role", ""))).strip()
+                and not r.get("project_name")
+                and len(str(r.get("Name", r.get("name", r.get("first_name", "")))).strip()) <= 1
+                and not str(r.get("Role", r.get("role", r.get("designation", "")))).strip()
                 and not str(r.get("Department", r.get("department", ""))).strip()
             )
         ]
@@ -331,6 +332,8 @@ class DataInterpreter:
             "vacation": "holiday",
             "staff": "employee",
             "personnel": "employee",
+            "who": "employee",
+            "whom": "employee",
             "shoutout": "praise",
             "appreciation": "praise",
         }
@@ -591,6 +594,7 @@ class DataInterpreter:
             name = (
                 record.get("Name")
                 or record.get("name")
+                or (f"{record.get('first_name', '')} {record.get('last_name', '')}").strip()
                 or record.get("Project name")
                 or record.get("project_name")
                 or record.get("policy_name")
@@ -604,7 +608,7 @@ class DataInterpreter:
                 name = f"{name} (Record {len(results)+1})"
 
             if name:
-                results.append({"name": name, "file": file_name})
+                results.append({"name": name, "file": file_name, "record": record})
                 seen_names.add(name)
 
         if not results:

@@ -232,19 +232,33 @@ async def debug_retrieval(request_data: AskRequest):
     if not question:
         return {"status": "error", "detail": "No question provided"}
     try:
-        # Check the DataInterpreter path first (mirrors ask() logic)
-        itp_result = _interpreter.interpret(question)
-        if itp_result:
+        # Use the LLM Query Decomposer (mirrors ask() logic)
+        from src.rag.query_decomposer import QueryDecomposer
+        decomposer = QueryDecomposer()
+        query_plan = decomposer.decompose(question)
+
+        if query_plan.is_structured_query:
+            # Route through DataInterpreter using decomposer output
+            itp_result = _interpreter.query(query_plan.entity, query_plan.criteria)
+            matches = itp_result["matches"][:20] if itp_result else []
+            count = itp_result["count"] if itp_result else 0
             return {
                 "status": "success",
                 "question": question,
-                "pathway": "DataInterpreter",
-                "entity": itp_result["entity"],
-                "operation": itp_result.get("operation", "count"),
-                "criteria": itp_result["criteria"],
-                "count": itp_result["count"],
-                "matches": itp_result["matches"][:20],
-                "criteria_terms": itp_result.get("criteria_terms", []),
+                "pathway": "DataInterpreter (via Decomposer)",
+                "decomposer": {
+                    "intent": query_plan.intent,
+                    "entity": query_plan.entity,
+                    "search_terms": query_plan.search_terms,
+                    "attribute": query_plan.attribute,
+                    "is_listing": query_plan.is_listing,
+                    "decompose_time": round(query_plan.decompose_time, 2),
+                },
+                "entity": query_plan.entity,
+                "operation": query_plan.intent,
+                "criteria": query_plan.criteria,
+                "count": count,
+                "matches": matches,
             }
 
         # Fall through to RAG retrieval
@@ -254,7 +268,15 @@ async def debug_retrieval(request_data: AskRequest):
         return {
             "status": "success",
             "question": question,
-            "pathway": "HybridRAG",
+            "pathway": "HybridRAG (via Decomposer)",
+            "decomposer": {
+                "intent": query_plan.intent,
+                "entity": query_plan.entity,
+                "search_terms": query_plan.search_terms,
+                "attribute": query_plan.attribute,
+                "is_listing": query_plan.is_listing,
+                "decompose_time": round(query_plan.decompose_time, 2),
+            },
             "chunks_retrieved": len(chunks),
             "chunks": [
                 {

@@ -76,7 +76,7 @@ class Settings(BaseSettings):
     # The DataInterpreter uses this to know which file to scan for each type.
     # Override in .env as JSON: INTERPRETER_FILE_MAP='{"employee":"staff.json"}'
     interpreter_file_map: dict = {
-        "employee": "directory.json",
+        "employee": "employees.json",
         "project": "projects.json",
         "holiday": "holidays.json",
         "directory": "directory.json",
@@ -114,6 +114,13 @@ class Settings(BaseSettings):
     # The Ollama model used for generating answers (the "brain").
     # Pull it first with: ollama pull llama3.2
     ollama_llm_model: str = "llama3.2"
+
+    # The Ollama model used for query decomposition (the "small brain").
+    # This model parses natural language queries into structured intent JSON,
+    # replacing all hardcoded word lists (noise words, intent signals, listing triggers).
+    # Uses the same model as the main LLM — the 1b model is too safety-tuned
+    # and refuses to parse HR queries about salaries, departments, etc.
+    decomposer_model: str = "llama3.2"
 
     # The Ollama model used for creating vector embeddings during ingestion.
     # Pull it first with: ollama pull nomic-embed-text
@@ -469,7 +476,7 @@ class Settings(BaseSettings):
         "covered", "covering", "addressed", "addressing",
         "listed", "listing", "received", "receiving",
         "appeared", "appearing", "featured", "featuring",
-        "worked", "working", "doing", "completed", "completing",
+        "worked", "working", "work", "works", "doing", "completed", "completing",
         "delivered", "delivering", "contributed", "contributing",
         "participated", "participating", "related", "relating",
         "associated", "belonging",
@@ -508,6 +515,12 @@ class Settings(BaseSettings):
     data_interpreter_entity_value_max_length: int = 3
     data_interpreter_enable_nlp_fallback: bool = True
     data_interpreter_nlp_model: str = "en_core_web_sm"
+
+    # Maximum number of cross-entity-type chunks to keep when entity-focused
+    # pruning is active. Higher values allow more context from other entity
+    # types (useful for cross-entity queries like "John's notice period").
+    # Set to 0 to be fully aggressive, 2-3 for a balanced approach.
+    rag_cross_type_budget: int = 2
 
     rag_fallback_answer: str = "Sorry, I couldn't find an answer."
 

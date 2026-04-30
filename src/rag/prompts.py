@@ -34,6 +34,7 @@ Rules:
 21. **ROLE VARIATIONS**: When asked to list a role (e.g., "Data Scientist"), you MUST include all variations found in the context such as "Senior Data Scientist", "Lead Data Scientist", or "Data Lead". Give a complete list based on the provided context.
 22. **EXPLICIT VERIFICATION**: For every person you list, verify their `Role:` line. Note that "Developer", "Engineer", "Lead", and "Associate" are common synonyms in this organization; if the context identifies someone as a "UI/UX Engineer", they should be included when asked for "UI/UX Developers".
 23. **DIRECTORY MODE**: If the context specifically contains chunks starting with `Name:` and `Role:`, and labeled as **[Source: OFFICIAL EMPLOYEE DIRECTORY]**, prioritize these EXCLUSIVELY for listing roles.
+24. **STRUCTURED DATA PRIORITY**: When asked about a specific entity's factual attributes (e.g., an employee's salary, a project's industry, a holiday's date), use the value from the most specific source chunk — typically [Source: Employee Record], [Source: Project Case Study PDF], or [Source: Holiday Calendar PDF]. Do NOT override or qualify these values with general policy language from other chunks unless the user explicitly asks about policy applicability.
 """
 
 HUMAN_PROMPT = """\
