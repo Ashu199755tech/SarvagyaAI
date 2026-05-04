@@ -67,7 +67,7 @@ class QueryPlan:
         """Can this be answered by the DataInterpreter (structured JSON scan)?"""
         return (
             self.intent in ("lookup", "list", "count")
-            and self.entity in ("employee", "project", "holiday", "directory")
+            and self.entity in settings.interpreter_file_map
         )
 
     @property
@@ -95,8 +95,14 @@ You are a query parser for an HR knowledge system. Parse the question into JSON.
 
 Rules:
 - intent: one of "lookup" (specific fact), "list" (enumerate items), "count" (how many), "policy" (company rule/guideline), "general" (greeting/other)
-- entity: one of "employee", "project", "policy", "holiday", "directory", or null
-- search_terms: ONLY specific names, values, or identifiers to search for. Do NOT include generic words like "department", "salary", "employee", "project", "belongs", "works", "policy", "notice".
+- entity: one of the following, or null:
+    - "employee": for people, staff, team members, contact info, or directory lookups.
+    - "project": for work case studies, clients, tech stacks used in projects, or project outcomes.
+    - "holiday": for holidays, ALL types of leaves (floater, optional, etc.), vacations, festivals (Eid, Diwali, etc.), or the holiday calendar.
+    - "praise": for shoutouts, appreciation, or recognizing team members.
+    - "policy": for company rules, guidelines, procedures (notice period, etc.).
+- IMPORTANT: If the question mentions "leaves", "floater", "optional", "holidays", or specific festival names (like "Eid"), you MUST use the "holiday" entity.
+- search_terms: ONLY specific names, values, identifiers, or filtering states (e.g., "completed", "active", "remote", "floater"). Do NOT include generic words like "department", "salary", "employee", "project", "belongs", "works", "policy", "notice", "people", "leave".
 - attribute: what specific information is being requested (e.g., "department", "salary", "notice_period")
 - is_listing: true ONLY if the user wants ALL/every matching items listed, false otherwise
 
@@ -175,6 +181,18 @@ class QueryDecomposer:
         plan.raw_question = question
         plan.decompose_time = time.monotonic() - start
 
+        # --- HEURISTIC RESCUE (FOR SMALL MODELS) ---
+        # If the LLM failed to identify an entity but the question has clear signals
+        if not plan.entity:
+            q_low = question.lower()
+            if any(w in q_low for w in ("holiday", "eid", "diwali", "christmas", "festival", "leave", "vacation")):
+                plan.entity = "holiday"
+                logger.info("[Decomposer] Heuristic rescue: entity -> holiday")
+            elif any(w in q_low for w in ("salary", "joining", "manager", "department", "designation", "email", "phone")):
+                plan.entity = "employee"
+                logger.info("[Decomposer] Heuristic rescue: entity -> employee")
+        # -------------------------------------------
+
         # Cache the result
         if len(_decompose_cache) >= _MAX_CACHE_SIZE:
             # Evict oldest entries (simple FIFO)
@@ -193,7 +211,9 @@ class QueryDecomposer:
 
     def _call_llm(self, question: str) -> QueryPlan:
         """Make a synchronous call to the Ollama generate API."""
-        prompt = DECOMPOSE_PROMPT.format(question=question)
+        valid_entities = list(settings.interpreter_file_map.keys()) + ["policy"]
+        entities_str = ", ".join(f'"{e}"' for e in valid_entities)
+        prompt = DECOMPOSE_PROMPT.format(entities=entities_str, question=question)
 
         logger.info("[Decomposer] Calling LLM with model=%s, num_ctx=%d", self.model, self.num_ctx)
 
@@ -245,6 +265,7 @@ class QueryDecomposer:
 
         try:
             data = json.loads(json_str)
+            print("DECOMPOSER RAW DATA:", data)
         except json.JSONDecodeError as e:
             logger.warning("[Decomposer] Invalid JSON: %s — raw: %r", e, json_str[:200])
             return self._default_plan()
@@ -255,7 +276,13 @@ class QueryDecomposer:
             intent = "general"
 
         entity = data.get("entity")
-        if entity not in ("employee", "project", "policy", "holiday", "directory", None):
+        
+        # Merge legacy directory queries into employee
+        if entity == "directory":
+            entity = "employee"
+            
+        valid_entities = list(settings.interpreter_file_map.keys()) + ["policy"]
+        if entity not in valid_entities and entity is not None:
             entity = None
 
         search_terms = data.get("search_terms", [])

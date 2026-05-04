@@ -572,7 +572,7 @@ class DataInterpreter:
             raw_question=question,
         )
 
-    def query(self, entity_type: str, criteria: str | list[str]) -> Optional[Dict[str, Any]]:
+    def query(self, entity_type: str, criteria: str | list[str], attribute: str = None) -> Optional[Dict[str, Any]]:
         """Execute a count/list style query against entity records."""
         records = self._load_entity_records(entity_type)
         if not records:
@@ -584,7 +584,10 @@ class DataInterpreter:
 
         for record in records:
             if criteria == "__all__":
-                match_found = True
+                if attribute:
+                    match_found = _criteria_matches_record(record, attribute)
+                else:
+                    match_found = True
             else:
                 match_found = _criteria_matches_record(record, criteria)
 

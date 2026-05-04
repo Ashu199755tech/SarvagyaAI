@@ -29,6 +29,8 @@ class EmployeeEntity:
     project_start_date: date | None = None
     project_end_date: date | None = None
     client_name: str = ""
+    location: str = ""
+    phone: str = ""
 
 
 @dataclass

@@ -21,3 +21,8 @@ data/chromadb/
 data/*.db
 data/*.sqlite3
 data/processed/
+data/converted/
+logs/
+*.log
+test_*.py
+scripts/test_*.py

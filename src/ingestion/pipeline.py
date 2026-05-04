@@ -44,7 +44,6 @@ LEGACY_JSON_FILES = [
     DATA_DIR / "projects.json",
     DATA_DIR / "policies.json",
     DATA_DIR / "holidays.json",
-    DATA_DIR / "directory.json",
     DATA_DIR / "misc_docs.json",
 ]
 

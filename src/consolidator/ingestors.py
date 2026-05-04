@@ -138,12 +138,42 @@ async def ingest_employees_from_api() -> list[EmployeeEntity]:
 
     client = KekaClient()
     try:
+        # 1. Load directory data for merging location and phone
+        directory_data = {}
+        if SOT_DIRECTORY.exists():
+            try:
+                import json
+                dir_list = json.loads(SOT_DIRECTORY.read_text(encoding="utf-8"))
+                for d in dir_list:
+                    # Skip empty alphabet headers
+                    if not d.get("Role") and not d.get("Department"):
+                        continue
+                    email = d.get("Email", "").strip().lower()
+                    name = d.get("Name", "").strip().lower()
+                    loc = d.get("Location", "").strip()
+                    phone = d.get("Phone", "").strip()
+                    if email:
+                        directory_data[email] = (loc, phone)
+                    elif name:
+                        directory_data[name] = (loc, phone)
+            except Exception as e:
+                logger.error("Failed to load directory.json for merging: %s", e)
+
         raw_employees = await client.get_all_employees()
         employees = []
         raw_records = []
 
         for emp in raw_employees:
             name = f"{emp.first_name} {emp.last_name}".strip() or "Unknown"
+            email_lower = (emp.email or "").strip().lower()
+            name_lower = name.lower()
+            
+            loc, phone = "", ""
+            if email_lower in directory_data:
+                loc, phone = directory_data[email_lower]
+            elif name_lower in directory_data:
+                loc, phone = directory_data[name_lower]
+
             entity = EmployeeEntity(
                 id=emp.employee_id,
                 name=name,
@@ -156,10 +186,16 @@ async def ingest_employees_from_api() -> list[EmployeeEntity]:
                 project_start_date=emp.project_start_date,
                 project_end_date=emp.project_end_date,
                 client_name=emp.client_name or "",
+                location=loc,
+                phone=phone,
             )
             employees.append(entity)
+            
             # FIX: Save raw dictionary from model for 1:1 fidelity with Keka API
-            raw_records.append(emp.model_dump(mode="json"))
+            raw_dict = emp.model_dump(mode="json")
+            raw_dict["location"] = loc
+            raw_dict["phone"] = phone
+            raw_records.append(raw_dict)
 
         # Persist as source-of-truth (no LLM involved)
         _save_json(raw_records, SOT_EMPLOYEES)

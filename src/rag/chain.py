@@ -1781,7 +1781,7 @@ async def ask(question: str) -> dict:
             operation = query_plan.intent  # "count", "list", or "lookup"
 
             # Use DataInterpreter's query() directly with decomposer output
-            itp_result = _interpreter.query(entity_type, criteria)
+            itp_result = _interpreter.query(entity_type, criteria, attribute=query_plan.attribute)
 
             if itp_result:
                 count = itp_result["count"]
@@ -1809,20 +1809,59 @@ async def ask(question: str) -> dict:
                             f"Based on the live data scan, I found **{count}** {entity_type}(s). "
                             f"The results include: {match_listing}."
                         )
-                    elif operation == "lookup" and count == 1 and query_plan.attribute:
+                    elif operation == "lookup" and count == 1:
                         # For single-entity lookups, try to extract the specific attribute
                         record = matches[0].get("record", {})
-                        attr_val = record.get(query_plan.attribute)
-                        if attr_val:
-                            answer = (
-                                f"**{matches[0]['name']}**'s {query_plan.attribute.replace('_', ' ')} "
-                                f"is **{attr_val}**."
-                            )
+                        
+                        attributes = []
+                        if query_plan.attribute:
+                            attributes = query_plan.attribute if isinstance(query_plan.attribute, list) else [query_plan.attribute]
+                        
+                        found_attrs = []
+                        for attr in attributes:
+                            if not isinstance(attr, str):
+                                continue
+                            attr_val = None
+                            if attr in record:
+                                attr_val = record[attr]
+                            else:
+                                attr_clean = attr.lower().replace("_", "").replace(" ", "")
+                                for k, v in record.items():
+                                    k_clean = k.lower().replace("_", "").replace(" ", "")
+                                    # Very basic substring match for key vs attribute name
+                                    if attr_clean and (attr_clean in k_clean or k_clean in attr_clean):
+                                        attr_val = v
+                                        break
+                            if attr_val:
+                                found_attrs.append((attr.replace('_', ' '), attr_val))
+                                
+                        if found_attrs:
+                            if len(found_attrs) == 1:
+                                attr_name, attr_val = found_attrs[0]
+                                answer = f"**{matches[0]['name']}**'s {attr_name} is **{attr_val}**."
+                            else:
+                                details = ", ".join([f"{a} is **{v}**" for a, v in found_attrs])
+                                answer = f"For **{matches[0]['name']}**, the {details}."
                         else:
-                            answer = (
-                                f"Based on the live data scan, I found **{count}** {entity_type}(s) "
-                                f"matching '{criteria}'. The results include: {match_listing}."
-                            )
+                            # Fallback: if no specific attribute matched, provide a general summary
+                            if entity_type == "employee":
+                                designation = record.get("designation") or record.get("Designation") or "Employee"
+                                dept = record.get("department") or record.get("Department") or "N/A"
+                                emp_id = record.get("employee_id") or record.get("Employee Id") or "N/A"
+                                
+                                answer = (
+                                    f"I found **{matches[0]['name']}** ({emp_id}). "
+                                    f"They work as a **{designation}** in the **{dept}** department."
+                                )
+                            elif entity_type == "holiday":
+                                date = record.get("date") or "N/A"
+                                day = record.get("day") or "N/A"
+                                answer = f"**{matches[0]['name']}** falls on **{day}, {date}**."
+                            else:
+                                answer = (
+                                    f"Based on the live data scan, I found **{count}** {entity_type}(s) "
+                                    f"matching '{criteria}'. The results include: {match_listing}."
+                                )
                     else:
                         qualifier = " in the company" if criteria == "__all__" else f" matching '{criteria}'"
                         answer = (

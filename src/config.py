@@ -79,7 +79,6 @@ class Settings(BaseSettings):
         "employee": "employees.json",
         "project": "projects.json",
         "holiday": "holidays.json",
-        "directory": "directory.json",
         "praise": "praise_report.json",
     }
 
@@ -588,3 +587,16 @@ class Settings(BaseSettings):
 #   from src.config import settings
 #   print(settings.ollama_llm_model)
 settings = Settings()
+
+import os
+from pathlib import Path
+if os.path.exists(settings.converted_dir):
+    for f in os.listdir(settings.converted_dir):
+        if f.endswith(".json"):
+            # If the json is not already mapped and is not directory (now merged)
+            if f not in settings.interpreter_file_map.values() and "directory" not in f.lower():
+                entity_name = Path(f).stem.lower()
+                if entity_name.endswith("s"):
+                    entity_name = entity_name[:-1]
+                if entity_name not in settings.interpreter_file_map:
+                    settings.interpreter_file_map[entity_name] = f
