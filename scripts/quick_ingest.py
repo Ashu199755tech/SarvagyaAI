@@ -2,12 +2,12 @@ import asyncio
 from pathlib import Path
 from src.ingestion.pipeline import IngestionPipeline
 
-async def reingest_employees():
+async def run_full_reingestion():
     print("Initializing pipeline...")
     pipeline = IngestionPipeline()
-    print("Ingesting employees.json incrementally...")
-    result = await pipeline.ingest_file(Path("data/employees.json"))
-    print(f"Incremental ingestion complete! Result: {result}")
+    print("Starting full re-ingestion (converting inbox + indexing all files)...")
+    await pipeline.run(perform_truncate=True)
+    print("Full re-ingestion complete!")
 
 if __name__ == "__main__":
-    asyncio.run(reingest_employees())
+    asyncio.run(run_full_reingestion())

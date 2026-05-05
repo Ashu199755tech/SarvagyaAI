@@ -163,8 +163,7 @@ class IngestionPipeline:
         # 2. Auto-converted files from inbox (skip those already handled as legacy core)
         if CONVERTED_DIR.exists():
             for p in sorted(CONVERTED_DIR.glob("*.json")):
-                if _is_core_asset(p):
-                    continue
+                # We want to ingest all converted files
                 files.append(p)
 
         logger.info("Collected %d JSON files to ingest", len(files))
