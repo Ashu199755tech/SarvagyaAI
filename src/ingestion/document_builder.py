@@ -72,7 +72,9 @@ def build_policy_document(pol: dict) -> Document:
         f"Category: {pol.get('category', 'N/A')}\n"
         f"Summary: {pol.get('summary', 'N/A')}\n"
         f"Key Rules:\n- " + "\n- ".join(pol.get("key_rules", [])) + "\n"
-        f"Key Numbers: {', '.join(pol.get('key_numbers', []))}\n"
+        f"Key Numbers: {', '.join(pol.get('key_numbers', []))}\n\n"
+        f"--- FULL POLICY TEXT ---\n"
+        f"{pol.get('full_text', '')}"
     )
 
     metadata = {

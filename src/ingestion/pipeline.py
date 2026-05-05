@@ -140,10 +140,8 @@ class IngestionPipeline:
         new_files = []
         for f in sorted(INBOX_DIR.iterdir()):
             if f.suffix.lower() in CONVERTERS and f.suffix.lower() != ".json":
-                # Skip core assets handled by SOT consolidator
-                if _is_core_asset(f):
-                    logger.debug("Skipping core asset during generic conversion: %s", f.name)
-                    continue
+                # No longer skipping core assets here; we want all inbox files to be converted
+                # if they are PDF/DOCX/etc. The deduplication happens during doc collection.
                 try:
                     out = convert_to_json(f, output_dir=CONVERTED_DIR)
                     new_files.append(out)
