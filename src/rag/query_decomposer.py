@@ -65,6 +65,11 @@ class QueryPlan:
     @property
     def is_structured_query(self) -> bool:
         """Can this be answered by the DataInterpreter (structured JSON scan)?"""
+        # A specific lookup must have search terms, otherwise the LLM failed to extract the subject.
+        # Fall back to HybridRAG which has robust name extraction via spaCy.
+        if self.intent == "lookup" and not self.search_terms:
+            return False
+
         return (
             self.intent in ("lookup", "list", "count")
             and self.entity in settings.interpreter_file_map
