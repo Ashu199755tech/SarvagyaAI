@@ -11,9 +11,16 @@ logger = logging.getLogger(__name__)
 # Same location as rag_cache.db
 MEMORY_DB_PATH = Path(settings.chroma_persist_dir).parent / "rag_memory.db"
 
-REWRITE_PROMPT = """You are an AI assistant that rewrites follow-up questions to be standalone, using context from the conversation history.
-If the current question is already standalone (does not contain pronouns like 'he', 'she', 'it', 'they', 'this', 'that' referring to previous turns), return it exactly as is.
+REWRITE_PROMPT = """Rewrite the current question to be a standalone question by replacing pronouns (he, she, it, they) with the person or thing they refer to from the conversation history.
+
 DO NOT answer the question. ONLY return the rewritten question.
+
+Example:
+Conversation History:
+User: Who is John?
+AI: John is a manager.
+Current Question: What is his email?
+Standalone Question: What is John's email?
 
 Conversation History:
 {history}
@@ -59,8 +66,8 @@ def add_message(session_id: str, role: str, content: str):
     except Exception as e:
         logger.error(f"Failed to save message to memory: {e}")
 
-def get_history(session_id: str, limit: int = 6) -> list[dict]:
-    """Retrieve the last N messages for a session (default 6 = 3 turns)."""
+def get_history(session_id: str, limit: int = 4) -> list[dict]:
+    """Retrieve the last N messages for a session (default 4 = 2 turns)."""
     if not session_id:
         return []
     try:
@@ -84,7 +91,7 @@ async def rewrite_query(session_id: str, current_question: str) -> str:
     if not session_id:
         return current_question
 
-    history = get_history(session_id, limit=6)
+    history = get_history(session_id, limit=4)
     if not history:
         return current_question
 
@@ -121,8 +128,12 @@ async def rewrite_query(session_id: str, current_question: str) -> str:
 
             # Clean up potential markdown formatting or quotes from the LLM
             rewritten_text = rewritten_text.strip('"\'')
-            if rewritten_text.lower().startswith("standalone question:"):
-                rewritten_text = rewritten_text[len("standalone question:"):].strip()
+            
+            # The LLM sometimes repeats the prompt, so extract only what comes after "Standalone Question:"
+            lower_text = rewritten_text.lower()
+            if "standalone question:" in lower_text:
+                idx = lower_text.rfind("standalone question:")
+                rewritten_text = rewritten_text[idx + len("standalone question:"):].strip()
 
             if rewritten_text and len(rewritten_text) > 3:
                 logger.info(f"[Memory] Rewrote query: '{current_question}' -> '{rewritten_text}'")
