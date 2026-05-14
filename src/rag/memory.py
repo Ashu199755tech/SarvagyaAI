@@ -86,9 +86,29 @@ def get_history(session_id: str, limit: int = 4) -> list[dict]:
         logger.error(f"Failed to retrieve memory: {e}")
         return []
 
+import re
+
+def _needs_rewrite(question: str) -> bool:
+    """Check if the question contains pronouns that might need resolving."""
+    # Common pronouns and demonstratives that refer to past context
+    pronouns = {
+        "he", "him", "his", 
+        "she", "her", "hers", 
+        "they", "them", "their", "theirs",
+        "it", "its", 
+        "this", "that", "these", "those"
+    }
+    words = set(re.findall(r'\b\w+\b', question.lower()))
+    return bool(words.intersection(pronouns))
+
 async def rewrite_query(session_id: str, current_question: str) -> str:
     """Rewrite the current question based on session history."""
     if not session_id:
+        return current_question
+
+    if not _needs_rewrite(current_question):
+        # Fast path: no pronouns, so it's already standalone
+        logger.info(f"[Memory] Question '{current_question}' has no pronouns. Skipping rewrite.")
         return current_question
 
     history = get_history(session_id, limit=4)
