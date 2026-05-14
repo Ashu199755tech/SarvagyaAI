@@ -190,7 +190,7 @@ from src.rag.memory import rewrite_query, add_message
 
 class AskRequest(BaseModel):
     question: str
-    session_id: str | None = None
+    session_id: str = "default_cli_session"
 
 @app.post("/api/ask")
 async def ask_question(request_data: AskRequest):
