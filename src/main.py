@@ -186,23 +186,40 @@ async def upload_and_ingest(file: UploadFile = File(...)):
 # ── Ask Endpoint ─────────────────────────────────────────
 
 from pydantic import BaseModel
+from src.rag.memory import rewrite_query, add_message
 
 class AskRequest(BaseModel):
     question: str
+    session_id: str | None = None
 
 @app.post("/api/ask")
 async def ask_question(request_data: AskRequest):
     """Ask a question to the RAG chatbot."""
     question = request_data.question
+    session_id = request_data.session_id
+
     if not question:
         return {"status": "error", "detail": "No question provided"}
 
     try:
-        result = await rag_ask(question)
+        # 1. Rewrite query if session_id is provided
+        search_query = question
+        if session_id:
+            search_query = await rewrite_query(session_id, question)
+
+        # 2. Call the RAG pipeline
+        result = await rag_ask(search_query)
+
+        # 3. Save to memory if session_id is provided
+        if session_id:
+            add_message(session_id, "user", question)
+            add_message(session_id, "ai", result["answer"])
+
         return {
             "status": "success", 
             "answer": result["answer"],
-            "time_elapsed_seconds": result.get("time_elapsed_seconds")
+            "time_elapsed_seconds": result.get("time_elapsed_seconds"),
+            "rewritten_query": search_query if search_query != question else None
         }
     except Exception as exc:
         logger.exception("Ask failed")
