@@ -614,10 +614,15 @@ class DataInterpreter:
                 results.append({"name": name, "file": file_name, "record": record})
                 seen_names.add(name)
 
-        if not results:
-            return None
-
         criteria_text = criteria if isinstance(criteria, str) else " ".join(criteria)
+        if not results:
+            return {
+                "count": 0,
+                "matches": [],
+                "criteria": criteria_text,
+                "entity": entity_type,
+            }
+
         return {
             "count": len(results),
             "matches": results,
