@@ -66,8 +66,8 @@ def add_message(session_id: str, role: str, content: str):
     except Exception as e:
         logger.error(f"Failed to save message to memory: {e}")
 
-def get_history(session_id: str, limit: int = 4) -> list[dict]:
-    """Retrieve the last N messages for a session (default 4 = 2 turns)."""
+def get_history(session_id: str, limit: int = 2) -> list[dict]:
+    """Retrieve the last N messages for a session (default 2 = 1 turn)."""
     if not session_id:
         return []
     try:
@@ -111,7 +111,7 @@ async def rewrite_query(session_id: str, current_question: str) -> str:
         logger.info(f"[Memory] Question '{current_question}' has no pronouns. Skipping rewrite.")
         return current_question
 
-    history = get_history(session_id, limit=4)
+    history = get_history(session_id, limit=2)
     if not history:
         return current_question
 
