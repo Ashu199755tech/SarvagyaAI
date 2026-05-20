@@ -293,8 +293,16 @@ class QueryDecomposer:
         search_terms = data.get("search_terms", [])
         if isinstance(search_terms, str):
             search_terms = [search_terms]
-        # Clean search terms — remove empty strings and very short terms
-        search_terms = [t.strip().lower() for t in search_terms if t.strip() and len(t.strip()) > 1]
+        
+        # Clean search terms — remove empty strings, very short terms, and universal noise
+        noise_words = set(settings.data_interpreter_universal_noise)
+        cleaned_terms = []
+        for t in search_terms:
+            t_clean = t.strip().lower()
+            if t_clean and len(t_clean) > 1 and t_clean not in noise_words:
+                cleaned_terms.append(t_clean)
+        
+        search_terms = cleaned_terms
 
         attribute = data.get("attribute")
         is_listing = bool(data.get("is_listing", False))

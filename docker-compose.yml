@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # The ResoAi FastAPI Application
+  app:
+    build: .
+    container_name: resoai-app
+    ports:
+      - "8001:8001"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - COMPANY_NAME=FiftyFive Technologies
+      - DATA_DIR=/app/data
+      - LOG_DIR=/app/logs
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    depends_on:
+      - ollama
+
+  # Ollama Engine for LLM and Embeddings
+  ollama:
+    image: ollama/ollama:latest
+    container_name: resoai-ollama
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama_storage:/root/.ollama
+
+  # Automated Setup to pull models into Ollama
+  ollama-setup:
+    image: curlimages/curl:latest
+    container_name: resoai-ollama-setup
+    depends_on:
+      - ollama
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        echo "Waiting 15 seconds for Ollama to start..."
+        sleep 15
+        echo "Pulling llama3.2 model (LLM)..."
+        curl -X POST http://ollama:11434/api/pull -d '{"name": "llama3.2"}'
+        echo "\nPulling nomic-embed-text model (Embeddings)..."
+        curl -X POST http://ollama:11434/api/pull -d '{"name": "nomic-embed-text"}'
+        echo "\nModels pulled successfully. Setup container exiting."
+
+volumes:
+  ollama_storage:
